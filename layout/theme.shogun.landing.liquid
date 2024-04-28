@@ -9,6 +9,15 @@ This file can be re-written at any time.
 
 <head>
   
+  {% comment %}
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5HMXJPV');</script>
+<!-- End Google Tag Manager -->
+  {% endcomment %}
    <script src="https://cdn.pagesense.io/js/africanancestryinc/f4dc99c29bc34637932da05c2640a170.js"></script>
   
   {% include 'shop-sheriff-amp' %}
@@ -20,10 +29,11 @@ This file can be re-written at any time.
 
   {% unless template contains 'template-dynamic-data' or template contains 'v2-matriclan-landing' or template contains 'new-product-template' or template contains 'new-patriclan-template' or template contains 'new-family-package' %}
 
-   {% comment %}
     <!--  PR TEST Global Site Tag (gtag.js) - Google AdWords: AW-862745671 -->
+  {% comment %}
     <script async src="{{ 'https://www.googletagmanager.com/gtag/js?id=AW-862745671' }}"></script>
- {% endcomment %}
+
+  {% endcomment %}
   {% endunless %}
 
     <script>
@@ -33,19 +43,6 @@ This file can be re-written at any time.
       gtag('config', 'AW-862745671', {'send_page_view': false, 'allow_enhanced_conversions': true});
     </script>
 
-  {% comment %}
-  {% unless template contains 'template-dynamic-data' or template contains 'v2-matriclan-landing' %}
-
-  <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5HMXJPV');</script>
-    <!-- End Google Tag Manager -->
-{% endunless %}
- 
-  {% endcomment %}
 
 
     <!-- Basic page needs ================================================== -->
