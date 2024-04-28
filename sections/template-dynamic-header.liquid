@@ -1,0 +1,58 @@
+{% if page.metafields.custom.dynamic_announcement_header %}
+  <div class="announcement">
+  
+      <p>{{ page.metafields.custom.dynamic_announcement_header }}</p>
+  
+    <a href="#" class="btn close-btn" onclick="this.parentElement.style.display = 'none';" aria-label="btn close url">
+      <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 1.00006L1 7.00006" stroke="#2B206A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M1 1.00006L7 7.00006" stroke="#2B206A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+{% endif %}
+
+<div class="page-width">
+  <div class="header-content">
+    <div class="logo-box">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_1_2.png?v=1681220448" alt="image" width="223" height="51">
+    </div>
+   <!-- <div class="navbar navbar-expand-lg menu-nav">
+      <ul class="navbar-nav default_nav" role="navigation" id="AccessibleNav">
+      {% for link in linklists.new-navigation-left.links %}
+        <li class="nav-item "><a href="{{ link.url }}" class="nav-link">{{ link.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </div> -->
+    {% comment %} <div class="cart-icon">
+     <div class="nav-item dropdown">
+        <button class="bg-transparent border-0 dropdown-toggle" type="button" id="dropdownMenu2-unique-template" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="{{ 'cart-icon1.png' | asset_url }}" loading="lazy" alt="image" width="57"
+            height="58">
+        </button>
+        {% include 'mini-cart-drawer' %}
+     </div>
+    </div> {% endcomment %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Matriclan Header",
+  "tag": "section",
+"class": "matriclan-header",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Matriclan Header"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

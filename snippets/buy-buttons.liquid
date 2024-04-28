@@ -1,0 +1,247 @@
+
+{% if product != blank %}
+    <product-form
+        class="product-form"
+        data-section-id="{{ section.id }}",
+        data-product-title= {{ product.title }} 
+        >
+        {% comment %} <div class="product-form__error-message-wrapper" role="alert" hidden>
+        <svg
+            aria-hidden="true"
+            focusable="false"
+            class="icon icon-error"
+            viewBox="0 0 13 13"
+        >
+            <circle cx="6.5" cy="6.50049" r="5.5" stroke="white" stroke-width="2"/>
+            <circle cx="6.5" cy="6.5" r="5.5" fill="#EB001B" stroke="#EB001B" stroke-width="0.7"/>
+            <path d="M5.87413 3.52832L5.97439 7.57216H7.02713L7.12739 3.52832H5.87413ZM6.50076 9.66091C6.88091 9.66091 7.18169 9.37267 7.18169 9.00504C7.18169 8.63742 6.88091 8.34917 6.50076 8.34917C6.12061 8.34917 5.81982 8.63742 5.81982 9.00504C5.81982 9.37267 6.12061 9.66091 6.50076 9.66091Z" fill="white"/>
+            <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
+        </svg>
+        <span class="product-form__error-message"></span>
+        </div> {% endcomment %}
+
+        {%- form 'product',
+        product,
+        id: product_form_id,
+        class: 'form',
+        novalidate: 'novalidate',
+        data-type: 'add-to-cart-form'
+        -%}
+        <input
+            type="hidden"
+            name="id"
+            value="{{ product.selected_or_first_available_variant.id }}"
+            {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+            disabled
+            {% endif %}
+            class="product-variant-id"
+        >
+        <div class="product-form__buttons">
+            {%- liquid
+            assign check_against_inventory = true
+            if product.selected_or_first_available_variant.inventory_management != 'shopify' or product.selected_or_first_available_variant.inventory_policy == 'continue'
+                assign check_against_inventory = false
+            endif
+            if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+                assign quantity_rule_soldout = true
+            endif
+            -%}
+            <button
+            id="ProductSubmitButton-{{ section_id }}"
+            type="submit"
+            name="add"
+            class="product-form__submit {% if show_dynamic_checkout %}button--secondary{% else %}button--primary{% endif %} btn btn-lg btn-default btn-light btn-cart mb-3 w-100 onPagePopup"
+            {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+                disabled
+            {% endif %}
+            >
+            
+            <span>
+                {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                {{ 'products.product.sold_out' | t }}
+                {%- else -%}
+                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                {{ 'products.product.add_to_cart' | t }}
+                {%- endif -%}
+            </span>
+            </button>
+            {% comment %} {%- if show_dynamic_checkout -%}
+            {{ form | payment_button }}
+            {%- endif -%} {% endcomment %}
+        </div>
+        {%- endform -%}
+    </product-form>
+{% else %}
+<div class="product-form">
+    <div class="product-form__buttons form">
+      <button
+        type="submit"
+        name="add"
+        class="product-form__submit button button--full-width button--primary"
+        disabled
+      >
+        {{ 'products.product.sold_out' | t }}
+      </button>
+    </div>
+  </div>
+{% endif %}
+
+<div id="myModal" class="add-cart-modal">
+    <span class="add-cart-modal-close" id="addCartCloseModalBtn">
+        Esc key or
+        <a title="Close">Close</a>
+    </span>
+    <div class="add-cart-modal-content">
+        <p id="modalMessage"></p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const stayButtons = document.querySelectorAll('.onPagePopup');
+
+        stayButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                // console.log("event", this, event);
+
+                var cartType = '{{ settings.cart_type }}';
+                // alert(cartType);
+
+                // Get the product information dynamically
+                var productContainer = button.closest('.product-form');
+                // console.log("productContainer==", productContainer);
+                var productName = productContainer.dataset.productTitle || 'Product';
+                // console.log("productName---",productName);
+                var productVariantId = productContainer.querySelector('.product-variant-id');
+
+                var selectedVariantId = document.getElementById('ProductSelect-{{ section.id }}');
+                if (selectedVariantId) {
+                    selectedVariantId = selectedVariantId.value;
+                } else {
+                    // If no variants, set selectedVariantId as an empty string
+                    selectedVariantId = productVariantId.value;
+                }
+
+
+                if (cartType === 'notification') {
+                    if ($('.moonshine-campaign').length) {
+                        $('.add-cart-modal').addClass('add-cart-modal-show');
+                    } else {
+                        $('.add-cart-modal').removeClass('add-cart-modal-show');
+                    }
+                    openModal(productName);
+                    addToCartAjax(button, selectedVariantId);
+
+
+                } else if(cartType === 'page') {
+                    addToCartAjax(button, selectedVariantId);
+                }
+            });
+        });
+    });
+
+    function openModal(productName) {
+        var modal = document.getElementById('myModal');
+        var modalMessage = document.getElementById('modalMessage');
+
+        // Display dynamic message with the product name
+       
+        modalMessage.innerHTML = '<span style="font-weight: 500;">' + JSON.parse('"' + productName + '"') + '</span> has been added to cart';
+
+        modal.style.display = 'block';
+        
+        // Set the opacity of the modal
+        modal.style.opacity = '0.9';
+
+        // Close the modal when the close button is clicked
+        var closeModalBtn = document.getElementById('addCartCloseModalBtn');
+        closeModalBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close the modal when clicking outside the modal
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+         // Close the modal when the 'Esc' key is pressed
+         window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' || event.keyCode === 27) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+
+    
+    function addToCartAjax(button, selectedVariantId) {
+         // Check if the button has the 'disabled' class
+        if (button.classList.contains('disabled')) {
+            return; // Do nothing if the button is already disabled
+        }
+
+        var quantity = document.getElementById('quantity') ? parseInt(document.getElementById('quantity').value) : 1;
+        
+        // Add the 'disabled' class to the button
+        button.classList.add('disabled');
+            // Retrieve the product variant ID
+            // var productVariantId = document.querySelector('.product-variant-id').value;
+
+            // console.log("productVariantId---" , productVariantId);
+
+            // Make an AJAX request to add the product to the cart
+            $.ajax({
+                type: 'POST',
+                url: '/cart/add.js',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    id: selectedVariantId,
+                    quantity: quantity,
+                }),
+                success: function(data) {
+                    // console.log('Product added to cart:', data);
+
+                    // Optionally, you can handle the response here, such as updating the cart count
+
+                    if ('{{ settings.cart_type }}' === 'page') {
+                        // Redirect to the cart page
+                        window.location.href = '/cart';
+                    } else {
+                        $.ajax({
+                        type: 'GET',
+                        url: '/cart.js',
+                        dataType: 'json',
+                        success: function (cartData) {
+                            // Assuming you have an element with id 'cart' to display the cart contents
+                            $('.bag-count').text(cartData.item_count); // Update the cart count
+                            $('#mini_cart_drawer').load('/cart #mini_cart_drawer > *'); // Update the mini-cart-drawer
+                            
+                            // Close the modal after a certain time
+                            setTimeout(function() {
+                                var modal = document.getElementById('myModal');
+                                modal.style.display = 'none';
+                            }, 5000); // Close the modal after 5 seconds, adjust as needed
+                        },
+                        error: function () {
+                            alert('Error: Unable to fetch cart data');
+                        }
+                        });     
+                    }
+                },
+                error: function(error) {
+                    console.error('Error adding product to cart:', error);
+                    // Handle the error as needed
+                },
+                complete: function() {
+                // Remove the 'disabled' class from the button when the AJAX request is complete
+                button.classList.remove('disabled');
+            }
+            });
+    }
+
+</script>
+
+

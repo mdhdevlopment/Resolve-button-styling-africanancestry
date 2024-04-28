@@ -1,0 +1,135 @@
+<section class="testimonial-bubbles">
+  <div>
+    <h2 class="section-heading">{{ section.settings.title }}</h2>
+  </div>
+  <div class="testimonial-container">
+    <div class="row">
+      <div class="col-sm-12  col-md-12 col-lg-4 ">
+        <div class="testimonial-card">
+          <img alt="testimonial bubbles" class="testimonial-icon" src="{{ 'Icon_testimonial.svg' | asset_url }}" loading="lazy" height="300" width="300"/>
+
+          <div class="content-wrapper">
+
+            <div class="content">
+              <p>
+                {{ section.settings.testimonial1 }}
+
+              </p>
+              <div class="footer">
+                <p>- {{ section.settings.testimonial1name }}</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-sm-12  col-md-12 col-lg-4 ">
+
+        <div class="testimonial-card">
+          <img alt="testimonial bubbles" class="testimonial-icon" src="{{ 'Icon_testimonial.svg' | asset_url }}" loading="lazy" height="300" width="300" />
+          <div class="content-wrapper">
+          <div class="content">
+
+            <p>
+              {{ section.settings.testimonial2 }}
+            </p>
+            <div class="footer">
+              <p>- {{ section.settings.testimonial2name }}</p>
+            </div>
+          </div>
+          </div>
+
+        </div>
+
+    </div>
+      <div class="col-sm-12  col-md-12 col-lg-4 ">
+        <div class="testimonial-card">
+          <img alt="testimonial bubbles" class="testimonial-icon" src="{{ 'Icon_testimonial.svg' | asset_url }}" loading="lazy" height="300" width="300"/>
+          <div class="content-wrapper">
+          <div class="content">
+
+            <p>
+              {{ section.settings.testimonial3 }}
+            </p>
+            <div class="footer">
+              <p>- {{ section.settings.testimonial3name }}</p>
+            </div>
+          </div>
+          </div>
+
+        </div>
+      </div>
+  </div>
+  </div>
+  
+</section>
+
+{% schema %}
+  {
+    "name": "Testimonial Bubbles",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "Testimonials"
+      },
+      {
+        "type": "header",
+        "content": "#1 Testimonial"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial1",
+        "label": "Testimonial Content",
+        "default": "African Ancestry is a requirement. I loved the results that I got on my African ancestry. It showed that my mothers family was originally from Cameroon. I shared the information with my entire family."
+      },
+      {
+        "type": "text",
+        "id": "testimonial1name",
+        "label": "Testimonial Name",
+        "default": "Murray R."
+      },
+      {
+        "type": "header",
+        "content": "#2 Testimonial"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial2",
+        "label": "Testimonial Content",
+        "default": "Best Purchase I Made! This test was easy to do and the best purchase I made for myself in a long time! There is nothing like being able to say that you ARE “African-American.” And you know where your people originate from. I highly recommend this test as its the gift that keeps on giving with knowledge of self and knowledge for your family."
+      },
+      {
+        "type": "text",
+        "id": "testimonial2name",
+        "label": "Testimonial Name",
+        "default": "Tammy M."
+      },
+      {
+        "type": "header",
+        "content": "#3 Testimonial"
+      },
+      {
+        "type": "textarea",
+        "id": "testimonial3",
+        "label": "Testimonial Content",
+        "default": "Totally Worth It! It’s a simple process from beginning to end. Although it takes time to get your results, they remain in communication with you periodically to let you know you are not forgotten. My results impacted me and my entire family. I am a Black Woman in America and I KNOW WHO I AM."
+      },
+      {
+        "type": "text",
+        "id": "testimonial3name",
+        "label": "Testimonial Name",
+        "default": "-Katrina Knight T."
+      }
+    ],
+    "presets": [
+      {
+        "name": "Testimonial Bubbles",
+        "category": "Testimonials"
+      }
+    ]
+  }
+{% endschema %}

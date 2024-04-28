@@ -1,0 +1,91 @@
+<div class="container">
+	<div id="collections-main" class="{{ collection.handle }}">
+
+		<div class="title-bar custom-font collection-header">
+		{% if collection.handle == 'all' %}
+		<h2>{{ 'products.general.products_title' | t }}</h2>
+		{% else %}
+		<h2>{{ collection.title }}</h2>
+		{% endif %}
+		<div class="clear"></div>
+	</div>
+
+	{% if collection.description != empty %}
+		<div class="description-content">{{ collection.description }}</div>
+	{% endif %}
+</div>
+<div class="container">
+  <div class="row image-bar">
+    {% case section.blocks.size %}
+      {% when 1 %}
+        {%- assign column_size = 'col-sm-12 col-md-12 image-bar--single-image' -%}
+        {%- assign image_size = '2000x' -%}
+      {% when 2 %}
+        {%- assign column_size = ' col-xs-6 col-sm-6 col-md-6' -%}
+        {%- assign image_size = '1000x' -%}
+      {% when 3 %}
+        {%- assign column_size = 'col-sm-4 col-md-4' -%}
+        {%- assign image_size = '700x' -%}
+      {% else %}
+        {%- assign column_size = 'col-sm-6 col-md-3' -%}
+        {%- assign image_size = '550x' -%}
+    {% endcase %}
+
+    {% for block in section.blocks %}
+ 			
+    
+    	{% if collections[block.settings.parent_collection].id == collection.id  %}
+
+          {%- assign img_url = collections[block.settings.sub_collection].image | img_url: 'large' -%}
+          <div class="grid__item landing {{ column_size }}" {{ block.shopify_attributes }}>
+
+             <a href="{{collections[block.settings.sub_collection].url}}">
+                <div class="image-bar__item">
+                      <div class="image-bar__content">
+                          <img src="{{ img_url }}" class="img-responsive" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"/>
+                      </div>
+                </div>
+             </a>
+            <div class="sub-title text-center" style="padding-top: 17px;">
+            <a class="grid-link__title" href="{{collections[block.settings.sub_collection].url}}"> {{collections[block.settings.sub_collection].title}}</a>
+            </div>
+
+          </div>
+    	{% endif %}
+    {% endfor %}
+
+    {% if section.blocks.size == 0 %}
+      <div class="placeholder-noblocks">
+        {{ 'general.onboarding.no_content' | t }}
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections Grid",
+  "class": "homepage-section--image-gallery-wrapper wow fadeIn",
+  "max_blocks": 12,
+  "blocks": [
+        {
+      "type": "image",
+      "name": "Sub Collection",
+      "settings": [
+        {
+           "type": "collection",
+           "id": "parent_collection",
+           "label": "Parent Collection"
+        },
+  		{
+           "type": "collection",
+           "id": "sub_collection",
+           "label": "Sub Collection"
+        }
+      ]
+    }
+  ]
+  
+}
+{% endschema %}

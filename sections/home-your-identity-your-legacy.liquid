@@ -1,0 +1,106 @@
+<div class="your-legacy">
+  <div class="container">
+  <h2 class="section-heading">{{ section.settings.identity_your_legacy_title }}</h2>
+      <div class="section-text">
+        <p>{{ section.settings.identity_your_legacy_sub_title }}</p>
+      </div>
+    <div class="row">
+      <ul class="your-legacy__wrap">
+  {% for block in section.blocks limit: section.blocks.size %}    
+      {% if block.settings.identity_your_legacy_image != blank or block.settings.identity_your_legacy_svg_image != blank %}
+      {%- if block.settings.identity_your_legacy_svg_image != blank -%}
+          {% assign yily_img_url =  block.settings.identity_your_legacy_svg_image | asset_url %}
+      {%- elsif block.settings.identity_your_legacy_image != blank -%}
+          {% assign yily_img_url = block.settings.identity_your_legacy_image | img_url: ''  %}
+      {%- endif -%}
+        <li>
+          <div class="your-legacy__wrap__content">
+            <div class="your_legacy_img">
+            <img alt="svg icons african ancestry" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ yily_img_url }}" loading="lazy" height="126" width="126">
+            </div>
+            <p>{{ block.settings.identity_your_legacy_text }}</p>
+          </div>
+        </li>
+    {% endif %}
+  {% endfor %} 
+      </ul>
+    </div>
+  </div>
+</div>
+{% comment %}
+<script>
+  jQuery(document).ready(function($) {
+      if (jQuery(window).width() < 768) {
+
+        jQuery('.your-legacy__wrap').slick({
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          arrows: true,
+          prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-chevron-left' aria-hidden='true'></i></button>",
+          nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-chevron-right' aria-hidden='true'></i></button>"
+          });    
+      }
+ 
+  });
+
+  </script>
+{% endcomment %}
+
+{% schema %}
+  {
+    "name": "Identity your legacy",
+    "class": "index-section",
+    "max_blocks": 10,
+      "blocks": [
+          {
+              "type": "identity_your_legacy",
+              "name": "Your identity your legacy",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "identity_your_legacy_image",
+                        "label": "Image"
+                    },                   
+                    {
+                        "type": "text",
+                        "id": "identity_your_legacy_svg_image",
+                        "label": "SVG/html File Name"
+                    },
+                    {
+                        "type": "text",
+                        "id": "identity_your_legacy_text",
+                        "label": "Text"                       
+                    }
+                    
+                ]
+          }
+    ],
+    "settings": [
+          {
+            "id": "identity_your_legacy_title",
+            "type": "text",
+            "label": "Title",
+            "default": "Your Identity. Your Legacy."            
+          },
+          {
+            "id": "identity_your_legacy_sub_title",
+            "type": "text",
+            "label": "Sub Title",
+            "default": "The African Ancestry experience is a powerful and transformative experience."            
+          }
+            
+   ],
+   "presets": [
+    {
+    "name": "Identity your legacy",
+    "category": "Text"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

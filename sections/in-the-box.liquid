@@ -1,0 +1,144 @@
+<!-----owl-slider-css-------->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+<!-----owl-slider-css-------->
+<!---------owl-slider-Dec2020---------->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+<!---------owl-slider-Dec2020---------->
+<section class="p_bg_color section_3 py_60">
+   <div class="container">
+      <div class="row">
+         <div class="col-12">
+            {% if section.settings.title != blank %}
+            <h2 class="text-white text-center big_head py-5">{{ section.settings.title }}</h2>
+            {% endif %}
+         </div>
+      </div>
+      <div class="desktop-view row">
+         {% for block in section.blocks %}
+         <div class="col-6 mb-5">
+            <figure class="overlay"><img src="{% if block.settings.boximg != blank %}{{ block.settings.boximg | img_url : "original" }}{% else %}https://cdn.shopify.com/s/files/1/2138/0103/files/pro2.jpg?v=1616185963{% endif %}" class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></figure>
+            {% if block.settings.boxtitle != blank %}
+            <h3 class="text-center mid_head mb-2">{{ block.settings.boxtitle }}</h3>
+            {% endif %}
+            {% if block.settings.content != blank %}
+            <p class="text-center text-white">{{ block.settings.content }}</p>
+            {% endif%}
+         </div>
+         {% endfor %}
+      </div>
+      <!------MObile-View------->
+      <div class="mobile-view owl-carousel">
+         {% for block in section.blocks %}
+         <div class="item col-6 mb-5">
+            <figure class="overlay"><img src="{% if block.settings.boximg != blank %}{{ block.settings.boximg | img_url : "original" }}{% else %}https://cdn.shopify.com/s/files/1/2138/0103/files/pro2.jpg?v=1616185963{% endif %}" class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></figure>
+            {% if block.settings.boxtitle != blank %}
+            <h3 class="text-center mid_head mb-2">{{ block.settings.boxtitle }}</h3>
+            {% endif %}
+            {% if block.settings.content != blank %}
+            <p class="text-center text-white">{{ block.settings.content }}</p>
+            {% endif%}
+         </div>
+         {% endfor %}
+      </div>
+      <!------Mobile-View------->
+      <div class="row mt-5">
+         <div class="col-12 text-center mt-5">
+            {% if section.settings.bottomcontent != blank %}
+            <p class="text-center text-white">{{ section.settings.bottomcontent }}</p>
+            {% endif %}
+            {% if section.settings.button != blank %}
+            <a href="{% if section.settings.button != blank %}{{section.settings.button }} {% else %}#{% endif %}" class="buy_now mt-5">{{ section.settings.button }}</a>
+            {% endif %}
+         </div>
+      </div>
+   </div>
+</section>
+{% schema %}
+  {
+   "name":"What’s In The Box",
+   "settings":[
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title",
+         "default":"Watch The Fun That Awaits "
+      },
+      {
+         "type":"header",
+         "content":"Bottom Text"
+      },
+      {
+         "type":"text",
+         "id":"bottomcontent",
+         "label":"Content ",
+         "default":"The African Ancestry Identity Box is only available for a limited time!"
+      },
+      {
+         "type":"text",
+         "id":"button",
+         "label":"CTA",
+         "default":"Click Here"
+      },
+      {
+         "type":"url",
+         "id":"buttonurl",
+         "label":"CTA"
+      }
+   ],
+   "blocks":[
+      {
+         "type":"text",
+         "name":"What’s In The Box",
+         "settings":[
+            {
+               "type":"text",
+               "id":"boxtitle",
+               "label":"Box Title"
+            },
+            {
+               "type":"text",
+               "id":"content",
+               "label":"Box Content",
+               "default":"Interactive exercises and journal topics to spark conversation and expand your knowledge of Africa"
+            },
+            {
+               "type":"image_picker",
+               "id":"boximg",
+               "label":"Box Image"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+<script>
+	$('.owl-carousel').owlCarousel({
+		loop: true,
+		margin: 10,
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 1,
+				nav: false
+			},
+			600: {
+				items: 3,
+				nav: false
+			},
+			1000: {
+				items: 3,
+				nav: false,
+				loop: false
+			}
+		}
+	}) </script>

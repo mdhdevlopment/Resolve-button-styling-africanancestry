@@ -1,0 +1,44 @@
+<section class="blue-full-width">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1">
+        <div class="row">
+          <div class="col-md-2 col-12">
+            <div class="lock-img">
+              <img src="{{ section.settings.how_it_img | img_url: 'original' }}" alt="logo"  class="img-fluid mx-auto d-block" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"> 
+            </div>
+          </div>
+          <div class="col-md-10 col-12">
+            <div class="lock-text">
+              <p>{{section.settings.how_it_works__title}}</p>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "How it Works Section 3",
+    "settings": [
+      {
+      "id": "how_it_img",
+      "type": "image_picker",
+      "label": "Image" 
+      },
+      {
+        "id": "how_it_works__title",
+        "type": "textarea",
+        "label": "Title"
+      }
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,62 @@
+
+{% assign bgimage = section.settings.hero_bg %}
+{% assign mobile_bgimage = section.settings.hero_mobile_bg %}
+{% assign title = section.settings.hero_title %}
+{% assign content = section.settings.hero_content %}
+{% assign leftimage = section.settings.left_image %}
+
+<div class="hero-desktop">
+  {% render 'page-hero', bgimage:bgimage , mobile_bgimage: mobile_bgimage, title:title , content:content, leftimage:leftimage %}
+</div>
+<div class="hero-mobile">
+  {% render 'page-hero-mobile', bgimage:mobile_bgimage , mobile_bgimage: mobile_bgimage, title:title , content:content, leftimage:leftimage %}
+</div>
+<!-- html End -->
+
+{% schema %}
+  {
+  "name": "Page Hero",
+  "settings": [
+  {
+  "id": "hero_title",
+  "type": "text",
+  "label": "Title",
+  "default": "Title"
+  },
+  {
+  "id": "hero_bg",
+  "type": "text",
+  "label": "Hero Background SVG Image Name (image.svg)",
+  "default": "hero-bg-desktop.svg"
+  },
+  {
+  "id": "hero_mobile_bg",
+  "type": "text",
+  "label": "Hero Mobile Background SVG Image Name (image.svg)"
+  },
+  {
+  "id": "hero_content",
+  "type": "html",
+  "label": "Content"
+  },
+  {
+  "id": "left_image",
+  "type": "image_picker",
+  "label": "Left Image (.png)"
+  }
+  ],
+
+  "presets": [
+  {
+  "name": "Page Hero",
+  "category": "New Sections"
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

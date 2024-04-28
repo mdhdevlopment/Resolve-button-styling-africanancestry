@@ -1,0 +1,109 @@
+<section class="contact-terms terms">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-12">
+        <div class="terms-text">
+          <h1>{{ section.settings.main_title }}</h1> 
+          {% for block in section.blocks %}
+          <div class="contact-sec">
+            <h3>{{block.settings.title}}</h3>
+            {{block.settings.contact-details}}
+          </div>
+          {% endfor %}
+        </div> 
+      </div> 
+        <div class="col-md-4 col-12">
+          <div class="faq-img">
+            <a href="{{ section.settings.img-first-url }}">
+              <img src="{{ section.settings.img-first | img_url: 'original' }}" 
+                              alt="banner faq" 
+                              class="img-fluid" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+            </a>  
+          </div> 
+          <div class="fb-img">
+             <a href="{{ section.settings.img-second-url }}" target="_blank">
+               <img src="{{ section.settings.img-second | img_url: 'original' }}" 
+                    alt="banner facebook" class="img-fluid" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+             </a>  
+          </div>
+          <div class="ances-img">
+               <a href="{{ section.settings.img-third-url }}">
+                 <img src="{{ section.settings.img-third | img_url: 'original' }}"alt="banner testimonial1" class="img-fluid" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+               </a>  
+          </div>
+        </div> 
+      </div>
+     </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "Contact Us",
+    "settings": [
+        {
+          "id": "main_title",
+          "type": "text",
+          "label": "Section Title"
+        },
+        {
+           "type": "header",
+           "content": "Right Sidebar"
+        },
+        {
+            "id": "img-first",
+            "type": "image_picker",
+            "label": "First Image"
+        },
+        {
+            "id": "img-first-url",
+            "type": "url",
+            "label": "Image link"
+        },
+        {
+          "id": "img-second",
+          "type": "image_picker",
+          "label": "Second Image"
+        },
+        {
+            "id": "img-second-url",
+            "type": "url",
+            "label": "Image link"
+        },
+        {
+          "id": "img-third",
+          "type": "image_picker",
+          "label": "Third Image"
+        },
+        {
+            "id": "img-third-url",
+            "type": "url",
+            "label": "Image link"
+        }
+    ],
+    "blocks": [
+            {
+              "type": "block-content",
+              "name": "Contact Info",
+              "settings": [
+                  {
+                  "id": "title",
+                  "type": "text",
+                  "label": "Title"
+                  },
+                  {
+                  "id": "contact-details",
+                  "type": "richtext",
+                  "label": "Details"
+                  }
+              ]
+            }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

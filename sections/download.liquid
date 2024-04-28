@@ -1,0 +1,100 @@
+<div class="downloads-page">
+  <div class="faq-page mb-5">
+  <h1 class="text-center">{{ section.settings.main_title }}</h1>
+     <p class="text-center">GET THE LATEST NEWS, PRESS RELEASES AND DOWNLOADS FROM AFRICAN ANCESTRY HERE:</p>
+      <p class="text-center">All media inquiries may be sent to Nichole Taylor at <a href="mailto:taylor@taylorcommunicationsgroup.com">taylor@taylorcommunicationsgroup.com</a>.</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-9">
+      <div class="media-center-section-title">Downloads</div> 
+    </div>
+    <div class="col-3 text-center">
+      <i class="glyphicon glyphicon-download-alt hidden-xs"></i>
+    </div>
+  </div>
+  {% for block in section.blocks %}
+  <div class="media-center-item-row">
+    <div class="row">
+      <div class="col-7 col-sm-9">
+        {{block.settings.title}}
+      </div>
+      <div class="col-5 col-sm-3 text-right">
+        {% if block.settings.pdf-url != blank %}
+        <a class="label label-default" target="_blank" href="{{ block.settings.pdf-url | asset_url }}">PDF</a>&nbsp;
+        {% endif %}
+        {% if block.settings.eps-url != blank %}
+        <a class="label label-default" target="_blank" href="{{ block.settings.eps-url | asset_url }}">EPS</a>&nbsp;
+        {% endif %}
+        {% if block.settings.jpg-url != blank %}
+        <a class="label label-default" target="_blank" href="{{ block.settings.jpg-url | img_url: 'original' }}">JPG</a>&nbsp;
+        {% endif %}
+        {% if block.settings.png-url != blank %}
+        <a class="label label-default" target="_blank" href="{{ block.settings.png-url | img_url: 'original' }}">PNG</a>
+        {% endif %}
+      </div>    
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% schema %}
+  {
+    "name": "Downloads",
+    "settings": [
+        {
+           "type": "header",
+           "content": "Download Section"
+        },
+        {
+          "id": "main_title",
+          "type": "text",
+          "label": "Section Title"
+        },
+        {
+          "id": "sub_title",
+          "type": "richtext",
+          "label": "Sub Title"
+        }
+   ],
+   "blocks": [
+            {
+              "type": "download-content",
+              "name": "Download",
+              "settings": [
+                  {
+                  "id": "title",
+                  "type": "text",
+                  "label": "Title"
+                  },
+                  {
+                  "id": "pdf-url",
+                  "type": "text",
+                  "label": "PDF"
+                  },
+                  {
+                  "id": "eps-url",
+                  "type": "text",
+                  "label": "EPS"
+                  }, 
+                  {
+                  "id": "jpg-url",
+                  "type": "image_picker",
+                  "label": "JPG"
+                  },
+                  {
+                  "id": "png-url",
+                  "type": "image_picker",
+                  "label": "PNG"
+                  }
+              ]
+            }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

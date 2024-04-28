@@ -1,0 +1,134 @@
+<div class="page-width">
+  <div class="title-box">
+    <h2 class="section-title">Why African ancestry</h2>
+    <p class="subtitle">The pioneer of genetic ancestry tracing for Black people around the world, are the only company that can connect you to the cultural practices, values and beliefs of your ancestors in Africa.</p>
+  </div>
+  <div class="grid">
+    <div class="grid__item left-box">
+      {% for block in section.blocks limit: section.blocks.size %}
+        {%- if block.settings.image != blank -%}
+          <div class="image-box">
+            <img src="{{ block.settings.image | img_url: '275x275' }}" 
+              alt="{{ block.settings.image.alt | escape }}" 
+              loading="lazy" height="" width="">
+          </div>            
+        {%- endif -%}
+      {% endfor %}
+      <div class="satisfaction-text">
+        {% comment %} <div class="image-box"><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2972.png?v=1681294719" alt="image"></div> {% endcomment %}
+        <h5><span class="yellow-text">1,000,000+ </span><br /> Black people connected to Africa</h5>
+        {% comment %} <div class="image-box"><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2972.png?v=1681294719" alt="image"></div> {% endcomment %}
+      </div>
+    </div>
+    <div class="grid__item right-box">
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="{{ 'Akan-Map-gif.gif' | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}"
+          height="{{ image.height }}">
+          
+        </div>
+        <div class="text">
+          <p>Specific African country and tribe results</p>
+        </div>
+        </div>
+      </div>
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group-3.png?v=1681295033" alt="image" loading="lazy" width="{{ image.width }}"
+          height="{{ image.height }}">
+        </div>
+        <div class="text">
+          <p>Largest database of African genetic sequences</p>
+        </div>
+        </div>
+      </div>
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group-2.png?v=1681295033" alt="image" loading="lazy" width="{{ image.width }}"
+          height="{{ image.height }}">
+        </div>
+        <div class="text">
+          <p>Black-owned <br>business</p>
+        </div>
+        </div>
+      </div>
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group-1.png?v=1681295033" alt="image" loading="lazy" width="{{ image.width }}"
+          height="{{ image.height }}">
+        </div>
+        <div class="text">
+          <p>100% safe <br/> Your DNA is destroyed</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_url }}" class="save-20-per-button">{{ section.settings.button_text }}</a>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Matriclan Ancestry",
+  "tag": "section",
+  "class": "matriclan-ancestry",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Save 20% Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "Image",
+      "name": "Images",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matriclan Ancestry",
+      "blocks": [
+        {
+          "type": "Image"
+        },
+        {
+          "type": "Image"
+        },
+        {
+          "type": "Image"
+        },
+        {
+          "type": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,106 @@
+<style>
+  .find-your-tribe__card img {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 1399px) {
+    .find-your-tribe__card img {
+      max-width: 275px;
+    }
+  }
+</style>
+<div class="find-your-tribe">
+    <h2 class="section-heading">{{ section.settings.find_your_tribe_title }}</h2>
+  <div class="container">
+    <div class="row">
+    {% for block in section.blocks limit: section.blocks.size %}    
+      {% if block.settings.tribe_image != blank or block.settings.tribe_svg_image != blank %}
+           <div class="col-sm-6 col-md-3">  
+           <div class="find-your-tribe__card {% cycle 'card-top__space', 'card-bottom__space' %}">                           
+                      {%- if block.settings.tribe_svg_image != blank -%}
+                          {% assign img_url =  block.settings.tribe_svg_image | asset_url %}
+                      {%- elsif block.settings.tribe_image != blank -%}
+                          {% assign img_url = block.settings.tribe_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      {%- endif -%}
+                       <img class="lazyload"
+                         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                         data-src="{{ img_url }}"
+                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                         data-aspectratio="{{ block.settings.tribe_image.aspect_ratio }}"
+                         data-sizes="auto"
+                         alt="African Ancestry" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+                 <h4 class="find-your-tribe_title">{{ block.settings.tribe_sub_text }}</h4>
+                 <p class="find-your-tribe_text"><a href="{{ block.settings.tribe_sub_text_2_url }}">{{ block.settings.tribe_sub_text_2 }}</a></p>
+            </div>
+            </div>
+          {% endif %}
+  {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Find Your Tribe",
+    "class": "index-section",
+    "max_blocks": 4,
+      "blocks": [
+          {
+              "type": "findtribe",
+              "name": "Find Tribe",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "tribe_image",
+                        "label": "Image"
+                    },                   
+                    {
+                        "type": "text",
+                        "id": "tribe_svg_image",
+                        "label": "SVG File Name",
+                        "default": "Group2742.svg"
+                    },
+                    {
+                        "type": "text",
+                        "id": "tribe_sub_text",
+                        "label": "Sub Text",
+                        "default": "Specific African country <br>and tribe results"
+                    },
+                    {
+                        "type": "text",
+                        "id": "tribe_sub_text_2",
+                        "label": "Sub Text 2",
+                        "default": "Great project for the whole family"
+                    }, 
+                    {
+                        "type": "url",
+                        "id": "tribe_sub_text_2_url",
+                        "label": "Sub Text 2 URL"
+                    }
+                    
+                ]
+          }
+    ],
+    "settings": [
+          {
+            "id": "find_your_tribe_title",
+            "type": "text",
+            "label": "Title",
+            "default": "Find Your Tribe"            
+          }
+            
+   ],
+   "presets": [
+    {
+    "name": "Find Your Tribe Home",
+    "category": "Text"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,38 @@
+    <img class="img-fluid hero-bg" src="{{ bgimage | asset_url }}" alt="image" loading="lazy" width="{{ bgimage.width }}" height="{{ bgimage.height }}">
+
+    <div class="hero-content d-flex align-self-md-end align-self-xl-center">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="hero-container">
+
+                    <div class="col-md-6 align-self-end ">
+                        <img class="img-fluid hero-left-img" src="{{ leftimage | img_url: 'master' }}" alt="image" loading="lazy" width="{{ leftimage.width }}" height="{{ leftimage.height }}">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="hero-copy">
+                            <div>
+                                <h1 class="page-display">
+                                    {{ title }}
+                                </h1>
+                            </div>
+                            <div>
+                                <p>
+                            <span class="hero-copy">
+                                {{ content }}
+                            </span>
+
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>

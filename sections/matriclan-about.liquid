@@ -1,0 +1,84 @@
+<div class="page-width">
+  <div class="grid">
+    <div class="grid__item left-content">
+      <div class="image-box">
+        <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group_68.png?v=1681285892" alt="image" loading="lazy" width="{{ image.width }}"
+        height="{{ image.height }}">
+      </div>
+      <div class="quote">
+        <div class="icon">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/1_61af3973-7468-4da1-8276-d569123ab8ce.png?v=1681285891" alt="image" loading="lazy" width="{{ image.width }}"
+          height="{{ image.height }}">
+        </div>
+        <div class="review">
+          <p>I can’t wait to go to Bioko Island … to have the sun in that part of the region on my body and know that I’m home...</p>
+        </div>
+        <div class="username">
+          <p>Ramunda Y., African Ancestry Family Member</p>
+        </div>
+      </div>
+    </div>
+    <div class="grid__item right-content">
+      <h2 class="section-title">about <br> African ancestry</h2>
+      <div class="description"><p>Founded 20 years ago in 2003 by Dr. Rick Kittles and Gina Paige, African Ancestry is the world leader in tracing maternal and paternal lineages of African descent having helped more than 1,000,000 people re-connect with the roots of their family tree. With the industry’s largest and most comprehensive database of over 30,000 indigenous African DNA samples.</p></div>
+      <div class="staff">
+        <div class="user">
+          <div class="avatar">
+            <img src="{{ 'dr-Gina-Paige.png' | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}"
+            height="{{ image.height }}">
+          </div>
+          <div class="user-detail">
+            <h5 class="user-name">Dr. Gina Paige</h5>
+            <p>Co-founder & President, African Ancestry, Inc.</p>
+          </div>
+        </div>
+        <div class="user">
+          <div class="avatar">
+            <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Ellipse_10.png?v=1681285891" alt="image" loading="lazy" width="{{ image.width }}"
+            height="{{ image.height }}">
+          </div>
+          <div class="user-detail">
+            <h5 class="user-name">Dr. Rick Kittles</h5>
+            <p>Co-founder, Scientific Director, African Ancestry, Inc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_url }}" class="button">{{ section.settings.button_text }}</a>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Matriclan About",
+  "tag": "section",
+  "class": "matriclan-about",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Save 20% Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Matriclan About"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

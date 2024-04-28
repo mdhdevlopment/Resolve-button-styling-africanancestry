@@ -1,0 +1,69 @@
+<section class="work">
+  <div class="container">
+    <h2 class="text-center">{{section.settings.how_it_works_title}}</h2>
+    <p class="text-center">{{section.settings.how_it_works__sub_title}}</p>
+    <div class="row">
+      {% for block in section.blocks %}
+      <div class="col-md-3 col-12">
+        <div class="work-box">
+          <div class="work-img">
+            <img src="{{ block.settings.work_image | img_url: 'original' }}" alt="logo"  class="img-fluid mx-auto d-block" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">  
+          </div>
+          <div class="work-content">
+            <h3>{{block.settings.title}}</h3>
+            <p>{{block.settings.sub_title}}</p>
+          </div>
+        </div>    
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "How it Works Section 2",
+    "settings": [
+    {
+      "id": "how_it_works_title",
+      "type": "text",
+      "label": "Title",
+      "default": "Title" 
+    },
+    {
+      "id": "how_it_works__sub_title",
+      "type": "textarea",
+      "label": "Sub Title"
+    }
+   ],
+  "blocks": [
+            {
+              "type": "Blurb",
+              "name": "Blurb",
+              "settings": [
+                 {
+                  "id": "work_image",
+                  "type": "image_picker",
+                  "label": "Image"
+                 },
+                 {
+                  "id": "title",
+                  "type": "text",
+                  "label": "Title"
+                 },
+                 {
+                  "id": "sub_title",
+                  "type": "textarea",
+                  "label": "Sub Title"
+                 }
+              ]
+            }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

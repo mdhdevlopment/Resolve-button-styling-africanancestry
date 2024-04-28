@@ -1,0 +1,1980 @@
+.template-product main.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.page-width {
+  max-width: 1270px;
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+/* Header Banner Images Section */
+.header-banner-images-main {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+.header-image-text-wrapper {
+  /* max-width: 195px; */
+  display: flex;
+  align-items: center;
+}
+
+.header-image-text-wrapper .image-box img {
+  height: 60px;
+  width: 100%;
+}
+
+.header-image-text-wrapper .image-box {
+  text-align: center;
+}
+
+.header-image-text-wrapper .image-text {
+  max-width: 142px;
+  margin-left: 10px;
+  margin-top: 15px;
+}
+
+.header-image-text-wrapper .image-text p {
+  font-size: 16.8px;
+  line-height: normal;
+  color: #342F85;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* End Header Banner Images Section */
+
+/* Product Details Section */
+.new-product-template-products-details {
+  background-image: url('product-banner-background.jpg');
+}
+
+.banner-content .jdgm-widget.jdgm-preview-badge.jdgm--done-setup {
+  font-family: Rubik, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #352f85;
+  margin-left: 5px;
+  margin-right: 2px;
+  margin-bottom: 0;
+}
+
+.product-desc-btn {
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgb(245 240 255));
+  color: black;
+  text-align: center !important;
+  padding: 10px 0;
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.new-product-template-products-details .new-product-details-right {
+  padding: 0 70px;
+}
+
+.new-product-template-products-details .new-product-details-right .new-product-details-rating .rating {
+  display: flex;
+  border-radius: 27.714px;
+  background: rgba(255, 187, 11, .17);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-weight: 600;
+  color: #352f85;
+  max-width: 75%;
+  height: 30px;
+}
+
+.new-product-details-rating span.jdgm-prev-badge__stars,
+.new-product-details-rating span.jdgm-prev-badge__text {
+  margin-right: 5px;
+}
+
+.new-product-template-products-details .new-product-details-right .title {
+  margin-top: 13px;
+  font-size: 60px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #221F46;
+}
+
+.new-product-template-products-details .new-product-details-right .banner_description {
+  position: relative;
+  width: 100%;
+  /* height: 15vh; */
+  overflow: hidden;
+  transition: all .25s ease-out;
+}
+
+.new-product-template-products-details .new-product-details-right .banner_description.open {
+  height: auto;
+  overflow: visible;
+}
+
+.new-product-template-products-details .new-product-details-right .banner_description.open .product-desc-btn {
+  bottom: -55px;
+}
+
+.new-product-template-products-details .new-product-details-right .banner_description .banner_description_span {
+  color: #6132c6;
+  font-weight: 600;
+}
+
+.new-product-template-products-details .new-product-details-right .product_price {
+  font-weight: 500;
+  color: #fc5d3d;
+  font-size: 36px;
+  margin: 20px 0;
+  text-align: left;
+  line-height: normal;
+}
+
+
+/* product qty and add-to-cart   */
+.shopify-section.product-details .cart-qty-btn-wrapper {
+  display: flex;
+  align-items: center;
+}
+.add_to_cart-button .product-form__submit,
+ .viewmore-btn {
+  border-radius: 5px;
+  color: #fff;
+  background: #fc5d3d;
+  max-width: 100%;
+  border: none;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 22px;
+  margin: 20px 0;
+  padding: 16px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.add_to_cart-button i.fa.fa-cart-plus {
+  display: none;
+}
+.cart-qty-btn-wrapper .cart-qty-btn {
+  margin: 10px;
+}
+.cart-qty-btn-wrapper .cart-qty-btn input {
+  border: none !important;
+  background-color: #E7E7E8!important;
+  padding: 14px 0px;
+  font-weight: 500;
+  font-size: 22px;
+  min-width: 0;
+  width: 40px;
+}
+.cart-qty-btn-wrapper .cart-qty-btn input:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.cart-qty-btn-wrapper .cart-qty-btn input:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.shopify-section.product-details .cart-qty-btn-wrapper label {
+  margin-bottom: 0;
+  font-weight: 500;
+}
+.shopify-section.product-details .cart-qty-btn-wrapper .cart-text-qty-box-wrapper {
+  display: flex;
+  align-items: center;
+}
+.shopify-section.product-details .cart-qty-btn-wrapper .add_to_cart-button {
+  width: 100%;
+}
+.add_to_cart-button .product-form__submit:hover,
+.viewmore-btn:hover {
+  color: #fff !important;
+  background: #fc5d3d !important;
+}
+
+/* remove input [number] field arrow [increment/decrement] */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+       -webkit-appearance: none;
+        margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+/* End remove input [number] field arrow [increment/decrement] */
+
+/* End product qty and add-to-cart   */
+
+/* .new-product-template-products-details .new-product-details-right .add_to_cart {
+  border-radius: 5px;
+  color: #fff;
+  background: #fc5d3d;
+  max-width: 100%;
+  width: 100%;
+  height: 50px;
+  border: none;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 22px;
+  margin: 20px 0;
+} */
+.new-product-template-products-details .new-product-details-right .additional-checkout-buttons{
+  padding: 15px 0px;
+}
+
+/* .new-product-template-products-details .new-product-details-right .add_to_cart .button {
+  color: #fff;
+} */
+
+.new-product-template-products-details .new-product-details-right .starting_at {
+  color: #2b206a;
+  text-align: center;
+  font-size: 16.333px;
+}
+
+.new-product-template-products-details .new-product-details-right .starting_at span {
+  font-weight: 500;
+  color: #2b206a;
+  font-size: 16.333px;
+}
+
+
+/* .banner-product-carousel .slick-dots {
+  bottom: -80px;
+} */
+
+.product-details .product-template-card {
+  border-radius: 5px;
+  background: #fff;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.product-details .product-template-card .course-ul {
+  list-style-type: none;
+  padding: 0;
+}
+.course-ul li {
+  padding: 10px 0px;
+  border-bottom: 1px solid #d8d8d8;
+}
+.course-ul .course-container {
+  display: flex;
+  flex-direction: row;
+}
+.course-container img {
+  width: auto;
+  max-height: 99px;
+}
+.course-container .content-container {
+  display:flex; 
+  flex-direction: column;
+  padding: 0px 10px;
+}
+.course-container h5 {
+  font-size:16px;
+  color: var(--brand-main);
+}
+.product-template-card .product-template-card-header .btn.btn-link.btn-link:hover {
+  text-decoration: none;
+}
+
+.new-product-template-products-details .product-template-card-body {
+  padding: 10px 20px;
+}
+
+.new-product-template-products-details .product-template-card .product-template-card-header .btn.btn-link i {
+  transform: rotate(225deg);
+  transition: 0.3s ease-in-out;
+}
+
+.new-product-template-products-details .product-template-card .product-template-card-header .btn.btn-link.collapsed i {
+  transform: rotate(0deg);
+}
+
+.product-details .product-testimonial-image-wrapper {
+  background-color: #6132c6;
+  border-radius: 5px;
+  padding: 30px;
+  color: #fff;
+  margin-top: 50px;
+  position: relative;
+}
+
+.product-details .testimonial-info p {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: left;
+}
+
+.product-details .family-member-details-wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.product-details .family-member-details h5 {
+  font-family: Silk Serif;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.4px;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+}
+
+.product-details .family-member-details p {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: -0.24px;
+  text-align: left;
+}
+
+.product-details .product-testimonial-wrapper-quote {
+  position: absolute;
+  top: -29px;
+  left: 7%;
+  z-index: 10;
+}
+
+.product-details .family-member-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.new-product-template-products-details .button_bottom_text {
+  text-align: center;
+  color: #2B206A;
+}
+
+.new-product-template-products-details .accordion {
+  display: block
+}
+
+.new-product-template-products-details .accordion.accordion-mobile {
+  display: none
+}
+
+.new-product-template-products-details .slick-dots li button:before {
+  color: #352F85;
+  font-size: 18px;
+}
+
+.new-product-template-products-details .product-subtext {
+  font-weight: 500;
+  margin-top: 20px;
+  text-align: left;
+  color: #221F46;
+}
+
+.new-product-template-products-details .test-takers-text {
+  color: #6132C6;
+  font-style: italic;
+  font-weight: 600;
+  margin-top: -13px;
+  text-align: left;
+}
+
+.new-product-template-products-details .product-template-card .product-template-card-header {
+  padding: 5px;
+  border: none;
+}
+
+.new-product-template-products-details .family-member-details-wrapper .family-member-image {
+  max-width: 100px;
+  max-height: 100px;
+}
+.new-product-template-products-details .family-member-image image {
+
+  height: 120px;
+  width: 100%;
+}
+.new-product-template-products-details .product-template-card:last-child .collapse.show {
+  border: none;
+}
+
+.new-product-template-products-details .product-template-card .product-template-card-header .btn.btn-link.btn-link, .new-product-template-products-details .product-template-card .product-template-card-header .btn.btn-link.collapsed, .product-template-card .product-template-card-header .btn.btn-link.btn-link, .product-template-card .product-template-card-header .btn.btn-link.collapsed {
+  color: #221F46;
+}
+
+/* End Product Details Section */
+
+/* Product Generic Information Section */
+.product-generic-information .generic-info-main {
+  background-color: #221F46;
+}
+
+.generic-info-main p {
+  color: #FFF;
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 26.5px;
+  padding: 20px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* End Product Generic Information Section */
+
+/* How It Works Section */
+.product-how-it-works .title-box .section-title {
+  font-size: 60px;
+  text-transform: capitalize;
+  color: #221F46;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136.8%;
+}
+
+.product-how-it-works .title-box .subtitle {
+  color: #221f46;
+  text-align: center;
+  line-height: 36px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.how-it-works-corousel .item {
+  max-width: 1152px;
+  margin: 20px 18px;
+  /* padding: 46px 62px 50px; */
+  padding: 35px 4px 30px;
+  background: #FFFFFF;
+  /* border: 1.5px solid rgba(34, 31, 70, 0.11);
+  box-shadow: 7px 31px 50px rgba(0, 0, 0, 0.01); */
+  border-radius: 5px;
+  height: auto;
+  /* transition: background 0.5s ease-in-out; */
+  /* position: relative; */
+  display: flex;
+
+}
+
+/* .how-it-works-corousel .item.slick-current.slick-active.slick-center{
+  background: #F0EEFF;
+  display: flex;
+  align-items: center;
+} */
+
+.how-it-works-corousel .item.slick-slide.slick-center {
+  background: #F0EEFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.how-it-works-corousel .slick-list .content {
+  width: 50%;
+}
+
+.how-it-works-corousel .slick-track {
+  display: flex;
+  align-items: stretch;
+}
+
+/* .how-it-works-corousel .item .badge{
+  background: #6132C6;
+  border-radius: 2px;
+  width: 135px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.how-it-works-corousel .item .badge p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin-bottom: 0px;
+}
+
+.how-it-works-corousel .item .image-box{
+  background-color: #fff;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  max-width: 234px;
+  max-height: 234px;
+}
+
+.how-it-works-corousel .item .image-box .corousel-left-images {
+  position: absolute;
+  top: 41px;
+  left: 27px;
+  max-width: 200px;
+  max-height: 200px;
+}
+.how-it-works-corousel .item .image-box .corousel-left-images image {
+  height: 150px;
+  width: 180px;
+}
+
+
+.how-it-works-corousel .item .content .title {
+  font-size: 40px;
+  line-height: 136.8%;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-top: 10px;
+  font-weight: 400;
+  text-align: left;
+  font-family: MatrixIIOT;
+}
+
+.how-it-works-corousel .item .content .description p {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 36px;
+  color: #221f46;
+  font-weight: 400;
+  text-align: left;
+}
+
+.how-it-works-corousel .slick-arrow {
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+  right: 1%;
+  width: 50px;
+  height: 14px;
+  z-index: 1;
+}
+
+.how-it-works-corousel .slick-arrow.slick-prev {
+  left: 1%;
+  right: auto;
+}
+
+/* .how-it-works-corousel .slick-arrow.slick-prev::after{
+  transform: rotate(180deg);
+} */
+
+.how-it-works-corousel .slick-next.slick-arrow {
+  transform: rotate(180deg);
+}
+
+.how-it-works-corousel .slick-arrow::after {
+  width: 50px;
+  height: 50px;
+  background-image: url('prev-arrow.svg');
+  background-repeat: no-repeat;
+  /* background-size: contain;
+  background-position: center center;
+  box-shadow: 7px 15px 50px rgba(53, 47, 133, 0.12);
+  border-radius: 50%; */
+  content: "";
+}
+
+/* End How It Works Section */
+
+/* What You Get Section */
+.what-you-get-slider-wrapper {
+  background-color: #F6F7FA;
+  padding: 0 20px;
+}
+
+.product-what-you-get .what-you-get-slider-title .section-heading {
+  color: #221F46;
+  font-family: MatrixIIOT;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 60px;
+  text-transform: capitalize;
+  text-align: left;
+  width: 87%;
+}
+
+.product-what-you-get .what-you-get-slider-title p {
+  color: #221F46;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  width: 70%;
+  padding-top: 30px;
+}
+
+.product-what-you-get .content-list {
+  color: #221F46;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 49px;
+  list-style: none;
+}
+
+.product-what-you-get .what-you-get-image-box img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  max-height: 485px;
+}
+
+.what_you-get_image_container.slick-initialized.slick-slider .slick-dots {
+  bottom: -50px;
+}
+
+.product-what-you-get .slick-dots li button:before {
+  color: #FF7051;
+  font-size: 18px;
+}
+
+.product-what-you-get .slick-dots li.slick-active button:before {
+  color: #FF7051;
+  opacity: 1;
+}
+
+.product-what-you-get .protected-account-info-image-wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #6132C6;
+  padding: 40px;
+  border-radius: 5px;
+}
+
+.product-what-you-get .protected-account-info p {
+  color: #FFF;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+  text-align: left;
+}
+
+.product-what-you-get .protected-account-image {
+  padding: 0 50px;
+}
+
+.product-what-you-get .protected-account-info {
+  padding: 0 50px;
+  width: 75%;
+}
+
+.product-what-you-get .content-for-mobile .content-list {
+  display: none;
+  margin-top: 55px;
+}
+
+.what_you-get_image_container.slick-initialized.slick-slider {
+  margin-top: 10px;
+}
+
+.what-you-get-slider-wrapper .content-list li {
+  display: flex;
+  /* align-items: center; */
+}
+
+.product-what-you-get .content-list li::before {
+  content: url('vector.svg');
+  margin-right: 8px;
+  height: 20px;
+  display: block;
+  width: 13px;
+}
+.product-what-you-get .content-list ul {
+  padding-left: 0;
+}
+
+
+.product-what-you-get .slick-dots li {
+  margin: 0 2px;
+}
+
+/* End What You Get Section */
+
+/* About Your Roots Section  */
+.product-template-about-your-roots-section .product-template-about-your-roots-content__wrapper {
+  text-align: center;
+}
+
+.product-template-about-your-roots-section .product-template-about-your-roots-videos-desktop {
+  display: block;
+  padding: 10px 0;
+}
+
+.product-template-about-your-roots-section .product-template-about-your-roots-videos-mobile {
+  display: none;
+}
+
+.product-template-about-your-roots-section h2.product-template-about-your-roots-heading {
+  color: #2b206a;
+  font-size: 60px;
+}
+
+.product-template-about-your-roots-section .product-template-about-your-roots-section-text p {
+  line-height: 36px;
+  font-size: 16px;
+  color: #221F46;
+}
+
+/* End About Your Roots Section  */
+
+/* Take The Right Video Section */
+.product-template-videos-section .product-template-content__wrapper {
+  width: 100%;
+  text-align: center;
+}
+
+.product-template-videos-section .product-template-heading {
+  color: #221F46;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  /* text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  font-family: "MatrixIIOT";
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136.8%;
+  /* 82.08px */
+  text-transform: capitalize;
+}
+
+.product-template-videos-section .product-template-section-text p {
+  color: #221F46;
+  text-align: center;
+  font-variant-numeric: lining-nums proportional-nums;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 36px;
+  /* 225% */
+}
+
+.product-template-videos-section .product-template-videos {
+  margin: 20px 0;
+}
+
+.product-template-videos-section .product-template-videos iframe.lazyloaded {
+  border-radius: 5px;
+  border: 5px solid #FFF;
+  box-shadow: 0px 51px 50px 0px rgba(0, 0, 0, 0.05);
+  width: 788px;
+  height: 430px;
+}
+
+/* End Take The Right Video Section */
+
+/* Connection Past Present & Future Section */
+.product-connection-past-present-future .connection-main {
+  background-color: #f6f7fa;
+}
+
+.product-connection-past-present-future .connection-main h2.connection_title {
+  color: #2b206a;
+  text-align: center;
+  font-size: 60px;
+}
+
+.product-connection-past-present-future p.connection_paragraph {
+  text-align: center;
+  padding: 20px;
+  /* margin: 30px 0; */
+}
+
+.product-connection-past-present-future .row.connection-images-wrapper {
+  margin: 0 auto;
+  /* padding: 0 30px; */
+}
+
+.product-connection-past-present-future .connection-image-box {
+  padding: 15px;
+}
+
+
+
+/* End Connection Past Present & Future Section */
+
+/* Choose African Ancestry Section */
+.product-choose-african-ancestry .choose-african-ancestry-main {
+  background-color: #f6f7fa;
+}
+
+.product-choose-african-ancestry h2.choose_african_ancestry_title {
+  text-transform: uppercase;
+  font-size: 60px;
+  text-align: center;
+}
+
+.product-choose-african-ancestry .comparision-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+}
+
+/* .product-choose-african-ancestry hr {
+  width: 50%;
+  margin-top: 45px;
+  margin-bottom: 45px;
+} */
+.product-choose-african-ancestry .compare-main:before,
+.product-choose-african-ancestry .african-ancestry-main:before,
+.product-choose-african-ancestry .other-companies-main:before {
+  content: '';
+  border: 0px solid rgba(0, 0, 0, .1);
+  border-top-width: 2px;
+  display: block;
+  margin: 50px auto;
+  max-width: 50%;
+}
+
+.product-choose-african-ancestry .compare-icon-text-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px auto;
+  align-items: center;
+  /* height: 89px; */
+  min-height: 120px;
+}
+
+.product-choose-african-ancestry .compare-yourself,
+.product-choose-african-ancestry .african-ancestry,
+.product-choose-african-ancestry .other-companies {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px 15px 0 0;
+  position: relative;
+  width: 25%;
+  margin-right: 15px;
+  margin-left: 15px;
+  box-shadow: 0 3px 3px #00000026;
+}
+
+.product-choose-african-ancestry .compare-icon {
+  font-size: 55px;
+}
+
+.product-choose-african-ancestry .compare-text {
+  font-size: 20px;
+  width: 35%;
+  text-align: center;
+}
+
+.product-choose-african-ancestry h3.compare-heading,
+.product-choose-african-ancestry h3.african-ancestry-heading,
+.product-choose-african-ancestry h3.other-companies-heading {
+  height: 55px;
+  padding: 15px;
+  color: #fff;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.product-choose-african-ancestry p {
+  margin-top: 1rem;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.product-choose-african-ancestry .compare-yourself i.fa.fa-caret-down,
+.product-choose-african-ancestry .african-ancestry i.fa.fa-caret-down,
+.product-choose-african-ancestry .other-companies i.fa.fa-caret-down {
+  position: absolute;
+  left: 43%;
+  top: 1%;
+  font-size: 70px;
+}
+
+.product-choose-african-ancestry .african-ancestry-text,
+.product-choose-african-ancestry .other-companies-text {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 86%;
+  /* height: 89px; */
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .product-choose-african-ancestry .african-ancestry-text p {
+  padding-top: 26px;
+} */
+
+/* End Choose African Ancestry Section */
+
+/* FAQ Section */
+.product-template-FAQs-section .product-template-FAQs-content__wrapper {
+  text-align: center;
+}
+
+.product-template-FAQs-section .product-template-FAQs-heading {
+  color: #2b206a;
+  font-size: 60px;
+}
+
+.product-template-FAQs-section .product-template-section-FAQs-text p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.product-template-card .product-template-card-header {
+  padding: 10px;
+  border: 0px solid #CDCDCD;
+  border-top-width: 1px;
+  border-right-width: 0;
+  border-bottom-width: 0px;
+  border-left-width: 0;
+}
+
+.product-template-card:last-child .product-template-card-header {
+  border-bottom-width: 0px;
+}
+
+.product-template-card:last-child .collapse.show {
+  border: 0px solid #CDCDCD;
+  border-bottom-width: 1px;
+}
+
+.product-template-card:last-child:not(:has(.collapse.show)) .product-template-card-header {
+  border-bottom-width: 1px;
+}
+
+.product-template-card .product-template-card-header .btn.btn-link {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+  color: #221F46;
+  font-weight: 500;
+  font-family: Rubik;
+  line-height: 26.5px;
+}
+
+.product-template-card .product-template-card-header .btn-link:hover {
+  text-decoration: none;
+}
+
+.product-template-FAQs-content__wrapper .product-template-card .product-template-card-header .btn.btn-link i {
+  transform: rotate(225deg);
+  transition: 0.3s ease-in-out;
+}
+
+.product-template-FAQs-content__wrapper .product-template-card .product-template-card-header .btn.btn-link.collapsed i {
+  transform: rotate(0deg);
+}
+
+.product-template-FAQs-section .product-template-card .product-template-card-body {
+  text-align: left;
+  margin: 0 25px 5px;
+}
+.product-template-FAQs-content__wrapper .product-template-card .product-template-card-header .btn.btn-link.btn-link, .product-template-FAQs-content__wrapper .product-template-card .product-template-card-header .btn.btn-link.collapsed, .product-template-card .product-template-card-header .btn.btn-link.btn-link, .product-template-card .product-template-card-header .btn.btn-link.collapsed {
+  color: #2B206A;
+}
+
+/* End FAQ Section */
+
+/* Lasting Legacy Section */
+.product-template-lasting-legacy-section .product-template-lasting-legacy-content__wrapper {
+  text-align: center;
+}
+
+.product-template-lasting-legacy-section .product-template-lasting-legacy-videos-desktop {
+  display: block;
+  padding: 10px 0;
+}
+
+.product-template-lasting-legacy-section .product-template-lasting-legacy-videos-mobile {
+  display: none;
+}
+
+.product-template-lasting-legacy-section h2.product-template-lasting-legacy-heading {
+  color: #2b206a;
+  font-size: 60px;
+  font-weight: 400;
+}
+
+.product-template-lasting-legacy-section .product-template-lasting-legacy-section-text p {
+  line-height: 36px;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+/* End Lasting Legacy Section */
+
+/* Reviews Section */
+.new-product-template-judgeme-reviews h2.new-product-template-judgeme-reviews-heading {
+  color: #2b206a;
+  text-align: center;
+  font-size: 60px;
+}
+
+/* End Reviews Section */
+
+@media screen and (min-width: 992px) and (max-width: 1280px) {
+
+  /* Product Details Section */
+  .new-product-template-products-details {
+    padding: 0 20px;
+}
+  .new-product-template-products-details .new-product-details-right {
+    padding: 0 30px;
+  }
+
+  .new-product-template-products-details .new-product-details-right {
+    padding: 0 40px;
+  }
+
+  .new-product-template-products-details .new-product-details-right .banner_description p {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .product-details .testimonial-info p,
+  .product-details .family-member-details p {
+    font-size: 14px;
+  }
+
+  .product-details .family-member-details h5 {
+    font-size: 16px;
+  }
+
+  .product-details .product-testimonial-image-wrapper {
+    padding: 26px;
+  }
+
+  .new-product-template-products-details .family-member-image img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .new-product-template-products-details .button_bottom_text p {
+    font-size: 14px;
+    margin-top: -7px;
+  }
+
+  /* End Product Details Section */
+
+  /* How It Works Section */
+  .product-how-it-works {
+    padding: 0 20px;
+  }
+  .how-it-works-corousel .item {
+    margin: 20px 15px;
+  }
+  .how-it-works-corousel .slick-arrow.slick-prev {
+    left: 1%;
+  }
+  .how-it-works-corousel .slick-arrow {
+    right: 1%;
+  }
+  /* End How It Works Section */
+
+  /* Connection Past Present & Future Section */
+  .product-connection-past-present-future p.connection_paragraph {
+    font-size: 16px;
+  }
+
+  /* End Connection Past Present & Future Section */
+
+  /* Choose African Ancestry Section */
+  .product-choose-african-ancestry .compare-yourself,
+  .product-choose-african-ancestry .african-ancestry,
+  .product-choose-african-ancestry .other-companies {
+    width: 100%;
+  }
+
+  .product-choose-african-ancestry .compare-icon-text-wrapper,
+  .product-choose-african-ancestry .african-ancestry-text,
+  .product-choose-african-ancestry .other-companies-text {
+    min-height: 150px;
+  }
+
+  .product-choose-african-ancestry h2.choose_african_ancestry_title {
+    font-size: 45px;
+  }
+
+  /* End Choose African Ancestry Section */
+
+  /* About Your Roots Section  */
+  .product-template-about-your-roots-section,
+  .product-template-videos-section,
+  .product-connection-past-present-future .connection-main,
+  .product-choose-african-ancestry .choose-african-ancestry-main,
+  .product-template-FAQs-section,
+  .product-template-lasting-legacy-section,
+  .new-product-template-judgeme-reviews
+   {
+    padding: 0 20px;
+  } 
+  /* End About Your Roots Section  */
+
+}
+
+
+@media screen and (max-width: 991px) {
+  .product-template-FAQs-section .product-template-FAQs-content__wrapper .product-template-card .collapse:not(.show) {
+    display: none;
+  }
+  .header-banner-images-main {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .page-width {
+    padding: 10px 0;
+  }
+
+  .product-template-FAQs-content__wrapper .product-template-card .product-template-card-header .btn.btn-link.btn-link, .product-template-FAQs-content__wrapper .product-template-card .product-template-card-header .btn.btn-link.collapsed,
+  .product-template-card .product-template-card-header .btn.btn-link.btn-link,
+  .product-template-card .product-template-card-header .btn.btn-link.collapsed
+  {
+    flex-wrap: nowrap;
+    text-align: left;
+  }
+
+  .product-template-videos-section, .product-template-FAQs-section, .product-template-lasting-legacy-section, .product-template-about-your-roots-section {
+    padding: 15px;
+  }
+
+  /* Header Banner Images Section */
+  .header-image-text-wrapper {
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  .header-image-text-wrapper .image-text p {
+    font-size: 8.806px;
+    line-height: 11.323px;
+    text-align: center;
+  }
+
+  .header-image-text-wrapper .image-box img {
+    /* width: auto; */
+    max-height: 45px;
+    height: 100%;
+  }
+
+  /* .header-image-text-wrapper .image-box {
+    text-align: center;
+    margin-left: 24px;
+  } */
+
+  .header-banner-images-main {
+    padding: 10px 0 0;
+    margin: 0 5px;
+  }
+
+  .header-image-text-wrapper .image-text {
+    margin-top: 5px;
+    margin-left: 0;
+  }
+
+  /* End Header Banner Images Section */
+
+/* Product Details Section */
+.new-product-template-products-details .row.new-product-details {
+  padding: 0 15px;
+}
+.new-product-template-products-details {
+  background-image: url('product_banner_background_mobile.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-repeat: round;
+}
+.new-product-template-products-details .new-product-details-right .product_price {
+  text-align: center;
+  font-size: 26px;
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.new-product-template-products-details .new-product-details-right .title {
+  font-size: 26px;
+  text-align: center;
+  font-weight: 400;
+}
+.new-product-template-products-details .new-product-details-right {
+  padding: 0 15px;
+}
+.new-product-template-products-details .new-product-details-right .banner_description p {
+  font-size: 16px;
+  text-align: left;
+}
+.new-product-template-products-details .new-product-details-right .banner_description h3 {
+  text-align: center !important;
+}
+/* .new-product-template-products-details .new-product-details-right .add_to_cart{
+  font-size: 20px;
+  margin: 10px 0 20px;
+} */
+.new-product-template-products-details .button_bottom_text {
+  text-align: center;
+  margin-top: 10px;
+}
+.new-product-template-products-details .button_bottom_text p.affirm-as-low-as {
+  font-size: 14px;
+  margin-top: -15px;
+}
+.product-details .testimonial-info p {
+  font-size: 12px;
+  text-align: left;
+  line-height: 21px;
+}
+.product-details .family-member-details h5 {
+  font-size: 16px;
+}
+.product-details .family-member-details p {
+  font-size: 12px;
+}
+/* .product-details .product-testimonial-wrapper-quote {
+  left: 12%;
+} */
+.new-product-template-products-details .accordion {
+  display: none
+}
+.new-product-template-products-details .accordion.accordion-mobile{
+  display: block;
+  margin: 20px 0;
+}
+.new-product-template-products-details .product-template-card .collapse:not(.show) {
+  display: none;
+}
+.new-product-template-products-details .new-product-details-right .new-product-details-rating .rating {
+  max-width: 100%;
+  margin-top: 20px;
+}
+.new-product-template-products-details .product-subtext ,
+.new-product-template-products-details .test-takers-text {
+  font-size: 14px;
+  text-align: center;
+}
+.new-product-template-products-details .product-template-card-body {
+  padding: 10px 17px;
+}
+/* .product-details .product-testimonial-image-wrapper {
+  margin-top: 65px;
+} */
+.new-product-template-products-details .slick-dots li button:before {
+  font-size: 14px;
+}
+.new-product-template-products-details .new-product-details-right .new-product-details-rating .rating .jdgm-widget.jdgm-widget {
+  width: auto;
+}
+
+
+  
+
+/* End Product Details Section */
+/*   Course */
+.course-ul .course-container {
+    display: flex;
+    flex-direction: column;
+}
+.course-container h5 {
+  text-align: center;
+} 
+.content-container p {
+  font-size: 16px;
+}  
+/*   Course */  
+  /* How It Works Section */
+  .generic-info-main p {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+
+  .product-how-it-works .title-box .section-title {
+    font-size: 36px;
+  }
+
+  .product-how-it-works .title-box .subtitle {
+    line-height: 28px;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .how-it-works-corousel .item.slick-slide.slick-center {
+    display: block;
+  }
+
+  .how-it-works-corousel .item .content .title {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .how-it-works-corousel .item .content .description p {
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .how-it-works-corousel .item .image-box {
+    width: 136px;
+    height: 136px;
+    margin: 0 auto;
+  }
+
+  .how-it-works-corousel .item .image-box img {
+    width: 94px;
+    height: 87px;
+    top: 21%;
+    left: 16%;
+  }
+
+  .how-it-works-corousel .slick-list .content {
+    width: 100%;
+  }
+
+  .how-it-works-corousel .slick-arrow.slick-prev {
+    left: 37%;
+    top: 81%;
+  }
+
+  .how-it-works-corousel .slick-arrow {
+    right: 37%;
+    top: 81.2%;
+  }
+
+  .how-it-works-corousel .item .image-box .corousel-left-images {
+    top: 32px;
+    left: 27px;
+  }
+  .how-it-works-corousel .item .image-box .corousel-left-images image {
+    height: 80px;
+    width: 80px;
+  }
+
+  .how-it-works-corousel .item {
+    display: block;
+    width: 100%!important;
+    max-width: 567px!important;
+    margin: 20px 36px;
+    padding: 46px 9px 50px;
+  }
+  /* End How It Works Section */
+
+  /* What You Get Section */
+  .what-you-get-slider-wrapper {
+    padding: 15px;
+  }
+
+  .product-what-you-get .what-you-get-slider-title .section-heading {
+    font-size: 36px;
+    line-height: 36px;
+    text-align: center;
+    width: 93%;
+    margin: 0 auto;
+    color: #2B206A
+  }
+
+  .product-what-you-get .what-you-get-slider-title p {
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    width: 97%;
+    margin: 0 auto;
+  }
+
+  .product-what-you-get .protected-account-info-image-wrapper {
+    display: block;
+    border-radius: 10px;
+    padding: 20px 30px;
+    margin: 10px 0;
+  }
+
+  .product-what-you-get .protected-account-info {
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .product-what-you-get .content-list {
+    padding-left: 0;
+    font-size: 14px;
+    line-height: 1.5rem;
+  }
+
+  .what-you-get-slider-wrapper .content-for-mobile .content-list li {
+    padding: 10px;
+    display: flex;
+    /* align-items: center; */
+  }
+
+  .product-what-you-get .protected-account-info p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 28px;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .product-what-you-get .slick-dots li button::before {
+    font-size: 14px;
+   }
+
+  .product-what-you-get .content-for-mobile .content-list {
+    display: block;
+  }
+
+  .product-what-you-get .content-list {
+    display: none;
+  }
+
+  .what_you-get_image_container.slick-initialized.slick-slider .slick-dots {
+    bottom: -40px;
+  }
+
+  .content-for-mobile .content-list li::before {
+    content: url('vector.svg');
+    height: 20px;
+    display: block;
+    width: 13px;
+    margin-right: 12px;
+  }
+
+  /* End What You Get Section */
+
+  /* About Your Roots Section  */
+  .product-template-about-your-roots-section h2.product-template-about-your-roots-heading {
+    font-size: 36px;
+  }
+
+  .product-template-about-your-roots-section-text {
+    margin-top: 20px;
+  }
+
+  .product-template-about-your-roots-section .product-template-about-your-roots-section-text p {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .product-template-about-your-roots-section .product-template-about-your-roots-videos-desktop {
+    display: none;
+  }
+
+  .product-template-about-your-roots-section .product-template-about-your-roots-videos-mobile {
+    display: block;
+    margin-top: -20px;
+  }
+
+  /* End About Your Roots Section  */
+
+  /* Take The Right Video Section */
+  .product-template-videos-section .product-template-videos iframe.lazyloaded {
+    width: 100%;
+    height: 200px;
+  }
+
+  .product-template-videos-section .product-template-heading {
+    font-size: 36px;
+    color: #2B206A;
+  }
+
+  .product-template-videos-section .product-template-section-text p {
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  /* End Take The Right Video Section */
+
+  /* Connection Past Present & Future Section */
+  .product-connection-past-present-future .connection-main {
+    padding: 15px;
+  }
+
+  .product-connection-past-present-future .connection-main h2.connection_title {
+    font-size: 36px;
+  }
+
+  .product-connection-past-present-future p.connection_paragraph {
+    font-size: 14px;
+    line-height: 30px;
+    padding: 15px;
+  }
+
+  .product-connection-past-present-future .row.connection-images-wrapper {
+    margin: 0 -15px;
+    padding: 0;
+  }
+
+  .product-connection-past-present-future .connection-image-box {
+    padding: 8px;
+  }
+
+  /* End Connection Past Present & Future Section */
+
+  /* Choose African Ancestry Section */
+  .product-choose-african-ancestry .choose-african-ancestry-main {
+    padding: 15px;
+  }
+
+  .product-choose-african-ancestry h2.choose_african_ancestry_title {
+    font-size: 36px;
+  }
+
+  .product-choose-african-ancestry .comparision-wrapper {
+    justify-content: space-between;
+  }
+
+  .product-choose-african-ancestry .compare-yourself,
+  .product-choose-african-ancestry .african-ancestry,
+  .product-choose-african-ancestry .other-companies {
+    width: 35%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .product-choose-african-ancestry h3.compare-heading,
+  .product-choose-african-ancestry h3.african-ancestry-heading,
+  .product-choose-african-ancestry h3.other-companies-heading {
+    font-size: 12px;
+  }
+
+  .product-choose-african-ancestry .compare-yourself i.fa.fa-caret-down,
+  .product-choose-african-ancestry .african-ancestry i.fa.fa-caret-down,
+  .product-choose-african-ancestry .other-companies i.fa.fa-caret-down {
+    left: 32%;
+    /* top: 4%; */
+    /* font-size: 60px; */
+  }
+
+  .product-choose-african-ancestry .compare-icon-text-wrapper {
+    display: block;
+    max-width: 40%;
+  }
+
+  .product-choose-african-ancestry .compare-icon {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .product-choose-african-ancestry .compare-text {
+    margin-top: -20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .product-choose-african-ancestry .compare-text p,
+  .product-choose-african-ancestry .african-ancestry-text p,
+  .product-choose-african-ancestry .other-companies-text p {
+    font-size: 14px;
+  }
+
+  .product-choose-african-ancestry .african-ancestry-text,
+  .product-choose-african-ancestry .other-companies-text {
+    margin: -17px auto;
+    min-height: 153px;
+    max-width: 87%;
+    /* align-items: flex-start; */
+  }
+
+  /* End Choose African Ancestry Section */
+
+  /* Lasting Legacy Section */
+  .product-template-lasting-legacy-section .product-template-lasting-legacy-videos-desktop {
+    display: none;
+  }
+
+  .product-template-lasting-legacy-section .product-template-lasting-legacy-videos-mobile {
+    display: block;
+  }
+
+  .product-template-lasting-legacy-section h2.product-template-lasting-legacy-heading {
+    font-size: 36px;
+    padding: 9px;
+  }
+  .product-template-lasting-legacy-section .product-template-lasting-legacy-section-text p {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  /* End Lasting Legacy Section */
+
+  .how-it-works-corousel .slick-arrow {
+    right: 40%;
+    top: 88.5%;
+  }
+
+  .how-it-works-corousel .slick-arrow.slick-prev {
+    left: 40%;
+    top: 88%;
+  }
+  .product-what-you-get .what-you-get-image-box img {
+    height: 100%;
+    max-height: unset;
+  }
+
+/* End Choose African Ancestry Section */
+
+/* FAQ Section */
+.product-template-FAQs-section .product-template-FAQs-heading {
+  font-size: 36px;
+}
+.product-template-FAQs-section .product-template-section-FAQs-text p {
+  margin-top: 20px;
+}
+/* End FAQ Section */
+
+}
+
+@media screen and (min-width:768px) and (max-width: 991px) {
+
+/* Product Details Section */
+.new-product-template-products-details {
+  padding: 0 20px;
+}
+.banner-content .description.open p.product-desc-btn {
+  bottom: -35px;
+  padding: 0;
+}
+.banner-content .description p.product-desc-btn {
+  bottom: -25px;
+}
+/* .new-product-details-left .banner-img-svg {
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  left: 30px;
+} */
+
+.new-product-template-products-details .new-product-details-right {
+  padding: 0px 17px;
+}
+.new-product-template-products-details .new-product-details-right .banner_description {
+  font-weight: normal;
+}
+.new-product-template-products-details .new-product-details-right .banner_description .banner_description_span {
+  color: #6132c6;
+  font-weight: 500;
+}
+
+p.banner_description {
+  font-size: 14px;
+}
+
+.banner-content .description {
+  height: 17vh;
+}
+.new-product-template-products-details .new-product-details-right .title {
+  font-size: 36px;
+}
+.new-product-template-products-details .new-product-details-right .banner_description p {
+  font-size: 16px;
+  text-align: left;
+}
+.new-product-template-products-details .new-product-details-right .product_price {
+  margin: 20px 0;
+}
+.new-product-template-products-details .product-template-card-body {
+  padding: 10px 20px;
+}
+.new-product-template-products-details .button_bottom_text p {
+  font-size: 14px;
+  margin-top: -7px;
+}
+ .product-details .testimonial-info p ,
+ .product-details .family-member-details p {
+  font-size: 14px;
+}
+.product-details .family-member-details h5 {
+  font-size: 16px;
+}
+.product-details .product-testimonial-image-wrapper {
+  padding: 26px;
+  /* margin-top: 35px; */
+}
+.new-product-template-products-details .family-member-image img {
+  height: 50px;
+  width: 50px;
+}
+.new-product-template-products-details .product-template-card .collapse:not(.show) {
+  display: none;
+}
+/* .new-product-template-products-details .product-subtext ,
+.new-product-template-products-details .test-takers-text {
+  font-size: 14px;
+  text-align: center;
+} */
+.new-product-template-products-details .new-product-details-right .new-product-details-rating .rating{
+  max-width: 100%;
+}
+/* End Product Details Section */
+  
+/* How It Works Section */
+.product-how-it-works {
+  padding: 0 20px;
+}
+.how-it-works-corousel .item {
+  margin: 20px 18px;
+  padding: 15px 30px;
+}
+.how-it-works-corousel .slick-arrow.slick-prev {
+  left: 15px;
+}
+.how-it-works-corousel .slick-arrow {
+  right: 17px;
+}
+.how-it-works-corousel .item .image-box img {
+  width: 120px;
+  height: 120px;
+  top: 26%;
+  left: 22%;
+}
+.how-it-works-corousel .item .image-box{
+  margin-right: 35px;
+}
+.how-it-works-corousel .slick-list .content {
+  width: 60%;
+}
+/* .product-details .product-testimonial-wrapper-quote{
+  left: 11%;
+} */
+/* End How It Works Section */
+
+/* What You Get Section */
+.product-what-you-get .what-you-get-slider-title .section-heading{
+  font-size: 34px;
+  line-height: 35px;
+  width: 93%;
+}
+.product-what-you-get .what-you-get-slider-title p{
+  width: 86%;
+}
+.product-what-you-get .content-list{
+  width: 95%;
+  line-height: 25px;
+}
+.what-you-get-slider-wrapper .content-list li {
+  padding: 10px 0;
+  /* display: flex;  */
+}
+
+.product-what-you-get .protected-account-info {
+  padding: 0 14px;
+}
+
+/* End What You Get Section */
+
+/* About Your Roots Section  */
+.product-template-about-your-roots-section {
+  padding: 0 20px;
+}
+.product-template-about-your-roots-section .product-template-about-your-roots-videos-desktop {
+  display: none;
+}
+.product-template-about-your-roots-section .product-template-about-your-roots-videos-mobile {
+  display: block;
+}
+.product-template-about-your-roots-section .product-template-about-your-roots-section-text p {
+  /* font-size: 18px;
+  line-height: 40px; */
+  padding: 0 40px;
+}
+/* End About Your Roots Section  */
+
+/* Take The Right Video Section */
+.product-template-videos-section {
+  padding: 0 20px;
+}
+.product-template-videos-section .product-template-heading {
+  color: #2B206A;
+}
+.product-template-videos-section .product-template-videos iframe.lazyloaded {
+  width: 50%;
+  height: 300px;
+  border: 7px solid #FFF;
+}
+/* End Take The Right Video Section */
+
+/* Connection Past Present & Future Section */
+.product-connection-past-present-future .connection-main {
+  padding: 0 20px;
+}
+.product-connection-past-present-future .connection-main h2.connection_title {
+  font-size: 34px;
+}
+.product-connection-past-present-future p.connection_paragraph {
+  font-size: 16px;
+  line-height: 36px;
+  padding: 15px;
+}
+.product-connection-past-present-future .row.connection-images-wrapper {
+  margin: 0 -15px;
+  padding: 0;
+}
+.product-connection-past-present-future .connection-image-box {
+  padding: 0;
+}
+/* End Connection Past Present & Future Section */
+
+/* Choose African Ancestry Section */
+.product-choose-african-ancestry .choose-african-ancestry-main {
+  padding: 0 20px;
+}
+ .product-choose-african-ancestry .comparision-wrapper {
+  justify-content: space-evenly;
+}
+.product-choose-african-ancestry .compare-yourself,
+  .product-choose-african-ancestry .african-ancestry,
+  .product-choose-african-ancestry .other-companies {
+    width: 100%;
+    margin-right: 6px;
+    margin-left: 7px;
+  }
+ .product-choose-african-ancestry .compare-text {
+    width: 50%;
+  }
+.product-choose-african-ancestry h3.compare-heading, .product-choose-african-ancestry h3.african-ancestry-heading, .product-choose-african-ancestry h3.other-companies-heading {
+  font-size: 16px;
+}
+.product-choose-african-ancestry .compare-text p,
+.product-choose-african-ancestry .african-ancestry-text p,
+.product-choose-african-ancestry .other-companies-text p {
+  font-size: 16px;
+}
+.product-choose-african-ancestry .african-ancestry-text, .product-choose-african-ancestry .other-companies-text {
+  max-width: 85%;
+}
+.product-choose-african-ancestry h2.choose_african_ancestry_title {
+  font-size: 45px;
+}
+
+/* End Choose African Ancestry Section */
+
+/* FAQ Section */
+.product-template-FAQs-section {
+  padding: 0 20px;
+}
+.product-template-FAQs-section .product-template-FAQs-heading {
+  font-size: 28px;
+  line-height: 45px;
+}
+.product-template-FAQs-section .product-template-section-FAQs-text p {
+  line-height: 40px;
+  padding: 20px 0 0;
+}
+.product-template-FAQs-section .product-template-card .collapse:not(.show) {
+  display: none;
+}
+
+/* End FAQ Section */
+  
+/* Lasting Legacy Section */
+.product-template-lasting-legacy-section {
+  padding: 0 20px;
+}
+.product-template-lasting-legacy-section .product-template-lasting-legacy-videos-desktop {
+  display: none;
+}
+.product-template-lasting-legacy-section .product-template-lasting-legacy-videos-mobile {
+  display: block;
+}
+
+/* End Lasting Legacy Section */
+}
+
+
+@media screen and (max-width:390px) {
+
+  /* About Your Roots Section  */
+  .product-template-about-your-roots-section .product-template-about-your-roots-videos-mobile video {
+    height: 100%;
+  }
+
+  /* End About Your Roots Section  */
+
+  /* Lasting Legacy Section */
+  .product-template-lasting-legacy-section .product-template-lasting-legacy-videos-mobile video {
+    height: 100%;
+  }
+
+  .product-template-lasting-legacy-section .product-template-lasting-legacy-videos-mobile video {
+    height: 100%;
+  }
+
+  /* End Lasting Legacy Section */
+
+  .how-it-works-corousel .slick-arrow {
+    right: 38%;
+    top: 90.5%;
+  }
+  .how-it-works-corousel .slick-arrow.slick-prev {
+    left: 35%;
+    top: 90%;
+  }
+}
+
+/* product details */
+.banner-text-image-wrapper .banner-image-text span{
+  background-color: #2A2266;
+    color: #fff;
+    text-align: left;
+    border-radius: 5px;
+    padding: 6px 16px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.banner-text-image-wrapper {
+  background: #fff;
+  padding: 40px 40px 80px;
+  border-radius: 5px;
+}
+
+.banner-text-image-wrapper ul.slick-dots {
+  background: #f2f2f2;
+  border-radius: 20px;
+  padding: 8px;
+  width: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  bottom: -70px;
+}
+@media screen and (max-width: 1024px) {
+  .banner-text-image-wrapper ul.slick-dots {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .banner-text-image-wrapper {
+    padding: 20px 20px 60px;
+  }
+}
+@media screen and (max-width: 567px) {
+  .banner-text-image-wrapper ul.slick-dots {
+    width: 70%;
+  }
+}

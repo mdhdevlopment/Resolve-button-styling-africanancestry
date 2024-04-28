@@ -1,0 +1,8 @@
+{% unless template contains 'template-dynamic-data' or template contains 'v2-matriclan-landing' %}
+{{ 'bold-options.css' | asset_url | stylesheet_tag }}
+{{ 'https://option.boldapps.net/js/options.js' | script_tag }}
+{% endunless %}
+
+<script>
+    window.BOLD.common.cacheParams.options = 1714271120;
+</script>

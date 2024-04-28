@@ -1,0 +1,71 @@
+<!-- section/rwya-submenu.liquid -->
+{% section 'rwya-submenu' %}
+
+<div class="content">
+
+{% section 'new-slider' %}
+{% section 'remember-who-you-are' %}
+{% section 'merchandise' %}
+{% section 'watch-youtube-videos' %}
+{% section 'register-now' %}
+{% section 'learn-more' %}
+  
+</div>
+<style>
+ 
+</style>
+  <script>
+fbq('trackCustom', 'Summit Landing Page');
+  </script>
+
+<script>
+$(window).scroll(function(){
+  var header = $('#shopify-section-header').height();
+    if ($(window).scrollTop() >= header) {
+        $('.remember-submenu').addClass('fixed-header-submenu');
+    }
+    else {
+        $('.remember-submenu').removeClass('fixed-header-submenu');
+    }
+});
+</script>
+
+<style>
+  .fixed-header-submenu {
+  position: fixed;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color: #fff;
+    transition: all 0.4s ease;
+    top: 0;
+    z-index: 9999999;
+}
+  .watch-video-sec .slide-video-imgss .slick-track .slick-slide{opacity: 1 !important;left: auto !important;}
+  .watch-video-sec .video-sec{cursor: pointer !important;}
+  .svg-img-fluid{display:none;}
+</style>
+
+
+<script>
+  $(document).ready(function(){
+    $('body').on('click', '.video-content', function() {
+
+      var v_url = $(this).children('.video-sec').children('.video-thumbnail').children('.iframe_get_img').data('video-url');
+      var v_svg = $(this).children('.svg-img-fluid').children('img').attr('src');
+      var v_desc_heading = $(this).children('.video-sec').children('.description').children('h6').text();
+      var v_desc_content = $(this).children('.video-sec').children('.description').children('p').text();
+     // alert(v_url);
+      $('.video-upper-section .video-wrapper iframe').attr('src', v_url);
+      $('.video-upper-section .video-svg-title img').attr('src', v_svg);
+      $('.video-upper-section .description h6').text(v_desc_heading);
+      $('.video-upper-section .description p').text(v_desc_content);
+      $('.video-svg-title-mobile img').attr('src', v_svg);
+    //  $('.video-upper-section .video-wrapper iframe').play();
+      
+       var symbol = $(".video-upper-section #video1")[0].src.indexOf("?") > -1 ? "&" : "?";
+  //modify source to autoplay and start video
+  $(".video-upper-section #video1")[0].src += symbol + "rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0&autoplay=1";
+});
+    })
+</script>

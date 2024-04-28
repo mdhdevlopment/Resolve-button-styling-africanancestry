@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html
+  lang="{{ locale }}"
+  dir="{{ direction }}"
+  class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+    <!-- Google Optimize Install -->
+   <script src="https://cdn.pagesense.io/js/africanancestryinc/f4dc99c29bc34637932da05c2640a170.js"></script>
+
+{% unless template contains 'template-dynamic-data' or template contains 'v2-matriclan-landing' %}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5HMXJPV');</script>
+    <!-- End Google Tag Manager -->
+{% endunless %}
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    <style>
+      .variants {
+        padding: 10px 0;
+        display: none;
+      }
+      .single-option-selector {
+
+        border: 1px solid;
+        padding: 5px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: transparent;
+        background-image: url(data:image/svg+xml;utf8, <svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>) !important;
+        background-repeat: no-repeat;
+        background-position-x: 100%;
+        background-position-y: 5px;
+        border: 1px solid #dfdfdf;
+        border-radius: 2px;
+        height: 36px;
+        width: 150px;
+        font-size: 15px;
+      }
+      .promo-title {
+
+        text-align: center;
+      }
+      .product-title {
+        font-size: 21px;
+      }
+      .modal {
+        max-width: 42em;
+      }
+      .modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0 0 0 / 66%);
+        z-index: 999;
+        visibility: visible;
+        opacity: 100;
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+      }
+      .modal {
+        background: #fff;
+        -webkit-box-shadow: 0 5px 30px rgb(0 0 0 / 20%);
+        box-shadow: 0 5px 30px rgb(0 0 0 / 20%);
+        color: #545454;
+        min-height: auto;
+        visibility: visible;
+      }
+      .modal__content {
+        text-align: center;
+      }
+      .col-md-12 {
+        width: 100%
+      }
+      .font-weight-bold {
+        font-weight: 700 !important;
+      }
+      p.affirm-as-low-as.font-weight-bold {
+        margin: 1rem 0;
+        text-align: center;
+      }
+      .sidebar_extra_content_image {
+        display: flex;
+        justify-content: center;
+      }
+      .order-summary__sections {
+        height: auto;
+        border-bottom: 1px solid #E1E1E1;
+      }
+      .sidebar_extra_content_image img {
+        width: 75px;
+        height: 75px;
+        object-fit: contain;
+        padding: 0 20px;
+        margin: 20px 0;
+      }
+      .sidebar_extra_content_image_description p {
+        text-align: center;
+      }
+      .sidebar_extra_content_reviews_container {
+        margin: 30px 0;
+        border: 2px solid #6A2BCF;
+        padding: 10px;
+      }
+      .sidebar_extra_content_reviews {
+        display: inline-block;
+      }
+      .sidebar_extra_content_reviews_content {
+        float: right;
+        width: 70%;
+      }
+      .sidebar_extra_content_reviews_image {
+        width: 80px;
+        float: left;
+      }
+      .sidebar_extra_content_reviews_image img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+      }
+      .sidebar_extra_content_reviews_content p {
+        margin-bottom: 10px;
+      }
+      .sidebar_extra_content_images_container {
+        border-bottom: 1px solid #E1E1E1;
+        padding-bottom: 20px;
+      }
+      .sidebar_extra_content_reviews_content img {
+        width: 75px;
+        height: auto;
+        margin: 10px 0;
+      }
+      .sidebar_extra_content_image_description p img {
+        width: 30px;
+        margin: -8px 0;
+        border-radius: 50%;
+      }
+      @media screen and (max-width: 400px) {
+        .sidebar_extra_content_image img {
+          width: 65px;
+          height: 65px;
+          object-fit: contain;
+          padding: 0 15px;
+          margin: 15px 0;
+        }
+      }
+    </style>
+    {{ checkout_scripts }}
+
+    {% render 'shogun-head' %}
+
+    {% unless template contains 'template-dynamic-data' or template contains 'v2-matriclan-landing' %}
+    <!-- Route Code Edited 11/08/2021 -->
+    <script type="text/javascript" src="https://cdn.routeapp.io/route-widget-shopify/v2/route-widget-shopify-stable-v2.min.js" async></script>
+    <!-- Route Code End -->
+    {% endunless %}
+
+    <!-- Affirm -->
+    <script>
+      _affirm_config = {
+        public_api_key: "U3IMI6YUAZTP8YB3",
+        script: "https://cdn1.affirm.com/js/v2/affirm.js"
+      };
+      (function(l, g, m, e, a, f, b) {
+        var d,
+          c = l[m] || {},
+          h = document.createElement(f),
+          n = document.getElementsByTagName(f)[0],
+          k = function(a, b, c) {
+            return function() {
+              a[b]._.push([c, arguments])
+            }
+          };
+        c[e] = k(c, e, "set");
+        d = c[e];
+        c[a] = {};
+        c[a]._ = [];
+        d._ = [];
+        c[a][b] = k(c, a, b);
+        a = 0;
+        for (b = "set add save post open empty reset on off trigger ready setProduct".split(" "); a < b.length; a++) 
+          d[b[a]] = k(c, e, b[a]);
+        
+
+        a = 0;
+        for (b =["get", "token", "url", "items"]; a < b.length; a++) 
+          d[b[a]] = function() {};
+        ;;
+        h.async = !0;
+        h.src = g[f];
+        n.parentNode.insertBefore(h, n);
+        delete g[f];
+        d(g);
+        l[m] = c
+      })(window, _affirm_config, "affirm", "checkout", "ui", "script", "ready");
+
+// Use your live public API Key and https://cdn1.affirm.com/js/v2/affirm.js script to point to Affirm production environment.
+    </script>
+    <!-- End Affirm -->
+  
+    {% unless template contains 'template-dynamic-data' or template contains 'v2-matriclan-landing' %}
+      <!-- REAMAZE INTEGRATION START - DO NOT REMOVE -->
+{% render 'reamaze-config' %}
+{% render 'reamaze-sso' %}
+<!-- REAMAZE INTEGRATION END - DO NOT REMOVE -->
+    {% endunless %}
+    
+<!--Route Code Edited 12/12/2023-->
+<script type="text/javascript" src="https://cdn.routeapp.io/route-widget-shopify/v2/route-widget-shopify-stable-v2.min.js"></script>
+<!--End Route Code-->
+</head>
+  <body>
+    {{ skip_to_content_link }}
+
+    <header
+      class="banner"
+      data-header
+      role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+            {{ alternative_payment_methods }}
+            <p
+              class="affirm-as-low-as font-weight-bold"
+              data-page-type="checkout"
+              data-amount="{{ checkout.total_price }}"></p>
+            <!-- Route Code Edited 9/19/2023 -->
+            {% if content_for_layout contains 'data-step="contact_information"' %}
+            <div class="route-div" desktop-align="center" style="margin-bottom: -20px;"></div>
+            {% endif %}
+            <!-- Route Code End -->
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+
+          <!--
+          <div class="sidebar_extra_content">
+            <div class="sidebar_extra_content_images_container">
+              <div class="sidebar_extra_content_image">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African-Ancestry-Black-Owned_1_jersjm.png?v=1673437431" alt="" />
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Discover-specific-ethnic-group_njhzen.png?v=1673437431" alt="" />
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African-Ancestry-Highly-Accurate-Results_1_ftfyoe.png?v=1673437431" alt="" />
+              </div>
+              <div class="sidebar_extra_content_image_description">
+                <p>
+                  <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/green-checkmark.png?v=1673440555" alt="" />
+                  Based on 600+ verified reviews
+                </p>
+              </div>
+            </div>
+            <div class="sidebar_extra_content_reviews_container">
+              <div class="sidebar_extra_content_reviews">
+                <div class="sidebar_extra_content_reviews_image">
+                  <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Review_1.jpg?v=1668149760" alt="" />
+                </div>
+                <div class="sidebar_extra_content_reviews_content">
+                  <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/purple-star.png?v=1673440373" alt="" />
+                  <p class="sidebar_extra_content_reviews_content_name">Verified reviewer</p>
+                  <p class="sidebar_extra_content_reviews_content_description">I liked everything about the experience and getting to find
+                    out my roots. It will save my generations to come.</p>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar_extra_content_reviews_container">
+              <div class="sidebar_extra_content_reviews">
+                <div class="sidebar_extra_content_reviews_image">
+                  <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Review_2.jpg?v=1668149760" alt="" />
+                </div>
+                <div class="sidebar_extra_content_reviews_content">
+                  <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/purple-star.png?v=1673440373" alt="" />
+                  <p class="sidebar_extra_content_reviews_content_name">Verified reviewer</p>
+                  <p class="sidebar_extra_content_reviews_content_description">We(African Americans) have lived so long with
+                    misinformation about our lineage and culture. It was very
+                                                          satisfying to have that aha....moment that brings it all
+                                                          together.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          -->
+        </aside>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div id="modal" class="modal-backdrop">
+      <div class="modal">
+        <div class="modal__header">
+          <div class="modal__header__title">
+            <h2 id="promo-title" class="promo-title">Works!</h2>
+          </div>
+        </div>
+        <div class="modal__content">
+          <div class="p-image">
+            <img
+              id="upsell-image"
+              src="https://via.placeholder.com/300"
+              class="responsive" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+            <div>
+              <p style="padding: 10px;">
+                <span id="product-title" class="product-title">Product Title</span>
+              </p>
+
+              <div class="variants">
+                <p>Choose your option:</p>
+                <select id="variant-selector" class="single-option-selector"></select>
+              </div>
+              <button
+                href=""
+                id="get-item"
+                class="btn"
+                aria-busy="false">
+                <span class="btn__content" data-continue-button-content="true">Get this item</span>
+                <svg
+                  class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button"
+                  aria-hidden="true"
+                  focusable="false">
+                  <use xlink:href="#spinner-button"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12"></div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <script>
+
+
+      var pExist;
+
+      (function($) {
+
+        $(document).on("page:load page:change", function() {
+
+          console.log(checkItemExist());
+
+          $(".field__input-btn").click(function() {
+            console.log("Triggered");
+
+
+            if ($("#error-for-reduction_code").length === 0 && checkItemExist() == false) {
+
+
+
+              var promocode = $("#checkout_reduction_code").val();
+              switch (promocode) {
+
+                case 'FREETEE':
+
+// code block
+
+                  $.getJSON('/products/made-of-t-shirt.js', function(product) {
+
+                    $('#promo-title').html("Get your free t-shirt");
+                    $('#upsell-image').attr("src", product.featured_image);
+                    $('#product-title').html(product.title);
+
+// console.log(product.title);
+// console.log(product.variants.length);
+                    if (product.variants.length > 1) { // console.log(product.variants);
+                      product.variants.forEach((item) => {
+
+
+                        $('#variant-selector').append($('<option>', {
+                          value: item.id,
+                          text: item.title
+                        }));
+
+                      });
+
+                      $(".variants").show();
+
+                    }
+
+
+
+                  });
+                  $('#modal').show();
+                  console.log("{{ item.product_id }}");
+
+                  $("#get-item").click(function() {
+
+                    addItem($("#variant-selector :selected").val());
+
+
+                  });
+
+
+                  break;
+
+                default:
+
+// code block
+              }
+
+
+
+            }
+          });
+
+        });
+
+
+      })(Checkout.$);
+
+
+
+      function addItem(variant) {
+        let formData = {
+          'items': [
+            {
+              'id': variant,
+              'quantity': 1
+            }
+          ]
+        };
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        }).then(function(data) {
+
+// return response.json();
+          if (data.status == 200) {
+            window.location.href = "/checkout";
+            return
+          } else {
+            console.error('Request returned an error', data)
+          }
+
+        }).catch((error) => {
+          console.error('Error:', error);
+        });
+      }
+
+      function checkItemExist() {
+
+        var itemExist = false;{% for item in checkout.line_items %}console.log("{{ item.product.handle}}");
+
+          if ("{{ item.product.handle}}" == "made-of-t-shirt") {
+
+            itemExist = true;
+
+
+          }
+
+
+        {% endfor %}
+
+        return itemExist;
+
+      }
+    </script>
+
+    <script>
+
+      var selectCallback = function(variant, selector) {
+        alert("test from checkout after");
+
+// Affirm Promos: Monthly Payment Messaging, dynamic pricing embed code
+// 
+// NOTE: This Affirm embed code is only needed if you are using product variants.
+// 'selectCallback' might not be in your product.liquid template if product variants are not used or supported.
+// If you are using product variants in your shop, use the following code to dynamically update your Monthly Payment Messaging when the customer selects a different product variant.
+
+        $('.affirm-as-low-as').attr('data-amount', variant.price);
+        affirm.ui.refresh();
+
+      };
+    </script>
+
+    {{ tracking_code }}
+  </body>
+</html>

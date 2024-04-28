@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1950" height="736" viewBox="0 0 1950 736">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.004" y1="0.012" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0"/>
+      <stop offset="1" stop-color="#682ace"/>
+    </linearGradient>
+    <filter id="Path_930" x="0" y="0" width="1950" height="736" filterUnits="userSpaceOnUse">
+      <feOffset dy="10" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1544" data-name="Rectangle 1544" width="1920" height="706" transform="translate(0 5791)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Component_24_1" data-name="Component 24 – 1" transform="translate(15 5)">
+    <g transform="matrix(1, 0, 0, 1, -15, -5)" filter="url(#Path_930)">
+      <path id="Path_930-2" data-name="Path 930" d="M0,0H1920V706H0Z" transform="translate(15 5)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(0 -5791)" clip-path="url(#clip-path)">
+      <g id="Group_1345" data-name="Group 1345" transform="translate(-132.697 -113.697)">
+        <g id="Ellipse_27" data-name="Ellipse 27" transform="translate(1186.697 5998.697)" fill="none" stroke="#fff" stroke-width="30" opacity="0.1">
+          <circle cx="520.5" cy="520.5" r="520.5" stroke="none"/>
+          <circle cx="520.5" cy="520.5" r="505.5" fill="none"/>
+        </g>
+        <g id="Ellipse_28" data-name="Ellipse 28" transform="translate(1311.697 6123.697)" fill="none" stroke="#fff" stroke-width="30" opacity="0.2">
+          <circle cx="395.5" cy="395.5" r="395.5" stroke="none"/>
+          <circle cx="395.5" cy="395.5" r="380.5" fill="none"/>
+        </g>
+        <g id="Ellipse_29" data-name="Ellipse 29" transform="translate(1428.697 6240.697)" fill="none" stroke="#fff" stroke-width="30" opacity="0.3">
+          <circle cx="278.5" cy="278.5" r="278.5" stroke="none"/>
+          <circle cx="278.5" cy="278.5" r="263.5" fill="none"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

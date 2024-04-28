@@ -1,0 +1,144 @@
+<div class="sidebar-wrapper">
+  <div class="block">
+    <div class="block-title">
+      <h3 class="mt-0">Recent Posts</h3>
+    </div>
+    <div class="block-content blogs-items">
+      <ul class="list-unstyled mb-0">
+        {% for article in blogs[blog.handle].articles limit:6 %}
+        <li>
+          <div class="post-image">
+            {% if article.image %}
+            {% capture img_id %}ArticleImage-{{ section.id }}--{{ article.image.id }}{% endcapture %}
+            {% capture wrapper_id %}ArticleImageWrapper-{{ section.id }}--{{ article.image.id }}{% endcapture %}
+            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            {%- assign image_alt = article.title | escape -%}
+            {% include 'image-style' with image: article.image, width: 845, height: 1024, wrapper_id: wrapper_id, img_id: img_id %}
+
+            <img id="{{ img_id }}" 
+                 class="article__image lazyload"
+                 src="{{ article.image | img_url: '1024x1024' }}"
+                 data-src="{{ img_url }}"
+                 data-widths="[90, 120, 150, 180, 360, 480, 600, 750, 940, 1080, 1296]"
+                 data-aspectratio="{{ article.image.aspect_ratio }}"
+                 data-sizes="auto"
+                 alt="{{ image_alt }}"
+                 loading="lazy" 
+                 width="{{ article.image.width }}"
+                 height="{{ article.image.height }}"
+                >
+            {% endif %}
+          </div>
+          <a href="{{ article.url }}">{{ article.title }}</a>
+          <div class="post-time">
+            <span class="blog_author">
+              <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>
+            </span>
+            <div class="clear"></div>
+          </div>
+        </li>
+        {% endfor %}
+        
+      </ul>
+    </div>
+  </div>
+  
+  {% if blog.all_tags.size > 0 %}
+  <div class="block">
+    <div class="block-title">
+      <h3>Tag Cloud</h3>
+    </div>
+    <div class="block-content">
+      <ul class="no-bullets blog-tags clearfix list-unstyled">
+        {% for tag in blog.all_tags %}
+        {% if current_tags contains tag %}
+        <li>{{ tag }}</li>
+        {% else %}
+        <li>{{ tag | link_to_tag: tag }}</li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+  
+  
+ 
+  
+<div class="block bestseller">
+<div class="block-title">
+      <h3>Featured</h3>
+    </div> 
+    <div class="category-products">
+      <div class="category-products-slider owl-carousel owl-theme">
+         {% for product in collections["featured-on-blog"].products %}
+         {% cycle '<div class="item">','','' %}
+            <!-- product -->
+          <div class="item-area">
+          <div class="product-image-area">
+            <a href="{{product.url}}" class="product-image">
+              <img data-src="{{ product.featured_image.src | img_url: '150x150' }}" alt="{{product.title}}" class="img-responsive main lazypreload lazyloaded" style="" src="{{ product.featured_image.src | img_url: '150x150' }}" loading="lazy" 
+                width="{{ product.featured_image.width }}"
+                height="{{ product.featured_image.height }}">
+            </a>
+          </div>
+          <div class="details-area">
+            <h2 class="product-name">
+              <a href="{{product.url}}">
+                
+                {{product.title}}
+                
+              </a>
+            </h2>
+            <div class="ratings">
+              <div class="rating-box">
+                <div class="d-flex">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              </div>
+              
+              <div class="total-reviews">
+              25 Reviews
+              </div>
+              
+            </div>
+            <div class="price-box">
+              <div class="price">
+                
+                
+                <span class="money">{{ product.price | money }}</span>
+                
+                
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+     {% cycle '','','</div>' %} 
+     {% endfor %}
+        
+     </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.category-products-slider').slick({
+  infinite: true,
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true
+});
+</script>
+
+

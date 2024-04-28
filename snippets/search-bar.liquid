@@ -1,0 +1,60 @@
+{% comment %}
+
+  A snippet to include a search bar anywhere in your theme.
+  Note we are using 'input-group' for the layout. Look under Forms > Input Groups for some demos.
+
+  More information:
+   - http://docs.shopify.com/themes/liquid-variables/search
+
+  To return only products in results:
+    - http://docs.shopify.com/manual/configuration/store-customization/return-only-product-in-storefront-search-results
+    - Or manually add type=product to the search URL as a query parameter
+    - Uncomment hidden input with value="product" below
+
+{% endcomment %}
+
+<div class="modal fade" id="search-bl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body pt-4">
+<!--         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>  -->
+{% if search-bar == 'header' %}
+  <form action="/search" method="get" class="header-bar__search-form clearfix" role="search">
+    {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+    <button type="submit" class="btn icon-fallback-text header-bar__search-submit">
+      <span class="icon icon-search" aria-hidden="true"></span>
+      <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+    </button>
+    <input type="search" name="q" value="{{ search.terms | escape }}" aria-label="{{ 'general.search.placeholder' | t }}" class="header-bar__search-input form-control" placeholder="{{ 'general.search.placeholder' | t }}">
+  </form>
+{% else %}
+  <form action="/search" method="get" class="input-group search-bar" role="search">
+    {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+    
+<!--     <span class="input-group-btn">
+      <button type="submit" class="btn icon-fallback-text">
+        <span class="icon icon-search" aria-hidden="true"></span>
+        <span class="fallback-text">{{ 'general.search.submit' | t }}</span>
+      </button>
+    </span> -->
+    
+    <div class="input-group search-f">
+  <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" class="input-group-field form-control form-control-lg rounded-0" aria-label="{{ 'general.search.placeholder' | t }}" placeholder="{{ 'general.search.placeholder' | t }}">
+  <div class="input-group-append">
+     <button type="submit" class="btn icon-fallback-text btn-lg position-absolute">
+      <i class="fas fa-search" aria-hidden="true"></i>
+   </button>
+    
+  </div>
+</div>
+    
+    
+    
+  </form>
+{% endif %}
+         </div>
+    </div>
+  </div>
+</div>

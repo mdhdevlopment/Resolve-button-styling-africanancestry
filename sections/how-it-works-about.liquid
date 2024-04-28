@@ -1,0 +1,59 @@
+<section class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-12">
+        <div class="story-text">
+          <h2>{{section.settings.how_it_works_title}}</h2>
+          <p>{{section.settings.how_it_works__sub_title}}</p>
+          <a href="{{section.settings.how_it_works__button_link}}" class="btn-defult-pink">{{section.settings.how_it_works__button_text}}</a>
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex align-items-center justify-content-center">
+        <div class="story-img">
+          <img src="{{ section.settings.how_it_works__right_img | img_url: 'original' }}"  alt="africa" class="img-fluid d-block mx-auto" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+        </div>
+      </div>
+    </div>
+  </div>    
+</section>
+
+{% schema %}
+  {
+    "name": "How it Works Section 1",
+    "settings": [
+    {
+      "id": "how_it_works_title",
+      "type": "text",
+      "label": "Title",
+      "default": "Title" 
+    },
+    {
+      "id": "how_it_works__sub_title",
+      "type": "textarea",
+      "label": "Sub Title"
+    },
+    {
+      "id": "how_it_works__button_text",
+      "type": "text",
+      "label": "Button Text"
+    },
+    {
+      "id": "how_it_works__button_link",
+      "type": "url",
+      "label": "Button URL"
+    },
+    {
+      "id": "how_it_works__right_img",
+      "type": "image_picker",
+      "label": "Right Image"
+    }
+    
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

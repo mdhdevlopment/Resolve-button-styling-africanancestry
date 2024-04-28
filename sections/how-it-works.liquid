@@ -1,0 +1,167 @@
+{% case section.blocks.size %}
+{% when 1 %}
+{%- assign col_size = 'col-md-12' -%}
+{%- assign collection_width = 625 -%}
+{% when 2 %}
+{%- assign col_size = 'col-md-6' -%}
+{%- assign collection_width = 625 -%}
+{% when 3 %}
+{%- assign col_size = 'col-md-4' -%}
+{%- assign collection_width = 410 -%}
+{% when 4 %}
+{%- assign col_size = 'col-md-3' -%}
+{%- assign collection_width = 330 -%}
+{% endcase %}
+
+<style>
+  .how-it-works {
+  /*  background-image: url(""); */
+    background-size: cover;
+    padding-bottom: 60px;
+    background-color: #682acd;
+  }
+  .hiw-info {
+    background-image: url("{{ section.settings.subcopy_bg | asset_url }}");
+    background-size: cover;
+    padding-bottom: 60px;
+    background-position: bottom;
+  }
+</style>
+<div class="how-it-works" style="text-align: {{ section.settings.justify_homecopy }}">
+ <!-- <img src="{{ section.settings.hiw_bg | asset_url }}"/> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ section.settings.howitworks_title }}</h2>
+        <p class="how-it-works-copy">{{ section.settings.howitworks_copy }}</p>
+      </div>
+      <ul class="list-inline" >
+        {% for block in section.blocks limit: section.blocks.size %}
+
+          {% if block.settings.image != blank or block.settings.svg_image != blank %}
+            <li class="{{ col_size }} block{% increment count %}" >
+              {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+                <noscript>
+                  {{ block.settings.image | img_url: '1024x' | img_tag: block.settings.image.alt }}
+                </noscript>
+                <div class="gallery__image-container">
+                  <div class="gallery__image-wrapper">
+
+                    {%- if block.settings.svg_image != blank -%}
+                      {% assign img_url =  block.settings.svg_image | asset_url %}
+                      {%- elsif block.settings.image != blank -%}
+                      {% assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                    {%- endif -%}
+
+                    <img class="lazyload"
+                         src="{{ img_url }}"
+                         data-src="{{ img_url }}"
+                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                         data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                         data-sizes="auto"
+                         alt="{{ block.settings.image_alt | escape }}" loading="lazy" width="{{ img_url.width }}" height="{{ img_url.height }}">
+                  </div>
+                </div>
+                {% if block.settings.link != blank %}</a>{% endif %}
+              <p class="step-copy"> {{ block.settings.step_copy }}</p>
+            </li>
+          {% endif %}
+
+        {% endfor %}
+      </ul>
+      <div class="col-md-12">
+        <div class="hiw-info">
+          <h3 class="safe">
+            Safe, Easy, And Painless.
+          </h3>
+          <p class="safe-block-text">We extract your DNA and compare it against the world’s largest database of African DNA.</p>
+        </div>
+        
+ <!-- <a href="#" class="btn btn-xl btn-default btn-light">How it works</a> -->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+  "name": "How It Works",
+  "class": "index-section",
+  "settings": [
+  {
+  "type": "textarea",
+  "id": "howitworks_title",
+  "label": "Title",
+  "default": "How it Works"
+  },
+  {
+  "type": "textarea",
+  "id": "howitworks_copy",
+  "label": "Content",
+  "default": "Add keyword targeted text about your website here"
+  },
+  {
+  "type": "text",
+  "id": "hiw_bg",
+  "label": "Section Background",
+  "default": "hiw_bg.svg"
+  },
+  {
+  "type":      "select",
+  "id":        "justify_homecopy",
+  "label":     "Justify Text",
+  "options": [
+  {"value": "left","label": "Left"},
+  {"value": "center","label": "Center"},
+  {"value": "right","label": "Right"}
+  ],
+  "default":   "left",
+  "info":      "Left"
+  },
+  {
+  "type": "text",
+  "id": "subcopy_bg",
+  "label": "Sub Copy Background",
+  "default": "sub-copy-bg.svg"
+  }
+
+  ],
+  "max_blocks": 4,
+  "blocks": [
+  {
+  "type": "image",
+  "name": "Image",
+  "settings": [
+  {
+  "type": "image_picker",
+  "id": "image",
+  "label": "Image"
+  },
+  {
+  "type": "text",
+  "id": "svg_image",
+  "label": "SVG File Name"
+  },
+  {
+  "type": "textarea",
+  "id": "step_copy",
+  "label": "Step Copy"
+  },
+  {
+  "type": "text",
+  "id": "image_alt",
+  "label": "Image Alt Tag"
+  }
+  ]
+  }
+  ],
+  "presets": [
+  {
+  "name": "How It Works",
+  "category": "Text"
+  }
+  ]
+  }
+{% endschema %}
+

@@ -1,0 +1,91 @@
+{% if section.settings.sticky_menu_enable == true %}
+
+<div class="remember-submenu rwya-submenu-desktop" id="myHeader">
+  
+<ul class="navbar-nav row justify-content-center" role="navigation" id="AccessibleNav">
+  {% for block in section.blocks limit:4 %}
+      <li class="nav-item ">
+        <a href="{{ block.settings.link }}" class="nav-link">{{ block.settings.linktext }}</a>
+      </li>
+  {% endfor %}
+</ul>
+  
+</div>
+
+<div class="remember-submenu rwya-submenu-mobile" style="display:none;" id="myHeader">
+  
+<ul class="navbar-nav row justify-content-center" role="navigation" id="AccessibleNav">
+  {% for block in section.blocks %}
+  {% if block.type == 'sticky-menu-mobile' %}
+      <li class="nav-item ">
+        <a href="{{ block.settings.link-mobile }}" class="nav-link">{{ block.settings.linktext-mobile }}</a>
+      </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+  
+</div>
+
+{% endif %}
+
+{% schema %}
+  {
+    "name": "Sticky Sub Memu",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sticky_menu_enable",
+        "label": "Stick Sub Menu (Enable/Disable)"
+      }    
+   ],
+
+    "blocks": [
+        {
+          "type": "sticky-menu",
+          "name": "Submenu (Desktop)",
+          "settings": [
+            {
+              "type": "header",
+              "content": "Sticky Submenu (Desktop)"
+            },
+            {
+              "id": "linktext",
+              "type": "text",
+              "label": "Link Text"
+            },
+            {
+              "id": "link",
+              "type": "url",
+              "label": "URL"
+            }
+          ]
+        },
+        {
+              "type": "sticky-menu-mobile",
+              "name": "Submenu (Mobile)",
+              "settings": [
+                  {
+                     "type": "header",
+                     "content": "Sticky Submenu (Mobile)"
+                  },
+                  {
+                    "id": "linktext-mobile",
+                    "type": "text",
+                    "label": "Link Text"
+                  },
+                  {
+                    "id": "link-mobile",
+                    "type": "url",
+                    "label": "URL"
+                  }
+              ]
+          }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

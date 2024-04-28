@@ -1,0 +1,71 @@
+<div class="product-template-lasting-legacy-section">
+  <div class="page-width">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-template-lasting-legacy-content__wrapper">
+          <div class="product-template-about-your-roots-head">
+            {% if section.settings.product_template_lasting_legacy_head %}
+              <h2 class="product-template-lasting-legacy-heading">{{ section.settings.product_template_lasting_legacy_head }}</h2>
+            {% endif %}
+            {% if section.settings.product_template_lasting_legacy_text %}
+              <div class="product-template-lasting-legacy-section-text">
+                <p>{{ section.settings.product_template_lasting_legacy_text }}</p>
+              </div>
+            {% endif %}
+          </div>
+          {% if section.settings.video_url %}
+            <div class="product-template-lasting-legacy-videos-desktop">
+              <video width="560" height="315" autoplay loop muted playsinline webkit-playsinline>
+                <source src="{{ section.settings.video_url }}" type="video/webm">
+                <source src="{{ section.settings.video_url }}" type="video/mp4">
+              </video>
+            </div>
+          {% endif %}
+          {% if section.settings.mobile_video_url %}
+            <div class="product-template-lasting-legacy-videos-mobile">
+              <video width="100%" height="850" autoplay loop muted playsinline webkit-playsinline>
+                <source src="{{ section.settings.mobile_video_url }}" type="video/webm">
+                <source src="{{ section.settings.mobile_video_url }}" type="video/mp4">
+              </video>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Lasting Legacy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_template_lasting_legacy_head",
+      "label": "Title",
+      "default": "A Lasting Legacy For Your Whole Family"
+    },
+    {
+      "type": "text",
+      "id": "product_template_lasting_legacy_text",
+      "label": "Content",
+      "default": "Your results apply to everyone who shares your maternal lineage."
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "mobile_video_url",
+      "label": "Mobile Video URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Lasting Legacy"
+    }
+  ]
+}
+{% endschema %}

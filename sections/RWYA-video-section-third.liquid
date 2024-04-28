@@ -1,0 +1,274 @@
+<!-- html Start -->
+
+<section class="watch-video-sec celebrage3_wrapbg">
+  	<div class="container">
+      <div class="row justify-content-center">
+        	<div class="col-md-12 col-lg-8">
+              	<div class="video-content my-5 text-center">
+                  <h2 class="bold">{{ section.settings.title_video_section }}</h2>
+                  <p class="my-2 regular">
+                    {{ section.settings.sub_title_video_section }}
+                  </p>
+              	</div>
+     		 </div>     
+ 	  </div>
+      <div class="row justify-content-center">
+        
+        	{% for block in section.blocks %}
+        	<div class="col-md-6">
+              	<div class="video-content my-3 text-center">
+                  
+                  
+                  <div class="svg-title">
+                    {% if block.settings.svg_title_text != blank %}
+                      {{block.settings.svg_title_text}}
+                    {% else %}
+                     {% assign svg_image_url = block.settings.svg_image %}
+                     <img src="{{ svg_image_url | asset_url }}" class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+                    {% endif %}
+                  </div>
+                  
+                  <div class="video-sec">
+                    <div class="video-wrapper">
+                      <iframe width="100%" height="300" src="{{ block.settings.video_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+                    <div class="description mt-3">
+                      <h6>{{ block.settings.video_title }}</h6>
+                      <p>{{ block.settings.video_sub_title }}</p>
+                    </div>
+              	  </div>
+     		    </div> 
+            </div>
+        	{% endfor %}
+       
+ 	  </div>
+  </div>
+</section>
+
+<!-- html End -->
+
+{% schema %}
+{
+  "name": "RWYA Video Section Third", 
+  "settings": [
+    {
+      "id": "title_video_section",
+      "type": "text",
+      "label": "Title",
+      "default": "Title" 
+    },
+    {
+      "id": "sub_title_video_section",
+      "type": "html",
+      "label": "Sub Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "YouTube Video", 
+      "limit": 3,
+      "settings": [
+       {
+          "id": "svg_title_text",
+          "type": "text",
+       	  "label": "Add Text Title"
+        },
+        {
+          "id": "svg_image",
+          "type": "text",
+       	  "label": "Add Image (SVG)"
+        },
+        {
+          "id": "video_url",
+          "type": "text",
+       	  "label": "Youtube URL"
+        },
+        {
+          "id": "video_title",
+          "type": "text",
+          "label": "Video Title"
+        },
+       {
+          "id": "video_sub_title",
+          "type": "richtext",
+          "label": "Sub Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "RWYA Video Section Third",
+      "category": "New Sections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+{% comment %}
+<script>  
+  $(document).ready(function(){
+									var video1 = document.getElementById("ban_video_1");
+									video1.currentTime = 0;
+									$(".mute-bt_1").click(function(){
+										 if($(this).hasClass("stop"))
+										 {
+											 var ban_video = document.getElementById("ban_video_1");
+											 $("#ban_video_1").prop('muted', false);
+											 $(this).removeClass("stop");
+										 }
+										 else{
+											 var ban_video = document.getElementById("ban_video_1");
+											 $("#ban_video_1").prop('muted', true);
+											 $(this).addClass("stop");
+										 }
+                                     });
+									 
+                                     $(".play-bt_1").click(function(){
+                                         $(".play-bt_1").hide();
+										 $(".pause-bt_1").show();
+                                         var ban_video = document.getElementById("ban_video_1");
+										 if($(".stop-bt_1").hasClass("active")){
+											 ban_video.currentTime = 0;
+										 }
+                                         ban_video.play();                                         
+                                     });
+									 $(".pause-bt_1").click(function(){
+                                         $(".play-bt_1").show();
+										 $(".pause-bt_1").hide();
+										 $(".pause-bt_1").addClass("active");
+										 $(".stop-bt_1").removeClass("active");
+                                         var ban_video = document.getElementById("ban_video_1");
+                                         ban_video.pause();                                         
+                                     });
+									 $(".stop-bt_1").click(function(){
+                                         $(".play-bt_1").show();
+										 $(".pause-bt_1").hide();
+										 $(".pause-bt_1").removeClass("active");
+										 $(".stop-bt_1").addClass("active");
+                                         var ban_video = document.getElementById("ban_video_1");
+										 ban_video.currentTime = 0;
+                                         ban_video.pause();                                         
+                                     });
+    
+    
+    
+  
+    
+								});	 
+</script>
+
+<script>
+  
+  $(document).ready(function(){
+									var video1 = document.getElementById("ban_video_3");
+									video1.currentTime = 0;
+									$(".mute-bt_3").click(function(){
+										 if($(this).hasClass("stop"))
+										 {
+											 var ban_video = document.getElementById("ban_video_3");
+											 $("#ban_video_3").prop('muted', false);
+											 $(this).removeClass("stop");
+										 }
+										 else{
+											 var ban_video = document.getElementById("ban_video_3");
+											 $("#ban_video_3").prop('muted', true);
+											 $(this).addClass("stop");
+										 }
+                                     });
+									 
+                                     $(".play-bt_3").click(function(){
+                                         $(".play-bt_3").hide();
+										 $(".pause-bt_3").show();
+                                         var ban_video = document.getElementById("ban_video_3");
+										 if($(".stop-bt_3").hasClass("active")){
+											 ban_video.currentTime = 0;
+										 }
+                                         ban_video.play();                                         
+                                     });
+									 $(".pause-bt_3").click(function(){
+                                         $(".play-bt_3").show();
+										 $(".pause-bt_3").hide();
+										 $(".pause-bt_3").addClass("active");
+										 $(".stop-bt_3").removeClass("active");
+                                         var ban_video = document.getElementById("ban_video_3");
+                                         ban_video.pause();                                         
+                                     });
+									 $(".stop-bt_3").click(function(){
+                                         $(".play-bt_3").show();
+										 $(".pause-bt_3").hide();
+										 $(".pause-bt_3").removeClass("active");
+										 $(".stop-bt_3").addClass("active");
+                                         var ban_video = document.getElementById("ban_video_3");
+										 ban_video.currentTime = 0;
+                                         ban_video.pause();                                         
+                                     });
+    
+    
+    
+  
+    
+								});	 
+</script>
+
+
+<script>
+  
+  $(document).ready(function(){
+									var video1 = document.getElementById("ban_video_2");
+									video1.currentTime = 0;
+									$(".mute-bt_2").click(function(){
+										 if($(this).hasClass("stop"))
+										 {
+											 var ban_video = document.getElementById("ban_video_2");
+											 $("#ban_video_2").prop('muted', false);
+											 $(this).removeClass("stop");
+										 }
+										 else{
+											 var ban_video = document.getElementById("ban_video_2");
+											 $("#ban_video_2").prop('muted', true);
+											 $(this).addClass("stop");
+										 }
+                                     });
+									 
+                                     $(".play-bt_2").click(function(){
+                                         $(".play-bt_2").hide();
+										 $(".pause-bt_2").show();
+                                         var ban_video = document.getElementById("ban_video_2");
+										 if($(".stop-bt_2").hasClass("active")){
+											 ban_video.currentTime = 0;
+										 }
+                                         ban_video.play();                                         
+                                     });
+									 $(".pause-bt_2").click(function(){
+                                         $(".play-bt_2").show();
+										 $(".pause-bt_2").hide();
+										 $(".pause-bt_2").addClass("active");
+										 $(".stop-bt_2").removeClass("active");
+                                         var ban_video = document.getElementById("ban_video_2");
+                                         ban_video.pause();                                         
+                                     });
+									 $(".stop-bt_2").click(function(){
+                                         $(".play-bt_2").show();
+										 $(".pause-bt_2").hide();
+										 $(".pause-bt_2").removeClass("active");
+										 $(".stop-bt_2").addClass("active");
+                                         var ban_video = document.getElementById("ban_video_2");
+										 ban_video.currentTime = 0;
+                                         ban_video.pause();                                         
+                                     });
+    
+    
+    
+  
+    
+								});	 
+</script>
+
+{% endcomment %}

@@ -1,0 +1,154 @@
+<div class="choose-african-ancestry-main">
+  <div class="page-width">
+    <div class="row">
+      <div class="col-md-12">
+        {% if section.settings.choose_african_ancestry_title != blank %}
+          <h2 class="choose_african_ancestry_title"> {{ section.settings.choose_african_ancestry_title }}</h2>
+        {% endif %}
+
+        <div class="comparision-wrapper">
+          <div class="compare-yourself" style="color: {{ section.settings.compare_yourself_text_color }}">
+            <h3 class="compare-heading" style="background-color:{{ section.settings.compare_yourself_text_color }}">Compare For YourSelf</h3>
+            <i class="fa fa-caret-down" aria-hidden="true" style="color: {{ section.settings.compare_yourself_text_color }}"></i>
+            {% for block in section.blocks limit: section.blocks.size %}
+            <div class="compare-main">
+              <div class="compare-icon-text-wrapper">
+                  {%- if block.settings.icon_class != blank -%}
+                    <div class="compare-icon">
+                      <i class="fa fa-{{ block.settings.icon_class }}" aria-hidden="true"></i>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.compare_text != blank %}
+                    <div class="compare-text">
+                      <p>{{ block.settings.compare_text }}</p>
+                    </div>
+                  {% endif %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="african-ancestry" style="color: {{ section.settings.african_ancestry_color }}">
+            <h3 class="african-ancestry-heading" style="background-color:{{ section.settings.african_ancestry_color }}">African Ancestry</h3>
+
+            <i class="fa fa-caret-down" aria-hidden="true" style="color: {{ section.settings.african_ancestry_color }}"></i>
+            
+            {% for block in section.blocks limit: section.blocks.size %}
+            <div class="african-ancestry-main">
+              {% if block.settings.african_ancestry_text != blank %}
+                <div class="african-ancestry-text">
+                  <p>{{ block.settings.african_ancestry_text }}</p>
+                </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+
+          </div>
+          <div class="other-companies" style="color: {{ section.settings.other_companies_color }}">
+            <h3 class="other-companies-heading" style="background-color:{{ section.settings.other_companies_color }}">Other DNA Companies</h3>
+
+            <i class="fa fa-caret-down" aria-hidden="true" style="color: {{ section.settings.other_companies_color }}"></i>
+
+            
+            {% for block in section.blocks limit: section.blocks.size %}
+            <div class="other-companies-main">
+              {% if block.settings.other_dna_text != blank %}
+                <div class="other-companies-text">
+                  <p>{{ block.settings.other_dna_text }}</p>
+                </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</div>
+
+{% schema %}
+    {
+      "name": "Product Choose African",
+      "class": "product-choose-african-ancestry",
+      "settings": [
+          {
+            "type": "text",
+            "id": "choose_african_ancestry_title",
+            "label": "Title",
+            "default": "better. bolder. blacker choose african ancestry"
+          },
+          {
+            "type": "color",
+            "id": "compare_yourself_text_color",
+            "label": "Compare YourSelf Block Text Color",
+            "default": "#ff7051"
+          },
+          {
+            "type": "color",
+            "id": "african_ancestry_color",
+            "label": "African Ancestry Block Text Color",
+            "default": "#682ace"
+          },
+          {
+            "type": "color",
+            "id": "other_companies_color",
+            "label": "Other Companies Block Text Color",
+            "default": "#4d4d4d"
+          }
+      ],
+      "max_blocks": 10,
+      "blocks": [
+        {
+          "type": "image",
+          "name": "Comparision",
+          "settings": [
+            {
+              "type": "text",
+              "id": "icon_class",
+              "label": "FontAwesome Icon Class (e.g., 'address-book')"
+            },
+            {
+              "type": "textarea",
+              "id": "compare_text",
+              "label": "Compare YourSelf Text"
+            },
+            {
+              "type": "textarea",
+              "id": "african_ancestry_text",
+              "label": "African Ancestry Text"
+            },
+            {
+              "type": "textarea",
+              "id": "other_dna_text",
+              "label": "Other DNA Companies Text"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Product Choose African",
+          "blocks": [
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    }
+  {% endschema %}

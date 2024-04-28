@@ -1,0 +1,17 @@
+<div class="sticky-cart">
+    <div class="container">
+        <div class="content">
+
+            <form action="/cart" method="post">
+                            <span class="navbar-text">
+                  Proceed to checkout
+                </span>
+            <button type="submit" name="checkout" class="btn btn-primary" disabled>{{ 'cart.general.checkout' | t }}</button>
+
+            {% if additional_checkout_buttons %}
+                <div class="btn cart__additional_checkout">{{ content_for_additional_checkout_buttons }}</div>
+            {% endif %}
+            </form>
+        </div>
+    </div>
+</div>

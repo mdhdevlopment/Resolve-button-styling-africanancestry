@@ -1,0 +1,28 @@
+<div class="generic-info-main">
+    {% if section.settings.info_text != blank %}
+        <p>{{ section.settings.info_text }}</p>
+    {% endif %}
+</div>
+
+
+{% schema %}
+    {
+      "name": "Product Generic Info",
+      "tag": "section",
+      "class": "product-generic-information",
+      "settings": [
+        {
+          "type": "text",
+          "id": "info_text",
+          "label": "Information Text",
+          "default": "We destroy 100% of your DNA samples. We DO NOT sell or share your genetic information."
+        }
+      ],
+      "blocks": [],
+      "presets": [
+        {
+          "name": "Product Generic Info"
+        }
+      ]
+    }
+{% endschema %}

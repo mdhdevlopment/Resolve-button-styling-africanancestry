@@ -1,0 +1,86 @@
+<div class="page-width">
+    <div class="title-box">
+        {% if section.settings.heading_text != blank %}
+            <h2 class="section-title">{{ section.settings.heading_text }}</h2>
+        {% endif %}
+      <p class="subtitle">{{ section.settings.subtitle_text }}</p>
+    </div>
+    
+    <div class="how-it-works-corousel">
+      {% for block in section.blocks limit: section.blocks.size %}
+          <div class="item"> 
+            {% if block.settings.slider_images != blank %}
+              <div class="image-box">
+                <div class="corousel-left-images">
+                  {{ block.settings.slider_images }}
+                </div>
+              </div>
+            {% endif %}
+
+            <div class="content">
+              {% if block.settings.title != blank %}
+              <h3 class="title">{{ block.settings.title }}</h3>
+              {% endif %}
+              {% if block.settings.description != blank %}
+              <div class="description">
+                <p>{{ block.settings.description }}</p>
+              </div>
+              {% endif %}
+            </div>
+
+          </div>       
+      {% endfor %}
+    </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Product How It Works",
+  "tag": "section",
+  "class": "product-how-it-works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "how it works?"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_text",
+      "label": "Subtitle Text",
+      "default": "We each carry in our DNA a series of indicators that provide information about our ancestry. This information is passed from generation to generation and can tell a profound story about where we come from, and highlight our connections to modern-day Africa."
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "object",
+      "name": "Slider",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "html",
+          "id": "slider_images",
+          "label": "Slider Images Svg"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product How It Works"
+    }
+  ]
+}
+{% endschema %}

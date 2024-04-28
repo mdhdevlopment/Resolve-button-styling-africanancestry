@@ -1,0 +1,152 @@
+{% assign featured = section.settings.featured_collection %}
+{% assign products_per_row = section.settings.num_per_row %}
+{% assign rows = section.settings.num_rows %}
+{% assign total_products = products_per_row | times: rows %}
+<style>
+  .featured-products {
+    background-image: url("{{ section.settings.bg_svg | asset_url }}");
+    background-size: cover;
+    padding-bottom: 60px;
+    background-position: bottom;
+  }
+</style>
+<div data-section-id="{{ section.id }}" data-section-type="featured-products-section">
+  <div class="featured-products">
+
+    <div class="container" style="padding:20px 15px">
+      <div class="row" style="padding: 20px 0px;">
+        {% unless section.settings.title == blank %}
+              <h1 class="section-header__title" style="text-align:{{ section.settings.justify_homecopy }}">
+                {{ section.settings.title | escape }}
+              </h1>
+          <p class="sub-title" align="{{ section.settings.justify_homecopy }}">{{ section.settings.title_secondary | escape }}</p>
+
+        {% endunless %}
+        </div>
+
+        {% case products_per_row %}
+          {% when 3 %}
+            {% assign grid_item_width = 'col-md-4' %}
+            {%- assign product_width = 600 -%}
+          {% when 4 %}
+            {% assign grid_item_width = 'col-md-3' %}
+            {%- assign product_width = 335 -%}
+          {% when 5 %}
+            {% assign grid_item_width = 'medium-down--one-half post-large--one-fifth' %}
+            {%- assign product_width = 335 -%}
+        {% endcase %}
+
+        <div class="row products">
+            {% for block in section.blocks limit: total_products %}
+            {%- include 'bold-product' with product, hide_action: 'skip' -%}
+              {% assign featured = all_products[block.settings.feature_product_item] %}
+              {% assign alt_image = block.settings.alternate_image %}
+            <div class="{{grid_item_width}}" {{ block.shopify_attributes }}>
+              {% include 'featured-product-grid-item' %}
+            </div>
+          {% else %}
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% schema %}
+  {
+    "name": "Featured Products",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "First Heading",
+        "default": "Featured "
+      },
+      {
+      "type": "text",
+      "id": "title_secondary",
+      "label": "Second Heading",
+      "default": "Products"
+      },
+      {
+        "type": "text",
+        "id": "bg_svg",
+        "label": "Background SVG",
+        "default": "featured-products.svg"
+      },
+      {
+        "type":      "select",
+        "id":        "justify_homecopy",
+        "label":     "Justify Text",
+        "options": [
+          {"value": "left","label": "Left"},
+          {"value": "center","label": "Center"},
+          {"value": "right","label": "Right"}
+        ],
+      "default":   "center",
+      "info":      "Center"
+      },
+      {
+        "type": "range",
+        "id": "num_per_row",
+        "label": "Products per row",
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "default": 3
+      },
+
+      {
+        "type": "range",
+        "id": "num_rows",
+        "label": "Rows",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 1
+      },
+      {
+        "type": "checkbox",
+        "id": "vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale_circle",
+        "label": "Show 'Sale' circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sold_out_circle",
+        "label": "Show 'Sold out' circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "center_grid_link",
+        "label": "Center text below product images"
+      }
+    ],
+  "blocks": [
+      {
+        "type":"featured_product",
+        "name": "Featured Products",
+        "settings": [
+                        {
+                        "type": "product",
+                        "id": "feature_product_item",
+                        "label": "Feature product"
+                        },
+                        {
+                        "type": "image_picker",
+                        "id": "alternate_image",
+                        "label": "Alternate Image"
+                        }
+          ]
+      }
+  ]
+
+
+  }
+{% endschema %}

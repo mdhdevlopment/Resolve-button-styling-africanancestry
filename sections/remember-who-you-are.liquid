@@ -1,0 +1,56 @@
+<!-- html Start -->
+<section class="remember-sec" id="rwya">
+  	<div class="container">
+      <div class="row">
+        	<div class="col-md-6">
+              {% if section.settings.left-image_02 != blank %}
+              {% assign svg_image_url = section.settings.left-image_02 %}
+              <div class="image-sec">
+                  <img class="img-fluid" src="{{ svg_image_url | asset_url }}" loading="lazy" alt="image" width="{{ svg_image_url.width }}" height="{{ svg_image_url.height }}">
+              </div>
+              {% endif %}
+            </div>
+        	<div class="col-md-6">
+              {% if section.settings.left-image_02 != '' %}
+              	<div class="remember-content my-5">
+                  {{ section.settings.right_content_02 }} 
+              </div>
+              {% endif %}
+            </div>
+      </div>
+      
+  </div>
+</section>
+
+
+<!-- html End -->
+
+{% schema %}
+{
+  "name": "Remember Who You Are",
+  "settings": [
+    {
+      "id": "left-image_02",
+      "type": "text",
+      "label": "Add Image (SVG)"
+    },
+    {
+      "id": "right_content_02",
+      "type": "html",
+      "label": "Add Html"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Remember Who You Are",
+      "category": "New Sections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

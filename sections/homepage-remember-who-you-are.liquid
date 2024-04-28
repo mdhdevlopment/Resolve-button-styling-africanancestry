@@ -1,0 +1,102 @@
+<div class="knowledge-is-power" style="background-image: url('{{ 'Group1713.svg' | asset_url }}');">
+  <div class="container">
+    <div class="row">
+      <div class="knowledge--content__wrapper">
+      {% if section.settings.remember_who_you_are_image != blank or section.settings.remember_who_you_are_svg_image != blank %}
+      {%- if section.settings.remember_who_you_are_svg_image != blank -%}
+           {% assign rem_img_url =  section.settings.remember_who_you_are_svg_image | asset_url %}
+        {%- elsif section.settings.remember_who_you_are_image != blank -%}
+            {% assign rem_img_url = section.settings.remember_who_you_are_image | img_url: '' %}
+        {%- endif -%}
+         <img alt="Remember Who You Are By African Ancestry" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ rem_img_url }}" loading="lazy" height="420" width="332">
+
+       {% endif %}  
+      </div>
+      <div class="knowledge-head">
+      <h2 class="section-heading">{{ section.settings.remember_who_you_are_title }}</h2>
+      <div class="section-text">
+        <p>{{ section.settings.remember_who_you_are_text }}</p>
+      </div>
+      </div>
+      <div class="knowledge-is-power__video">
+        <iframe title="African Video" width="1104" height="557" class="lazyload" data-src="{{ section.settings.remember_who_you_are_videourl }}">
+        </iframe>
+        <h3>{{ section.settings.remember_who_you_are_sub_title }}</h3>
+        <p>{{ section.settings.remember_who_you_are_sub_content }}</p>
+        <a href="{{ section.settings.remember_who_you_are_button_url }}" class="btn-defult-button">{{ section.settings.remember_who_you_are_button }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Remember who you are",
+    "settings": [
+          {
+            "type": "image_picker",
+            "id": "remember_who_you_are_image",
+            "label": "Image"
+          },                   
+          {
+            "type": "text",
+            "id": "remember_who_you_are_svg_image",
+            "label": "SVG File Name",
+            "default": "Group1705.svg"                       
+          },
+          {
+            "type": "text",
+            "id": "remember_who_you_are_title",            
+            "label": "Title",
+            "default": "Knowledge Is Power"            
+          },
+          {
+            "type": "text",
+            "id": "remember_who_you_are_text",            
+            "label": "Content",
+            "default": "Celebrate the roots of African people, places and spaces to find your greatness within."            
+          },
+          {
+            "type": "text",
+            "id": "remember_who_you_are_videourl",            
+            "label": "Video Url", 
+            "default": "https://m.youtube.com/watch?v=0r1RUoXvSCc"         
+          },
+          {
+            "type": "text",
+            "id": "remember_who_you_are_sub_title",            
+            "label": "Sub Title",
+            "default": "The Roots Of Selah Marley"            
+          },
+          {
+            "type": "text",
+            "id": "remember_who_you_are_sub_content",            
+            "label": "Sub Content",
+            "default": "Watch the daughter of Lauryn Hill and Rohan Marley discover her maternal ancestry"            
+          },
+          {
+            "type": "text",
+            "id": "remember_who_you_are_button",            
+            "label": "Button",
+            "default": "WATCH MORE"            
+          },
+          {
+            "type": "url",
+            "id": "remember_who_you_are_button_url",            
+            "label": "Button url"                    
+          }                 
+   ],
+   "presets": [
+    {
+    "name": "Remember who you are",
+    "category": "Text"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

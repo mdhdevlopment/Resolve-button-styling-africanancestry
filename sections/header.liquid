@@ -1,0 +1,334 @@
+<div data-section-id="{{ section.id }}" data-section-type="header-section">
+
+  <header class="site-header" role="banner">
+      <nav class="navbar navbar-expand-lg navbar-dark mobile-menu">
+        <div class="container">
+          <!-- Just an image -->
+          <nav class="navbar">
+              {% include 'header-logo' %}
+          </nav>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse mobile--navigation" id="navbar-main">
+                <div class="mobile--navigation__content">
+                    <a href="/" class="logo main-logo" rel="home"><img src="{{ 'mobile-logo.svg' | asset_url }}" class="logo-image" alt="African Ancestry Staging" loading="lazy" height="" width=""></a> 
+
+                    <div class="mobile--navigation__rightcontent">
+                      <div class="nav-item dropdown mobile-nav_item">
+                        <a href="/cart">
+                          <button class="bg-transparent border-0" type="button">
+                              <img src="{{ 'mob-cart-icon.svg' | asset_url }}" alt="cart" loading="lazy" height="34" width="34"/>
+                              <span class="bag-count">{{ cart.item_count }}</span>
+                          </button>
+                        </a>
+                      {% comment %} {% include 'mini-cart-drawer' %} {% endcomment %}
+                      </div>
+
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>  
+                    </div>
+                </div>
+                
+                   <div class="mobile-header-search">
+                  <form action="/search" method="get" class="header-bar__search-form clearfix" role="search">
+                    {% comment %}<input type="hidden" name="type" value="product">{% endcomment %}
+                    
+                    <input type="search" name="q" value="{{ search.terms | escape }}" aria-label="{{ 'general.search.placeholder' | t }}" class="header-bar__search-input form-control" placeholder="Search AfricanAncestry.com">
+                    <button type="submit" class="btn icon-fallback-text header-bar__search-submit">
+                        <img alt="African Ancestry" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'search-new.svg' | file_img_url }}" loading="lazy" height="" width="">                    
+                    </button>
+                  </form>
+                 </div>
+
+                {% include 'site-nav' with linklists[section.settings.nav_menu] %}
+               <!-- <ul class="navbar-nav">
+                    <li class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></li>
+                    <li class="nav-item nav-link" href="#">Features</li>
+                    <li class="nav-item nav-link" href="#">Pricing</li>
+                    <li class="nav-item nav-link disabled" href="#">Disabled</li>
+                </ul> -->
+
+          <div class="collapse navbar-collapse" id="navbar-right">
+                {% include 'site-nav-right' with linklists[section.settings.right_nav_menu] %}
+                <!-- <ul class="navbar-nav">
+                     <li class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></li>
+                     <li class="nav-item nav-link" href="#">Features</li>
+                     <li class="nav-item nav-link" href="#">Pricing</li>
+                     <li class="nav-item nav-link disabled" href="#">Disabled</li>
+                 </ul> -->
+
+            </div>
+            
+             <div class="nav_testimonial_wrapper">
+           <div class="nav_testimonial">
+              <h4><img alt="testimonial" src="{{ 'quote_icon_0d632552-f6c7-4c57-9d6c-e01c4c5aa572.png' | file_img_url }}" loading="lazy" height="" width="">Life Changing Test</h4>
+              <p>This was the best gift I could have ever purchased for myself, my daughter and my family members!</p>
+              <h5>- Jacqueline D. <img src="{{ 'Jacqueline-img.png' | file_img_url }}" loading="lazy" alt="testimonial" height="" width=""></h5>
+           </div>
+        </div>
+
+                  <div class="mobile--social_icons">
+                      <ul class="list-inline" >
+                          {% if settings.social_facebook_link %}
+                              <li class="list-inline-item"><a target="_blank" href='{{ settings.social_facebook_link }}'><i class="fab fa-facebook"></i></a></li>
+                          {% endif %}
+                          {% if settings.social_twitter_link != blank %}
+                              <li class="list-inline-item"><a target="_blank" href="{{ settings.social_twitter_link }}"><i class="fab fa-twitter"></i></a></li>
+                          {% endif %}
+                          {% if settings.social_pinterest_link != blank %}
+                              <li class="list-inline-item"><a target="_blank" href="{{ settings.social_pinterest_link }}"><i class="fab fa-pinterest"></i></a></li>
+                          {% endif %}
+                          {% if settings.social_instagram_link != blank %}
+                              <li class="list-inline-item"><a target="_blank" href="{{ settings.social_instagram_link }}"><i class="fab fa-instagram"></i></a></li>
+                          {% endif %}
+                          {% if settings.social_youtube_link != blank %}
+                              <li class="list-inline-item"><a target="_blank" href="{{ settings.social_youtube_link }}"><i class="fab fa-youtube"></i></a></li>
+                          {% endif %}
+                          {% if settings.social_vimeo_link != blank %}
+                              <li class="list-inline-item"><a target="_blank" href="{{ settings.social_vimeo_link }}"><i class="fab fa-vimeo"></i></a></li>
+                          {% endif %}
+                      </ul>
+                 </div>
+            </div>
+            
+          <div class="cart-container">
+            <ul class="cart-wrapper justify-content-end">
+
+              {% comment %} <div class="nav-item dropdown">
+                  <a href="/cart">
+                    <button class="bg-transparent border-0" type="button" >
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'cart-icon.svg' | asset_url }}" loading="lazy" height="34" width="34" alt="cart icon"/>
+                      <span class="bag-count">{{ cart.item_count }}</span>
+                    </button>
+                  </a>   
+              </div> {% endcomment %}
+
+              {% comment %} {{ section.blocks.app['CartDrawerOffer'].settings['cart-drawer-custom-cart-drawer'] | json }}
+
+              {% for block in section.blocks.app['CartDrawerOffer'] %}
+                {{ block.settings.cart-drawer-custom-cart-drawer | json }}
+              {% endfor %} {% endcomment %}
+
+              <div class="nav-item dropdown">
+                  <button class="bg-transparent border-0 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'cart-icon.svg' | asset_url }}" loading="lazy" height="34" width="34" alt="cart icon"/>
+                      <span class="bag-count">{{ cart.item_count }}</span>
+                  </button>
+                  {% include 'mini-cart-drawer' %}
+              </div>
+              {% comment %} {% if settings.cart-drawer-custom-cart-drawer != true %}
+                <div class="nav-item dropdown">
+                  <a href="/cart">
+                    <button class="bg-transparent border-0" type="button">
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'cart-icon.svg' | asset_url }}" loading="lazy" height="34" width="34" alt="cart icon"/>
+                      <span class="bag-count">{{ cart.item_count }}</span>
+                    </button>
+                  </a>
+                </div>
+              {% else %}
+                <div class="nav-item dropdown">
+                    <button class="bg-transparent border-0 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'cart-icon.svg' | asset_url }}" loading="lazy" height="34" width="34" alt="cart icon"/>
+                        <span class="bag-count">{{ cart.item_count }}</span>
+                    </button>
+                    {% include 'mini-cart-drawer' %}
+                  </div> 
+                {% endif %} {% endcomment %}
+                {% comment %} <div class="nav-item dropdown">
+                  <a href="/cart">
+                  <button class="bg-transparent border-0" type="button" >
+                    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'cart-icon.svg' | asset_url }}" loading="lazy" height="34" width="34" alt="cart icon"/>
+                    <span class="bag-count">{{ cart.item_count }}</span>
+                  </button>
+                  </a>  
+                </div> {% endcomment %}                
+              
+                <a class="nav-item nav-link active search-btn" data-toggle="modal" data-target="#search-bl" href="#search-bl">
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'search.svg' | asset_url }}" alt="search" height="30" width="30" loading="lazy" alt="search icon"/></a>
+                {% include 'search-bar' %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+  </header>
+    {% if section.settings.show_announcement == true %}
+      {% assign now = 'now' | date: '%Y-%m-%d %H:%M' %}
+
+                {% assign start_date = section.settings.announcement-start-date %}
+                {% assign start_time = section.settings.announcement-time %}
+
+                {% assign expire_date = section.settings.announcement-expire-date %}
+                {% assign expire_time = section.settings.announcement-expire-time %}
+
+                {% assign start_date_time  = start_date | append: ' ' | append: start_time %}
+                {% assign expire_date_time = expire_date | append: ' ' | append: expire_time %}
+
+                {% assign top_header_start_date_time = start_date_time | date: '%Y-%m-%d %H:%M' %}
+
+                {% assign top_header_expire_date_time = expire_date_time | date: '%Y-%m-%d %H:%M' %}
+       {% if now >= top_header_start_date_time and now <= top_header_expire_date_time %}
+
+          <div class="alert">
+                  
+                  <div class="content">
+  
+                          {{ section.settings.announcement_content }}
+                                 
+                          {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
+                            <a class="btn-defult-button cta" href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }}</a>
+                          {% endif %}
+  
+                  </div>
+          </div>
+          {% endif %}
+    {% endif %}
+</div>
+<script>
+ 
+  $(document).ready(function() {    
+
+    $(".close").on("click",function() {       
+        $( "#navbar-main" ).removeClass( "show" );
+    });
+
+    
+    // sticky header
+    $(window).scroll(function() {
+    // 100 = The point you would like to fade the nav in.
+      
+      if ($(window).scrollTop() > 100 ){
+        
+        $('#shopify-section-header').addClass('sticky_header');
+        
+      } else {
+        
+        $('#shopify-section-header').removeClass('sticky_header');
+        
+      };
+    });
+
+    // on scroll sticky header when notification bar display
+
+    $(window).scroll(function() {
+      if ($('.Campaign').length && $(window).scrollTop() > 100) {
+      $('#shopify-section-header').addClass('sticky_header_notofication');
+    } else {
+      $('#shopify-section-header').removeClass('sticky_header_notofication');
+    }
+    })
+
+     // on scroll sticky header on mobile when notification bar display
+
+      $(window).scroll(function() {
+        if ($('.Campaign').length) {
+        $('.navbar-collapse').addClass('sticky_header_mobile_notofication');
+      } else {
+        $('.navbar-collapse').removeClass('sticky_header_mobile_notofication');
+      }
+      })
+
+    // Apply class when hamburger is clicked
+      $('.navbar-toggler').on('click', function() {
+          if ($('.Campaign').length) {
+              $('.navbar-collapse').addClass('sticky_header_mobile_notofication');
+          } 
+      });
+
+  });
+
+</script>
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Main menu"
+      },
+      {
+        "type": "link_list",
+        "id": "nav_menu",
+        "label": "Left Menu",
+        "default": "main-menu"
+      },
+        {
+        "type": "link_list",
+        "id": "right_nav_menu",
+        "label": "Right Menu",
+        "default": "main-menu"
+        },
+      {
+        "type": "checkbox",
+        "id": "left_aligned_logo",
+        "label": "Left-align logo"
+      },
+      {
+        "type": "header",
+        "content": "Announcement bar"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_announcement",
+        "label": "Show announcement",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "announcement_content",
+        "label": "Announcement Text (Default)"
+      },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Shop Now"
+        }, 
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA URL"
+        },
+          {
+            "type": "header",
+            "content": "Start date"
+          },
+          {
+            "type": "text",
+            "id": "announcement-start-date",
+            "label": "Date",
+            "default": "2020-10-22",
+            "info": "Use date format : Year-Month-Day"
+          },
+          {
+            "type": "text",
+            "id": "announcement-time",
+            "label": "Time",
+            "default": "12:00",
+            "info": "24-hour clock (00:23)"
+          },
+          {
+            "type": "header",
+            "content": "Expire date"
+          },
+          {
+            "type": "text",
+            "id": "announcement-expire-date",
+            "label": "Date",
+            "default": "2020-12-22",
+            "info": "Use date format : Year-Month-Day"
+          },
+          {
+            "type": "text",
+            "id": "announcement-expire-time",
+            "label": "Time",
+            "default": "12:00",
+            "info": "24-hour clock (00:23)"
+          }
+
+
+    ]
+  }
+{% endschema %}

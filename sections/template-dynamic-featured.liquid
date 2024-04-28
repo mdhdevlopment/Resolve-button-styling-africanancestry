@@ -1,0 +1,77 @@
+<div class="page-width">
+  {% if page.metafields.custom.dynamic_featured_heading %}
+    <h2 class="section-title">{{ page.metafields.custom.dynamic_featured_heading }}</h2>
+  {% else %}
+  <h2 class="section-title">FEATURED IN</h2>
+  {% endif %}
+
+  <div class="featured-row">
+    <div class="image-box" tabindex="-1">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_49.png?v=1681284797" alt="image" loading="lazy" width="100"
+      height="34">
+    </div>
+    <div class="image-box" tabindex="-1">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_50.png?v=1681284797" alt="image" loading="lazy" width="100"
+      height="34">
+    </div>
+    <div class="image-box" tabindex="-1">
+      <img src="https://cdn.shopify.com/s/files/1/0612/5086/3345/files/image_51.png?v=1686859351" alt="image" loading="lazy" width="100"
+      height="39">
+    </div>
+    <div class="image-box" tabindex="-1">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_52.png?v=1681284797" alt="image" loading="lazy" width="100"
+      height="33">
+    </div>
+    <div class="image-box" tabindex="-1">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_53.png?v=1681284797" alt="image" loading="lazy" width="100"
+      height="34">
+    </div>
+    <div class="image-box" tabindex="-1">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_54.png?v=1681284797" alt="image" loading="lazy" width="100"
+      height="32">
+    </div>
+    <div class="image-box" tabindex="-1">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_55.png?v=1681284797" alt="image" loading="lazy" width="100"
+      height="34">
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.shopify-section.matriclan-featured .featured-row').slick({
+  slidesToShow: 7,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 0,
+  speed: 8000,
+  pauseOnHover: false,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  variableWidth: true,
+  arrows: false,
+  dots: false,
+  cssEase: 'linear'
+});
+</script> 
+
+{% schema %}
+{
+  "name": "Matriclan Featured",
+  "tag": "section",
+  "class": "matriclan-featured",
+  "settings": [],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Matriclan Featured"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,37 @@
+<!-- Login Check -->
+
+<h1 class="main-page-common-title">{{ page.title }}</h1>
+
+{% if customer %}
+
+{% assign view_replay = customer.metafields.replay %}
+{% assign key = 'view-replay' %}
+{% assign metakey_value = view_replay[key] %}
+
+{% if metakey_value == 'true' %}
+  
+{% section 'RWYA-video-section-top-banner' %}
+{% section 'RWYA-video-section-fourth' %}
+{% section 'RWYA-video-section-first' %}
+{% section 'RWYA-video-section-second' %}
+{% section 'RWYA-video-section-third' %}  
+
+{% else %}
+
+<script type="text/javascript">
+  window.location = "/account/login";
+</script>
+
+{% endif %}
+
+{% else %}
+
+<script type="text/javascript">
+  window.location = "/account/login";
+</script>
+ 
+{% endif %}
+
+
+
+

@@ -1,0 +1,38 @@
+<style>
+
+  @media (max-width: 769px) {
+  .shg-product-atc-btn-wrapper.is-active {
+    height : 57px;
+  }
+
+  .shg-product-atc-btn-wrapper.is-active .shg-btn.shg-cse {
+    position : fixed;
+    left : 0px;
+    right : 0px;
+    bottom : 0px;
+    width : 100%;
+    z-index : 99;
+  }
+}
+
+</style>
+
+ <script>
+
+var timer;
+
+ $(window).scroll(function() {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+        var ctaButton = $('.shg-product-atc-btn-wrapper');
+        var scroll = $(window).scrollTop();
+        let buttonOffset = $('.shg-product-atc-btn-wrapper').offset().top;
+        if (scroll > buttonOffset) {
+            ctaButton.addClass('is-active');
+        } else {
+            ctaButton.removeClass('is-active');
+        }
+    }, 50)
+    });
+    
+  </script>

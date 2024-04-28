@@ -1,0 +1,59 @@
+<section>
+  <div class="row">
+    <div class="container">
+
+
+      {% for block in section.blocks %}
+        <div class="col-md-4">
+          <div class="title">
+            {% if block.settings.text_content != blank %}
+              {{ block.settings.text_content }}
+            {% endif %}
+          </div>
+          <div class="privacy-image">
+            <img class="img-fluid" src='{{ block.settings.svg_image | asset_url }}' alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"/>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+  <!-- html End -->
+</section>
+{% schema %}
+  {
+  "name": "Privacy Info",
+  "blocks": [
+  {
+  "type": "select",
+  "name": "Privacy Element",
+  "limit": 3,
+  "settings": [
+  {
+  "id": "text_content",
+  "type": "text",
+  "label": "Add Text Content"
+  },
+  {
+  "id": "svg_image",
+  "type": "text",
+  "label": "Add Image (SVG)"
+  }
+  ]
+  }
+  ],
+  "presets": [
+  {
+  "name": "Privacy Elements",
+  "category": "New Sections"
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

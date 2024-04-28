@@ -1,0 +1,417 @@
+
+
+{% comment %}
+<!-- html Start -->
+<section class="watch-video-sec" id="celebrate-your-blackness">
+  	<div class="container">
+      <div class="row justify-content-center">
+        	<div class="col-md-8">
+              	<div class="video-content my-5 text-center">
+                  <h2 class="bold">{{ section.settings.title_video_section }}</h2>
+                  <p class="my-2 regular">
+                    {{ section.settings.sub_title_video_section }}
+                  </p>
+              	</div>
+     		 </div>     
+ 	  </div>
+      <div class="row justify-content-center">
+        {% for block in section.blocks %}
+        	<div class="col-md-4">
+              	<div class="video-content my-3 text-center">
+                  {% if block.settings.svg_image != '' %}
+                  {% assign svg_image_url = block.settings.svg_image %}
+                  <div class="svg-title">
+                    <img src="{{ svg_image_url | asset_url }}" class="img-fluid">
+                  </div>
+                  {% endif %}
+                  <div class="video-sec">
+                    <iframe width="100%" height="100%" src="{{ block.settings.video_url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="description mt-3">
+                      <h6>{{ block.settings.video_title }}</h6>
+                      <p >{{ block.settings.video_sub_title }}</p>
+                    </div>
+              	  </div>
+     		    </div> 
+            </div>
+        {% endfor %}
+        
+<!--         	<div class="col-md-4">
+              	<div class="video-content my-3 text-center">
+                  <div class="svg-title"><img src="{{ 'Places.svg' | asset_url }}" class="img-fluid">
+                  </div>
+                  <div class="video-sec">
+                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/qemMsWL_T2g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    <video id="ban_video_2" width="100%" height="" poster="{{ 'Places-Video-Mock.jpg' | asset_url }}">
+                      <source src="{{ 'file_example_MP4_480_1_5MG.mp4' | asset_url }}" type="video/mp4">
+                      <source src="movie.ogg" type="video/ogg">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div class="play-bt_2 ply_btn fa fa-play"></div>
+                     <div class="pause-bt_2 pause_btn fa fa-pause" style="display:none;"></div>
+                  </div>
+                  <div class="description mt-3">
+                    <h6>Lorem ipsum Dolar</h6>
+                    <p >Lorem ipsum Dolar</p>
+                  </div>
+              	</div>
+     		 </div>     
+        
+        	<div class="col-md-4">
+              	<div class="video-content my-3 text-center">
+                  <div class="svg-title"><img src="{{ 'Spaces.svg' | asset_url }}" class="img-fluid">
+                  </div>
+                  <div class="video-sec">
+                     <iframe width="100%" height="200" src="https://www.youtube.com/embed/qemMsWL_T2g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    <video id="ban_video_3" width="100%" height="" poster="{{ 'Spaces-Video-Mock.jpg' | asset_url }}">
+                      <source src="{{ 'file_example_MP4_480_1_5MG.mp4' | asset_url }}" type="video/mp4">
+                      <source src="movie.ogg" type="video/ogg">
+                      Your browser does not support the video tag.
+                    </video>
+                    <div class="play-bt_3 ply_btn fa fa-play"></div>
+                     <div class="pause-bt_3 pause_btn fa fa-pause" style="display:none;"></div>
+                  </div>
+                  <div class="description mt-3">
+                    <h6>Lorem ipsum Dolar</h6>
+                    <p >Lorem ipsum Dolar</p>
+                  </div>
+              	</div>
+     		 </div>      -->
+ 	  </div>
+  </div>
+</section>
+{% endcomment %}
+
+
+
+<section class="watch-video-sec">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+
+        <div class="video-contents my-5 text-center">
+          <h2 class="bold">{{ section.settings.title_video_section }}</h2>
+          <p class="my-2 regular">
+            {{ section.settings.sub_title_video_section }}
+          </p>
+        </div>
+      </div>     
+    </div>
+    <div class="vdos-style">
+
+      <div class="row video-upper-section">
+        {% for block in section.blocks %}
+        {% if forloop.last %}
+        <div class="col-md-8">
+          {% if block.settings.svg_image != '' %}
+          <div class="video-svg-title-mobile" style="display:none;">
+            <img src="{{block.settings.svg_image | asset_url}}" 
+                 class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </div> 
+          {% endif %}
+          {% if block.settings.video_url != '' %}
+          <iframe id="video1" width="100%" height="100%" src="{{ block.settings.video_url }}?rel=0&modestbranding=1&autohide=1&showinfo=0&controls=0" 
+                  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen="">
+          </iframe> 
+          {% endif %}
+        </div>
+
+        <div class="col-md-4">
+          {% if block.settings.svg_image != '' %}
+          {% assign svg_image_url = block.settings.svg_image %}
+          <div class="video-svg-title">
+            <img src="{{ svg_image_url | asset_url }}" 
+                 class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </div>
+          {% endif %}
+          <div class="description mt-3">
+            <h6>{{ block.settings.video_title }}</h6>
+            {{ block.settings.video_sub_title }}
+          </div>
+        </div>
+        {% endif %}
+       {% endfor %}
+      </div>
+
+      <div class="row justify-content-center slide-video-imgss">
+        {% for block in section.blocks reversed %}
+        <div class="">
+          <div class="video-content my-3 text-center">
+            {% if block.settings.svg_image != '' %}
+            {% assign svg_image_url = block.settings.svg_image %}
+            <div class="svg-title svg-img-fluid">
+              <img src="{{ svg_image_url | asset_url }}" class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+            </div>
+            {% endif %}
+            <div class="video-sec">
+              <div class="video-thumbnail">
+                <img data-video-url="{{ block.settings.video_url }}" src="{{block.settings.img_video | img_url: 'original'}}" class="iframe_get_img" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="description mt-3">
+                <h6>{{ block.settings.video_title }}</h6>
+                {{ block.settings.video_sub_title }}
+              </div>
+            </div>
+          </div> 
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- html End -->
+
+{% schema %}
+{
+  "name": "Watch YouTube Videos", 
+  "settings": [
+    {
+      "id": "title_video_section",
+      "type": "text",
+      "label": "Title",
+      "default": "Title" 
+    },
+    {
+      "id": "sub_title_video_section",
+      "type": "html",
+      "label": "Sub Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "YouTube Video", 
+      "settings": [
+        {
+          "id": "svg_image",
+          "type": "text",
+       	  "label": "Add Image (SVG)"
+        },
+        {
+          "id": "video_url",
+          "type": "text",
+       	  "label": "Youtube URL"
+        },
+        {
+          "id": "video_title",
+          "type": "text",
+          "label": "Video Title"
+        },
+        {
+          "id": "img_video",
+          "type": "image_picker",
+          "label": "Thumbnail Image"
+        },
+       {
+          "id": "video_sub_title",
+          "type": "richtext",
+          "label": "Sub Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Watch YouTube Videos",
+      "category": "New Sections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+
+{% comment %}
+<script>  
+  $(document).ready(function(){
+    var video1 = document.getElementById("ban_video_1");
+    video1.currentTime = 0;
+    $(".mute-bt_1").click(function(){
+      if($(this).hasClass("stop"))
+      {
+        var ban_video = document.getElementById("ban_video_1");
+        $("#ban_video_1").prop('muted', false);
+        $(this).removeClass("stop");
+      }
+      else{
+        var ban_video = document.getElementById("ban_video_1");
+        $("#ban_video_1").prop('muted', true);
+        $(this).addClass("stop");
+      }
+    });
+
+    $(".play-bt_1").click(function(){
+      $(".play-bt_1").hide();
+      $(".pause-bt_1").show();
+      var ban_video = document.getElementById("ban_video_1");
+      if($(".stop-bt_1").hasClass("active")){
+        ban_video.currentTime = 0;
+      }
+      ban_video.play();                                         
+    });
+    $(".pause-bt_1").click(function(){
+      $(".play-bt_1").show();
+      $(".pause-bt_1").hide();
+      $(".pause-bt_1").addClass("active");
+      $(".stop-bt_1").removeClass("active");
+      var ban_video = document.getElementById("ban_video_1");
+      ban_video.pause();                                         
+    });
+    $(".stop-bt_1").click(function(){
+      $(".play-bt_1").show();
+      $(".pause-bt_1").hide();
+      $(".pause-bt_1").removeClass("active");
+      $(".stop-bt_1").addClass("active");
+      var ban_video = document.getElementById("ban_video_1");
+      ban_video.currentTime = 0;
+      ban_video.pause();                                         
+    });
+
+
+
+
+
+  });	 
+</script>
+
+<script>
+
+  $(document).ready(function(){
+    var video1 = document.getElementById("ban_video_3");
+    video1.currentTime = 0;
+    $(".mute-bt_3").click(function(){
+      if($(this).hasClass("stop"))
+      {
+        var ban_video = document.getElementById("ban_video_3");
+        $("#ban_video_3").prop('muted', false);
+        $(this).removeClass("stop");
+      }
+      else{
+        var ban_video = document.getElementById("ban_video_3");
+        $("#ban_video_3").prop('muted', true);
+        $(this).addClass("stop");
+      }
+    });
+
+    $(".play-bt_3").click(function(){
+      $(".play-bt_3").hide();
+      $(".pause-bt_3").show();
+      var ban_video = document.getElementById("ban_video_3");
+      if($(".stop-bt_3").hasClass("active")){
+        ban_video.currentTime = 0;
+      }
+      ban_video.play();                                         
+    });
+    $(".pause-bt_3").click(function(){
+      $(".play-bt_3").show();
+      $(".pause-bt_3").hide();
+      $(".pause-bt_3").addClass("active");
+      $(".stop-bt_3").removeClass("active");
+      var ban_video = document.getElementById("ban_video_3");
+      ban_video.pause();                                         
+    });
+    $(".stop-bt_3").click(function(){
+      $(".play-bt_3").show();
+      $(".pause-bt_3").hide();
+      $(".pause-bt_3").removeClass("active");
+      $(".stop-bt_3").addClass("active");
+      var ban_video = document.getElementById("ban_video_3");
+      ban_video.currentTime = 0;
+      ban_video.pause();                                         
+    });
+
+
+
+
+
+  });	 
+</script>
+
+
+<script>
+
+  $(document).ready(function(){
+    var video1 = document.getElementById("ban_video_2");
+    video1.currentTime = 0;
+    $(".mute-bt_2").click(function(){
+      if($(this).hasClass("stop"))
+      {
+        var ban_video = document.getElementById("ban_video_2");
+        $("#ban_video_2").prop('muted', false);
+        $(this).removeClass("stop");
+      }
+      else{
+        var ban_video = document.getElementById("ban_video_2");
+        $("#ban_video_2").prop('muted', true);
+        $(this).addClass("stop");
+      }
+    });
+
+    $(".play-bt_2").click(function(){
+      $(".play-bt_2").hide();
+      $(".pause-bt_2").show();
+      var ban_video = document.getElementById("ban_video_2");
+      if($(".stop-bt_2").hasClass("active")){
+        ban_video.currentTime = 0;
+      }
+      ban_video.play();                                         
+    });
+    $(".pause-bt_2").click(function(){
+      $(".play-bt_2").show();
+      $(".pause-bt_2").hide();
+      $(".pause-bt_2").addClass("active");
+      $(".stop-bt_2").removeClass("active");
+      var ban_video = document.getElementById("ban_video_2");
+      ban_video.pause();                                         
+    });
+    $(".stop-bt_2").click(function(){
+      $(".play-bt_2").show();
+      $(".pause-bt_2").hide();
+      $(".pause-bt_2").removeClass("active");
+      $(".stop-bt_2").addClass("active");
+      var ban_video = document.getElementById("ban_video_2");
+      ban_video.currentTime = 0;
+      ban_video.pause();                                         
+    });
+
+
+
+
+
+  });	 
+</script>
+
+{% endcomment %}
+
+
+<script>
+  $(document).ready(function(){
+    $('.slide-video-imgss').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      arrows: true,
+      fade: false,
+      responsive: [
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+            arrows: true,
+            fade: false
+          }
+        }
+      ]
+    });
+  })
+</script>
+

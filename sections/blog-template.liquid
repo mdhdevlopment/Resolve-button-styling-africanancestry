@@ -1,0 +1,385 @@
+<style>
+    .breadcrumb {
+        background-color: transparent;
+        justify-content: center;
+    }
+    .blog-handles {
+        background-color: #F5F7FB;
+        padding: 15px;
+        margin-bottom: 8px;
+    }
+    .blog-handles h3 {
+        color: #291F64;
+    }
+    .blog-handles p {
+        border-bottom: 1px solid #707070;
+    }
+    .blog-handles p:last-child {
+        border-bottom: none;
+    }
+</style>
+{% if section.settings.hero_banner_image != blank %}
+    {% assign heroimg = section.settings.hero_banner_image | img_url: '' %}
+{% endif %}
+<div class="blogBanner-outer" {% if section.settings.hero_banner_image != blank %} style="background: url({{ heroimg  }})no-repeat; background-size: cover;"{% endif %}>
+    <div class="blogBanner-container">
+        {% render 'breadcrumb' %}
+        {% if blog.metafields.custom.heading != blank %}
+            <h3>{{ blog.metafields.custom.heading }}</h3>
+        {% elsif section.settings.hero_title != blank %}
+            <h3>{{ section.settings.hero_title }}</h3>
+        {% endif %}
+        {% if blog.metafields.custom.sub_heading != blank %}
+            <h2>{{ blog.metafields.custom.sub_heading }}</h2>
+        {% elsif section.settings.hero_sub_title != blank %}
+            <h2>{{ section.settings.hero_sub_title }}</h2>
+        {% endif %}
+        {% assign herotextNamespace = section.settings.hero_text_namespace %}
+        {% assign herotextKey = section.settings.hero_text_key %}
+        {% if blog.metafields.custom.content != blank %}
+            <p>{{ blog.metafields.custom.content }}</p>
+        {% elsif blog.metafields[herotextNamespace][herotextKey] != blank %}
+            <p>{{ blog.metafields[herotextNamespace][herotextKey] }}</p>
+        {% endif %}
+        {% comment %} {% if blog.metafields.custom.heading != blank %}
+            <p>{{ blog.metafields.custom.heading }}</p>
+        {% endif %}
+        {% if blog.metafields.custom.sub_heading != blank %}
+            <p>{{ blog.metafields.custom.sub_heading }}</p>
+        {% endif %}
+        {% if blog.metafields.custom.content != blank %}
+            <p>{{ blog.metafields.custom.content }}</p>
+        {% endif %} {% endcomment %}
+        {% assign herotextsubNamespace = section.settings.hero_text_subtitle_namespace %}
+        {% assign herotextsubKey = section.settings.hero_text_subtitle_key %}
+        {% if blog.metafields[herotextsubNamespace][herotextsubKey] != blank %}
+            <p class="learnmore-link">{{ blog.metafields[herotextsubNamespace][herotextsubKey] }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="blogpost-outer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {% comment %}
+                    <div class="search-wrapper">
+                        <form class="search" method="get" action="/search">
+                            <input class="form-control search-box" type="text" placeholder="SEARCH ALL" name="q"{% if search.performed %} value="{{ search.terms | escape | downcase }}"{% endif %} />
+                            <input type="hidden" name="type" value="article" />
+                            <input class="btn btn-primary" type="submit" value="Search"/>
+                        </form>
+                    </div>
+                {% endcomment %}
+                <div class="row blog-wrapper">
+                    {% assign pagicount = section.settings.blog_per_page %}
+                    {% paginate blog.articles by pagicount %}
+                        {% for article in blog.articles %}
+                            <div class="col-sm-6 ">
+                                <div class="post-wrapper">
+                                    <div class="post-banner">
+                                        {% if article.image %}
+                                            {% capture img_id %}ArticleImage-{{ section.id }}--{{ article.image.id }}{% endcapture %}
+                                            {% capture wrapper_id %}ArticleImageWrapper-{{ section.id }}--{{ article.image.id }}{% endcapture %}
+                                            {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                            {%- assign image_alt = article.title | escape -%}
+                                            {% include 'image-style' with image: article.image, width: 845, height: 1024, wrapper_id: wrapper_id, img_id: img_id %}
+                                            <a href="{{ article.url }}">
+                                                <img id="{{ img_id }}"
+                                                     class="article__image lazyload w-100 lazyloaded"
+                                                     src="{{ article.image | img_url: '1024x1024' }}"
+                                                     data-src="{{ img_url }}"
+                                                     data-widths="[90, 120, 150, 180, 360, 480, 600, 750, 940, 1080, 1296]"
+                                                     data-aspectratio="{{ article.image.aspect_ratio }}"
+                                                     data-sizes="auto"
+                                                     alt="{{ image_alt }}"
+                                                     loading="lazy" width="{{ article.image.width }}" height="{{ article.image.height }}"
+                                                    >
+                                            </a>
+                                        {% else %}
+                                            <a href="{{ article.url }}"><img class="article__image lazyload w-100 lazyloaded" src="{{ article.image | img_url: '1024x1024' }}" alt="image" loading="lazy" width="{{ article.image.width }}" height="{{ article.image.height }}"></a>
+                                        {% endif %}
+
+                                    </div>
+                                    <div class="post-content">
+                                        <div class="post-category">
+                                            {{ blog.title }}
+                                        </div>
+                                        <div class="postTitle">
+                                            <a href="{{ article.url }}">
+                                                <h2>{{ article.title }}</h2>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% if paginate.pages > 1 %}
+                            <div class="text-center blog-paginate">
+                                {% include 'pagination-custom' %}
+                            </div>
+                        {% endif %}
+                    {% endpaginate %}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="blog-sidebar-main">
+                    <div class="blog-handles">
+                        {% if section.settings.blog_heading %}
+                            <h3>{{ section.settings.blog_heading }}</h3>
+                        {% endif %}
+
+                        {% assign blog_handle = section.settings.blog_handles | split: "," %}
+                        {% for handle in blog_handle %}
+                            <p>{{- blogs[handle].title | link_to: blogs[handle].url }}</p>
+                        {% endfor %}
+                    </div>
+                    {% assign swhNamespace = section.settings.subscribe_heading_namespace %}
+                    {% assign swhKey = section.settings.subscribe_heading_key %}
+                    {% if blog.metafields[swhNamespace][swhKey] != blank %}
+                        <h2>{{ blog.metafields[swhNamespace][swhKey] }}</h2>
+                    {% endif %}
+
+                    {% assign swfNamespace = section.settings.subscribe_widget_form_namespace %}
+                    {% assign swfKey = section.settings.subscribe_widget_form_key %}
+                    {% if blog.metafields[swfNamespace][swfKey] != blank %}
+                        <div class="blog-widget-form">{{ blog.metafields[swfNamespace][swfKey] }}</div>
+                    {% endif %}
+
+                    <div class="blog-promo-images">
+                        {% if section.settings.show_top_advertisment %}
+                            {% assign tamNamespace = section.settings.top_advertisement_img_namespace %}
+                            {% assign tamKey = section.settings.top_advertisement_img_key %}
+                            {% assign tamUrl = section.settings.top_advertisement_img_url_key %}
+                            {% if blog.metafields[tamNamespace][tamKey] != blank %}
+                                <a href="{{ blog.metafields[tamNamespace][tamUrl] }}"><img class="lazyload" src="{{ blog.metafields[tamNamespace][tamKey] | img_url: '' }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></a>
+                            {% endif %}
+                        {% endif %}
+                        {% if section.settings.show_bottom_advertisment %}
+                        {% assign bamNamespace = section.settings.bottom_advertisement_img_namespace %}
+                        {% assign bamKey = section.settings.bottom_advertisement_img_key %}
+                        {% assign bamUrl = section.settings.bottom_advertisement_img_url_key %}
+                        {% if blog.metafields[bamNamespace][bamKey] != blank %}
+                            <a href="{{ blog.metafields[tamNamespace][bamUrl] }}"><img class="lazyload" src="{{ blog.metafields[bamNamespace][bamKey] | img_url: '' }}" alt="image" loading="lazy" width="" height=""></a>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    {% if section.settings.social_icon_text != blank %}
+                    <div class="blog-social-icon">
+                        {% if section.settings.social_icon_text != blank %}
+                            <h3>{{ section.settings.social_icon_text }}</h3>
+                        {% endif %}
+                        <ul>
+                            {% if section.settings.social_fb != blank %}
+                                <li><a target="_blank" href="{{ section.settings.social_fb }}"><img src="{{ 'blogfb.png' | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></a></li>
+                            {% endif %}
+                            {% if section.settings.social_insta != blank %}
+                                <li><a target="_blank" href="{{ section.settings.social_insta }}"><img src="{{ 'blogig.png' | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></a></li>
+                            {% endif %}
+                            {% if section.settings.social_tw != blank %}
+                                <li><a target="_blank" href="{{ section.settings.social_tw }}"><img src="{{ 'blogtw.png' | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></a></li>
+                            {% endif %}
+                            {% if section.settings.social_yt != blank %}
+                                <li><a target="_blank" href="{{ section.settings.social_yt }}"><img src="{{ 'blogyt.png' | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></a></li>
+                            {% endif %}
+                            {% if section.settings.social_linkin != blank %}
+                                <li><a target="_blank" href="{{ section.settings.social_linkin }}"><img src="{{ 'blogli.png' | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                {% comment%}
+                    {% include 'blog-sidebar' %}
+                {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+    {
+    "name": "Blog",
+    "settings": [
+    {
+    "type": "header",
+    "content": "Hero settings"
+    },
+    {
+    "type": "image_picker",
+    "id": "hero_banner_image",
+    "label": "Hero Image"
+    },
+    {
+    "type": "text",
+    "id": "hero_title",
+    "label": "Hero Title",
+    "default": "The African Ancestry Remember Who You Are Blog"
+    },
+    {
+    "type": "text",
+    "id": "hero_sub_title",
+    "label": "Hero Sub Title",
+    "default": "Remember Who You Are"
+    },
+    {
+    "type": "text",
+    "id": "hero_text_namespace",
+    "label": "Hero Text Namespace"
+    },
+    {
+    "type": "text",
+    "id": "hero_text_key",
+    "label": "Hero Text Key"
+    },
+    {
+    "type": "text",
+    "id": "hero_text_subtitle_namespace",
+    "label": "Hero Text Subtitle Namespace"
+    },
+    {
+    "type": "text",
+    "id": "hero_text_subtitle_key",
+    "label": "Hero Text Subtitle Key"
+    },
+    {
+    "type": "header",
+    "content": "Blog settings"
+    },
+    {
+    "type": "select",
+    "id": "blog_per_page",
+    "label": "Blog posts per page",
+    "options": [
+    { "value": "8", "label": "8 Articles" },
+    { "value": "12", "label": "12 Articles" },
+    { "value": "16", "label": "16 Articles" }
+    ],
+    "default": "8"
+    },
+    {
+    "type": "header",
+    "content": "Blog sidebar"
+    },
+    {
+        "type": "text",
+        "id": "blog_heading",
+        "label": "Blog Category Heading",
+        "default": "Blog Categories"
+    },
+    {
+        "type": "text",
+        "id": "blog_handles",
+        "label": "Blog Category Handle",
+        "default": "news,african-countries,press-release,glossary,african-ethnic-groups"
+    },
+    {
+    "type": "text",
+    "id": "subscribe_heading_namespace",
+    "label": "Subscribe Heading Namespace"
+    },
+    {
+    "type": "text",
+    "id": "subscribe_heading_key",
+    "label": "Subscribe Heading Key"
+    },
+    {
+    "type": "text",
+    "id": "subscribe_widget_form_namespace",
+    "label": "Subscribe Form Namespace"
+    },
+    {
+    "type": "text",
+    "id": "subscribe_widget_form_key",
+    "label": "Subscribe Form Key"
+    },
+    {
+    "type": "header",
+    "content": "Top Advertisement Settings"
+    },
+    {
+    "type": "checkbox",
+    "id": "show_top_advertisment",
+    "label": "Show Top Advertisement",
+    "default": false
+    },
+    {
+    "type": "text",
+    "id": "top_advertisement_img_namespace",
+    "label": "Top Advertisement Image Namespace"
+    },
+    {
+    "type": "text",
+    "id": "top_advertisement_img_key",
+    "label": "Top Advertisement Image Key"
+    },
+    {
+    "type": "text",
+    "id": "top_advertisement_img_url_key",
+    "label": "Top Advertisement Image Url Key"
+    },
+    {
+    "type": "header",
+    "content": "Bottom Advertisement Settings"
+    },
+    {
+    "type": "checkbox",
+    "id": "show_bottom_advertisment",
+    "label": "Show Bottom Advertisement",
+    "default": false
+    },
+    {
+    "type": "text",
+    "id": "bottom_advertisement_img_namespace",
+    "label": "Bottom Advertisement Image Namespace"
+    },
+    {
+    "type": "text",
+    "id": "bottom_advertisement_img_key",
+    "label": "Bottom Advertisement Image Key"
+    },
+    {
+    "type": "text",
+    "id": "bottom_advertisement_img_url_key",
+    "label": "Bottom Advertisement Image Url Key"
+    },
+    {
+    "type": "text",
+    "id": "social_icon_text",
+    "label": "Social Icon Text",
+    "default": "FOLLOW US ON"
+    },
+    {
+    "type": "text",
+    "id": "social_fb",
+    "label": "Facebook",
+    "default": "https://www.facebook.com/africanancestry"
+    },
+    {
+    "type": "text",
+    "id": "social_insta",
+    "label": "Instagram",
+    "default": "https://www.instagram.com/africanancestry"
+    },
+    {
+    "type": "text",
+    "id": "social_tw",
+    "label": "Twitter",
+    "default": "https://twitter.com/africanancestry"
+    },
+    {
+    "type": "text",
+    "id": "social_yt",
+    "label": "youtube",
+    "default": "https://www.youtube.com/africanancestrydna"
+    },
+    {
+    "type": "text",
+    "id": "social_linkin",
+    "label": "Linkedin",
+    "default": "https://www.linkedin.com/company/african-ancestry?trk=public_profile_topcard-current-company"
+    }
+
+    ]
+    }
+{% endschema %}

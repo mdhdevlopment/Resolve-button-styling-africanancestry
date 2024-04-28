@@ -1,0 +1,117 @@
+<!-- footer.liquid/newsletter-popup.liquid -->
+{% if settings.newsletter-popup_enable %}
+<div id="newsletter-popup" class="modal fade" ewewwee>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        {{ settings.newsletter-popup }}
+        <script type="text/javascript" src="https://uw165.infusionsoft.app/app/webTracking/getTrackingCode"></script>
+        <script type="text/javascript" src="https://uw165.infusionsoft.com/resources/external/recaptcha/production/recaptcha.js?b=1.70.0.236318-hf-202005161920"></script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadInfusionRecaptchaCallback&render=explicit" async="async" defer="defer"></script>
+        <script type="text/javascript" src="https://uw165.infusionsoft.com/app/timezone/timezoneInputJs?xid=3f3c351f36cef08ad543b741c236152a"></script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Script for Newsleter Popup ::Start -->
+<script>
+
+jQuery(document).ready(function() {
+    //$("#newsletter-popup").modal('show'); return false;
+    var visited = readCookie('visited');
+    // if Cookie is not Set
+    if (!visited || visited !== "true") {
+        createCookie('visited', "true", 30); // Cookie set for 30days
+        // Show Newsletter Popup
+        $("#newsletter-popup").modal('show');
+    }
+});
+
+// Create Cokkie  
+function createCookie(name,value,days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime()+(days*24*60*60*1000));
+        var expires = "; expires="+date.toGMTString();
+    }
+    else var expires = "";
+    document.cookie = name+"="+value+expires+"; path=/";
+}
+
+// Read Cookie
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+// Read Cookie
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}  
+</script>
+
+{% else %}
+
+{% if template == 'index' %}
+{% if settings.default-newsletter-popup_enable %}
+<!-- Modal -->
+<div class="modal fade newsletter" id="onload" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      <div class="modal-body">
+          <div class="row no-gutter">
+               <div class="col-md-6">
+                 	<img src="{{ settings.default-newsletter-right-image | img_url: 'original' }}" class="img-fluid newsletter-img" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}" />
+               </div>
+               <div class="col-md-6 p-5">
+                 <h2 class="text-center "> {{ settings.default-newsletter-title }} </h2>
+                 <p class="text-center mt-3"> {{ settings.default-newsletter-subtitle }} </p>
+                 <form accept-charset="UTF-8" action="https://uw165.infusionsoft.com/app/form/process/3f3c351f36cef08ad543b741c236152a" class="infusion-form" id="inf_form_3f3c351f36cef08ad543b741c236152a" method="POST">
+               
+                 <div class="form-group mt-3">
+                    <input name="inf_form_xid" type="hidden" value="3f3c351f36cef08ad543b741c236152a" />
+                   <input name="inf_form_name" type="hidden" value="Web Form submitted" />
+                   <input name="infusionsoft_version" type="hidden" value="1.70.0.275359" />
+                   <div class="infusion-field">
+                     <input class="infusion-field-input form-control" id="inf_field_FirstName" name="inf_field_FirstName" placeholder="First Name *" type="text" />
+                   </div>
+                   <div class="infusion-field">
+                     <input class="infusion-field-input form-control" id="inf_field_Email" name="inf_field_Email" placeholder="Email *" type="text" />
+                   </div>
+                   <input name="inf_field_LeadSourceId" type="hidden" value="100" />
+                   <div>
+                     <div> </div>
+                   </div>
+               </div> 
+               <div class="action text-center mt-4">
+                   <div class="infusion-submit">
+                     <button class="infusion-recaptcha btn btn-primary" id="recaptcha_3f3c351f36cef08ad543b741c236152a" type="submit">{{ settings.default-newsletter-submit-btn-text }}</button>
+                   </div>
+                </div>
+               </form>
+                 <script type="text/javascript" src="https://uw165.infusionsoft.app/app/webTracking/getTrackingCode"></script>
+                 <script type="text/javascript" src="https://uw165.infusionsoft.com/resources/external/recaptcha/production/recaptcha.js?b=1.70.0.275359-hf-202009101703"></script>
+                 <script src="https://www.google.com/recaptcha/api.js?onload=onloadInfusionRecaptchaCallback&render=explicit" async="async" defer="defer"></script>
+                 <script type="text/javascript" src="https://uw165.infusionsoft.com/app/timezone/timezoneInputJs?xid=3f3c351f36cef08ad543b741c236152a"></script>
+			</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- Newsletter popup Large modal ::End -->
+{% endif %}
+{% endif %}
+
+{%endif%}

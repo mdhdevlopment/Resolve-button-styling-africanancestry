@@ -1,0 +1,33 @@
+{% for block in section.blocks%}
+<a href="{{ block.settings.caturl}}">{{ block.settings.cat}}</a>
+{% endfor %}
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": [],
+"blocks":[{
+"name":"Category",
+"type":"text",
+"settings":[
+{
+"type":"text",
+"id":"cat",
+"label":"Collection Name",
+"default":"Home"
+},
+{
+"type":"url",
+"id":"caturl",
+"label":"Collection Url"
+}
+]
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

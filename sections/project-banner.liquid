@@ -1,0 +1,58 @@
+<section class="hero_sec">
+   <figure class="overlay">
+      <img src="{%if section.settings.bannerimg != blank %}{{ section.settings.bannerimg | img_url : "original"}}{% else %}{{'HOMEPAGE_HEADERS_-_Content.png' | file_url}}{% endif %}" alt="Banner Image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+      <figcaption>
+         {% if section.settings.title != blank %}
+         <h2>{{ section.settings.title }}</h2>
+         {% endif %}
+         {% if section.settings.content != blank %}
+         <p>{{ section.settings.content }}</p>
+         {% endif %}
+         {% if section.settings.button != blank %}
+         <a href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }} {% else %}{% endif %}" class="buy_now">{{ section.settings.button }}</a>
+         {% endif %}
+      </figcaption>
+   </figure>
+</section>
+
+{% schema %}
+{
+   "name":"Banner Section",
+   "settings":[
+      {
+         "type":"image_picker",
+         "id":"bannerimg",
+         "label":"Banner Image"
+      },
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title",
+         "default":"Explore Your Past, Present & Future"
+      },
+      {
+         "type":"text",
+         "id":"content",
+         "label":"Content",
+         "default":"Get the limited-edition African Ancestry Identity Box today for only $59!"
+      },
+      {
+         "type":"text",
+         "id":"button",
+         "label":"CTA",
+         "default":"Buy Now"
+      },
+      {
+         "type":"url",
+         "id":"buttonurl",
+         "label":"CTA"
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,0 +1,128 @@
+{% case section.settings.num_per_row %}
+{% when 2 %}
+{%- assign col_size = 'col-md-6' -%}
+{%- assign collection_width = 625 -%}
+
+{% when 4 %}
+{%- assign col_size = 'col-md-3' -%}
+{%- assign collection_width = 330 -%}
+{% endcase %}
+<div class="testimonials" style="text-align: {{ section.settings.justify_homecopy }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="section-heading" >{{ section.settings.testimonials_title }}</h2>
+      </div>
+      <ul class="list-inline" >
+        {% for block in section.blocks limit: section.blocks.size %}
+
+          {% if block.settings.video_url != blank %}
+            <li class="{{ col_size }} block{% increment count %} video-grid section-text" >
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe width="420" height="345" src="{{ block.settings.video_url }}">
+                </iframe>
+              </div>
+              <p class="video-title">{{ block.settings.video_title }}</p>
+            </li>
+          {% else %}
+            <li class="{{ col_size }} block{% increment count %} video-grid section-text" >
+              <a href="{{ block.settings.video_link }}" target="_blank">
+                <img alt="{{ block.settings.video_thumbnail.alt | escape }}" 
+                     class="img-fluid lazyload"
+                     src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     {% assign img = block.settings.video_thumbnail %}
+                     data-srcset="{{ img | img_url: '1500x' }} 1500w,
+                             {{ img | img_url: '1200x' }} 1200w,
+                             {{ img | img_url: '960x' }} 960w,
+                             {{ img | img_url: '800x' }} 800w,
+                             {{ img | img_url: '600x' }} 600w,
+                             {{ img | img_url: '400x' }} 400w"
+                             loading="lazy" width="{{ img.width }}" height="{{ img.height }}"
+                 />
+              </a>
+              <p class="video-title">{{ block.settings.video_title }}</p>
+            </li>
+          {% endif %}
+
+        {% endfor %}
+      </ul>
+<!--       <div class="col-md-12">
+          <a href="" class="btn btn-xl btn-third " /> See testimonials </a>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Video testimonials",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "testimonials_title",
+        "label": "Title",
+        "default": "Testimonials"
+      },
+      {
+        "type":      "select",
+        "id":        "justify_homecopy",
+        "label":     "Justify Text",
+        "options": [
+            {"value": "left","label": "Left"},
+            {"value": "center","label": "Center"},
+            {"value": "right","label": "Right"}
+        ],
+        "default":   "left",
+        "info":      "Left"
+      },
+      {
+        "type": "range",
+        "id": "num_per_row",
+        "label": "Videos per row",
+        "min": 2,
+        "max": 6,
+        "step": 2,
+        "default": 2
+      }
+
+    ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Videos",
+      "settings": [
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Youtube URL for Embed"
+        },
+        {
+        "type": "text",
+        "id": "video_link",
+        "label": "Youtube video link"
+        },
+        {
+        "type": "image_picker",
+        "id": "video_thumbnail",
+        "label": "Youtube video thumbnail"
+        },
+
+        {
+          "type": "text",
+          "id": "video_title",
+          "label": "Video Title"
+        }
+
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Testimonials",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,43 @@
+<div class="home-copy" style="text-align: {{ section.settings.justify_homecopy }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+    {{ section.settings.home_copy }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home Copy",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "home_copy",
+        "label": "Content",
+        "default": "Add keyword targeted text about your website here"
+      },
+      {
+      "type":      "select",
+      "id":        "justify_homecopy",
+      "label":     "Justify Text",
+      "options": [
+          {"value": "left","label": "Left"},
+          {"value": "center","label": "Center"},
+          {"value": "right","label": "Right"}
+      ],
+      "default":   "left",
+      "info":      "Left"
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "Home Copy",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

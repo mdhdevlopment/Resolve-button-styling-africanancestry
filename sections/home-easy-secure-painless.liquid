@@ -1,0 +1,116 @@
+<div class="feature">
+  <div class="container">
+  <h2 class="section-heading">{{ section.settings.easy_secure_painless_title }}</h2>
+    <div class="easy_m_slider">      
+     {% for block in section.blocks limit: section.blocks.size %}    
+      {% if block.settings.easy_secure_painless_image != blank or block.settings.easy_secure_painless_svg_image != blank %}
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="feature--content">
+        {%- if block.settings.easy_secure_painless_svg_image != blank -%}
+           {% assign easy_img_url =  block.settings.easy_secure_painless_svg_image | asset_url %}
+        {%- elsif block.settings.easy_secure_painless_image != blank -%}
+            {% assign easy_img_url = block.settings.easy_secure_painless_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+        {%- endif -%}
+         <img alt="African Ancestry Image Presentation" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ easy_img_url }}" loading="lazy" height="345" width="315"> 
+         <div class="section-text">         
+           <p>{{ block.settings.easy_secure_painless_text }}</p>
+          </div>
+        </div>
+      </div>
+     {% endif %}
+    {% endfor %} 
+    </div>     
+     <div class="easy-secure-button">
+      <a href="{{ section.settings.easy_secure_painless_button_url }}" class="btn-defult-button">{{ section.settings.easy_secure_painless_button }}</a>
+      <p><a href="{{ section.settings.easy_secure_painless_button_url }}" class="feature--content__link">{{ section.settings.easy_secure_painless_text }}</a></p>
+      </div>
+    
+  </div>
+</div>
+
+<script>
+  jQuery(document).ready(function($) {
+      if (jQuery(window).width() < 768) {
+
+        jQuery('.easy_m_slider').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+          prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-chevron-left' aria-hidden='true'></i></button>",
+          nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-chevron-right' aria-hidden='true'></i></button>"
+          });    
+      }
+ 
+  });
+
+  </script>
+
+{% schema %}
+  {
+    "name": "Easy secure painless",
+    "class": "index-section",
+    "max_blocks": 4,
+      "blocks": [
+          {
+              "type": "easy_secure_painless",
+              "name": "Easy Secure block",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "easy_secure_painless_image",
+                        "label": "Image"
+                    },                   
+                    {
+                        "type": "text",
+                        "id": "easy_secure_painless_svg_image",
+                        "label": "SVG File Name"                       
+                    },
+                    {
+                        "type": "text",
+                        "id": "easy_secure_painless_text",
+                        "label": "Text"                       
+                    }
+                    
+                ]
+          }
+    ],
+    "settings": [
+          {
+            "id": "easy_secure_painless_title",
+            "type": "text",
+            "label": "Title",
+            "default": "Easy, Secure, Painless, and Shareable"            
+          },
+          {
+            "type": "text",
+            "id": "easy_secure_painless_button",
+            "label": "Text",
+            "default": "HOW IT WORKS"                       
+          },
+          {
+            "type": "url",
+            "id": "easy_secure_painless_button_url",
+            "label": "Text"                       
+          },
+          {
+            "type": "text",
+            "id": "easy_secure_painless_text",
+            "label": "Text",
+            "default": "Learn why you might receive a result that is not African."                       
+          }
+            
+   ],
+   "presets": [
+    {
+    "name": "Easy secure painless",
+    "category": "Text"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

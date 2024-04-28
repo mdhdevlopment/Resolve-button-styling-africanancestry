@@ -1,0 +1,140 @@
+{% assign index = section.blocks.size %}
+
+{% case index %}
+{% when 1 %}
+{% assign featured_image_width = 'one-whole' %}
+{% when 2 %}
+{% assign featured_image_width = 'one-half' %}
+{% when 3 %}
+{% assign featured_image_width = 'small--one-whole one-third' %}
+{% when 4 %}
+{% assign featured_image_width = 'small--one-whole medium--one-half one-quarter' %}
+{% endcase %}
+
+{% unless index == 0 %}
+  <div class="grid-uniform featured-images">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12">
+                  <p class="sub-title">
+                      Featured in:
+                  </p>
+              </div>
+          </div>
+ 
+      <div class="row">
+        <ul class=" featured-in list-inline" >
+        {% for block in section.blocks limit: section.blocks.size %}
+
+          {% if block.settings.image != blank or block.settings.svg_image != blank %}
+            <li class="list-inline-item featured-in-list"  {{ block.shopify_attributes }}>
+              {% if block.settings.link != blank %}<a href="{{ block.settings.link }}">{% endif %}
+                <noscript>
+                  {{ block.settings.image | img_url: '1024x' | img_tag: block.settings.image.alt }}
+                </noscript>
+                <div class="gallery__image-container">
+                  <div class="gallery__image-wrapper">
+
+                      {%- if block.settings.svg_image != blank -%}
+                          {% assign img_url =  block.settings.svg_image | asset_url %}
+                      {%- elsif block.settings.image != blank -%}
+                          {% assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                      {%- endif -%}
+
+                    <img class="lazyload"
+						 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                         data-expand="-10"
+                         data-src="{{ img_url }}"
+                         data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
+                         data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                         data-sizes="auto"
+                         alt="{{ block.settings.image_alt | escape }}"
+                         loading="lazy" height="40" width="129">
+                  </div>
+                </div>
+                {% if block.settings.link != blank %}</a>{% endif %}
+            </li>
+
+          {% endif %}
+
+        {% endfor %}
+        </ul>
+      </div>
+  </div>
+  </div>
+
+{% endunless %}
+
+{% schema %}
+  {
+  "name": "Featured In Logo Gallery",
+  "class": "index-section",
+  "max_blocks": 12,
+      "blocks": [
+          {
+              "type": "image",
+              "name": "Image",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Image"
+                    },
+                    {
+                        "type": "url",
+                        "id": "link",
+                        "label": "Image link"
+                    },
+                    {
+                        "type": "text",
+                        "id": "svg_image",
+                        "label": "SVG File Name"
+                    },
+                    {
+                    "type": "text",
+                    "id": "image_alt",
+                    "label": "Image Alt Tag"
+                    }
+                ]
+          }
+      ],
+      "presets": [
+      {
+      "name": "Featured In Gallery",
+      "category": "Image",
+      "blocks": [
+              {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            },
+            {
+            "type": "image"
+            }
+      ]
+      }
+      ]
+  }
+{% endschema %}

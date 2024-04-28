@@ -1,0 +1,332 @@
+<style>
+  .banner-content .jdgm-widget.jdgm-preview-badge.jdgm--done-setup {
+    font-family: Rubik,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #352f85;
+    margin-left: 5px;
+    margin-right: 2px;
+    margin-bottom: 0;
+  }
+  .banner-content .description {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    overflow: hidden;
+    display: block;
+    transition: all .25s ease-out;
+  }
+  .banner-content .description.open {
+    height: 100%;
+    overflow: visible;
+  }
+  .banner-content .description.open p.product-desc-btn {
+    bottom: -35px;
+  }
+  .product-desc-btn {
+    background: linear-gradient(rgba(255,255,255,0.1), rgb(245 240 255));
+    color: black;
+    text-align: center !important;
+    padding: 10px 0;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;    
+  }
+  @media screen and (max-width: 991px) {
+    .banner-content .description {
+      height: 17vh;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .banner-content .description.open p.product-desc-btn {
+      bottom: -35px;
+      padding: 0;
+    }
+    .banner-content .description p.product-desc-btn {
+      bottom: -25px;
+    }
+
+  }
+</style>
+
+<img class="banner-image desktop-only" src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2980_2aa26b03-bbd3-4e52-8d26-dc93aa20af46.png?v=1681280528" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+<img class="banner-image mobile-only" src="https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_37_dd42fb58-9da1-436c-b609-df03ded61c09.png?v=1681453477" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+
+<div class="banner-content">
+  <div class="page-width">
+    <div class="grid">
+      <div class="grid__item left-content">
+        <div class="rating">
+          {% comment %} <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2825.png?v=1681280676" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"> {% endcomment %}
+          {% comment %} <p>{{ shop.metafields.judgeme.all_reviews_count }}+ Verified Reviews</p> {% endcomment %}
+            {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
+          {% comment %} <p>{{ shop.metafields.judgeme.all_reviews_rating | round: 1 }}/5 based on {{ shop.metafields.judgeme.all_reviews_count }}+ Verified Reviews. </p> {% endcomment %}
+          {% comment %} <p>600+ Verified Reviews</p> {% endcomment %}
+          <div class="icon">
+            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.2459 5.18795L9.99865 3.80913L10.1725 1.98392L8.3271 1.57722L7.36097 0L5.62297 0.724131L3.88496 0L2.91883 1.57722L1.07348 1.97896L1.24728 3.80417L0 5.18795L1.24728 6.56677L1.07348 8.39694L2.91883 8.80364L3.88496 10.3809L5.62297 9.65177L7.36097 10.3759L8.3271 8.79868L10.1725 8.39198L9.99865 6.56677L11.2459 5.18795ZM4.60061 7.66785L2.55589 5.68393L3.27666 4.9846L4.60061 6.26423L7.96928 2.99572L8.69004 3.70001L4.60061 7.66785Z" fill="#2BA930"/>
+            </svg>
+          </div>
+        </div>
+        <h1 class="title">{{ product.title }}</h1>
+        <p class="banner_price">
+          {% if product.compare_at_price > product.price %}
+            <del>
+              {{ product.price | money }}
+            </del> 
+              {{ product.compare_at_price | money }}
+          {% else %}
+              {{ product.price | money }}
+          {% endif %}
+        </p>              
+        {% if product.description != blank %}
+          <div class="description">
+            {% assign max_characters = section.settings.product_description_max_characters %}
+            {% assign description_length = product.description | size %}
+            
+            <script>
+              var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+              if (screenWidth <= 768) {
+                {% assign max_characters = max_characters | minus: 250 %}
+              }
+            </script>
+          
+            {% if description_length > max_characters %}
+              {{ product.description | slice: 0, max_characters }}...
+            {% else %}
+              {{ product.description }}
+            {% endif %}
+          
+            <p class="product-desc-btn">+</p>
+          </div>
+        {% endif %}
+        {% comment %} <div class="description mobile-only">
+          <p>Choose an at-home test kit to find the missing pieces of your identity and explore your African country of origin.</p>
+        </div> {% endcomment %}
+        <a href="https://africanancestry.com/21380103/checkouts/d1bde814d9b9679663633bf1a3960aec" class="button">find your roots →</a>
+        <div class="button_bottom_text">
+          <p class="affirm-as-low-as" data-page-type="product" data-amount={{ product.price }}></p>
+          {% comment %} <p>Starting at $28/mo with</p> {% endcomment %}
+          {% comment %} <div class="payment-icon">
+            <svg width="57" height="28" viewBox="0 0 57 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" width="56" height="28" rx="2.33333" fill="white"/>
+              <g clip-path="url(#clip0_2512_2241)">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M11.9074 13.213C10.8402 13.213 9.60297 13.7034 8.93241 14.212L9.5463 15.4471C10.0846 14.9749 10.9535 14.5753 11.7374 14.5753C12.4835 14.5753 12.8896 14.8114 12.8896 15.2928C12.8896 15.6197 12.6157 15.7832 12.1057 15.8467C10.1791 16.0829 8.66797 16.5915 8.66797 18.0173C8.66797 19.1435 9.50852 19.8337 10.8119 19.8337C11.7469 19.8337 12.578 19.3342 12.9746 18.6803V19.652H14.7124V15.5743C14.7124 13.8942 13.4941 13.213 11.9074 13.213ZM11.2557 18.5259C10.7646 18.5259 10.5191 18.2988 10.5191 17.9174C10.5191 17.209 11.3407 16.9729 12.8424 16.8185C12.8519 17.763 12.1813 18.5259 11.2557 18.5259Z" fill="black"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M31.0972 14.4479V13.3944H29.3594V19.6518H31.2199V16.6366C31.2199 15.2017 32.1172 14.7839 32.7499 14.7839C32.9955 14.7839 33.326 14.8566 33.5433 15.011L33.8833 13.3581C33.5999 13.24 33.2977 13.2128 33.0522 13.2128C32.0983 13.2128 31.4938 13.6215 31.0972 14.4479Z" fill="black"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M42.5167 13.2128C41.5344 13.2128 40.7978 13.7758 40.4105 14.3117C40.0517 13.6124 39.3055 13.2128 38.3989 13.2128C37.4166 13.2128 36.7366 13.7395 36.4155 14.3389V13.3944H34.6211V19.6518H36.4817V16.4277C36.4817 15.2743 37.1144 14.7204 37.7 14.7204C38.2289 14.7204 38.72 15.0473 38.72 15.901V19.6518H40.59V16.4277C40.59 15.2562 41.2039 14.7204 41.8178 14.7204C42.3089 14.7204 42.8283 15.0655 42.8283 15.8919V19.6518H44.6889V15.3288C44.6889 13.9212 43.7067 13.2128 42.5167 13.2128Z" fill="black"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M21.2845 12.9315V13.3946H18.4607V12.7589C18.4607 11.9325 18.9518 11.6963 19.3768 11.6963C19.6223 11.6963 19.9434 11.7508 20.2079 11.8961L20.784 10.6338C20.444 10.443 19.8868 10.2705 19.1407 10.2705C17.9507 10.2705 16.6001 10.9153 16.6001 12.9405V13.4037H15.5234V14.7842H16.6001V19.652H18.4607V14.7751H21.2845V19.652H23.1451V14.7751H24.8357V13.3946H23.1451V12.7589C23.1451 11.9325 23.6362 11.6963 24.0612 11.6963C24.5334 11.6963 24.8923 11.8961 24.8923 11.8961L25.4684 10.6338C25.4684 10.6338 24.8829 10.2705 23.8251 10.2705C22.6445 10.2614 21.2845 10.9062 21.2845 12.9315Z" fill="black"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M25.9414 13.3944H27.802V19.6518H25.9414V13.3944Z" fill="black"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M36.7862 4.66699C31.7618 4.66699 27.2851 8.01819 26.0195 12.3321H27.8423C28.9001 9.11709 32.4984 6.30172 36.7862 6.30172C41.9995 6.30172 46.4951 10.1161 46.4951 16.0556C46.4951 17.3906 46.3156 18.5894 45.9756 19.652H47.7418L47.7606 19.5975C48.0534 18.4986 48.1951 17.3089 48.1951 16.0556C48.1951 9.43496 43.1801 4.66699 36.7862 4.66699Z" fill="#4A4AF4"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_2512_2241">
+              <rect width="39.6667" height="15.1667" fill="white" transform="translate(8.66797 4.66699)"/>
+              </clipPath>
+              </defs>
+            </svg>
+          </div> {% endcomment %}
+        </div>
+        <div class="arrow">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2873.png?v=1681281050" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+        </div>
+      </div>
+      <div class="grid__item right-slider">
+        <div class="banner-product-carousel">
+          {% if section.blocks != 0 %}
+            {% for block in section.blocks limit: section.blocks.size %}
+
+              {% if forloop.index == 1 %}
+
+                    {% if product.metafields.custom.product_youtube_video %}
+                      <div class="{{ col_size }} block{% increment count %} video-grid section-text image-box" >
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe width="420" height="345" src="{{ product.metafields.custom.product_youtube_video }}"></iframe>
+                        </div>
+                      </div>
+                  
+                    {% elsif block.settings.video_url != blank %}
+                        <div class="{{ col_size }} block{% increment count %} video-grid section-text image-box" >
+                          <div class="embed-responsive embed-responsive-16by9">
+                            <iframe width="420" height="345" src="{{ block.settings.video_url }}">
+                            </iframe>
+                          </div>
+                        </div>
+                    {% else %}
+                        <div class="image-box" >
+                        {% if block.settings.video_thumbnail %}
+                          <img alt="{{ block.settings.video_thumbnail.alt | escape }}" 
+                              class="img-fluid lazyload"
+                              src=""
+                              {% assign img = block.settings.video_thumbnail %}
+                              data-srcset="{{ img | img_url: '1500x' }} 1500w,
+                                      {{ img | img_url: '1200x' }} 1200w,
+                                      {{ img | img_url: '960x' }} 960w,
+                                      {{ img | img_url: '800x' }} 800w,
+                                      {{ img | img_url: '600x' }} 600w,
+                                      {{ img | img_url: '400x' }} 400w"
+                                      loading="lazy" width="{{ image.width }}"
+                                      height="{{ image.height }}"
+                          />
+                        {% else %}
+                        {% assign adjusted_index = forloop.index | minus: 1 %}
+                          <img alt="{{ product.images[adjusted_index].alt | escape }}" 
+                            class="img-fluid lazyload"
+                            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            {% assign img = product.images[adjusted_index] %}
+                            data-srcset="{{ img | img_url: '1500x' }} 1500w,
+                                    {{ img | img_url: '1200x' }} 1200w,
+                                    {{ img | img_url: '960x' }} 960w,
+                                    {{ img | img_url: '800x' }} 800w,
+                                    {{ img | img_url: '600x' }} 600w,
+                                    {{ img | img_url: '400x' }} 400w"
+                                    loading="lazy" width="{{ image.width }}" height="{{ image.height }}"
+                          />
+                      {% endif %}
+                      </div>
+                    {% endif %}
+                
+                 {% else %}
+                    {% if block.settings.video_url != blank %}
+                      <div class="{{ col_size }} block{% increment count %} video-grid section-text image-box" >
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe width="420" height="345" src="{{ block.settings.video_url }}">
+                          </iframe>
+                        </div>
+                      </div>
+                    {% else %}
+                      <div class="image-box" >
+                        {% if block.settings.video_thumbnail %}
+                          <img alt="{{ block.settings.video_thumbnail.alt | escape }}" 
+                              class="img-fluid lazyload"
+                              src=""
+                              {% assign img = block.settings.video_thumbnail %}
+                              data-srcset="{{ img | img_url: '1500x' }} 1500w,
+                                      {{ img | img_url: '1200x' }} 1200w,
+                                      {{ img | img_url: '960x' }} 960w,
+                                      {{ img | img_url: '800x' }} 800w,
+                                      {{ img | img_url: '600x' }} 600w,
+                                      {{ img | img_url: '400x' }} 400w"
+                                      loading="lazy" width="{{ image.width }}" height="{{ image.height }}"
+                          />
+                        {% else %}
+                          {% assign adjusted_index = forloop.index | minus: 1 %}
+                          <img alt="{{ product.images[adjusted_index].alt | escape }}" 
+                            class="img-fluid lazyload"
+                            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                            {% assign img = product.images[adjusted_index] %}
+                            data-srcset="{{ img | img_url: '1500x' }} 1500w,
+                                    {{ img | img_url: '1200x' }} 1200w,
+                                    {{ img | img_url: '960x' }} 960w,
+                                    {{ img | img_url: '800x' }} 800w,
+                                    {{ img | img_url: '600x' }} 600w,
+                                    {{ img | img_url: '400x' }} 400w"
+                                    loading="lazy" width="{{ image.width }}" height="{{ image.height }}"
+                          />
+                      {% endif %}
+                      </div>
+                    {% endif %}
+
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('.banner-product-carousel').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: false,
+    arrows: true
+  });
+
+</script>
+
+<script>
+  $(document).ready(() => {
+    $('.product-desc-btn').on('click', () => {
+      let elm = $('.description');
+      if(elm.hasClass('open')){
+        elm.removeClass('open');
+      } else {
+        elm.addClass('open');
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var ratingDiv = document.querySelector(".rating");
+    var previewBadge = document.querySelector(".jdgm-prev-badge");
+  
+    if (previewBadge) {
+      var numberOfReviews = previewBadge.getAttribute("data-number-of-reviews");
+  
+      // console.log("numberOfReviews", numberOfReviews);
+  
+      // Check if data-number-of-reviews is equal to 0 or null and hide the rating div if it is
+      if (numberOfReviews === "0" || numberOfReviews === null) {
+        ratingDiv.style.display = "none";
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Matriclan Product Banner",
+  "tag": "section",
+"class": "matriclan-banner",
+  "settings": [
+    {
+      "type": "number",
+      "label": "Maximum Characters for Product Description",
+      "id": "product_description_max_characters",
+      "default": 1100
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Videos or Images",
+      "settings": [
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Youtube URL for Embed"
+        },
+        {
+        "type": "image_picker",
+        "id": "video_thumbnail",
+        "label": "Upload image"
+        }
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matriclan Product Banner"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

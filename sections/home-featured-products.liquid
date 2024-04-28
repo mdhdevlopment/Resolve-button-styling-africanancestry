@@ -1,0 +1,173 @@
+{% assign featured = section.settings.featured_collection %}
+{% assign products_per_row = section.settings.num_per_row %}
+{% assign rows = section.settings.num_rows %}
+{% assign total_products = products_per_row | times: rows %}
+
+<div data-section-id="{{ section.id }}" data-section-type="featured-products-section">
+  {%- comment -%} <div class="featured-products" style="background: url({{ section.settings.bg_svg | asset_url }})"> {%- endcomment -%}
+  <div class="featured-products">
+    <div class="container">
+
+        {% case products_per_row %}
+          {% when 3 %}
+            {% assign grid_item_width = 'col-md-4' %}
+            {%- assign product_width = 600 -%}
+          {% when 4 %}
+            {% assign grid_item_width = 'col-md-3' %}
+            {%- assign product_width = 335 -%}
+          {% when 5 %}
+            {% assign grid_item_width = 'medium-down--one-half post-large--one-fifth' %}
+            {%- assign product_width = 335 -%}
+        {% endcase %}
+
+        {%- if section.settings.title -%}
+
+          <div class="home-featured-product-title text-{{ section.settings.justify_homecopy }}">
+            <h2>{{ section.settings.title }} {{ section.settings.title_secondary }}</h2>
+          </div>
+
+        {%- endif -%}
+        <div class="row products">
+            {% for block in section.blocks limit: total_products %}
+            {%- include 'bold-product' with product, hide_action: 'skip' -%}
+              {% assign featured = all_products[block.settings.feature_product_item] %}
+              {% assign alt_image = block.settings.alternate_image %}
+              {% assign title_below_text1 = block.settings.product_sub_text %}
+              {% assign title_below_text2 = block.settings.product_sub_text_2 %}
+              {% assign image_below_text = block.settings.product_below_image %}
+                {% assign custom_url = block.settings.page_link %}
+            <div class="{{grid_item_width}}" {{ block.shopify_attributes }}>
+              {% include 'home-featured-product-grid-item' %}
+            </div>
+          {% else %}
+
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{% schema %}
+  {
+    "name": "Featured Products",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "First Heading",
+        "default": "Featured "
+      },
+      {
+      "type": "text",
+      "id": "title_secondary",
+      "label": "Second Heading",
+      "default": "Products"
+      },
+      {
+        "type": "text",
+        "id": "bg_svg",
+        "label": "Background SVG",
+        "default": "featured-products.svg"
+      },
+      {
+        "type":      "select",
+        "id":        "justify_homecopy",
+        "label":     "Justify Text",
+        "options": [
+          {"value": "left","label": "Left"},
+          {"value": "center","label": "Center"},
+          {"value": "right","label": "Right"}
+        ],
+      "default":   "center",
+      "info":      "Center"
+      },
+      {
+        "type": "range",
+        "id": "num_per_row",
+        "label": "Products per row",
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "default": 3
+      },
+
+      {
+        "type": "range",
+        "id": "num_rows",
+        "label": "Rows",
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "default": 1
+      },
+      {
+        "type": "checkbox",
+        "id": "vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale_circle",
+        "label": "Show 'Sale' circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sold_out_circle",
+        "label": "Show 'Sold out' circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "center_grid_link",
+        "label": "Center text below product images"
+      }
+    ],
+  "blocks": [
+      {
+        "type":"featured_product",
+        "name": "Featured Products",
+        "settings": [
+                        {
+                        "type": "product",
+                        "id": "feature_product_item",
+                        "label": "Feature product"
+                        },
+                        {
+                        "type": "image_picker",
+                        "id": "alternate_image",
+                        "label": "Alternate Image"
+                        },
+                        {                        
+                        "type": "text",
+                        "id": "product_sub_text",
+                        "label": "Sub Text 1"                   
+                        },
+                        {                        
+                        "type": "text",
+                        "id": "product_sub_text_2",
+                        "label": "Sub Text 2"                   
+                        },
+                        {                        
+                        "type": "text",
+                        "id": "product_below_image",
+                        "label": "Text below image"                   
+                        },
+                        {
+                        "type": "url",
+                        "id": "page_link",
+                        "label": "Custom page link"
+                        }
+          ]
+      }
+  ],
+  "presets": [
+      {
+        "name": "Home Featured Products",
+        "category": "Product"
+      }
+    ]
+
+
+  }
+{% endschema %}

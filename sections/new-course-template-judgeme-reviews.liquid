@@ -1,0 +1,41 @@
+<div class="new-product-template-judgeme-reviews">
+  <div class="page-width">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="new-product-template-judgeme-reviews-heading">Reviews</h2>
+        {% comment %}Start automatically added Judge.me widget{% endcomment %}
+        {% render 'judgeme_widgets', widget_type: 'judgeme_review_widget', concierge_install: true, product: product %}
+        {% comment %}End automatically added Judge.me widget{% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var ratingDiv = document.querySelector(".new-product-template-judgeme-reviews");
+    var reviewWidget = document.querySelector(".jdgm-rev-widg");
+  
+    if (reviewWidget) {
+      var numberOfReviews = reviewWidget.getAttribute("data-number-of-reviews");
+  
+      // console.log("numberOfReviews", numberOfReviews);
+  
+      // Check if data-number-of-reviews is equal to 0 or null and hide the rating div if it is
+      if (numberOfReviews === "0" || numberOfReviews === null) {
+        ratingDiv.style.display = "none";
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+    "name": "Product Template Reviews",
+    "presets": [
+    {
+      "name": "Product Template Reviews"
+    }
+  ]
+}
+{% endschema %}

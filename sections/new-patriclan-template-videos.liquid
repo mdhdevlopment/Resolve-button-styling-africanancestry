@@ -1,0 +1,66 @@
+
+<div class="product-template-videos-section">
+  <div class="page-width">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-template-content__wrapper">
+          <div class="product-template-head">
+            {% if section.settings.product_template_heading != blank %}
+              <h2 class="product-template-heading">{{ section.settings.product_template_heading }}</h2>
+            {% endif %}
+            {% if section.settings.product_template_text != blank %}
+              <div class="product-template-section-text">
+                <p>{{ section.settings.product_template_text }}</p>
+              </div>
+            {% endif %}
+          </div>
+          {% if section.settings.product_template_video != blank %}
+            <div class="product-template-videos">
+              <iframe
+                src="{{ section.settings.product_template_video }}"
+                title="African Ancestry: The Pioneers of Ancestry Testing for Black People"
+                width="788"
+                height="430"
+                class="lazyload"
+                loading="lazy"
+              >
+              </iframe>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Template Videos",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_template_heading",
+      "label": "Title",
+      "default": "Take The Right Test"
+    },
+    {
+      "type": "text",
+      "id": "product_template_text",
+      "label": "Content",
+      "default": "Start your journey of self-discovery, reconnect to Africa and unlock your power within."
+    },
+    {
+      "type": "text",
+      "id": "product_template_video",
+      "label": "Video Url",
+      "default": "https://www.youtube.com/embed/0r1RUoXvSCc"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Template Videos",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

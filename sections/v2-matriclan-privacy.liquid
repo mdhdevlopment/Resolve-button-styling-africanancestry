@@ -1,0 +1,66 @@
+<div class="page-width">
+   <div class="title-box">
+    <h2 class="section-title">privacy is everything</h2>
+    <p class="subtitle">We DO NOT sell or share your genetic information.</p>
+  </div>
+  <div class="grid">
+    <div class="grid__item">
+      <div class="icon">
+        <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_57.png?v=1681380537" alt="image" loading="lazy" width="{{ image.width }}"
+          height="{{ image.height }}">
+      </div>
+      <div class="content">
+        <h3 class="title">Your Information Is Confidential</h3>
+        <p class="description">When your DNA sample is submitted to the lab, no personal information is provided. It is only identified by a barcode maintained by African Ancestry.</p>
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="icon">
+        <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African_Ancestry_-_Privacy_is_Everything_a76a9d9d-bbfc-4fb3-a68e-032f15357be1.png?v=1681380537" alt="image" loading="lazy" width="{{ image.width }}"
+          height="{{ image.height }}">
+      </div>
+      <div class="content">
+        <h3 class="title">All Genetic Material Is Destroyed</h3>
+        <p class="description">Once your DNA sequence has been analyzed, all generic material including additional cheek swabs are destroyed at the lab.</p>
+      </div>
+    </div>
+    {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_url }}" class="save-20-per-button">{{ section.settings.button_text }}</a>
+    {% endif %}
+  </div>
+  
+</div>
+
+
+{% schema %}
+{
+  "name": "Matriclan Privacy",
+  "tag": "section",
+  "class": "matriclan-privacy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Save 10% Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Matriclan Privacy"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

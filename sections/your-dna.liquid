@@ -1,0 +1,66 @@
+<section class="section_4 py_60 one-edge-shadow">
+   <div class="container">
+      <div class="row">
+         <div class="col-7 dd_flex">
+            {% if section.settings.title != blank %}
+            <h2 class="text-center big_head">{{ section.settings.title }}</h2>
+            {% endif %}
+            {% if section.settings.content != blank %}
+            <p class="text-center para_text">{{ section.settings.content }}</p>
+            {% endif %}
+            {% if section.settings.btn_title != blank %}
+            <a href="{% if section.settings.buttonurl != blank %}{{ section.settings.buttonurl }} {% else %} # {% endif %}" class="learn_more mt-5">{{ section.settings.btn_title }}</a>
+            {% endif %}
+         </div>
+         <div class="col-5">
+            <figure class="overlay">
+               <figcaption>
+                  <img src="{% if section.settings.boximg != blank %}{{ section.settings.boximg | img_url :"original"}}{% else %}https://cdn.shopify.com/s/files/1/2138/0103/files/img2.jpg?v=1616185963 {% endif %}" class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+               </figcaption>
+            </figure>
+         </div>
+      </div>
+   </div>
+</section>
+{% schema %}
+ {
+   "name":"It's In Your DNA",
+   "settings":[
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title",
+         "default":"Watch The Fun That Awaits "
+      },
+      {
+         "type":"text",
+         "id":"content",
+         "label":"Content",
+         "default":"With fun and educational tools included, the African Ancestry Identity Box helps you celebrate the very essence of who you are."
+      },
+      {
+         "type":"image_picker",
+         "id":"bannerimg",
+         "label":"Banner Image"
+      },
+
+      {
+         "type":"text",
+         "id":"btn_title",
+         "label":"Button Title",
+         "default": "LEARN MORE"
+      },
+      {
+         "type":"url",
+         "id":"buttonurl",
+         "label":"Url"
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

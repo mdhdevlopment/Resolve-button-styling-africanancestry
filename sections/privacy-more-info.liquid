@@ -1,0 +1,97 @@
+<section>
+  <div class="privacy-more-info">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="more-info-container-l">
+          <h2>{{ section.settings.left_title }}</h2>
+          <p><span class="content">
+            {{ section.settings.left_content }}
+          </span></p>
+
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="more-info-container-r">
+          <h2>{{ section.settings.right_title }}</h2>
+          <p><span class="content">
+            {{ section.settings.right_content }}
+          </span></p>
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="sub-link">
+      <div class="sub-link-content align-self-center">
+        <p><span class="read-more">
+            {{ section.settings.readmore_content }}
+            <a href="{{ section.settings.readmore_link }}">{{ section.settings.readmore_linktext }}</a>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- html End -->
+</section>
+{% schema %}
+  {
+  "name": "Privacy More Info",
+  "settings": [
+    {
+    "id": "left_title",
+    "type": "text",
+    "label": "Left Title",
+    "default": "Your Information <br>Is Confidential"
+    },
+    {
+    "id": "left_content",
+    "type": "text",
+    "label": "Left Content",
+    "default": "When your DNA sample is submitted to the lab, no personal information is provided. It is only identified by a barcode maintained by African Ancestry."
+    },
+    {
+    "id": "right_title",
+    "type": "text",
+    "label": "Right Title",
+    "default": "All Genetic Material <br> Is Destroyed"
+    },
+    {
+    "id": "right_content",
+    "type": "text",
+    "label": "Right Content",
+    "default": "Once your DNA sequence has been analyzed, all generic material including additional cheek swabs are destroyed at the lab."
+    },
+    {
+    "id": "readmore_content",
+    "type": "text",
+    "label": "Read More Text",
+    "default": "Read more about our"
+    },
+    {
+    "id": "readmore_link",
+    "type": "url",
+    "label": "Read More Text"
+    },
+    {
+    "id": "readmore_linktext",
+    "type": "text",
+    "label": "Read More Link Text",
+    "default": "Privacy Policy"
+    }
+  ],
+  "presets": [
+  {
+  "name": "Privacy Elements",
+  "category": "New Sections"
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

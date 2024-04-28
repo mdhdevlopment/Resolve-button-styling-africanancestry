@@ -1,0 +1,3073 @@
+#shopify-section-header{
+  display: none;
+}
+
+.page-width{
+  max-width: 1270px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+#shopify-section-header + .container{
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.shopify-section.matriclan-header .announcement{
+  background: #FFBB0B;
+  width: 100%;
+  /*display: none;*/
+  padding: 15px 0;
+  
+}
+
+.shopify-section.matriclan-header .announcement p{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #221F46;
+  margin: 0px;
+}
+
+.shopify-section.matriclan-header{
+  padding-top: 0;
+  padding-bottom: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1111;
+}
+
+.shopify-section.matriclan-header .page-width{
+  max-width: 1270px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.shopify-section.matriclan-header .header-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopify-section.matriclan-header .header-content .logo-box img{
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.shopify-section.matriclan-header .header-content .cart-button a{
+  width: 56px;
+  height: 56px;
+  background: #352F85;
+  box-shadow: 0px 12px 80px rgba(0, 0, 0, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================= banner css starts ============================= */
+
+.shopify-section.matriclan-banner{
+  position: relative;
+  display: table;
+  width: 100%;
+}
+
+.shopify-section.matriclan-banner .banner-image{
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.shopify-section.matriclan-banner .banner-image.mobile-only{
+  display: none;
+}
+
+.shopify-section.matriclan-banner .banner-content{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid{
+  display: flex;
+  align-items: flex-start;
+  column-gap: 85px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content{
+  width: 49%;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider{
+  width: 51%;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .rating{
+  background: rgba(53, 47, 133, 0.05);
+  border: 1px solid rgba(53, 47, 133, 0.13);
+  border-radius: 36px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 339px;
+  margin: 0 auto 20px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .rating p{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #352F85;
+  margin-left: 5px;
+  margin-right: 2px;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content h1.title{
+  font-size: 60px;
+  line-height: 75px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  color: #221F46;
+  margin-bottom: 30px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .description p, .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content h5 {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 28px;
+  text-align: center;
+  color: #221F46;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content h5 {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .description.mobile-only{
+  display: none;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content a.button{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  padding: 22px 32px;
+  background: #FF7050;
+  border-radius: 2px;
+  display: table;
+  margin: 40px auto 20px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .button_bottom_text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .button_bottom_text p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16.3333px;
+  line-height: 19px;
+  color: #2B206A;
+  margin-bottom: 0px;
+  margin-right: 7px;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .arrow{
+  display: table;
+  margin: 35px auto 0;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel,
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel
+{
+  max-width: 630px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0px 42px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .image-box img,
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .image-box img
+{
+  max-width: 100%;
+  display: table;
+  margin: 0 auto;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow,
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow
+{
+  background: #FFFFFF;
+  border: 2px solid #352F85;
+  box-shadow: 0px 42px 50px rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow::after,
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow::after
+{
+  content: "";
+  width: 6px;
+  height: 12px;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_30.png?v=1681281218');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow.slick-prev::after,
+.shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow.slick-prev::after
+{
+  transform: rotate(180deg);
+}
+
+/* ============================= featured section ================================ */
+
+.shopify-section.matriclan-featured{
+  margin-top: -40px;
+}
+
+.shopify-section.matriclan-featured .section-title{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.5em;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-bottom: 55px;
+}
+
+.shopify-section.matriclan-featured .featured-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopify-section.matriclan-featured .featured-row .slick-track{
+  display: flex;
+  align-items: center;
+  column-gap: 60px;
+}
+
+.shopify-section.matriclan-featured .featured-row .image-box{
+  display: table;
+}
+
+.shopify-section.matriclan-featured .featured-row .image-box img{
+  float: left;
+  width: auto; 
+  display: block;
+  opacity: 0.5;
+}
+
+/* ======================== matriclan about ================================== */
+
+.shopify-section.matriclan-about{
+  padding: 72px 0 40px;
+}
+
+.shopify-section.matriclan-about a.button, .what-you-box-wrapper a.save-20-per-button, .shopify-section.matriclan-privacy a.save-20-per-button {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  padding: 22px 32px;
+  background: #FF7050;
+  border-radius: 2px;
+  display: table;
+  margin: 100px auto 10px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.what-you-box-wrapper a.save-20-per-button {
+  margin: 20px auto 0px;
+}
+
+.shopify-section.matriclan-privacy a.save-20-per-button {
+  margin: 70px auto 0px;
+}
+
+.shopify-section.matriclan-about .grid{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  column-gap: 46px;
+}
+
+.shopify-section.matriclan-about .grid .left-content{
+  width: 58%;
+  position: relative;
+}
+
+.shopify-section.matriclan-about .grid .right-content{
+  width: 42%;
+}
+
+.shopify-section.matriclan-about .grid .right-content .section-title{
+  font-size: 60px;
+  line-height: 80px;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
+.shopify-section.matriclan-about .grid .right-content .description p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 36px;
+  color: #221F46;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-about .grid .right-content .description{
+  margin-bottom: 63px;
+}
+
+.shopify-section.matriclan-about .grid .right-content .staff{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  column-gap: 20px;
+}
+
+.shopify-section.matriclan-about .grid .right-content .staff .user{
+  max-width: 190px;
+  margin-right: 20px;
+}
+
+.shopify-section.matriclan-about .grid .right-content .staff .user .avatar{
+  width: 100%;
+  max-width: 105px;
+  border: 3px solid #FFFFFF;
+  filter: drop-shadow(7px 45px 50px rgba(53, 47, 133, 0.12));
+  border-radius: 50%;
+  position: relative;
+  background: #fff;
+  margin-bottom: 23px;
+}
+
+.shopify-section.matriclan-about .grid .right-content .staff .user .avatar::after{
+  content: "";
+  position: relative;
+  display: block;
+  padding-top: 100%;
+}
+
+.shopify-section.matriclan-about .grid .right-content .staff .user .avatar img{
+  position: absolute;
+  width: calc(100% - 3px);
+  height: calc(100% - 3px);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shopify-section.matriclan-about .grid .right-content .staff .user .user-detail .user-name{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  color: #6132C6;
+  margin-bottom: 15px;
+}
+
+.shopify-section.matriclan-about .grid .right-content .staff .user .user-detail p{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-about .grid .left-content .image-box{
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+.shopify-section.matriclan-about .grid .left-content .image-box img{
+  float: right;
+  width: auto;
+  max-width: inherit;
+}
+
+.shopify-section.matriclan-about .grid .left-content .quote{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-width: 505px;
+  margin: 0 auto;
+  transform: translateY(-170px);
+  padding: 57px 42px;
+  background: #6132C6;
+  box-shadow: 7px 31px 50px rgba(0, 0, 0, 0.01);
+  border-radius: 5px;
+}
+
+.shopify-section.matriclan-about .grid .left-content .quote .icon{
+  margin-top: -80px;
+  margin-bottom: 21px;
+}
+
+.shopify-section.matriclan-about .grid .left-content .review p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 41px;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-about .grid .left-content .username{
+  margin-top: 40px;
+}
+
+.shopify-section.matriclan-about .grid .left-content .username p{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 0px;
+}
+
+/* ========================== ancestry section starts ==================== */
+
+.shopify-section.matriclan-ancestry{
+  padding: 80px 0 90px;
+  background: #FFF0ED;
+}
+
+.shopify-section.matriclan-ancestry .title-box .section-title{
+  font-size: 60px;
+  line-height: 70px;
+  leading-trim: both;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.shopify-section.matriclan-ancestry .title-box .subtitle{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: #221F46;
+  margin-bottom: 80px;
+}
+
+.shopify-section.matriclan-ancestry .title-box .subtitle span{
+  font-weight: 600;
+}
+
+.shopify-section.matriclan-ancestry .grid{
+  display: flex;
+  align-items: center;
+  column-gap: 80px;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box{
+  display: flex;
+  column-gap: 14px;
+  row-gap: 14px;
+  flex-wrap: wrap;
+  width: 50%;
+  max-width: 563px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .image-box{
+  width: calc(50% - 7px);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .image-box::after{
+  content: "";
+  position: relative;
+  width: 100%;
+  display: block;
+  padding-top: 100%;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .image-box img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box  .satisfaction-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 14px solid #FFF0ED;
+  background: linear-gradient(0deg, #6132C6 0%, #FF7051 100%), #FF7051;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  width: 230px;
+  height: 230px;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text .image-box{
+  width: auto;
+  display: table;
+  margin: 0 auto 12px;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text .image-box::after{
+  display: none;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text .image-box img{
+  position: relative;
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text h5{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  /* background: #8F4D9B; */
+  max-width: 150px;
+  width: 100%;
+}
+
+.shopify-section.matriclan-ancestry a.save-20-per-button {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  padding: 30px 32px;
+  background: #FF7050;
+  border-radius: 2px;
+  display: table;
+  margin: -45px auto 20px;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text h5 .yellow-text {
+  color: #FFDE59;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.right-box{
+  display: flex;
+  column-gap: 1px;
+  row-gap: 1px;
+  background: rgba(43, 32, 106, 0.25);
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text{
+  width: calc(50% - .5px);
+  background: #FFF0ED;
+  position: relative;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text::after{
+  content: "";
+  position: relative;
+  width: 100%;
+  display: block;
+  padding-top: 100%;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text .content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text .content .icon-box{
+  display: table;
+  margin: 0 auto;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text .content .icon-box img{
+  float: left;
+  width: 100%;
+  display: block;
+  margin-bottom: 30px;
+  max-width: 120px;
+    border-radius: 100%;
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text .content .text p{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  text-align: center;
+  color: #221F46;
+  max-width: 250px;
+  margin-bottom: 0px;
+}
+
+/* ============================ matriclan what you got =================================== */
+
+.shopify-section.matriclan-what-you-got{
+  padding: 70px 0 0;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_31_2ffd24ca-b9e5-4483-a30a-037545d2b1ff.png?v=1681301333');
+  background-repeat: no-repeat;
+  background-position: left center;
+}
+
+
+
+.shopify-section.matriclan-what-you-got .title-box .section-title{
+  font-size: 60px;
+  line-height: 80px;
+  leading-trim: both;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.shopify-section.matriclan-what-you-got .title-box .subtitle{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: #221F46;
+  margin-bottom: 66px;
+  /* max-width: 860px; */
+  padding: 0 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel{
+  max-width: 942px;
+  margin: 0 auto;
+  border: 1.5px solid #6132C6;
+  box-shadow: 7px 31px 50px rgba(0, 0, 0, 0.01);
+  border-radius: 5px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background: #fff;
+  column-gap: 63px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item .image-box{
+  width: 50%;
+  max-width: 388px;
+  padding: 30px;
+  background: #FFF0ED;
+  border-radius: 5px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item .image-box img{
+  float: left;
+  width: 100%;
+  display: block;
+  mix-blend-mode: darken;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item  .text-box{
+  width: 50%;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item  .text-box .icon{
+  margin-bottom: 30px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item  .text-box  h2.title{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 36px;
+  color: #2B206A;
+  margin-bottom: 40px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item  .text-box .description p{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  color: #221F46;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -90px;
+  width: 38px;
+  height: 14px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .slick-list{
+  border-radius: 5px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow.slick-prev{
+  left: -90px;
+  right: auto;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow.slick-prev::after{
+  transform: rotate(180deg);
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow::after{
+  width: 38px;
+  height: 14px;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2886.png?v=1681302591');
+  background-size: contain;
+  background-position: center center;
+  content: "";
+      background-repeat: no-repeat;
+}
+.what-you-box-wrapper {
+    margin: 0 auto;
+    border: 1.5px solid #6132C6;
+    box-shadow: 7px 31px 50px #00000003;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background: #fff;
+    flex-wrap: wrap;
+}
+
+.what-you-box-wrapper h2.title {
+    font-family: Rubik,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    color: #2b206a;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+.what-you-box-wrapper .image-box {
+    max-width: 50%;
+    flex: 0 0 50%;
+  padding-right:35px;
+}
+.what-you-box-wrapper .image-box .image_bg{
+    background: #FFF0ED;
+  border-radius: 5px;
+}
+.what-you-box-wrapper .image-box .image_bg img{
+  mix-blend-mode: darken;
+}
+
+.what-you-box-wrapper .text-box {
+    max-width: 50%;
+    flex: 0 0 50%;
+  padding-left:35px;
+}
+
+.what-you-box-wrapper .text-box ul li:after{
+  content:"";
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='30' height='30' viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M15 0C6.75 0 0 6.75 0 15C0 23.25 6.75 30 15 30C23.25 30 30 23.25 30 15C30 6.75 23.25 0 15 0ZM12 22.5L4.5 15L6.615 12.885L12 18.255L23.385 6.87L25.5 9L12 22.5Z' fill='%23FF7050'%3e%3c/path%3e%3c/svg%3e");
+   height: 16px;
+    width: 16px;
+    position: absolute;
+    background-size: contain;
+    top: 8px;
+    left: 0;
+}
+.what-you-box-wrapper .text-box ul{
+  list-style: none;
+  padding-left: 0;
+  margin-bottom:0;
+}
+.what-you-box-wrapper .text-box ul li{
+  position: relative;
+  padding-left: 35px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  color: #221F46;
+  margin-bottom: 30px;
+}
+.what-you-box-wrapper .text-box ul li:last-child{
+  margin-bottom:0;
+}
+/* ================================================================== */
+
+.shopify-section.matriclan-review{
+  margin-top: -200px;
+  padding: 100px 0;
+  position: relative;
+}
+
+.shopify-section.matriclan-review::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_33.png?v=1681304070');
+  background-position: center center;
+  background-size: cover;
+  background-position: top center;
+}
+
+.shopify-section.matriclan-review .section-title{
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin-top: 160px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 11;
+}
+
+.shopify-section.matriclan-what-you-got .page-width{
+  position: relative;
+  z-index: 11;
+}
+
+.shopify-section.matriclan-review .review-carousel{
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
+.shopify-section.matriclan-review .review-carousel .item{
+  margin: 0 15px;
+  background: #fff;
+  background: #FFFFFF;
+  border-radius: 5px;
+  padding: 60px 40px 50px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.shopify-section.matriclan-review .review-carousel .item:hover {
+    background: #ff7051;
+}
+
+.shopify-section.matriclan-review .review-carousel .item:hover > .quote-icon img {
+    filter:  brightness(0) invert(1);
+}
+
+.shopify-section.matriclan-review .review-carousel .item:hover > .description p {
+    color: #fff;
+}
+
+.shopify-section.matriclan-review .review-carousel .item:hover .user-details .name {
+    color: #fff !important;
+}
+
+.shopify-section.matriclan-review .review-carousel .item:hover .user-details p.verified {
+    color: #fff !important;
+}
+
+.shopify-section.matriclan-review .review-carousel .item:hover > .title {
+    color: #fff;
+}
+
+.shopify-section.matriclan-review .review-carousel .item .quote-icon{
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.shopify-section.matriclan-review .review-carousel .item .rating{
+  display: table;
+  margin: 0 auto 20px;
+}
+
+.shopify-section.matriclan-review .review-carousel .item .title{
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #352F85;
+  margin-bottom: 30px;
+}
+
+.shopify-section.matriclan-review .review-carousel .item .description p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 36px;
+  text-align: center;
+  color: #221F46;
+  min-height: 270px;
+  margin-bottom: 25px;
+}
+
+.shopify-section.matriclan-review .review-carousel .item .user{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 15px;
+}
+
+.shopify-section.matriclan-review .review-carousel .item .user .user-details .name{
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #352F85;
+  margin-bottom: 8px;
+}
+
+.shopify-section.matriclan-review .review-carousel .item .user .user-details p.verified{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #2B206A;
+  margin-right: 2px;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-review .button-box{
+  position: relative;
+  z-index: 1;
+}
+
+.shopify-section.matriclan-review .button-box a{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  padding: 22px 68px;
+  background: #FF7051;
+  border-radius: 2px;
+  display: table;
+  margin: 50px auto 0;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+
+.shopify-section.matriclan-review .review-carousel .slick-arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -90px;
+  width: 50px;
+  height: 14px;
+}
+
+.shopify-section.matriclan-review .review-carousel .slick-arrow.slick-prev{
+  left: -90px;
+  right: auto;
+}
+
+.shopify-section.matriclan-review .review-carousel .slick-arrow.slick-prev::after{
+  transform: rotate(180deg);
+}
+
+.shopify-section.matriclan-review .review-carousel .slick-arrow::after{
+  width: 50px;
+  height: 50px;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2966.png?v=1681306199');
+  background-size: contain;
+  background-position: center center;
+  box-shadow: 0px 42px 50px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  content: "";
+}
+
+
+/* ===================== how it works section start =============================== */
+
+.shopify-section.matriclan-how-it-works{
+  padding: 70px 0;
+}
+
+.shopify-section.matriclan-how-it-works .title-box{
+  margin-bottom: 70px;
+}
+
+.shopify-section.matriclan-how-it-works h2.section-title{
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  color: #221F46;
+  margin-bottom: 40px;
+}
+
+.shopify-section.matriclan-how-it-works .subtitle{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: #221F46;
+  max-width: 1035px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item{
+  max-width: 630px;
+  margin: 20px 18px;
+  padding: 46px 62px 50px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(34, 31, 70, 0.11);
+  box-shadow: 7px 31px 50px rgba(0, 0, 0, 0.01);
+  border-radius: 5px;
+  height: auto;
+  transition: background 0.5s ease-in-out;
+  position: relative;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item.slick-current.slick-active.slick-center{
+  background: #FFF0ED;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-track{
+  display: flex;
+  align-items: stretch;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item .badge{
+  background: #6132C6;
+  border-radius: 2px;
+  width: 135px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item .badge p{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item .image-box{
+  display: table;
+  margin: 0 auto 15px;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item .image-box img{
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item .content .title{
+  font-size: 40px;
+  line-height: 47px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-top: 0px;
+  margin-bottom: 29px;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item .content .description p{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 34px;
+  text-align: center;
+  color: #221F46;
+  margin-bottom: 0px;
+}
+ 
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: calc(50% - 340px);
+  width: 50px;
+  height: 14px;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow.slick-prev{
+  left: calc(50% - 340px);
+  right: auto;
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow.slick-prev::after{
+  transform: rotate(180deg);
+}
+
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow::after{
+  width: 50px;
+  height: 50px;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2892.png?v=1681368542');
+  background-size: contain;
+  background-position: center center;
+  box-shadow: 7px 15px 50px rgba(53, 47, 133, 0.12);
+  border-radius: 50%;
+  content: "";
+}
+
+.shopify-section.matriclan-how-it-works .button-box a{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  padding: 22px 68px;
+  background: #FF7051;
+  border-radius: 2px;
+  display: table;
+  margin: 50px auto 0;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* =============================== comparison section starts ====================== */
+
+.shopify-section.matriclan-comparison{
+  background: #F5F0FF;
+  padding: 70px 0;
+}
+
+.shopify-section.matriclan-comparison h2.section-title{
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #221F46;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 90px;
+}
+
+.shopify-section.matriclan-comparison .page-width .grid{
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.shopify-section.matriclan-comparison .page-width .grid .grid__item{
+  width: 50%;
+  position: relative;
+  border-right: 2px solid #352F85;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.shopify-section.matriclan-comparison .page-width .grid .grid__item:last-child{
+  border-right: none;
+}
+
+.shopify-section.matriclan-comparison .logo.image-box{
+  display: table;
+  margin: 0 auto 65px;
+}
+
+.shopify-section.matriclan-comparison .logo.image-box img{
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.shopify-section.matriclan-comparison .icon-with-text{
+  display: table;
+  margin: 0 auto 45px;
+}
+
+.shopify-section.matriclan-comparison .icon-with-text:last-child{
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-comparison .icon-with-text .icon{
+  display: table;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.shopify-section.matriclan-comparison .icon-with-text .icon img{
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.shopify-section.matriclan-comparison .icon-with-text .text p{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  color: #2B206A;
+  max-width: 322px;
+  margin: 0 auto;
+}
+
+.shopify-section.matriclan-comparison .grid__item:nth-child(2) .icon-with-text .text p{
+  max-width: 385px;
+  color: #5A5A5A;
+}
+
+/* ============================= video section starts =========================== */
+
+.shopify-section.matriclan-video{
+  padding: 77px 0 110px;
+  background: #2B206A;
+  position: relative;
+}
+
+.shopify-section.matriclan-video::after{
+  content: "";
+  width: 265px;
+  height: 545px;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_34.png?v=1681377147');
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.shopify-section.matriclan-video::before{
+  content: "";
+  width: 600px;
+  height: 371px;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_35.png?v=1681377147');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.shopify-section.matriclan-video .title-box .section-title{
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin-bottom: 40px;
+}
+
+.shopify-section.matriclan-video .title-box .subtitle{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 70px;
+}
+
+.shopify-section.matriclan-video .video-box{
+  max-width: 1044px;
+  position: relative;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: #fff;
+  border: 10px solid #FFFFFF;
+  filter: drop-shadow(0px 51px 50px rgba(0, 0, 0, 0.15));
+}
+.shopify-section.matriclan-video .video-box iframe{
+      border-radius: 10px;
+  }
+
+.shopify-section.matriclan-video .video-box::after{
+  content: "";
+  position: relative;
+  display: block;
+  padding-top: 52.5%;
+      pointer-events: none;
+}
+
+.shopify-section.matriclan-video .video-box iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================== matriclan privacy ============================== */
+
+.shopify-section.matriclan-privacy{
+  padding: 90px 0 157px;
+  background: #FFF0ED;
+}
+
+.shopify-section.matriclan-privacy .title-box h2.section-title{
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-bottom: 40px;
+}
+
+.shopify-section.matriclan-privacy .title-box p.subtitle{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 36px;
+  text-align: center;
+  color: #221F46;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-privacy .title-box{
+  margin-bottom: 85px;
+}
+
+.shopify-section.matriclan-privacy .page-width{
+  max-width: 1400px;
+}
+
+.shopify-section.matriclan-privacy .grid{
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 64px;
+  flex-wrap: wrap;
+}
+
+.shopify-section.matriclan-privacy .grid .grid__item{
+  width: calc(50% - 32px);
+  padding: 68px 65px 69px 42px;
+  background: #FFFFFF;
+  box-shadow: 7px 31px 50px rgba(0, 0, 0, 0.01);
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.shopify-section.matriclan-privacy .grid .grid__item .content{
+  max-width: 420px;
+}
+
+.shopify-section.matriclan-privacy .grid .grid__item .content .title{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.shopify-section.matriclan-privacy .grid .grid__item .content .description{
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 34px;
+  color: #221F46;
+}
+
+/* ========================= matriclan faq ================================== */
+
+.shopify-section.matriclan-faq{
+  padding: 90px 0 80px;
+}
+
+.shopify-section.matriclan-faq .title-box{
+  margin-bottom: 80px;
+}
+
+.shopify-section.matriclan-faq .section-title{
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #221F46;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-faq .p-accordion {
+	max-width: 862px;
+	margin-inline: auto;
+}
+.shopify-section.matriclan-faq .p-accordion__item:not(:first-of-type) {
+	margin-top: 38px;
+}
+
+.shopify-section.matriclan-faq .p-accordion__title {
+	position: relative;
+	padding: 14px 40px 14px 30px;
+    background: rgba(43, 32, 106, 0.05);
+    border: 1px solid rgba(43, 32, 106, 0.1);
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 30px;
+    color: #221F46;
+}
+
+
+.shopify-section.matriclan-faq .p-accordion__title::after {
+	content: "+";
+	position: absolute;
+	top: 50%;
+	right: 20px;
+	transform: translateY(-50%);
+	width: 20px;
+	height: 20px;
+	transition: transform 0.3s;
+    
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 20px;
+  text-align: right;
+  color: #FC5D3D;
+    font-family: "Rubik",sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopify-section.matriclan-faq .p-accordion__content  {
+	padding: 20px;
+	background-color: rgba(43, 32, 106, 0.05);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    font-family: "Rubik",sans-serif;
+    color: #5A5A5A;
+	display: none;
+    text-align:left;
+    z-index: 999;
+    position: relative;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: 1px solid rgba(43,32,106,.1);
+    border-left: 1px solid rgba(43,32,106,.1);
+    border-bottom: 1px solid rgba(43,32,106,.1);
+}
+.shopify-section.matriclan-faq .p-accordion__content p{
+  text-align:left;
+     font-size: 16px;
+    line-height: 26px;
+    font-family: "Rubik",sans-serif;
+    color: #5A5A5A;
+	
+}
+
+.shopify-section.matriclan-faq .p-accordion__item.is-open .p-accordion__title::after {
+content: "-";
+}
+
+.shopify-section.matriclan-faq .p-accordion__content.is-open {
+	display: block;
+}
+.shopify-section.matriclan-faq .p-accordion__content h6 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #221f46;
+    font-family: Rubik,sans-serif;
+    margin-bottom: 0;
+}
+.shopify-section.matriclan-faq .p-accordion__content p a{
+  color: #221f46;
+  font-weight: 500;
+}
+/* ============================= find out start ============================================ */
+
+.shopify-section.matriclan-find-out{
+  background-color: #6132C6;
+  background-image: url('https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group_69.png?v=1681385074');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 90px 0 95px;
+}
+
+.shopify-section.matriclan-find-out .title-box{
+  margin-bottom: 80px;
+}
+
+.shopify-section.matriclan-find-out .title-box .section-title{
+  font-size: 60px;
+  line-height: 80px;
+  text-align: center;
+  letter-spacing: -0.05em;
+  text-transform: capitalize;
+  color: #FFFFFF;
+}
+
+.shopify-section.matriclan-find-out .page-width{
+  max-width: 1135px;
+  margin: 0 auto;
+}
+
+.shopify-section.matriclan-find-out .grid{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 72px;
+}
+
+.shopify-section.matriclan-find-out .grid .grid__item:first-child{
+  width: 39%;
+}
+
+.shopify-section.matriclan-find-out .grid .grid__item:last-child{
+  width: 61%;
+}
+
+.shopify-section.matriclan-find-out .grid .grid__item .image-box{
+  max-width: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.shopify-section.matriclan-find-out .grid .grid__item .image-box::after{
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.shopify-section.matriclan-find-out .grid .grid__item .image-box img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.shopify-section.matriclan-find-out .grid .content .description{
+  font-size: 34px;
+  line-height: 55px;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  padding-bottom: 40px;
+  position: relative;
+  margin-bottom: 30px;
+  font-family: MatrixIIOT ;
+}
+
+.shopify-section.matriclan-find-out .grid .content .description::after{
+  width: calc(100% - 50px);
+  height: 1px;
+  background: #FF7050;
+  left: 0;
+  content: "";
+  position: absolute;
+  bottom: 0px;
+}
+
+.shopify-section.matriclan-find-out .grid .content .user-name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  text-transform: capitalize;
+  color: #FFFFFF;
+  margin-bottom: 50px;
+      font-family: "Rubik",sans-serif;
+}
+
+.shopify-section.matriclan-find-out .grid .content .button-box .button{
+  font-family: Rubik,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: capitalize;
+    color: #fff;
+    padding: 22px 68px;
+    background: #FF7051;
+    border-radius: 2px;
+    display: table;
+    margin: 0;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+/* ====================== matriclan footer ============================== */
+
+.shopify-section.matriclan-footer .page-width{
+  padding: 33px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shopify-section.matriclan-footer .page-width .logo img{
+  float: left;
+  width: 100%;
+  display: block;
+}
+
+.shopify-section.matriclan-footer .page-width .copyright-text p{
+  font-family: "Rubik",sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  text-transform: capitalize;
+  color: #2B206A;
+  margin-bottom: 0px;
+}
+
+.shopify-section.matriclan-footer .page-width .copyright-text + div, #shopify-section-footer, .shopify-section.matriclan-header .announcement .close-btn{
+  display: none;
+}
+
+.banner-content p.banner_price {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #FC5D3D;
+}
+
+/* ====================== Countdown timer ============================== */
+#countdown-timer, #countdown-timer-v2 {
+  margin-top: 10px;
+  font-size: 24px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+#countdown-heading {
+     font-size: 35px;
+}
+.timer-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.timer-digit {
+    font-size: 36px;
+    font-weight: bold;
+    color: #FC5D3D;
+}
+
+.timer-label {
+    font-size: 12px;
+    color: #555555;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* ====================== Countdown timer title ============================== */
+
+  #countdown-heading-banner-v2{
+    font-size: 28px;
+  }
+
+/* ====================== End Countdown timer title ============================== */
+
+@media (max-width: 1600px){
+  .shopify-section.matriclan-banner .banner-image{
+    min-height: 950px;
+    object-fit: cover;
+    object-position: bottom center;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .image-box img{
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1300px){
+  .shopify-section.matriclan-banner .banner-content .grid{
+    column-gap: 30px;
+  }
+}
+
+@media (max-width: 1270px){
+  .shopify-section.matriclan-about .grid .right-content{
+    width: 45%;
+  }
+
+  .shopify-section.matriclan-about a.button, .what-you-box-wrapper a.save-20-per-button, .shopify-section.matriclan-privacy a.save-20-per-button {
+    font-size: 20px;
+    line-height: 22px;
+    margin: 130px auto 15px;
+    padding: 18px 32px;
+  }
+
+  .what-you-box-wrapper a.save-20-per-button {
+    margin: 20px auto 0px;
+  }
+
+  /* .shopify-section.matriclan-about{
+    padding-bottom: 225px;
+  } */
+
+  .shopify-section.matriclan-ancestry .grid{
+    column-gap: 30px;
+  }
+
+  .shopify-section.matriclan-ancestry .title-box .section-title{
+    margin-bottom: 25px;
+  }
+
+  .shopify-section.matriclan-ancestry .title-box .subtitle{
+    margin-bottom: 60px;
+  }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text .content .text p{
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 10px;
+    
+  }
+
+  .shopify-section.matriclan-about .grid .left-content{
+    width: 55%;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .section-title{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 50px;
+    line-height: 70px;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .description{
+    margin-bottom: 40px;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .description p{
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .staff .user .user-detail p{
+    text-align: left;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .staff{
+    column-gap: 0px;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .review p{
+    text-align: left;
+    font-size: 22px;
+    line-height: 36px;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .username{
+    margin-top: 30px;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .username p{
+    text-align: left;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .quote{
+    padding: 47px 32px;
+    max-width: 435px;
+    transform: translateY(-100px);
+  }
+}
+
+@media (max-width: 1200px){
+
+  .shopify-section.matriclan-about a.button, .what-you-box-wrapper a.save-20-per-button, .shopify-section.matriclan-privacy a.save-20-per-button {
+    font-size: 20px;
+    line-height: 22px;
+    margin: 130px auto 15px;
+    padding: 18px 32px;
+  }
+
+  .what-you-box-wrapper a.save-20-per-button {
+    margin: 20px auto 0px;
+  }
+
+  .shopify-section.matriclan-ancestry a.save-20-per-button {
+    font-size: 20px;
+    line-height: 22px;
+    margin: -25px auto 20px;
+    padding: 18px 32px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider, .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content{
+    width: 50%;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content h1.title{
+    font-size: 68px;
+    line-height: 68px;
+    margin-bottom: 30px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .description p{
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content a.button{
+        font-size: 20px;
+        line-height: 22px;
+        margin: 35px auto 15px;
+        padding: 18px 32px;
+  }
+
+  .shopify-section.matriclan-banner .banner-image{
+    min-height: 850px;
+  }
+  
+}
+
+@media (max-width: 1024px){
+  .shopify-section.matriclan-header .page-width {
+    padding: 25px 20px;
+  }
+  
+  .shopify-section.matriclan-privacy a.save-20-per-button {
+    margin: 50px auto 0px;
+  }
+
+  .shopify-section.matriclan-header .page-width .logo-box{
+    max-width: 200;
+  }
+
+  .shopify-section.matriclan-header .header-content .cart-button a{
+    width: 46px;
+    height: 46px;
+  }
+
+  .shopify-section.matriclan-header .header-content .cart-button a svg{
+    width: 20px;
+  }
+}
+
+@media (max-width: 991px){
+    .shopify-section.matriclan-ancestry .grid{
+      flex-flow: column;
+      max-width: 600px;
+      margin: 0 auto;
+      row-gap: 30px;
+    }
+
+    .shopify-section.matriclan-ancestry a.save-20-per-button {
+      margin: 20px auto 0px;
+    }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.left-box, .shopify-section.matriclan-ancestry .grid .grid__item.right-box{
+    width: 100%;
+  }
+
+  .shopify-section.matriclan-ancestry .title-box .section-title{
+    font-size: 50px;
+    line-height: 60px;
+  }
+  
+  .shopify-section.matriclan-banner .banner-content .grid{
+    max-width: 600px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    row-gap: 25px;
+  }
+
+  .shopify-section.matriclan-about .grid{
+    flex-flow: column-reverse;
+    max-width: 600px;
+    margin: 0 auto;
+    row-gap: 25px;
+  }
+
+  .shopify-section.matriclan-about .grid .grid__item.left-content, .shopify-section.matriclan-about .grid .right-content{
+    width: 100%;
+  }
+
+  .shopify-section.matriclan-about{
+    padding: 72px 0 175px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider, .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content{
+    width: 100%;
+  }
+
+  .shopify-section.matriclan-banner .banner-image.desktop-only{
+    display: none;
+  }
+  
+  .shopify-section.matriclan-banner .banner-image.mobile-only{
+    display: block;
+    max-height: 1610px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .shopify-section.matriclan-banner .banner-content{
+    top: 0;
+    transform: translateY(0);
+    position: relative;
+    padding: 180px 0 100px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel,
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel
+  {
+    width: calc(100vw - 40px);
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow,
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow
+  {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 767px){
+  #countdown-heading {
+    padding: 20px 0;
+    line-height: 37px;
+  }
+
+  .shopify-section.matriclan-header .announcement{
+    position: relative;
+    padding: 7px 0 13px;
+  }
+  
+  .shopify-section.matriclan-header .announcement .close-btn{
+    display: flex;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    right: 5px;
+    padding: 0px;
+  }
+
+  .shopify-section.matriclan-header .announcement .close-btn svg{
+    width: 8px;
+    min-width: 8px;
+  }
+
+  .shopify-section.matriclan-header .announcement p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    text-transform: capitalize;
+    color: #2B206A;
+  }
+
+  .shopify-section.matriclan-header .announcement p span{
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+
+  .shopify-section.matriclan-header .page-width{
+    padding: 23px 20px;
+  }
+
+  .shopify-section.matriclan-header .page-width .logo-box{
+    max-width: 148px;
+  }
+
+  .shopify-section.matriclan-header .page-width .cart-button a{
+    width: 40px;
+    height: 40px;
+  }
+
+  .shopify-section.matriclan-header .page-width .cart-button a svg{
+    width: 17px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content{
+    padding: 80px 0 80px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow,
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow
+  {
+    width: 25px;
+    height: 25px;
+    background: #FFFFFF;
+    border: 1px solid #352F85;
+    box-shadow: 0px 42px 50px rgba(0, 0, 0, 0.1);
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow::after,
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow::after
+  {
+    width: 4px;
+    height: 7px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow.slick-next,
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow.slick-next
+  {
+    right: -12px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel,
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel
+  {
+    box-shadow: none;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-carousel .slick-arrow.slick-prev,
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.right-slider .banner-product-carousel .slick-arrow.slick-prev
+  {
+    left: -12px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid{
+    row-gap: 20px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .rating img{
+    width: auto;
+    margin: 0;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .rating{
+    margin-bottom: 15px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content h1.title{
+    font-size: 45px;
+    line-height: 45px;
+    color: #2B206A;
+    letter-spacing: normal;
+    margin-bottom: 20px;
+  }
+  .banner-content p.banner_price {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .description p {
+    margin-bottom: 25px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .description.desktop-only{
+    display: none;
+  }
+  .shopify-section.matriclan-comparison .icon-with-text {
+    min-height: 95px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .description.mobile-only{
+    display: block;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .description p{
+   font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #212529; 
+  }
+
+  .page-width{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content a.button{
+    width: 100%;
+    margin: 20px 0 12px;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 14px 32px 15px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .button_bottom_text p{
+  font-size: 12px;
+    line-height: 14px;
+}
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .button_bottom_text svg{
+    width: 32px;
+  }
+
+  .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content .arrow{
+    max-width: 10px;
+    margin-top: 18px;
+  }
+
+  .shopify-section.matriclan-featured{
+    margin-top: 0px;
+  }
+
+  .shopify-section.matriclan-featured .featured-row .slick-track{
+    column-gap: 30px;
+  }
+
+  .shopify-section.matriclan-featured .featured-row .slick-track img{
+    max-height: 23px;
+  }
+
+  .shopify-section.matriclan-featured .section-title{
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .shopify-section.matriclan-featured .page-width{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .shopify-section.matriclan-about{
+    padding: 48px 0 50px;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .section-title{
+    margin-top: 0px;
+    font-size: 36px;
+    line-height: 40px;
+    text-align: center;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .description{
+    margin-bottom: 50px;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .description p{
+    text-align: center;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .staff .user{
+    width: 50%;
+    margin-right: 0px;
+    
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .staff .user:not(:last-child){
+    border-right: 1px solid rgba(53, 47, 133, 0.25);
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .staff .user .avatar{
+    max-width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .staff .user .user-detail .user-name{
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 8px;
+  }
+
+  .shopify-section.matriclan-about .grid .right-content .staff .user .user-detail p{
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    max-width: 136px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .quote .icon{
+    max-width: 50px;
+    margin-top: -60px;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .quote{
+    padding: 41px 26px 37px 23px;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .review p{
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .username p{
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: -0.03em;
+  }
+
+  .shopify-section.matriclan-about .grid .left-content .quote{
+  transform: translateY(-40px);
+  }
+
+  .shopify-section.matriclan-ancestry{
+    padding: 30px 0;
+  }
+
+  .shopify-section.matriclan-ancestry .title-box .section-title{
+    font-size: 36px;
+    line-height: 42px;
+  }
+
+  .shopify-section.matriclan-ancestry .title-box .subtitle{
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 30px;
+  }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.left-box{
+    column-gap: 8px;
+    row-gap: 8px;
+  }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text{
+    width: 137px;
+    height: 137px;
+    border-width: 8px;
+  }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text h5{
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 0px;
+  }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text .image-box{
+    max-width: 66px;
+    margin-bottom: 6px;
+  }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text .content .icon-box img{
+    max-width: 70px;
+    margin-bottom: 17px;
+  }
+
+  .shopify-section.matriclan-ancestry .grid .grid__item.right-box .icon-with-text .content .text p{
+    font-size: 12px;
+    line-height: 16px;
+    padding: 0 12px;
+  }
+  .shopify-section.matriclan-what-you-got .what-carousel .item {
+    column-gap: 0;
+    flex-wrap: wrap;
+}
+  .shopify-section.matriclan-what-you-got {
+    padding: 40px 0 0;
+}
+.shopify-section.matriclan-what-you-got .title-box .section-title {
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 25px;
+}
+.shopify-section.matriclan-what-you-got .what-carousel .item {
+    column-gap: 0;
+    flex-wrap: wrap;
+}
+.shopify-section.matriclan-what-you-got .what-carousel .item .image-box {
+    width: 100%;
+    max-width: 100%;
+    padding: 30px;
+}
+.shopify-section.matriclan-what-you-got .what-carousel .item .image-box{
+    padding: 10px;
+}
+.shopify-section.matriclan-what-you-got .what-carousel .item .text-box {
+    width: 100%;
+    margin-top: 25px;
+    text-align: center;
+}
+.shopify-section.matriclan-what-you-got .what-carousel .item {
+    padding: 20px 20px 40px;
+}
+
+.shopify-section.matriclan-what-you-got .what-carousel .item .text-box h2.title {
+    font-family: Rubik,sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 28px;
+}
+  .shopify-section.matriclan-review .button-box {
+    padding: 0 20px;
+}
+  .shopify-section.matriclan-what-you-got .title-box .subtitle {
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+.shopify-section.matriclan-review .section-title {
+    font-size: 36px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+  .shopify-section.matriclan-review {
+    margin-top: -220px;
+    padding: 100px 0 50px;
+  }
+  .shopify-section.matriclan-how-it-works h2.section-title {
+    font-size: 36px;
+    line-height: 44px;
+    margin-bottom: 15px;
+}
+.shopify-section.matriclan-how-it-works {
+    padding: 40px 0px;
+}
+.shopify-section.matriclan-how-it-works .title-box{
+  padding:0 20px;
+}
+.shopify-section.matriclan-how-it-works .subtitle {
+    font-size: 16px;
+    line-height: 32px;
+}
+  .what-you-box-wrapper {
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.what-you-box-wrapper .image-box {
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding-right: 0;
+}
+
+.what-you-box-wrapper .text-box {
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding-left: 0;
+}
+
+.what-you-box-wrapper .text-box ul li {
+    font-size: 14px;
+    line-height: 22px;
+    padding-left: 25px;
+    margin-bottom: 20px;
+}
+
+.what-you-box-wrapper .text-box ul li:after {
+    height: 16px;
+    width: 15px;
+    background-repeat: no-repeat;
+}
+
+.what-you-box-wrapper .text-box ul {
+    margin-top: 25px;
+}
+}
+
+
+@media (max-width: 767px){
+  .shopify-section.matriclan-ancestry a.save-20-per-button, .what-you-box-wrapper a.save-20-per-button, .shopify-section.matriclan-privacy a.save-20-per-button {
+    font-size: 16px;
+    line-height: 19px;
+    padding: 18px 31px 18px;
+    margin: 30px auto 10px;
+  }
+  .shopify-section.matriclan-about a.button {
+    margin: 210px auto 0 !important;
+  }
+  .shopify-section.matriclan-privacy a.save-20-per-button {
+    margin: 15px auto 30px;
+  }
+  .shopify-section.matriclan-how-it-works .how-it-works-corousel .item {
+    max-width: 630px;
+    margin: 20px 18px;
+    padding: 40px 15px 50px;
+  }
+  .shopify-section.matriclan-how-it-works .how-it-works-corousel .item .badge p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .shopify-section.matriclan-how-it-works .how-it-works-corousel .item .badge{
+    height:40px;
+  }
+  .shopify-section.matriclan-how-it-works .how-it-works-corousel .item .image-box img {
+      max-height: 60px;
+  }
+  .shopify-section.matriclan-how-it-works .how-it-works-corousel .item .content .title {
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+  .shopify-section.matriclan-comparison h2.section-title {
+    padding: 0px 20px;
+  }
+  .shopify-section.matriclan-comparison .right-content .logo.image-box img {
+    max-width: 100px;
+  }
+  .shopify-section.matriclan-video .video-box{
+        border: 6px solid #FFFFFF;
+  }
+  
+  .shopify-section.matriclan-how-it-works .how-it-works-corousel .item .content .description p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+	.matriclan-what-you-got .slick-prev, 
+	.matriclan-what-you-got .slick-next {
+	    width: 40px !important;
+	    height: 40px !important;
+	    border-radius: 50% !important;
+	    background: #FFFFFF !important;
+	    border: 1.5px solid #6132C6 !important;
+	    box-shadow: 5.88px 12.6px 42px rgba(53, 47, 133, 0.12) !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow {
+    	right: -20px !important;
+    }
+    .shopify-section.matriclan-what-you-got .what-carousel .slick-arrow:after {
+	    width: 20px;
+	    height: 10px;
+    }
+    .shopify-section.matriclan-what-you-got .what-carousel .slick-arrow.slick-prev {
+	    left: -20px;
+	}
+	.shopify-section.matriclan-review .review-carousel .slick-arrow {
+    	right: 0px;
+    }
+    .shopify-section.matriclan-review .review-carousel .slick-arrow.slick-prev {
+    	left: 0px;
+	}
+	.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow {
+    	right: calc(50% - 165px);
+    }
+    .shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow.slick-prev {
+    	left: calc(50% - 165px);
+    }
+    .shopify-section.matriclan-review .review-carousel .slick-arrow:after {
+	    width: 28px !important;
+	    height: 28px !important;
+	    border: 1px solid #352F85 !important;
+	    box-shadow: 0px 42px 50px rgba(0, 0, 0, 0.1) !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .item {
+    	margin: 30px 20px 0;
+	}
+}
+.shopify-section.matriclan-how-it-works .how-it-works-corousel .item.slick-current.slick-active.slick-center {
+    background: #FFF0ED;
+    border: 1.5px solid #6132C6;
+    box-shadow: 7px 31px 50px rgba(0, 0, 0, 0.01);
+}
+
+@media (min-width: 768px){
+	.shopify-section.matriclan-privacy .grid .grid__item .icon {
+	    max-width: 100px !important;
+	    flex: 0 0 100px !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel .item .text-box .description p {
+    	text-align: left !important;
+	}
+   .shopify-section.matriclan-banner .banner-image {
+    min-height: 1350px;
+  }
+}
+/* @media (min-width: 1025px){
+  .how-it-works-corousel {
+    display: flex;
+  }
+  .how-it-works-corousel > .item {
+    flex: 1;
+  }
+  .shopify-section.matriclan-how-it-works .how-it-works-corousel .item:nth-child(2){
+        background: #FFF0ED!important;
+    border: 1.5px solid #6132C6!important;
+    box-shadow: 7px 31px 50px #00000003!important;
+  }
+} */
+@media (min-width: 1025px) and (max-width: 1600px){
+
+.shopify-section.matriclan-what-you-got .what-carousel {
+    	width: calc(100% - 100px) !important;
+	}	
+.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow {
+    	right: -45px !important;
+    }
+    .shopify-section.matriclan-what-you-got .what-carousel .slick-arrow.slick-prev {
+    	left: -45px !important;
+	}
+.shopify-section.matriclan-review .review-carousel {
+    	width: calc(100% - 50px) !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .slick-arrow.slick-prev {
+    	left: -20px !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .slick-arrow {
+    	right: -20px !important;
+    }
+    .shopify-section.matriclan-privacy .grid .grid__item .content p.description {
+    	text-align: left !important;
+	}
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+	html {
+	    padding-bottom: 0 !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow {
+    	right: 0 !important;
+    }
+    .shopify-section.matriclan-what-you-got .what-carousel .slick-arrow.slick-prev {
+	    right: auto !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel {
+    	width: calc(100% - 100px) !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow {
+    	right: -45px !important;
+    }
+    .shopify-section.matriclan-what-you-got .what-carousel .slick-arrow.slick-prev {
+    	left: -45px !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .item {
+    	margin: 30px 5px 0 !important;
+    }
+    .shopify-section.matriclan-review .review-carousel {
+    	width: calc(100% - 50px) !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .slick-arrow.slick-prev {
+    	left: -20px !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .slick-arrow {
+    	right: -20px !important;
+    }
+    .shopify-section.matriclan-about .grid .right-content .section-title,
+	.shopify-section.matriclan-ancestry .title-box .section-title,
+	.shopify-section.matriclan-what-you-got .title-box .section-title,
+	.shopify-section.matriclan-review .section-title,
+	.shopify-section.matriclan-how-it-works h2.section-title,
+	.shopify-section.matriclan-comparison h2.section-title,
+	.shopify-section.matriclan-video .title-box .section-title,
+	.shopify-section.matriclan-faq .section-title,
+	.shopify-section.matriclan-find-out .title-box .section-title,
+	.shopify-section.matriclan-privacy .title-box h2.section-title{
+		font-size: 48px !important;
+	    line-height: 56px !important;
+    }
+    .shopify-section.matriclan-faq,
+    .shopify-section.matriclan-ancestry,
+    .shopify-section.matriclan-review,
+    .shopify-section.matriclan-how-it-works,
+    .shopify-section.matriclan-comparison,
+    .shopify-section.matriclan-comparison,
+    .shopify-section.matriclan-privacy,
+    .shopify-section.matriclan-find-out {
+    	padding: 60px 0 !important;
+	}
+	.shopify-section.matriclan-about {
+    	padding: 60px 0 75px !important;
+	}
+ 
+	.shopify-section.matriclan-what-you-got {
+    	padding: 60px 0 0 !important;
+    }
+    .shopify-section.matriclan-review .section-title {
+	    margin-top: 150px !important;
+	    margin-bottom: 50px !important;
+    }
+    .shopify-section.matriclan-footer .page-width {
+    	padding-inline: 20px !important;
+	}
+	.shopify-section.matriclan-how-it-works .button-box a,
+	.shopify-section.matriclan-review .button-box a,
+	.shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content a.button,
+	.shopify-section.matriclan-find-out .grid .content .button-box .button {
+	    font-size: 20px !important;
+	    line-height: 25px !important;
+	    padding: 20px 35px !important;
+    }
+    .shopify-section.matriclan-privacy .grid .grid__item .content p.description {
+    	text-align: left !important;
+	}
+}
+
+@media (max-width: 767px){
+	.shopify-section.matriclan-about .grid .right-content .section-title,
+	.shopify-section.matriclan-ancestry .title-box .section-title,
+	.shopify-section.matriclan-what-you-got .title-box .section-title,
+	.shopify-section.matriclan-review .section-title,
+	.shopify-section.matriclan-how-it-works h2.section-title,
+	.shopify-section.matriclan-comparison h2.section-title,
+	.shopify-section.matriclan-video .title-box .section-title,
+	.shopify-section.matriclan-faq .section-title,
+	.shopify-section.matriclan-find-out .title-box .section-title,
+	.shopify-section.matriclan-privacy .title-box h2.section-title{
+		font-size: 36px !important;
+	    line-height: 40px !important;
+    }
+    .shopify-section.matriclan-banner .banner-content .grid .grid__item.left-content a.button,
+    .shopify-section.matriclan-review .button-box a,
+    .shopify-section.matriclan-how-it-works .button-box a,
+    .shopify-section.matriclan-find-out .grid .content .button-box .button{
+    	font-size: 16px !important;
+	    line-height: 19px !important;
+	    padding: 18px 31px 18px !important;
+	    margin: auto !important;
+    }
+	.matriclan-what-you-got .slick-prev, 
+	.matriclan-what-you-got .slick-next,
+	.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow {
+	    width: 40px !important;
+	    height: 40px !important;
+	    border-radius: 50% !important;
+	    background: #FFFFFF !important;
+	    border: 1.5px solid #6132C6 !important;
+	    box-shadow: 5.88px 12.6px 42px rgba(53, 47, 133, 0.12) !important;
+	}
+	.shopify-section.matriclan-how-it-works .how-it-works-corousel button.slick-next.slick-arrow {
+    	right: 15px !important;
+	}
+	.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow.slick-prev {
+    	left: 10px !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel .slick-arrow {
+    	right: -10px !important;
+    }
+    .shopify-section.matriclan-about .grid .right-content .staff {
+    	justify-content: center !important;
+	}
+    .shopify-section.matriclan-what-you-got .what-carousel .slick-arrow:after {
+	    width: 20px;
+	    height: 10px;
+    }
+    .shopify-section.matriclan-what-you-got .what-carousel .slick-arrow.slick-prev {
+	    left: -20px;
+	}
+	.shopify-section.matriclan-review .review-carousel .slick-arrow {
+    	right: 0px;
+    }
+    .shopify-section.matriclan-review .review-carousel .slick-arrow.slick-prev {
+    	left: 0px;
+	}
+	.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow {
+    	right: calc(50% - 165px);
+    }
+/*     .shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow.slick-prev {
+    	left: calc(50% - 165px);
+    } */
+    .shopify-section.matriclan-review .review-carousel .slick-arrow:after {
+	    width: 28px !important;
+	    height: 28px !important;
+	    border: 1px solid #352F85 !important;
+	    box-shadow: 0px 42px 50px rgba(0, 0, 0, 0.1) !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel {
+	    width: calc(100% - 40px);
+	}
+	.shopify-section.matriclan-review .review-carousel .item {
+    	margin-inline: 25px !important;
+	}
+	.shopify-section.matriclan-how-it-works .button-box a {
+    	margin: 25px auto 0 !important;
+    }
+    .shopify-section.matriclan-banner .banner-content {
+    	padding: 140px 0 70px !important;
+	}
+	.shopify-section.matriclan-what-you-got .what-carousel {
+    	width: calc(100% - 40px) !important;
+    }
+    .shopify-section.matriclan-review .button-box a {
+    	margin: 0px auto 0 !important;
+    }
+    .shopify-section.matriclan-review .button-box {
+	    padding: 0 20px !important;
+	    margin-top: 30px !important;
+	}
+    .shopify-section.matriclan-how-it-works .how-it-works-corousel .item.slick-current.slick-active.slick-center {
+	    background: #FFF0ED !important;
+	    border: 1.5px solid #6132C6 !important;
+	    box-shadow: 7px 31px 50px rgba(0, 0, 0, 0.01) !important;
+	}
+	.shopify-section.matriclan-how-it-works .how-it-works-corousel .slick-arrow:after {
+    	background-repeat: no-repeat !important;
+	}
+    .shopify-section.matriclan-comparison h2.section-title,
+    .shopify-section.matriclan-video .title-box .section-title {
+	    margin-bottom: 50px !important;
+	}
+	.shopify-section.matriclan-comparison .logo.image-box img {
+    	float: none !important;
+    }
+    .shopify-section.matriclan-comparison .logo.image-box {
+    	margin: 0 auto 30px !important;
+    }
+    .shopify-section.matriclan-comparison .icon-with-text .icon {
+	    width: 43px !important;
+	    height: 30px !important;
+	}
+	.shopify-section.matriclan-comparison .icon-with-text .text p {
+	    font-size: 12px !important;
+	    line-height: 14px !important;
+    }
+    .shopify-section.matriclan-comparison .icon-with-text .text p br{
+      display:none;
+    }
+    .shopify-section.matriclan-comparison .icon-with-text{
+      margin-bottom:30px;
+    }
+      .shopify-section.matriclan-comparison .icon-with-text .icon img {
+        float: left;
+        display: block;
+        height: 43px;
+        width: 43px;
+        object-fit: contain;
+    }
+    .shopify-section.matriclan-how-it-works .button-box {
+      padding: 0 20px;
+  }
+    .shopify-section.matriclan-comparison .page-width .grid .grid__item {
+    	padding-inline: 15px !important; 
+    }
+      .shopify-section.matriclan-comparison .page-width {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .shopify-section.matriclan-comparison {
+    	padding: 46px 0 !important; 
+	}
+	.shopify-section.matriclan-video .title-box .section-title{
+		margin-bottom: 30px !important;
+	}
+	.shopify-section.matriclan-video .title-box .subtitle {
+	    font-size: 16px !important;
+	    line-height: 30px !important;
+	    margin-bottom: 30px !important;
+	}
+	.shopify-section.matriclan-video {
+    	padding: 40px 0 63px !important;
+    }
+    .shopify-section.matriclan-privacy .title-box h2.section-title {
+	    margin-bottom: 28px !important;
+	}
+	.shopify-section.matriclan-privacy .title-box p.subtitle {
+	    font-size: 16px !important;
+	    line-height: 30px !important;
+    }
+    .shopify-section.matriclan-privacy .title-box {
+    	margin-bottom: 30px !important;
+	}
+	.shopify-section.matriclan-privacy .grid .grid__item {
+	    width: 100% !important;
+	    margin-bottom: 30px !important;
+    }
+    .shopify-section.matriclan-privacy .grid .grid__item .content .title {
+    	margin-top: 23px !important;
+	    font-size: 20px !important;
+	    line-height: 24px !important;
+    }
+    .shopify-section.matriclan-privacy .grid .grid__item {
+	    width: 100% !important;
+	    padding: 30px 20px 30px 20px !important;
+	    margin-bottom: 30px !important;
+	    flex-direction: column !important;
+	    align-items: center !important;
+	    text-align: center !important;
+	}
+	.shopify-section.matriclan-privacy .grid .grid__item .content .description {
+	    font-size: 16px !important;
+	    line-height: 30px !important;
+	}
+	.shopify-section.matriclan-privacy {
+    	padding: 40px 0 6px !important;
+	}
+    .shopify-section.matriclan-faq .title-box {
+    	margin-bottom: 30px !important;
+	}
+	.shopify-section.matriclan-faq .p-accordion__title {
+	    padding: 13px 40px 13px 15px !important;
+	    font-size: 14px !important;
+	    line-height: 21px !important;
+    }
+    .shopify-section.matriclan-faq .p-accordion__item:not(:first-of-type) {
+    	margin-top: 20px !important;
+	}
+	.shopify-section.matriclan-faq .p-accordion__content, .shopify-section.matriclan-faq .p-accordion__content p {
+        font-size: 14px!important;
+        line-height: 22px!important;
+        text-align: left;
+    }
+    .shopify-section.matriclan-faq {
+    	padding: 40px 0 !important;
+	}
+	.shopify-section.matriclan-find-out .title-box {
+    	margin-bottom: 40px !important;
+	}
+	.shopify-section.matriclan-find-out .grid {
+	    flex-direction: column !important;
+	    row-gap: 40px !important;
+	    padding-inline: 20px !important;
+	}
+	.shopify-section.matriclan-find-out .grid .grid__item {
+    	width: 100% !important;
+    }
+    .shopify-section.matriclan-find-out .grid .content .description {
+      font-size: 20px!important;
+      line-height: 30px!important;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
+  }
+    .shopify-section.matriclan-find-out .grid .content .description:after {
+    	width: 100% !important;
+    }
+    .shopify-section.matriclan-find-out .grid .content .user-name {
+	    margin-bottom: 40px !important;
+	    text-align: center !important;
+      font-size: 18px;
+	}
+    .shopify-section.matriclan-find-out {
+    	padding: 40px 0 47px !important;
+	}
+	.shopify-section.matriclan-footer .page-width {
+		padding: 24px 0 !important;
+	    flex-direction: column !important;
+	    row-gap: 30px !important;
+	}
+	.shopify-section.matriclan-footer .page-width .copyright-text p {
+	    font-size: 14px !important;
+	    line-height: 17px !important;
+    }
+    .shopify-section.matriclan-find-out .grid .grid__item .image-box {
+    	margin: auto !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .item .title {
+	    font-size: 30px !important;
+	    line-height: 35px !important;
+	    margin-bottom: 25px !important;
+	}
+	.shopify-section.matriclan-review .review-carousel .item .description p {
+	    font-size: 16px !important;
+	    line-height: 32px !important;
+    }
+    .shopify-section.matriclan-review .review-carousel .item .description p {
+    	min-height: auto !important;
+    }
+}
+@media (min-width:768px) and (max-width:1024px){
+  .what-you-box-wrapper {
+      padding: 30px 20px;
+  }
+  
+  .what-you-box-wrapper .image-box {
+      padding-right: 15px;
+  }
+  
+  .what-you-box-wrapper .text-box {
+      padding-left: 15px;
+  }
+  
+}
+
+.navbar.navbar-expand-lg.menu-nav {
+    background: none;
+}
+
+.menu-nav a.nav-link {
+    color: #352F85;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.menu-nav li.nav-item:hover a {
+    color: #FF7050 !important;
+}
+
+@media (max-width:991px) {
+  .navbar.navbar-expand-lg.menu-nav {
+    display: none;
+  }
+  .cart-icon img {
+    width: 40px;
+  }
+  .shopify-section.matriclan-about a.button {
+    margin: 180px auto 15px;
+  }
+}
+
+dl.p-accordion__item.js-accordion-trigger.is-open > .p-accordion__title {
+    border-bottom: none !important;
+  border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.banner-carousel .slick-track,
+.banner-product-carousel .slick-track
+{
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 389px) {
+  .shopify-section.matriclan-about a.button {
+    margin: 250px auto 0px !important;
+  }
+}
+
+.shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text .txt-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.txt-icon .icon {
+    margin-left: 3px;
+}
+
+@media (max-width:767px) {
+  .shopify-section.matriclan-ancestry .grid .grid__item.left-box .satisfaction-text .txt-icon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .txt-icon .icon {
+      margin: 0;
+  }
+}
+
+.banner-content p.banner_price del {
+  color: #221F46;
+}

@@ -1,0 +1,39 @@
+
+<style>
+  .logo-image {
+      width:{{settings.logo_width | remove: 'px' | append: 'px' }};
+  }
+</style>
+<a href="/" class="logo main-logo" rel="home">
+  {%- if settings.logo_svg != '' -%}
+       <img src="{{ settings.logo_svg | asset_url }}" class="logo-image" alt="{{ image.alt | default: shop.name }}" height="68" width="240" loading="lazy" />
+  {%- else -%}
+      {%- if settings.logo != blank -%}
+          <img src="{{ settings.logo | img_url: '300x300'  }}" alt="{{ image.alt | default: shop.name }}" height="68" width="240" loading="lazy" />
+      {%- else -%}
+          {{shop.name}}
+      {%- endif -%}
+  {%- endif -%}
+
+</a>
+
+<!--
+<a class="navbar-brand" href="#">
+<style>
+  .logo-image {
+      width:{{settings.logo_width | remove: 'px' | append: 'px' }};
+  }
+</style>
+<a href="/" class="logo main-logo" rel="home">
+  {%- if settings.logo_svg != '' -%}
+       <img src="{{ settings.logo_svg | asset_url }}" class="logo-image" alt="{{ image.alt | default: shop.name }}"/>
+  {%- else -%}
+      {%- if settings.logo != blank -%}
+          <img src="{{ settings.logo | img_url: '300x300'  }}" alt="{{ image.alt | default: shop.name }}"/>
+      {%- else -%}
+          {{shop.name}}
+      {%- endif -%}
+  {%- endif -%}
+
+</a>--->
+</a>

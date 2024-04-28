@@ -1,0 +1,29 @@
+<div id="section-cta">
+<!--   <a href="{{ section.settings.link }}" class="btn btn--has-icon-after" id="btn-404">{{ section.settings.linktext }}{% include 'icon-arrow-right' %}</a> -->
+</div>
+
+
+{% schema %}
+{
+    "name": "Call to action",
+    "settings": [
+    {
+       "id": "link",
+       "type": "url",
+       "label": "Button link"
+    },
+    {
+       "id": "linktext",
+       "type": "text",
+       "label": "Button text",
+       "default": "Return to Store"
+    }
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

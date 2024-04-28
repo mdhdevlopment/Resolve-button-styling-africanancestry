@@ -1,0 +1,47 @@
+<section class="project">
+  <div class="container">
+    <div class="row">
+     {% for block in section.blocks %}
+      <div class="col-md-4 col-12"> 
+        <div class="project-content">
+          <a href="{{ block.settings.bf_image_url }}"> 
+            <img src="{{ block.settings.bf_image | img_url: 'original' }}"  class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </a>   
+        </div> 
+      </div>
+      {% endfor %} 
+    </div>
+  </div>  
+</section>
+
+
+{% schema %}
+  {
+    "name": "How it Works Section 5",
+    "settings": [],
+    "blocks": [
+            {
+              "type": "Image",
+              "name": "Image",
+              "settings": [
+                 {
+                  "id": "bf_image",
+                  "type": "image_picker",
+                  "label": "Image"
+                 },
+                 {
+                  "id": "bf_image_url",
+                  "type": "url",
+                  "label": "Image URL"
+                 }
+              ]
+            }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

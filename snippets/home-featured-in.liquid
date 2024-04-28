@@ -1,0 +1,156 @@
+
+<style>
+@media (max-width: 767px) {
+  .featured-images .sub-title{
+  margin-bottom:20px;
+  }
+  div#shopify-section-16277914200ece762e {
+    overflow: hidden;
+}
+  .featured-images {
+    margin : 20px 0px 15px 0px;
+  }
+
+  .testimonial_box {
+    margin-top : 40px;
+  }
+
+  .testimonial_box h4 {
+    padding : 0px 10px;
+    font-family : Rubik;
+    font-style : normal;
+    font-weight : 400;
+    font-size : 18px;
+    line-height : 22px;
+    color : rgb(54, 57, 64);
+    text-align : center;
+  }
+
+  .testimonial_box h4 strong {
+    font-weight : 700;
+    display : block;
+    position : relative;
+    margin-bottom : 15px;
+    font-size : 18px;
+    line-height : 26px;
+  }
+
+  .testimonial_box p {
+    font-family : Rubik;
+    font-style : italic;
+    font-weight : 700;
+    font-size : 16px;
+    line-height : 18px;
+    text-align : center;
+    color : rgb(43, 32, 106);
+    margin-top : 15px;
+    margin-bottom : 0px;
+  }
+
+  .testimonial_box p img {
+    width : 60px;
+    height : 60px;
+    border-radius : 100%;
+    margin-left : 15px;
+    object-fit : cover;
+  }
+
+  .testimonial_box h4 strong::before {
+    content : "";
+    background-image : url("https://cdn.shopify.com/s/files/1/2138/0103/files/quote_icon_0d632552-f6c7-4c57-9d6c-e01c4c5aa572.png?v=1675676905");
+    height : 28px;
+    width : 23px;
+    display : inline-block;
+    position : relative;
+    top : -5px;
+  }
+
+  .featured-images .featured-in {
+    flex-wrap : nowrap;
+  }
+
+  .featured-images .featured-in .featured-in-list {
+    padding : 0px 10px !important;
+  }
+
+  .featured-images .sub-title {
+    font-style : italic;
+    font-weight : 400;
+    font-size : 17px;
+    line-height : 21px;
+    text-align : center;
+    color : rgb(135, 123, 141);
+    font-family : Rubik, sans-serif;
+  }
+
+  .grid-uniform.featured-images .row:nth-child(2) {
+    display : flex;
+    flex-wrap : nowrap;
+  }
+
+  .featured-images .featured-in .featured-in-list:last-child img {
+    width : auto !important;
+  }
+
+  .featured-images .featured-in.list-inline img {
+    max-height : 25px;
+    max-width : initial !important;
+    width : fit-content !important;
+  }
+
+  .featured-images .featured-in .featured-in-list {
+    margin : 0px;
+    flex-grow : 1 !important;
+    flex-shrink : 1 !important;
+    flex-basis : auto !important;
+    max-width : fit-content !important;
+  }
+
+  .grid-uniform.featured-images .row:nth-child(2) ul {
+    width : auto;
+    flex-wrap : nowrap !important;
+  }
+  @-webkit-keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 7));
+  }
+}
+.featured-images .featured-in.list-inline {
+  -webkit-animation: scroll 40s linear infinite;
+          animation: scroll 40s linear infinite;
+  display: flex;
+}
+}
+</style>
+
+<script>
+
+const featuredID = setInterval(featuredCallback, 200);
+
+let sliderV2;
+
+function featuredCallback() {
+ sliderV2 = document.querySelector('#shopify-section-sliderv2');
+  if (sliderV2) {
+    clearInterval(featuredID)
+    if (window.innerWidth <= 767) {
+    jQuery('#shopify-section-sliderv2').after('<div class="testimonial_box"><h4><strong>Life Changing Test</strong>This was the best gift I could have ever purchased for myself, my daughter and my family members!</h4><p>- Jacqueline D.<img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Jacqueline-img.png?v=1675676906"></p></div>');
+    $('.grid-uniform.featured-images .featured-in.list-inline').clone().appendTo('.grid-uniform.featured-images .row:nth-child(2)');
+    $('.grid-uniform.featured-images .featured-in.list-inline li').clone().appendTo('.grid-uniform.featured-images .row:nth-child(2) .featured-in.list-inline');
+    $('.grid-uniform.featured-images .featured-in.list-inline').clone().appendTo('.grid-uniform.featured-images .row:nth-child(2)');
+    }
+  }
+}
+  
+</script>

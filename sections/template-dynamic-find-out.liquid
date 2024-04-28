@@ -1,0 +1,101 @@
+<div class="page-width">
+  <div class="title-box">
+    {% if page.metafields.custom.dynamic_find_out_heading %}
+      <h2 class="section-title">{{ page.metafields.custom.dynamic_find_out_heading }}</h2>
+    {% else %}
+      <h2 class="section-title">Find out your specific African  roots</h2>
+    {% endif %}
+  </div>
+  
+  <div class="grid">
+    <div class="grid__item">
+      <div class="image-box">
+        <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Ellipse_28.png?v=1681384693" alt="image" loading="lazy" width="{{ image.width }}"
+        height="{{ image.height }}">
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="content">
+        <p class="description">This was the best gift I could have ever purchased for myself, my daughter and my family members!</p>
+        <h3 class="user-name">Jacqueline D.</h3>
+        {% comment %} {% if section.settings.button_text != blank %}
+          <div class="button-box">
+            <a href="{{ section.settings.button_url }}" class="button button-primary">{{ section.settings.button_text }} →</a>
+          </div>
+        {% endif %} {% endcomment %}
+
+        {% assign dynamicButtonText = page.metafields.custom.dynamic_button_text %}
+        {% assign dynamicButtonUrl = page.metafields.custom.dynamic_button_url %}
+        {% assign sectionButtonText = section.settings.button_text %}
+        {% assign sectionButtonUrl = section.settings.button_url %}
+      
+        {% if dynamicButtonText != blank or sectionButtonText != blank %}
+      
+          {% if dynamicButtonText != blank and dynamicButtonUrl != blank %}
+          <div class="button-box">
+            <a href="{{ dynamicButtonUrl }}" class="button button-primary">{{ dynamicButtonText }}</a>
+          </div>
+          {% elsif dynamicButtonText != blank and dynamicButtonUrl == blank %}
+            <div class="button-box">
+              <a href="{{ sectionButtonUrl }}" class="button button-primary">{{ dynamicButtonText }}</a>
+            </div>
+          {% elsif  dynamicButtonText == blank and  dynamicButtonUrl != blank %}
+            <div class="button-box">
+              <a href="{{ dynamicButtonUrl }}" class="button button-primary">{{ sectionButtonText }}</a>
+            </div>
+            {% elsif sectionButtonText != blank and  sectionButtonUrl != blank %}
+              <div class="button-box">
+                <a href="{{ sectionButtonUrl }}" class="button button-primary">{{ sectionButtonText }}</a>
+              </div>
+          {% elsif dynamicButtonText == blank and dynamicButtonUrl == blank %}
+            <div class="button-box">
+              <a href="#" class="button button-primary">{{ sectionButtonText }}</a>
+            </div>
+          {% endif %} 
+      
+        {% endif %}
+
+      </div>
+
+      <div class="button_bottom_text">
+  
+                          <p class="affirm-as-low-as font-weight-bold inverse" data-page-type="product" data-amount="{{ page.metafields.custom.dynamic_banner_regular_price | times: 100 }}"></p>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Matriclan Find Out",
+  "tag": "section",
+  "class": "matriclan-find-out",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Matriclan Find Out"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

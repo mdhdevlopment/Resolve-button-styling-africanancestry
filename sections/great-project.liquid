@@ -1,0 +1,100 @@
+<section class="section_1 py_60">
+   <div class="container">
+      <div class="row">
+         <div class="col-6">
+            {% if section.settings.title != blank  %}
+            <h1 class="big_head">{{ section.settings.title }}</h1>
+            {% endif %}
+            {%if section.settings.content != blank %}
+            <p class="para_text">{{ section.settings.content }}</p>
+            {% endif %}
+            {%if section.settings.button != blank %}
+            <a href="{%if section.settings.buttonurl  != blank %} {{ section.settings.buttonurl }}{% else %} # {% endif %}" class="buy_now mt-5">{{ section.settings.button }}</a>
+            {% endif %}
+         </div>
+         <div class="col-6">
+            <ul class="list_style">
+               {% for block in section.blocks %}
+               <li>
+                  <span class="check_box">
+                     <svg height="512pt" viewBox="0 0 512 512" width="512pt" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m452 512h-392c-33.085938 0-60-26.914062-60-60v-392c0-33.085938 26.914062-60 60-60h392c33.085938 0 60 26.914062 60 60v392c0 33.085938-26.914062 60-60 60zm-392-472c-11.027344 0-20 8.972656-20 20v392c0 11.027344 8.972656 20 20 20h392c11.027344 0 20-8.972656 20-20v-392c0-11.027344-8.972656-20-20-20zm370.898438 111.34375-29.800782-26.6875-184.964844 206.566406-107.351562-102.046875-27.558594 28.988281 137.21875 130.445313zm0 0"/>
+                     </svg>
+                  </span>
+                  {%if  block.settings.selecttitle != blank %}
+                  {{ block.settings.selecttitle }}
+                  {% endif %}
+               </li>
+               {% endfor %}
+            </ul>
+         </div>
+      </div>
+   </div>
+</section>
+{% schema %}
+{
+   "name":"Great Project",
+   "settings":[
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title",
+         "default":"A Great Project For The Whole Family"
+      },
+      {
+         "type":"text",
+         "id":"content",
+         "default":"If you are looking to discover more about yourself and the Black experience, the African Ancestry Identity Box is the perfect introduction or supplement to your ancestry journey. No DNA needed.",
+         "label":"Content"
+      },
+      {
+         "type":"text",
+         "id":"button",
+         "label":"CTA",
+         "default":"Buy Now"
+      },
+      {
+         "type":"url",
+         "id":"buttonurl",
+         "label":"CTA"
+      }
+   ],
+   "blocks":[
+      {
+         "type":"text",
+         "name":"Features",
+         "settings":[
+            {
+               "type":"text",
+               "id":"selecttitle",
+               "label":" Select Box",
+               "default":"Discover little-known Black History facts"
+            },
+            {
+               "type":"radio",
+               "id":"id",
+               "label":"text",
+               "options":[
+                  {
+                     "value":"one",
+                     "label":"Select Value"
+                  },
+                  {
+                     "value":"two",
+                     "label":"Select Value"
+                  }
+               ],
+               "default":"one",
+               "info":"text"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

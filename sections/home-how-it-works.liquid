@@ -1,0 +1,58 @@
+<section class="how-it-works-home">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="home-htw-text">
+          <h2 class="section-heading">{{ section.settings.how_it_works_home_title }}</h2>
+          <div class="section-text"><p>{{ section.settings.how_it_works_home_text }}</p></div>
+          <a href="{{ section.settings.how_it_works_home_button_link }}" class="btn-defult-button">{{ section.settings.how_it_works_home_button_text }}</a>
+        </div>
+      </div>
+      
+    </div>
+  </div>    
+</section>
+
+{% schema %}
+  {
+    "name": "How it Works home",
+    "settings": [
+    {
+      "id": "how_it_works_home_title",
+      "type": "text",
+      "label": "Title",
+      "default": "How It Works" 
+    },
+    {
+      "id": "how_it_works_home_text",
+      "type": "textarea",
+      "label": "Sub Text",
+      "default": "Get accurate ethnic results with the world’s largest and most specific database of African DNA. Experience a new type of culturally competent analysis from the first black-owned precision genealogy company." 
+    },
+    {
+      "id": "how_it_works_home_button_text",
+      "type": "text",
+      "label": "Button Text",
+      "default": "Learn More" 
+    },
+    {
+      "id": "how_it_works_home_button_link",
+      "type": "url",
+      "label": "Button URL"
+    }
+    
+   ],
+   "presets": [
+    {
+    "name": "How It Works Home",
+    "category": "Text"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

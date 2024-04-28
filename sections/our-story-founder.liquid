@@ -1,0 +1,89 @@
+<section class="founder">
+  <div class="container">
+    <h2>THE <strong>FOUNDERS</strong></h2>     
+    <div class="row">
+      {% for block in section.blocks %}
+      <div class="col-md-6 col-12">
+        <div class="founder-bx">
+          <div class="founder-img">
+            <img src="{{ block.settings.founder_picture | img_url: 'original' }}"  alt="founder-img" class="img-fluid" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </div>
+          <div class="founder-content">
+            <h2>{{block.settings.founder_name}}</h2>
+            <h3>{{block.settings.founder_designation}}<br>
+              COUNTRY OF ORIGIN: {{block.settings.founder_country}}<br>
+              TRIBES: {{block.settings.founder_tribes}}</h3>
+            {{block.settings.founder_about}}
+            <div class="con-add">
+              {{block.settings.contact_info}}  
+            </div>
+          </div>
+        </div>
+      </div> 
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Our Story Founder", 
+    "settings": [
+    {
+      "id": "founder_heading",
+      "type": "text",
+      "label": "Section Title",
+      "default": "Title" 
+    }
+   ],
+   "blocks": [
+            {
+              "type": "Founder",
+              "name": "Founder",
+              "settings": [
+                 {
+                  "id": "founder_picture",
+                  "type": "image_picker",
+                  "label": "Image"
+                 },
+                 {
+                  "id": "founder_name",
+                  "type": "text",
+                  "label": "Founder Name"
+                 },
+                 {
+                  "id": "founder_designation",
+                  "type": "text",
+                  "label": "Founder Designation"
+                 },
+                 {
+                  "id": "founder_country",
+                  "type": "text",
+                  "label": "Country Of Origin"
+                 },
+                 {
+                  "id": "founder_tribes",
+                  "type": "text",
+                  "label": "Tribes"
+                 },
+                 {
+                  "id": "founder_about",
+                  "type": "html",
+                  "label": "About info"
+                 },
+                {
+                  "id": "contact_info",
+                  "type": "html",
+                  "label": "Contact info"
+                 }
+              ]
+            }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

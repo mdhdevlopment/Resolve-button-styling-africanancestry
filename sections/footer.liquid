@@ -1,0 +1,343 @@
+<div class="testimonial">
+  <div class="container">
+    <div class="row">
+
+    <div class="testimonial--content">
+     <div class="testimonial--content__box">
+              {% if section.settings.testimonial_image != blank or section.settings.testimonial_svg_image != blank %}
+      {%- if section.settings.testimonial_svg_image != blank -%}
+           {% assign test_img_url =  section.settings.testimonial_svg_image | asset_url %}
+        {%- elsif section.settings.testimonial_image != blank -%}
+            {% assign test_img_url = section.settings.testimonial_image | img_url: '' %}
+        {%- endif -%}
+         <img alt="Testimonial African Ancestry" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ test_img_url }}" loading="lazy" height="444" width="444">
+
+       {% endif %} 
+            </div>
+            <div class="testimonial--content__box">
+              <div class="testimonial--content__box__text">
+                <p>{{ section.settings.testimonial_review_content }}</p>
+                <h4>{{ section.settings.testimonial_review_name }}</h4>
+                <div class="member--location__detail">
+                  <div class="member--location">
+                    <img alt="Testimonial African Ancestry" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ 'Group1734.svg' | asset_url }}" loading="lazy" height="43" width="53">
+                  </div>
+                  <div class="member--location">
+                    <h6>{{ section.settings.testimonial_review_ancestry_type }}</h6>
+                    <p>{{ section.settings.testimonial_review_ancestry_location }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>    
+
+    </div>
+  </div>
+</div>
+
+<div class="footer-bootom-content">{{ section.settings.testimonial_review_textarea }}</div>
+
+<footer class="site-footer " role="contentinfo">
+
+<div class="container">
+<div class="row">
+
+{%- if section.blocks.size > 0 -%}
+        {%- liquid
+          if section.blocks.size == 2
+            assign footer_grid_class = 'col-md-4'
+          elsif section.blocks.size == 3
+            assign footer_grid_class = 'col-md-3'
+          elsif section.blocks.size > 4
+            assign footer_grid_class = 'col-md-2'
+          endif
+        -%}
+
+
+      <div class="{{ footer_grid_class }} col-sm-6">
+          <div class="footer-social-icons"> 
+          <h2>{{ section.settings.find_us_on }}</h2> 
+              <ul class="list-inline" >
+                  {% if section.settings.footer_facebook_url %}
+                      <li class="list-inline-item"><a target="_blank" href='{{ section.settings.footer_facebook_url }}'>
+                      {% assign facebook_url =  section.settings.footer_facebook_svg | asset_url %}
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ facebook_url }}" /> Facebook</a>
+                      </li>
+                  {% endif %}
+                  {% if section.settings.footer_instagram_url != blank %}
+                      <li class="list-inline-item"><a target="_blank" href="{{ section.settings.footer_instagram_url }}">
+                      {% assign instagram_url =  section.settings.footer_instagram_svg | asset_url %}
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ instagram_url }}" /> Instagram</a>
+                      </li>
+                  {% endif %}
+                  {% if section.settings.footer_twitter_url != blank %}
+                      <li class="list-inline-item"><a target="_blank" href="{{ section.settings.footer_twitter_url }}">
+                      {% assign twitter_url =  section.settings.footer_twitter_svg | asset_url %} 
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ twitter_url }}" /> Twitter</a>
+                      </li>
+                  {% endif %}
+                  {% if section.settings.footer_youtube_url != blank %}
+                      <li class="list-inline-item"><a target="_blank" href="{{ section.settings.footer_youtube_url }}">
+                      {% assign youtube_url =  section.settings.footer_youtube_svg | asset_url %} 
+                      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ youtube_url }}" /> YouTube</a>
+                      </li>
+                  {% endif %}
+                  
+              </ul>
+          </div>       
+      </div>
+
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'menu' %}
+            <div class="{{ footer_grid_class }} col-sm-6">
+              <h2>{{ block.settings.menu_title }}</h2>
+              <ul class="footer-list list-inline">
+                {% for link in linklists[block.settings.menu].links %}
+                  <li class="list-item list-inline-item"><a class="footer-link" href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endcase %}
+        {% endfor %}
+
+          <!--p class="call-copy"><span>Call</span> or <span>Click</span> to place an order </p>
+          <p><a class="phone-number"><i class="fas fa-phone"></i> {{ settings.support_phone }}</a></p-->
+
+      <div class="{{ footer_grid_class }} col-sm-6">
+        {% include 'footer-logo' %}   
+        <p class="copyright">{{ section.settings.footer_copyright }}</p> 
+        <ul class="footer-extralinks list-inline">
+        <li class="list-inline-item"><a href="{{ section.settings.footer_term_text_ul }}">{{ section.settings.footer_term_text }}</a></li>
+        <li class="list-inline-item"><a href="{{ section.settings.footer_privacy_policy_url }}">{{ section.settings.footer_privacy_policy }}</a></li>
+        </ul> 
+      </div>
+
+{% endif %}
+
+  </div>
+</div>
+
+  
+<!-- Newsletter popup Large modal ::Start -->
+{% include 'newsletter-popup' %}
+  
+</footer>
+
+<script>
+     $(document).ready(function(){
+                $('#onload').css('display', 'block');
+                 $('#onload').addClass('show');
+            });
+  
+  $('.modal-content .close').on('click', function(e) {
+  e.preventDefault();
+    $('#onload').css('display', 'none');
+});
+</script>
+<script>
+$( document ).ready(function() {
+    $(".bold_clone").attr("onClick","BuyNow()");
+});
+</script>
+<!--  After add to cart redirect to Checkout ::Start  -->
+  <script>
+    function BuyNow(){ 
+        var $ = jQuery;
+        var formParams = $('form.product-form').serialize();
+        $.ajax({
+          url: "/cart/add",
+          type: "post",
+          data: formParams,
+          success: function(){
+            window.location.href = "/checkout";
+          },
+          error: function(){
+          }
+        });
+     }
+  </script>
+  
+ {% if page.handle == 'dna-test-matriclan' %}
+
+ {% render 'sticky-cta-button' %}
+
+{% endif %}
+	
+{% schema %}
+  {
+    "name": "Footer",
+    "max_blocks": 6,
+    "settings": [
+       {
+        "type": "checkbox",
+        "id": "show_methods_of_payment",
+        "label": "Payment icons"
+       },
+       {
+        "type": "header",
+        "content": "Review section"
+       },
+       {
+        "type": "image_picker",
+        "id": "testimonial_image",
+        "label": "Image"
+        },                   
+        {
+            "type": "text",
+            "id": "testimonial_svg_image",
+            "label": "SVG File Name"                       
+        },
+        {
+          "type": "text",
+          "id": "testimonial_review_content",            
+          "label": "Content",
+          "default": "“I can’t wait to go [to Bioko Island]…to have the sun in that part of the region on my body and know that I’m home.”"            
+        },
+        {
+          "type": "text",
+          "id": "testimonial_review_name",            
+          "label": "Name",
+          "default": "Ramunda Y., African Ancestry Family Member"            
+        },
+        {
+          "type": "text",
+          "id": "testimonial_review_ancestry_type",            
+          "label": "Ancestry Type",
+          "default": "Maternal Ancestry:"          
+        },
+        {
+          "type": "text",
+          "id": "testimonial_review_ancestry_location",            
+          "label": "Ancestry location",
+          "default": "Bubi People of Bioko Island"            
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial_review_textarea",            
+          "label": "Bottom Content",
+          "default": "Global SEO footer. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce felis ligula, consequat ornare."            
+        },
+        {
+        "type": "header",
+        "content": "Social Icon"
+        },
+        {
+          "type": "text",
+          "id": "find_us_on",            
+          "label": "Find us",
+          "default": "FIND US ON"            
+        },
+        {
+          "type": "text",
+          "id": "footer_facebook_svg",            
+          "label": "Facebook svg",
+          "default": "Group1617.svg"            
+        },
+        {
+          "type": "text",
+          "id": "footer_facebook_url",            
+          "label": "Facebook URL",
+          "default": "https://www.facebook.com/africanancestry"            
+        },
+        {
+          "type": "text",
+          "id": "footer_instagram_svg",            
+          "label": "Instagram svg",
+          "default": "Group1614.svg"            
+        },
+        {
+          "type": "text",
+          "id": "footer_instagram_url",            
+          "label": "Instagram URL",
+          "default": "https://www.instagram.com/africanancestry/"            
+        },
+        {
+          "type": "text",
+          "id": "footer_twitter_svg",            
+          "label": "Twitter svg",
+          "default": "Group1615.svg"            
+        },
+        {
+          "type": "text",
+          "id": "footer_twitter_url",            
+          "label": "Twitter URL",
+          "default": "https://twitter.com/africanancestry"            
+        },
+        {
+          "type": "text",
+          "id": "footer_youtube_svg",            
+          "label": "Youtube svg",
+          "default": "Group1616.svg"            
+        },
+        {
+          "type": "text",
+          "id": "footer_youtube_url",            
+          "label": "Youtube URL",
+          "default": "https://www.youtube.com/africanancestrydna"            
+        },
+        {
+        "type": "header",
+        "content": "Footer Links"
+        },
+        {
+          "type": "liquid",
+          "id": "footer_copyright",            
+          "label": "Copy right",
+          "default": "© {{ 'now' |  date : '%Y' }} African Ancestry, Inc. All rights reserved."            
+        },
+        {
+          "type": "text",
+          "id": "footer_term_text",            
+          "label": "Terms of Use",
+          "default": "Terms of Use"            
+        },
+        {
+          "type": "url",
+          "id": "footer_term_text_ul",            
+          "label": "Terms of Use Url"                     
+        },
+        {
+          "type": "text",
+          "id": "footer_privacy_policy",            
+          "label": "Privacy Policy",
+          "default": "Privacy Policy"            
+        },
+        {
+          "type": "url",
+          "id": "footer_privacy_policy_url",            
+          "label": "Privacy Policy Url"                     
+        }
+    ],
+    "blocks": [
+          {
+            "type": "menu",
+            "name": "Menu",
+            "settings": [
+                {
+                  "type": "text",
+                  "id": "menu_title",
+                  "label": "Heading",
+                  "default": "Links"
+                },
+                {
+                "type": "link_list",
+                "id": "menu",
+                "label": "Menu"
+                }
+    ]
+  },
+      {
+        "type": "social",
+        "name": "Social icons",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "paragraph",
+            "content": "Edit your social settings and accounts in General settings"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,12 @@
+<a href="/" class="logo main-logo" rel="home">
+  {%- if settings.footer_logo_svg != '' -%}
+       <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ settings.footer_logo_svg | asset_url }}" class="logo-image lazyload" alt="{{ image.alt | default: shop.name }}" height="39" width="175" loading="lazy"/>
+  {%- else -%}
+      {%- if settings.footer_logo != blank -%}
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ settings.footer_logo | img_url: '300x300' }}" alt="{{ image.alt | default: shop.name }}" height="39" width="175" loading="lazy"/>
+      {%- else -%}
+          {{shop.name}}
+      {%- endif -%}
+  {%- endif -%}
+
+</a>

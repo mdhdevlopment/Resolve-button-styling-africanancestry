@@ -1,0 +1,166 @@
+{% if section.blocks != 0 %}
+    <div class="what-you-get-slider-wrapper">
+      <div class="page-width">
+        <div class="row">
+          <div class="col-lg-7 col-md-7">
+            <div class="what-you-get-slider-title">
+              {% if section.settings.content_title != blank %}
+                <h2 class="section-heading">{{ section.settings.content_title }}</h2>            
+              {% endif %}
+              {% if section.settings.content_paragraph != blank %}
+                <p>{{ section.settings.content_paragraph }}</p>
+              {% endif %}
+              {% if section.settings.what_you_get_list != blank %}
+                <div class="content-list"> 
+                  {{ section.settings.what_you_get_list }}
+                </div> 
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-5 col-md-5">
+            <div class="what_you-get_image_container">
+              {% for block in section.blocks limit: section.blocks.size %}
+                {%- if block.settings.image != blank -%}
+                  <div class="what-you-get-image-box">
+                    <img
+                  srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                    {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                    {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+                    {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                    {%- if block.settings.image.width >= 1070 -%}{{ block.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                    {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                    {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
+                  src="{{ block.settings.image | image_url: width: 275 }}"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                  alt="{{ block.settings.image.alt | escape }}"
+                  loading="lazy"
+                  width="275"
+                  height="auto"
+               >
+                  </div>            
+                {%- endif -%}
+              {% endfor %}
+            </div>
+            <div class="content-for-mobile">
+              {% if section.settings.what_you_get_list != blank %}
+                <div class="content-list"> 
+                  {{ section.settings.what_you_get_list }}
+                </div> 
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="protected-account-info-image-wrapper">
+              <div class="protected-account-image">
+                <img src="{{ 'protected-account-image.svg' | asset_url }}" height="100" width="100" loading="lazy"/>
+              </div>
+              {% if section.settings.protected_account_text != blank %}
+                <div class="protected-account-info">
+                  <p>{{ section.settings.protected_account_text }}</p>
+                </div>
+              {% endif %}
+        </div>
+      </div>
+    </div>
+  
+  {% endif %}
+
+  {% comment %} <script>
+    $('.what_you-get_image_container').slick({
+      dots: true,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+  </script> {% endcomment %}
+  
+  
+  {% schema %}
+    {
+      "name": "Product What You Get",
+      "class": "product-what-you-get",
+      "settings": [
+          {
+            "type": "text",
+            "id": "content_title",
+            "label": "Title",
+            "default": "What you get with your test"
+          },
+          {
+            "type": "textarea",
+            "id": "content_paragraph",
+            "label": "Paragraph",
+            "default": "Your mtDNA has power. It provides energy for every cell in your body. mtDNA also has a series of unique markers that tell a profound story about you and your family."
+          },
+          {
+            "type": "richtext",
+            "id": "what_you_get_list",
+            "label": "Content List"
+          },
+          {
+            "type": "text",
+            "id": "protected_account_text",
+            "label": "Protected Account Information",
+            "default": "You’ll activate your test kit online and receive your results through a password protected account, which will allow you to track and view your results package securely and confidentially."
+          }
+      ],
+      "max_blocks": 6,
+      "blocks": [
+        {
+          "type": "image",
+          "name": "Image",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Product What You Get",
+          "category": "Image",
+          "blocks": [
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    }
+  {% endschema %}
+  

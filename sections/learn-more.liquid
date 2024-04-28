@@ -1,0 +1,86 @@
+<!-- html Start -->
+
+<section class="learn-more-sec" id="learn-more">
+  	<div class="container">
+      <div class="row align-items-center">
+        	<div class="col-md-6">
+              	<div class="learn-content my-5 text-center">
+                  <h2 class="bold">{{ section.settings.text-box_01 }}</h2>
+                  
+                    {{ section.settings.content-box_01 }}
+                  
+                    
+                  <a href="{{ section.settings.link_01 }}" class="btn btn-primary blue-button">{{ section.settings.linktext_01 }} </a>
+              </div>
+            </div>
+        	<div class="col-md-6">
+               {% if section.settings.right_image_pic_01 != blank %}
+              	<div class="image-sec py-5">
+                  	<img class="img-fluid" src="https://cdn.shopify.com/s/files/1/2138/0103/files/Footer_Test_Kits.png?v=1598053954" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+               </div>
+              {% else %}
+              	{% assign svg_image_url = section.settings.right_image_01 %}
+              	<div class="image-sec">
+                  	<img class="img-fluid" src="{{ svg_image_url  | asset_url }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+                </div>
+              {% endif %}
+            </div>
+      </div>
+      
+  </div>
+</section>
+
+<!-- html End -->
+
+{% schema %}
+{
+  "name": "Learn more",
+  "settings": [
+    {
+      "id": "text-box_01",
+      "type": "text",
+      "label": "Heading",
+      "default": "Title"
+    },
+    {
+      "id": "content-box_01",
+      "type": "html",
+      "label": "Add Content"
+    },
+    {
+      "id": "link_01",
+      "type": "url",
+      "label": "Button link"
+    },
+    {
+      "id": "linktext_01",
+      "type": "text",
+      "label": "Button text",
+      "default": "Click here"
+    },
+    {
+      "id": "right_image_01",
+      "type": "text",
+      "label": "Add Image (SVG)"
+    },
+    {
+      "id": "right_image_pic_01",
+      "type": "image_picker",
+      "label": "Add Image"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Learn more",
+      "category": "New Sections"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

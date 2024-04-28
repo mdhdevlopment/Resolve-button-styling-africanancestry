@@ -1,0 +1,59 @@
+<h3 id="about_order">{{section.settings.main_title}}</h3>
+<div class="bs-example">
+  <div class="accordion" id="accordionExample-reo">
+    {% assign count = 0 %}
+    {% for block in section.blocks %}
+    {% assign count = count | plus: 1 %}
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h2 class="mb-0">
+          <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse-order{{count}}" aria-expanded="false">{{count}}. {{block.settings.faq-question}} <i class="fa fa-angle-down" aria-hidden="true"></i> </button>									
+        </h2>
+      </div>
+      <div id="collapse-order{{count}}" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample-reo" style="">
+        <div class="card-body">
+          <!-- <p>The science behind our single lineage tests is the same as what most other companies offer. What makes African Ancestry different is:</p> -->
+          {{block.settings.faq-answer}}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "ABOUT YOUR ORDER",
+    "settings": [
+        {
+          "id": "main_title",
+          "type": "text",
+          "label": "Section Title"
+        }
+     ],
+    "blocks": [
+            {
+              "type": "about-the-tests",
+              "name": "FAQ",
+              "settings": [
+                  {
+                  "id": "faq-question",
+                  "type": "text",
+                  "label": "Question"
+                  },
+                  {
+                  "id": "faq-answer",
+                  "type": "textarea",
+                  "label": "Answer"
+                  }
+              ]
+            }
+      ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

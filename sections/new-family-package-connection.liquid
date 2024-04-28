@@ -1,0 +1,90 @@
+<div class="connection-main">
+  <div class="page-width">
+      {% if section.settings.connection_title != blank %}
+        <h2 class="connection_title">{{ section.settings.connection_title }}</h2>            
+      {% endif %}
+      {% if section.settings.connection_paragraph != blank %}
+        <p class="connection_paragraph">{{ section.settings.connection_paragraph }}</p>
+      {% endif %}
+    
+      <div class="row connection-images-wrapper">
+        {% for block in section.blocks limit: section.blocks.size %}
+            {%- if block.settings.image != blank -%}
+                <div class="col-md-4">
+                    <div class="connection-image-box">
+                        <img
+                          srcset="{%- if block.settings.image.width >= 165 -%}{{ block.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+                            {%- if block.settings.image.width >= 360 -%}{{ block.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+                            {%- if block.settings.image.width >= 535 -%}{{ block.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+                            {%- if block.settings.image.width >= 750 -%}{{ block.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+                            {%- if block.settings.image.width >= 1070 -%}{{ block.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                            {%- if block.settings.image.width >= 1500 -%}{{ block.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                            {{ block.settings.image | image_url }} {{ block.settings.image.width }}w"
+                          src="{{ block.settings.image | image_url: width: 1500 }}"
+                          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+                          alt="{{ block.settings.image.alt | escape }}"
+                          loading="lazy"
+                          width="1500"
+                          height="auto"
+                        >
+                    </div>
+                </div>
+            {%- endif -%}
+        {% endfor %}
+      </div>
+    </div>
+</div>
+
+
+{% schema %}
+    {
+      "name": "Product Connection",
+      "class": "product-connection-past-present-future",
+      "settings": [
+          {
+            "type": "text",
+            "id": "connection_title",
+            "label": "Title",
+            "default": "It’s A Connection To Your Past, Present And Future"
+          },
+          {
+            "type": "textarea",
+            "id": "connection_paragraph",
+            "label": "Paragraph",
+            "default": "Women are the backbone of any society and hold the power to create life. Over the course of history, many were stripped of their heritage and humanity, yet they survived to ensure one day we would thrive. Find your roots and your power."
+          }
+          
+      ],
+      "max_blocks": 3,
+      "blocks": [
+        {
+          "type": "image",
+          "name": "Image",
+          "settings": [
+            {
+              "type": "image_picker",
+              "id": "image",
+              "label": "Image"
+            }
+          ]
+        }
+      ],
+      "presets": [
+        {
+          "name": "Product Connection",
+          "category": "Image",
+          "blocks": [
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            },
+            {
+              "type": "image"
+            }
+          ]
+        }
+      ]
+    }
+  {% endschema %}

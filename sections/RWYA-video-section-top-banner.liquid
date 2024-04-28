@@ -1,0 +1,33 @@
+<section>
+  <div class="banner-img">
+  <div class="mbanner_wrapper">
+   
+    {% if section.settings.top-banner-image != blank %}
+    
+      <img class="img-fluid" src="{{ section.settings.top-banner-image | img_url: 'original' }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+    
+    {% endif %}
+    
+</div>
+  </div>
+</section>
+
+
+{% schema %}
+  {
+    "name": "RWYA Top Banner",
+    "settings": [
+    {
+      "id": "top-banner-image",
+      "type": "image_picker",
+      "label": "Upload Banner" 
+    }
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

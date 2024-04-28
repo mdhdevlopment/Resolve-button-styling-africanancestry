@@ -1,0 +1,66 @@
+  {% comment %}
+    Reduce below value if you need the back to the top button to appear higher up on the page.
+    That value is in pixels.
+  {% endcomment %}
+
+  {% assign vertical_offset_for_trigger = 300 %}
+
+  {% comment %}
+  Vertical offset from bottom of browser for the position of the button.
+  {% endcomment %}
+  {% assign position_from_bottom = '6em' %}
+
+  <a id="BackToTop" title="Back to the top" class="back-to-top hide"></a>
+
+  {{ '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css' | stylesheet_tag }}
+  <style>
+   #BackToTop {
+    display: inline-block;
+    border-radius: 100px;
+    border: 5px solid #FFF;
+    background: #6132C6;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+#BackToTop::after {
+    content: "\f176";
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 40px;
+    color: #fff;
+}
+ #BackToTop:hover, #BackToTop:active {
+    cursor: pointer;
+    background: #FF7152;
+  }
+  #BackToTop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+</style>
+<script>
+  var btn = $('#BackToTop');
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+  
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+  });
+</script>

@@ -1,0 +1,126 @@
+<div class="product-template-FAQs-section">
+  <div class="page-width">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-template-FAQs-content__wrapper">
+          <div class="product-template-head">
+            {% if section.settings.product_template_faqs_heading %}
+              <h2 class="product-template-FAQs-heading">{{ section.settings.product_template_faqs_heading }}</h2>
+            {% endif %}
+            {% if section.settings.product_template_faqs_text %}
+              <div class="product-template-section-FAQs-text">
+                <p>{{ section.settings.product_template_faqs_text }}</p>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="accordion" id="accordionFAQs">
+            {% for block in section.blocks %}
+                <div class="product-template-card">
+                  <div class="product-template-card-header" id="headingFAQs{{ forloop.index }}">
+                    <h4 class="mb-0 btn btn-link collapsed"
+                      data-toggle="collapse"
+                      data-target="#collapseFAQs{{ forloop.index }}"
+                      aria-expanded="false">
+                        {{ block.settings.faqs_title }}
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </h4>
+                  </div>
+                  <div
+                    id="collapseFAQs{{ forloop.index }}"
+                    class="collapse"
+                    aria-labelledby="headingFAQs{{ forloop.index }}"
+                    data-parent="#accordionFAQs"
+                  >
+                    <div class="product-template-card-body">
+                      {{ block.settings.faqs_content }}
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+          </div>          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product Template FAQs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_template_faqs_heading",
+      "label": "Title",
+      "default": "FAQs"
+    },
+    {
+      "type": "text",
+      "id": "product_template_faqs_text",
+      "label": "Content",
+      "default": "Your DNA is completely confidential."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "faqs_title",
+          "label": "Title"
+        },
+        {
+          "type": "html",
+          "id": "faqs_content",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Template FAQs",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+              "faqs_title": "Who owns African Ancestry?",
+              "faqs_content": "African Ancestry is a 100% Black-owned business founded in 2003 by Dr. Rick Kittles and Gina Paige. You can learn more <a href='https://africanancestry.com/pages/our-story'>about us here</a>."
+            }
+        },
+        {
+          "type": "text",
+          "settings": {
+              "faqs_title": "What's the likelihood of receiving a result that is not African?",
+              "faqs_content": "Ninety-two percent (92%) of the people who take this test receive an African result. There is an 8% chance that your result will not be African."
+            }
+        },
+        {
+          "type": "text",
+          "settings": {
+              "faqs_title": "Why might someone receive a result that is not African?",
+              "faqs_content": "Very few, if any, African Americans are 100% African. During the period of slavery in the Americas, white men (slave traders, slave owners, etc.) often fathered children with enslaved women. Their offspring then had both African and European ancestry. This means that the descendants of the offspring will have a European branch in their family tree. There is an 8% chance that your maternal ancestry result will not be African. <span style='letter-spacing: normal;'>Read more about <a href='https://africanancestry.com/blogs/news/the-hard-truth-about-the-65'>why here</a>.</span>"
+            }
+        },
+        {
+          "type": "text",
+          "settings": {
+              "faqs_title": "Can I send results from another company's test for analysis?",
+              "faqs_content": "<p style='text-align: left; line-height: normal;'><span style='font-family: Rubik;'><br><span style='font-size: 16px;'><strong><u>Maternal Ancestry Results</u></strong></span><br></span></p> <p style='text-align: left; line-height: normal;'><span style='font-family: Rubik; font-size: 16px;'>Yes, if you have a mitochondrial DNA (mtDNA) sequence and an mtDNA Haplogroup L from another company, then your MatriClan Test result will be African. <br>If it is not Haplogroup L, then do not take the MatriClan Test. If it is, please click here to submit an Analysis Only request.</span><br><br><span style='font-family: Rubik; font-size: 16px;'><strong><u>Paternal Ancestry Results</u></strong></span><br><span style='font-family: Rubik; font-size: 16px;'>Yes, if you have Y-chromosome markers and a Y Haplogroup of A, B or E from another company, then your PatriClan Test result will be African.<br>If it is not a Y Haplogroup of A, B or E, then do not take the PatriClan Test. If it is, please click here to submit an Analysis Only request.</span><br><br><span style='font-family: Rubik; font-size: 16px;'><strong><u>Admixture/Autosomal Results</u></strong></span><br><span style='font-family: Rubik; font-size: 16px;'>No, we cannot use autosomal data from another company. However, please check your results to see if the company gave you an mtDNA haplogroup or Y chromosome haplogroup. We can provide better direction if you have that data. Contact us at <a href='mailto:info@africanancestry.com'>info@africanancestry.com</a>.</span></p>"
+            }
+        },
+        {
+          "type": "text",
+          "settings": {
+              "faqs_title": "What is the refund policy?",
+              "faqs_content": "International customers are responsible for the postage to return swabs to us. You can read our <a href='https://africanancestry.com/policies/refund-policy'>refund policy here</a>."
+            }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

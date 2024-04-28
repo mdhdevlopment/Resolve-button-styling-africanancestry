@@ -1,0 +1,64 @@
+<div class="announcement">
+  {% if section.settings.header_text != blank %}
+    <p>{{ section.settings.header_text }}</p>
+  <a href="javascript:void(0)" class="btn close-btn" onclick="this.parentElement.style.display = 'none';">
+    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 1.00006L1 7.00006" stroke="#2B206A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1 1.00006L7 7.00006" stroke="#2B206A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+  {% endif %}
+</div>
+
+{% comment %} <div class="page-width">
+  <div class="header-content">
+    <div class="logo-box">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_1_2.png?v=1681220448" alt="image" loading="lazy" width="{{ image.width }}"
+      height="{{ image.height }}">
+    </div>
+   <!-- <div class="navbar navbar-expand-lg menu-nav">
+      <ul class="navbar-nav default_nav" role="navigation" id="AccessibleNav">
+      {% for link in linklists.new-navigation-left.links %}
+        <li class="nav-item "><a href="{{ link.url }}" class="nav-link">{{ link.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </div> -->
+    <div class="cart-icon">
+     <div class="nav-item dropdown">
+        <button class="bg-transparent border-0 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="{{ 'cart-icon1.png' | asset_url }}" loading="lazy" alt="image" width="{{ image.width }}"
+            height="{{ image.height }}">
+        </button>
+        {% include 'mini-cart-drawer' %}
+     </div>
+    </div>
+  </div>
+</div> {% endcomment %}
+
+{% schema %}
+{
+  "name": "Product Template Header",
+  "tag": "section",
+"class": "product-template-header",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header_text",
+      "label": "Header Text",
+      "default": "Save 10% During Black History Month With Code BHM23"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Product Template Header"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

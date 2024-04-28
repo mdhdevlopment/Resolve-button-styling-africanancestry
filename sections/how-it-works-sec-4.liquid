@@ -1,0 +1,82 @@
+<section class="kit">
+  <div class="container">
+    <h2 class="text-center">{{section.settings.how_it_works_title}}</h2>  
+    <div class="row">
+      {% for block in section.blocks %}
+      <div class="col-md-6 col-12">
+        <div class="mat-kit-bg">
+          <div class="mat-kit-img">
+            <img src="{{ block.settings.product_image | img_url: 'original' }}" alt="matriclantest" class="img-fluid mx-auto d-block" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">  
+          </div> 
+          <div class="mat-kit-text">
+            {{block.settings.product_description}}
+            <p><a data-fancybox="gallery" id="matriclan" href="{{block.settings.link_src | img_url: 'original'}}" rel="how-group2" class="fancybox">{{block.settings.link_title}}</a>.</p>
+            <div class="text-center">
+              <a href="{{block.settings.button_url}}" class="btn-defult-pink">{{block.settings.button_text}}</a>
+            </div>
+          </div>
+        </div>  
+      </div> 
+      {% endfor %}
+    </div> 
+  </div>     
+</section>
+
+{% schema %}
+  {
+    "name": "How it Works Section 4",
+    "max_blocks": 2,
+    "settings": [
+    {
+      "id": "how_it_works_title",
+      "type": "text",
+      "label": "Section Title",
+      "default": "Title" 
+    }
+   ],
+   "blocks": [
+            {
+              "type": "Product",
+              "name": "Product",
+              "settings": [
+                 {
+                  "id": "product_image",
+                  "type": "image_picker",
+                  "label": "Product Image"
+                 },
+                 {
+                  "id": "product_description",
+                  "type": "textarea",
+                  "label": "Product Description"
+                 },
+                 {
+                  "id": "link_title",
+                  "type": "text",
+                  "label": "Link Title"
+                 },
+                 {
+                  "id": "link_src",
+                  "type": "image_picker",
+                  "label": "Link image"
+                 },
+                 {
+                  "id": "button_text",
+                  "type": "text",
+                  "label": "Button text"
+                 },
+                 {
+                  "id": "button_url",
+                  "type": "url",
+                  "label": "Button URL"
+                 }
+              ]
+            }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

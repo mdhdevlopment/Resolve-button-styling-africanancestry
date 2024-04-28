@@ -1,0 +1,178 @@
+<div class="title-box">
+  {% if page.metafields.custom.dynamic_how_it_works_heading %}
+    <h2 class="section-title">{{ page.metafields.custom.dynamic_how_it_works_heading }}</h2>
+  {% else %}
+    <h2 class="section-title">how it works</h2>
+  {% endif %}
+  
+  <p class="subtitle">We each carry in our DNA a series of indicators that provide information about our ancestry. This information is passed from generation to generation and can tell a profound story about where we come from, and highlight our connections to modern-day Africa.</p>
+</div>
+
+<div class="how-it-works-corousel">
+  <div class="item">
+    <div class="badge">
+      <p>Step #1</p>
+    </div>
+    <div class="image-box">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_44.png?v=1681364960" alt="image" loading="lazy" width="{{ image.width }}"
+      height="{{ image.height }}">
+    </div>
+    <div class="content">
+      <h3 class="title">Your DNA</h3>
+      <div class="description">
+        <p>Depending on which test you purchase, we analyze either the mitochondrial DNA (mtDNA) that you inherited from your mother, the Y chromosome that men inherit from their fathers or autosomal DNA that you inherit from both parents.</p>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="badge">
+      <p>Step #2</p>
+    </div>
+    <div class="image-box">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_47.png?v=1681364960" alt="image" loading="lazy" width="{{ image.width }}"
+      height="{{ image.height }}">
+    </div>
+    <div class="content">
+      <h3 class="title">Your Family Tree</h3>
+      <div class="description">
+        <p>You share information within the genes we extract that is unchanged through every branch of your family tree. In other words, we identify the unique fingerprint that you share with your parents, grandparents, great-grandparents and so on along a single lineage.</p>
+      </div>
+    </div>
+  </div>
+  <div class="item">
+    <div class="badge">
+      <p>Step #3</p>
+    </div>
+    <div class="image-box">
+      <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_48.png?v=1681364960" alt="image" loading="lazy" width="{{ image.width }}"
+      height="{{ image.height }}">
+    </div>
+    <div class="content">
+      <h3 class="title">Your History</h3>
+      <div class="description">
+        <p>Utilizing pioneering genetic scientific methods, we look closely for markers or mutations that indicate where in the world your ancestry is found. If your genes indicate Africa, we then compare them to the world’s largest database of African lineages to.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  {% comment %} {% if section.settings.button_text != blank %}
+    <div class="button-box">
+      <a href="{{ section.settings.button_url }}" class="button button-primary">{{ section.settings.button_text }}</a>
+    </div>
+  {% endif %} {% endcomment %}
+
+  {% assign dynamicButtonText = page.metafields.custom.dynamic_button_text %}
+        {% assign dynamicButtonUrl = page.metafields.custom.dynamic_button_url %}
+        {% assign sectionButtonText = section.settings.button_text %}
+        {% assign sectionButtonUrl = section.settings.button_url %}
+      
+        {% if dynamicButtonText != blank or sectionButtonText != blank %}
+      
+          {% if dynamicButtonText != blank and dynamicButtonUrl != blank %}
+          <div class="button-box">
+            <a href="{{ dynamicButtonUrl }}" class="button button-primary">{{ dynamicButtonText }}</a>
+          </div>
+          {% elsif dynamicButtonText != blank and dynamicButtonUrl == blank %}
+            <div class="button-box">
+              <a href="{{ sectionButtonUrl }}" class="button button-primary">{{ dynamicButtonText }}</a>
+            </div>
+          {% elsif  dynamicButtonText == blank and  dynamicButtonUrl != blank %}
+            <div class="button-box">
+              <a href="{{ dynamicButtonUrl }}" class="button button-primary">{{ sectionButtonText }}</a>
+            </div>
+            {% elsif sectionButtonText != blank and  sectionButtonUrl != blank %}
+              <div class="button-box">
+                <a href="{{ sectionButtonUrl }}" class="button button-primary">{{ sectionButtonText }}</a>
+              </div>
+          {% elsif dynamicButtonText == blank and dynamicButtonUrl == blank %}
+            <div class="button-box">
+              <a href="#" class="button button-primary">{{ sectionButtonText }}</a>
+            </div>
+          {% endif %} 
+      
+        {% endif %}
+
+        <div class="button_bottom_text">
+  
+                       <p class="affirm-as-low-as font-weight-bold" data-page-type="product" data-amount="{{ page.metafields.custom.dynamic_banner_regular_price | times: 100 }}"></p>
+
+  
+        
+      
+      </div>
+
+<script>
+  
+    $('.how-it-works-corousel').slick({
+      dots: false,
+      infinite: true,
+      arrows: true,
+      speed: 300,
+      slidesToShow: 1,
+      centerMode: true,
+      variableWidth: true,
+      responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+          
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: false,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          variableWidth: false,
+        }
+      }
+      // You can unslick at a given breakpoint now by adding:
+      // settings: "unslick"
+      // instead of a settings object
+    ]
+    });
+  
+</script>
+
+{% schema %}
+{
+  "name": "Matriclan How It Works",
+  "tag": "section",
+  "class": "matriclan-how-it-works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Matriclan How It Works"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

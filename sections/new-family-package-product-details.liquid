@@ -1,0 +1,470 @@
+<div class="new-product-template-products-details">
+  <div class="page-width">
+    <div class="row new-product-details">
+      <div class="col-md-6">
+        {% if product != blank %}
+          <div class="banner-text-image-wrapper">
+            <div class="banner-image-text">
+              <span>SPECIFIC AFRICAN TRIBE RESULT</span>
+            </div>
+            
+            <div class="banner-product-carousel">            
+              {% for img in product.images %}
+                <div class="image-box">
+                  <img
+                    alt="{{ img.alt | escape }}"
+                    class="img-fluid lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                    data-srcset="
+                      {{ img | img_url: '1500x' }} 1500w,
+                      {{ img | img_url: '1200x' }} 1200w,
+                      {{ img | img_url: '960x' }} 960w,
+                      {{ img | img_url: '800x' }} 800w,
+                      {{ img | img_url: '600x' }} 600w,
+                      {{ img | img_url: '400x' }} 400w
+                    "
+                    loading="lazy"
+                    width="{{ image.width }}"
+                    height="{{ image.height }}"
+                  >
+                </div>
+              {% endfor %}
+            </div>
+          
+          </div>
+          {% endif %}
+      </div>
+      <div class="col-md-6 new-product-details-right">       
+          <div class="new-product-details-rating">
+            <div class="rating">
+            {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
+              <div class="icon">
+                <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11.2459 5.18795L9.99865 3.80913L10.1725 1.98392L8.3271 1.57722L7.36097 0L5.62297 0.724131L3.88496 0L2.91883 1.57722L1.07348 1.97896L1.24728 3.80417L0 5.18795L1.24728 6.56677L1.07348 8.39694L2.91883 8.80364L3.88496 10.3809L5.62297 9.65177L7.36097 10.3759L8.3271 8.79868L10.1725 8.39198L9.99865 6.56677L11.2459 5.18795ZM4.60061 7.66785L2.55589 5.68393L3.27666 4.9846L4.60061 6.26423L7.96928 2.99572L8.69004 3.70001L4.60061 7.66785Z" fill="#2BA930"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+    
+
+        {% if product.title != blank %}
+          <h1 class="title">{{ product.title }}</h1>
+        {% endif %}
+
+        {% if section.settings.sub_text != blank %}
+          <p class="product-subtext">{{ section.settings.sub_text }}</p>
+        {% endif %}
+
+        {% if section.settings.test_takers_text != blank %}
+          <p class="test-takers-text">{{ section.settings.test_takers_text }}</p>
+        {% endif %}
+        
+        {% if product.price %}
+          <p class="product_price">
+            {% comment %} {{ section.settings.product.price | money }} {% endcomment %}
+            {% if product.compare_at_price > product.price %}
+              <del>
+                {{ product.compare_at_price | money }}
+              </del> 
+                {{ product.price | money }}
+            {% else %}
+                {{ product.price | money }}
+            {% endif %}
+          </p>
+        {% endif %}
+
+        <div class="accordion" id="accordionExample">
+          {% if section.blocks.size >= 0 %}
+            <!-- Add a default block for "Overview" if no blocks exist -->
+            <div class="product-template-card">
+              <div class="product-template-card-header" id="defaultheading">
+                <h4
+                  class="mb-0 btn btn-link active"
+                  data-toggle="collapse"
+                  data-target="#defaultCollapseProduct"
+                  aria-expanded="true"
+                >
+                  Overview
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </h4>
+              </div>
+              <div
+                id="defaultCollapseProduct"
+                class="collapse show"
+                aria-labelledby="defaultheading"
+                data-parent="#accordionExample"
+              >
+                <div class="product-template-card-body">
+                  <!-- Add default content for "Overview" here -->
+                  {% if product.description != blank %}
+                    <div class="banner_description">
+                      {{ product.description }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% for block in section.blocks %}
+            <div class="product-template-card">
+            {% if block.settings.faqs_title != blank %}
+              <div class="product-template-card-header" id="heading{{ forloop.index }}">
+                <h4
+                  class="mb-0 btn btn-link collapsed"
+                  data-toggle="collapse"
+                  data-target="#collapseProduct{{ forloop.index }}"
+                  aria-expanded="false"
+                >
+                  {{ block.settings.faqs_title }}
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </h4>
+              </div>
+            {% endif %}
+             
+             
+              <div
+                id="collapseProduct{{ forloop.index }}"
+                class="collapse"
+                aria-labelledby="heading{{ forloop.index }}"
+                data-parent="#accordionExample"
+              >
+                <div class="product-template-card-body">
+                  {{ block.settings.faqs_content }}
+                </div>
+              </div>
+            
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if product.variants.size > 1 %}
+          <a href="{{ product.url }}" class="viewmore-btn" >
+            View More !
+          </a>
+          {%  else  %}
+          <div class="cart-qty-btn-wrapper">
+            {% if section.settings.qty_box %}
+            <div class="cart-text-qty-box-wrapper">
+              <label>QTY</label>
+              <div class="cart-qty-btn">
+                <input type='button' value='-' class='qtyminus' field='quantity' />
+                <input type="number" class="qty" id="quantity" name="quantity" value="1" min="1" class="product-form__input" pattern="[1-9]*">
+                <input type='button' value='+' class='qtyplus' field='quantity' />
+              </div> 
+            </div>
+            {% endif %}
+            <div class="add_to_cart-button">
+              {%- render 'buy-buttons', product: product, section_id: section.id, show_pickup_availability: true -%}
+            </div>
+          </div>
+        {% endif %}
+
+       {% comment %}
+                  {% if additional_checkout_buttons %}
+          <div class="additional-checkout-buttons">
+            {{ content_for_additional_checkout_buttons }}
+          </div>
+        {% endif %}
+        {% endcomment %}
+        
+        {% if product.metafields.custom.product_affirm_element == true %}
+          <div class="button_bottom_text">
+            <p class="affirm-as-low-as" data-page-type="product" data-amount={{ product.price }}></p>
+          </div>
+       {% endif %}
+
+        <div class="accordion accordion-mobile" id="accordionExampleMobile">
+          {% if section.blocks.size >= 0 %}
+            <!-- Add a default block for "Overview" if no blocks exist -->
+            <div class="product-template-card">
+              <div class="product-template-card-header" id="defaultheadingmob">
+                <h4
+                  class="mb-0 btn btn-link active"
+                  data-toggle="collapse"
+                  data-target="#defaultCollapseProductMob"
+                  aria-expanded="true"
+                >
+                  Overview
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </h4>
+              </div>
+              <div
+                id="defaultCollapseProductMob"
+                class="collapse show"
+                aria-labelledby="defaultheadingmob"
+                data-parent="#accordionExampleMobile"
+              >
+                <div class="product-template-card-body">
+                  <!-- Add default content for "Overview" here -->
+                  {% if product.description != blank %}
+                    <div class="banner_description">
+                      {{ product.description }}
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endif %} 
+
+          {% for block in section.blocks %}
+            <div class="product-template-card">
+            
+            {% if block.settings.faqs_title != blank %}
+              <div class="product-template-card-header" id="headingMob{{ forloop.index }}">
+                <h4
+                  class="mb-0 btn btn-link collapsed"
+                  data-toggle="collapse"
+                  data-target="#collapseMob{{ forloop.index }}"
+                  aria-expanded="false"
+                >
+                  {{ block.settings.faqs_title }}
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </h4>
+              </div>
+            {% endif %}
+  
+              <div
+                id="collapseMob{{ forloop.index }}"
+                class="collapse"
+                aria-labelledby="headingMob{{ forloop.index }}"
+                data-parent="#accordionExampleMobile"
+              >
+                <div class="product-template-card-body">
+                  {{ block.settings.faqs_content }}
+                </div>
+              </div>
+            
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if section.settings.testimonial_text != blank or section.settings.family_member_name != blank or section.settings.family_member_details != blank %}
+
+          <div class="product-testimonial-image-wrapper">
+            <div class="product-testimonial-wrapper-quote">
+              {{ section.settings.product_testimonial_quote }}
+            </div>
+
+            <div class="testimonial-info">
+              {% if section.settings.testimonial_text != blank %}
+              <p>
+                {{ section.settings.testimonial_text }}
+              </p>
+              {% endif %}
+            </div>
+            <div class="family-member-details-wrapper">
+              {% if section.settings.testimonial_member_image != blank %}
+              <div class="family-member-image">
+                {{ section.settings.testimonial_member_image }}
+              </div>
+              {% endif %}
+              {% if section.settings.family_member_name and section.settings.family_member_details != blank %}
+              <div class="family-member-details">
+                <h5>{{ section.settings.family_member_name }}</h5>
+                <p>{{ section.settings.family_member_details }}</p>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--------------------Quentity-Increase Decrease------------------->
+<script>
+   jQuery(document).ready(function(){
+      // This button will increment the value
+      $('.qtyplus').click(function(e){
+         // Stop acting like a button
+         e.preventDefault();
+         $(this).prev(".qty").addClass('focus-visible');
+         // Get the field name
+         fieldName = $(this).attr('field');
+         // Get its current value
+         var currentVal = parseInt($('input[id='+fieldName+']').val());
+         // If is not undefined
+         if (!isNaN(currentVal)) {
+               // Increment
+               $('input[id='+fieldName+']').val(currentVal + 1);
+               // Enable minus button
+               $('.qtyminus').prop('disabled', false);
+         } else {
+               // Otherwise put a 0 there
+               $('input[id='+fieldName+']').val(0);
+         }
+      });
+      // This button will decrement the value till 0
+      $(".qtyminus").click(function(e) {
+         // Stop acting like a button
+         e.preventDefault();
+         $(this).next(".qty").addClass('focus-visible');
+         // Get the field name
+         fieldName = $(this).attr('field');
+         // Get its current value
+         var currentVal = parseInt($('input[id='+fieldName+']').val());
+         // If it isn't undefined or its greater than 0
+         if (!isNaN(currentVal) && currentVal > 1) {
+               // Decrement one
+               $('input[id='+fieldName+']').val(currentVal - 1);
+         } else {
+               // If current value is 1, disable minus button
+               $('input[id='+fieldName+']').val(1);
+               $(this).prop('disabled', true);
+         }
+      });
+
+      $(".qty").change(function(e) {
+         // Stop acting like a button
+         e.preventDefault();
+
+         var currentVal = parseInt($('input[id=quantity]').val());
+          // If it isn't undefined or its greater than 0
+         if (!isNaN(currentVal) && currentVal > 1) {
+               // Decrement one
+               $('input[id='+fieldName+']').val(currentVal);
+               $(".qtyminus").prop('disabled', false);
+         } else {
+               // If current value is 1, disable minus button
+               $('input[id='+fieldName+']').val(1);
+         }
+        });
+
+   });  
+</script>
+<!--------------------Quentity-Increase Decrease------------------->   
+
+<script>
+    function addFamiltItem(productId) {
+      checkoutUrl = "/cart/" + productId + ":1"
+      window.location.href = checkoutUrl;
+      // let data = {
+      //   id: form_id,
+      //   quantity: 1
+      // }
+      // $.ajax({
+      //   type: 'POST', 
+      //   url: '/cart/add.js',
+      //   dataType: 'json', 
+      //   data: data,
+      //   success: function(){
+      //     // window.location.href = "/checkout";
+      //     $.ajax({
+      //         type: 'GET',
+      //         url: '/cart.js',
+      //         dataType: 'json',
+      //         success: function (cartData) {
+      //           // Assuming you have an element with id 'cart' to display the cart contents
+      //           // var myObj = JSON.parse(cartData);
+      //           $('.bag-count').text(cartData.item_count); // Update the cart count
+      //           // You can also update other elements to show the updated cart details if needed
+      //         },
+      //         error: function () {
+      //           alert('Error: Unable to fetch cart data');
+      //         }
+      //       });
+      //     },
+      //     error: function(){alert('error : Sold Out!');
+      //   },
+      //   error: function(){alert('error : Sold Out!');}
+      // });
+    }
+  </script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var ratingDiv = document.querySelector(".rating");
+    var previewBadge = document.querySelector(".jdgm-prev-badge");
+  
+    if (previewBadge) {
+      var numberOfReviews = previewBadge.getAttribute("data-number-of-reviews");
+    
+      // Check if data-number-of-reviews is equal to 0 or null and hide the rating div if it is
+      if (numberOfReviews === "0" || numberOfReviews === null) {
+        ratingDiv.style.display = "none";
+      }
+    }
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Product Details",
+  "class": "product-details",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sub_text",
+      "label": "Sub Text",
+      "default": "Discover your mother's maternal roots with mtDNA."
+    },
+    {
+      "type": "text",
+      "id": "test_takers_text",
+      "label": "Test Takers Text",
+      "default": "Female and Male Test Takers."
+    },
+    {
+      "type": "checkbox",
+      "id": "qty_box",
+      "label": "Show Quantity Box",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "testimonial_text",
+      "label": "Testimonial Text",
+      "default": "I can’t wait to go to Bioko Island … to have the sun in that part of the region on my body and know that I’m home!"
+    },
+    {
+      "type": "text",
+      "id": "family_member_name",
+      "label": "Member Name",
+      "default": "Ramunda Y."
+    },
+    {
+      "type": "text",
+      "id": "family_member_details",
+      "label": "Member Details",
+      "default": "African Ancestry Family Member"
+    },
+    {
+      "type": "html",
+      "id": "product_testimonial_quote",
+      "label": "Testimonial Quote SVG"
+    },
+    {
+      "type": "html",
+      "id": "testimonial_member_image",
+      "label": "Member Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Accordion",
+      "settings": [
+        {
+          "type": "text",
+          "id": "faqs_title",
+          "label": "Title"
+        },
+        {
+          "type": "html",
+          "id": "faqs_content",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Details"
+    }
+  ]
+}
+{% endschema %}

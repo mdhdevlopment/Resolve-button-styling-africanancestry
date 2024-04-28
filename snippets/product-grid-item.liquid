@@ -1,0 +1,151 @@
+<style>
+  span.badge.badge--custom {
+    background: #ff7051;
+    position: absolute;
+    top: 22px;
+    color: #fff;
+}
+</style>
+{% unless current_collection == blank %}
+  {% assign current_collection = collection %}
+{% endunless %}
+
+{% assign on_sale = false %}
+{% assign sale_text = 'products.product.sale' | t %}
+{% if bold_compare_at_price > bold_price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% assign sold_out_text = 'products.product.sold_out' | t %}
+{% if featured.available %}
+  {% assign sold_out = false %}
+{% endif %}
+
+{% if featured.title == '' %}
+
+  {% comment %}add default state for product block in storefront editor{% endcomment %}
+  {% capture product_title %}{{ 'home_page.onboarding.product_title' | t }}{% endcapture %}
+{% else %}
+  {% capture product_title %}{{ featured.title | escape }}{% endcapture %}
+{% endif %}
+
+<div class="{% if sold_out %} sold-out{% endif %}{% if on_sale %} on-sale{% endif %}">
+     <a href="{{ featured.url | within: collection }} " class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
+        <span class="grid-link__image{% if section.settings.show_sold_out_circle %} grid-link__image-sold-out{% endif %} grid-link__image--product">
+          {% if product.tags contains 'Best Seller' %}
+          <span class="badge badge--best-seller hide" style="display: none;">
+              <span class="badge__text{% if sale_text.size > 7 %} badge__text--small{% endif %}">Best Seller</span>
+            </span>
+            {% endif %}
+          {% if on_sale and section.settings.show_sale_circle %}
+            <span class="badge badge--sale">
+              <span class="badge__text{% if sale_text.size > 7 %} badge__text--small{% endif %}">{{ 'products.product.sale' | t }}</span>
+            </span>
+            {%- if product.metafields.custom.product_custom_tag -%}
+              <span class="badge badge--custom">
+                <span class="product-custom-badge">
+                  {{ product.metafields.custom.product_custom_tag }}
+                </span>
+              </span>
+            {%- endif -%}
+          {% endif %}
+          {% if sold_out and section.settings.show_sold_out_circle %}
+            <span class="badge badge--sold-out">
+              <span class="badge__text{% if sold_out_text.size > 9 %} badge__text--small{% endif %}">{{ 'products.product.sold_out' | t }}</span>
+            </span>
+          {% endif %}
+          <span class="image-centered">
+            {% if featured.title != '' %}
+              {% unless featured.featured_image == blank %}
+                {% capture img_id %}ProductImage-{{ featured.featured_image.id }}{% endcapture %}
+                {% capture wrapper_id %}ProductImageWrapper-{{ featured.featured_image.id }}{% endcapture %}
+                {%- assign img_url = featured.featured_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                {% include 'image-style' with image: featured.featured_image, width: product_width, height: 480, wrapper_id: wrapper_id, img_id: img_id %}
+<!--                  <div id="{{ wrapper_id }}" class="product__img-wrapper supports-js">
+                    <img id="{{ img_id }}"
+                         class="product__img lazyload img-fluid w-100"
+                         src="{{ featured.featured_image | img_url: 'medium'}}"
+                        
+                         alt="{{ featured.featured_image.alt | escape }}">
+                  </div> -->
+             <div class="product-single__photos" id="ProductPhoto">
+              {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+              <img class="w-100 lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ featured_image | img_url: '450x450', format: 'pjpg' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" loading="lazy" width="" height="">
+             </div>
+              {% else %}
+                <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ featured.featured_image.src | img_url: 'large' }}" alt="{{ featured.featured_image.alt | escape }}" class="product__img lazyload" loading="lazy" width="" height="">
+              {% endunless %}
+              <noscript>
+                <img src="{{ featured.featured_image.src | img_url: 'large' }}" alt="{{ featured.featured_image.alt | escape }}" class="product__img" loading="lazy" width="" height="">
+              </noscript>
+            {% else %}
+              {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+              {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+
+          </span>
+          <h3 class="grid-product-title">{{ product_title }}</h3>
+        </span>
+      </a>
+    <div class="grid-content parent-review">
+      <style>
+        .stHide { display:none; }
+      </style>
+      <a href="{{ featured.url | within: collection }}" class="stHide"><h3 class="grid-product-title">{{ product_title }}</h3></a>
+    
+{% comment %}Start automatically added Judge.me widget{% endcomment %}
+  {% render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', concierge_install: true, product: product %}
+{% comment %}End automatically added Judge.me widget{% endcomment %}
+{% if section.settings.vendor_enable %}
+      <p class="grid-link__title grid-link__vendor">{{ featured.vendor }}</p>
+    {% endif %}
+    {% if featured.title != '' %}
+      <p class="price-content font-weight-bold">
+        {% capture price %}{{ bold_price| money }}{% endcapture %}
+        {% if on_sale %}
+        <s class="grid-link__sale_price">{{ bold_compare_at_price | money }}</s>
+        {% endif %}
+        {% if bold_price_varies %}
+          {{ 'products.general.from_html' | t: price: price }}
+          <div class="btn-wrapper">
+            {% if product.variants.size > 1 %}
+                <a href="{{ product.url }}" class="btn btn-lg btn-light btn-viewmore mb-3 w-100" /> <i class="fa fa-angle-double-right" aria-hidden="true"></i> View More !</a>
+
+            {% else %}
+              {% render 'buy-buttons' %}
+            {% endif %}
+          </div>
+        {% else %}
+          {% if on_sale %}
+            <span class="visually-hidden">{{ sale_price }}</span>
+
+          {% else %}
+            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+          {% endif %}
+          {{ price }}
+            <div class="listing_content stHide">
+              {{ product.metafields.custom.custom_usp_content }}
+            </div>
+            <div class="btn-wrapper">
+
+                {% if product.variants.size > 1 or product.metafields.global.boldoptions == 1 %}
+
+                    <a href="{{ product.url }}" class="btn btn-lg btn-light btn-viewmore mb-3 w-100" > <i class="fa fa-angle-double-right" aria-hidden="true"></i> View More !</a>
+                {% else %}
+                      {% include 'buy-buttons' %}
+
+                {% endif %}
+            
+            </div>
+            <p class="affirm-as-low-as" data-page-type="product" data-amount="{{ bold_price }}"></p>
+
+        {% endif %}
+      </p>
+    {% endif %}
+    </div>
+
+</div>
+<!-- Add Product in CART & Skip Cart ::Start -->
+

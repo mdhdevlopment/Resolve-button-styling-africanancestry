@@ -1,0 +1,53 @@
+<section class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-12">
+        <div class="story-text">
+          <h2>{{section.settings.our-story-title}}</h2>
+          <h3 class="mb-3"><i>{{section.settings.our_story_sub_title}}</i></h3>
+          {{section.settings.our_story_content}}
+        </div>
+      </div>
+      <div class="col-md-4 col-12 d-flex align-items-center justify-content-center">
+        <div class="story-img">
+          <img src="{{ section.settings.our_story_about_right_img | img_url: 'original' }}"  alt="right-image" class="img-fluid d-block mx-auto" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+        </div>
+      </div>
+    </div>
+  </div>    
+</section>
+
+{% schema %}
+  {
+    "name": "Our Story About",
+    "settings": [
+    {
+      "id": "our-story-title",
+      "type": "text",
+      "label": "Title",
+      "default": "Title" 
+    },
+    {
+      "id": "our_story_sub_title",
+      "type": "textarea",
+      "label": "Sub Title"
+    },
+    {
+      "id": "our_story_content",
+      "type": "textarea",
+      "label": "Add Content"
+    },
+    {
+      "id": "our_story_about_right_img",
+      "type": "image_picker",
+      "label": "Add Right Image"
+    }
+   ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

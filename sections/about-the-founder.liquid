@@ -1,0 +1,199 @@
+{% style %}
+#about-the-founder-{{ section.id }} {
+   padding: 87px 0 103px;
+}
+#about-the-founder-{{ section.id }} .about-the-founder-content {
+    color: #fff;
+}
+#about-the-founder-{{ section.id }} .about-the-founder-content p {
+    margin: 24px 0 50px;
+    text-align: left;
+}
+#about-the-founder-{{ section.id }} .about-the-founder-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.btn-defult-button a {
+    color: #fff;
+}
+.btn-defult-button a:hover {
+    color: #481d8e;
+}
+#about-the-founder-{{ section.id }} img {
+    object-fit: contain;
+    height: 100%;
+}
+#about-the-founder-{{ section.id }} .about-the-founder-heading-mobile {
+    display: none;
+  }
+@media screen and (max-width: 1024px) {
+  #about-the-founder-{{ section.id }} {
+    padding: 50px 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  #about-the-founder-{{ section.id }} .about-the-founder-content h2.about-the-founder-title {
+    display: none;
+  }
+  #about-the-founder-{{ section.id }} .about-the-founder-heading-mobile {
+    display: block;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    margin: 0 0 40px;    
+  }
+  #about-the-founder-0120a0ab-4fdb-42ca-9def-48e2fafc87bd .about-the-founder-content {
+    text-align: center;
+  }
+  #about-the-founder-0120a0ab-4fdb-42ca-9def-48e2fafc87bd .about-the-founder-content p {
+    text-align: center;
+  }
+}
+{% endstyle %}
+
+
+<div id="about-the-founder-{{ section.id }}" style="
+{% if section.settings.show_bg_color == 'backgroundImage' %}
+  {% if section.settings.background_image != null %} 
+    background: url('{{ section.settings.background_image.src | img_url: 'master' }}') no-repeat; background-size: cotain; background-repeat: repeat; background-position: center; 
+    {% else %} background: url('') no-repeat; background-size: cover; background-position: center;
+  {% endif %}
+  {% else %}
+    {% if section.settings.background_color != blank %}
+      background: {{ section.settings.background_color }};
+    {% endif %}
+  {% endif %}
+height: 100%;">
+
+  <div class="container">
+  
+    <div class="row">
+      {% if section.settings.title != blank %}
+        <h2 class="about-the-founder-heading-mobile">{{ section.settings.title }}</h2>
+      {% endif %}
+      <div class="col-md-6">
+        {% if section.settings.image != blank %}
+
+          <img
+            srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ section.settings.image | image_url }} {{ section.settings.image.width }}w"
+            src="{{ section.settings.image | image_url: width: 1500 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ section.settings.image.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+            class="object-fit-sm-contain"
+          >
+          
+        {% else %}
+
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
+
+        {% endif %}
+
+      </div>
+      <div class="col-md-6 about-the-founder-container">
+        <div class="about-the-founder-content">
+          {% if section.settings.title != blank %}
+            <h2 class="about-the-founder-title">
+              {{ section.settings.title }}
+            </h2>
+          {% endif %}
+
+          {% if section.settings.content != blank %}
+            {{ section.settings.content }}
+          {% endif %}
+
+          {% if section.settings.button_text != blank %}
+            <button class="about-the-founder-btn btn-defult-button">
+              {% if section.settings.button_url != blank %}
+                <a href="{{ section.settings.button_url }}">
+              {% endif %}
+                {{ section.settings.button_text }}
+              {% if section.settings.button_url != blank %}
+                </a>
+              {% endif %}
+            </button>
+            
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "About the Founder",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "About the Founders"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "select",
+      "id": "show_bg_color",
+      "options": [
+        {
+          "value": "backgroundImage",
+          "label": "Show Background Image"
+        },
+        {
+          "value": "backgroundColor",
+          "label": "Show Background Color"
+        }
+      ],
+      "default": "backgroundImage",
+      "label": "Default Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Left Image"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "READ MORE"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About the Founder"
+    }
+  ]
+}
+{% endschema %}

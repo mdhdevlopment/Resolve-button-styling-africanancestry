@@ -1,0 +1,82 @@
+<div class="we-can-help">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="we-can-help__wrapper">
+         {%- if section.settings.patriclan_svg != blank -%}
+              {% assign patriclan_img_url =  section.settings.patriclan_svg | asset_url %}
+          {%- elsif section.settings.patriclan_image != blank -%}
+              {% assign patriclan_img_url = section.settings.patriclan_image | img_url: ''%}
+          {%- endif -%}
+          <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" class="lazyload" data-src="{{ patriclan_img_url }}" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-8">
+        <div class="we-can-help__content">
+          <div class="section-text">
+            <p><strong>{{ section.settings.patriclan_text }}</strong>
+           {{ section.settings.patriclan_text_2 }}</p>
+          </div>
+          <a href="{{ section.settings.patriclan_url }}" class="btn-defult-button">{{ section.settings.patriclan_button_name }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "We can help",
+    "settings": [          
+          {
+            "type": "header",
+            "content": "Patriclan and Matriclan"  
+          },          
+          {
+              "type": "image_picker",
+              "id": "patriclan_image",
+              "label": "Patriclan Image"         
+          },
+          {
+              "type": "text",
+              "id": "patriclan_svg",
+              "label": "SVG File Name",
+              "default": "Group4021.svg"
+          },
+          {
+              "type": "text",
+              "id": "patriclan_text",
+              "label": "Text",
+              "default": "Not sure which test is right for you?"
+          },
+          {
+              "type": "text",
+              "id": "patriclan_text_2",
+              "label": "Text 2",
+              "default": "We can help. Answer a few questions about your lineage."
+          }, 
+          {
+              "type": "text",
+              "id": "patriclan_button_name",
+              "label": "Button Name",
+              "default": "START"
+          },
+          {
+              "type": "url",
+              "id": "patriclan_url",
+              "label": "Button URL"              
+          }     
+   ],
+   "presets": [
+    {
+    "name": "Home we can help",
+    "category": "Text"
+    }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

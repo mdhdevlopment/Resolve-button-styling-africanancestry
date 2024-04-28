@@ -1,0 +1,560 @@
+{% paginate collection.products by 30 %}
+
+{% if template.name == 'collection' %}
+<style>
+  .bold_option_dropdown{display:none}
+</style>
+{% endif %}
+
+<div id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-sort-enabled="{{ section.settings.sort_enable }}" data-tags-enabled="{{ section.settings.tags_enable }}">
+  <div class="section-header section-header--breadcrumb">
+      <div class="container">     
+       {% include 'breadcrumb' %}
+      </div>
+  </div>
+  <div class="page_pattern">     
+    <img class="img-responsive" src="https://cdn.shopify.com/s/files/1/2138/0103/files/white-pattern-bg_960x.jpg?v=1588884045" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+  </div> 
+  
+<div class="page_wrapper">  
+  <div class="container">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+           <div class="left_block">
+             <h3>Collections</h3>
+             {% include 'category_col'%}
+           </div>  
+        </div>
+        <div class="col-sm-9 col-md-9 col-lg-9">
+           <div class="right_block">
+                <div class="section-header section-header--large">
+                  <h1 class="section-header__title{% if section.settings.tags_enable or section.settings.sort_enable %} section-header__title--left{% endif %}">{{ collection.title }}</h1>
+                  {% if section.settings.tags_enable or section.settings.sort_enable %}
+                  <div class="section-header__link--right">
+                    {% if section.settings.tags_enable %}
+                      {% include 'collection-tags' %}
+                    {% endif %}
+                    {% if section.settings.sort_enable %}
+                      {% include 'collection-sorting' %}
+                    {% endif %}
+                  </div>
+                  {% endif %}
+                </div>
+             
+              {% if collection.description != blank %}
+                <div class="rte rte--header">
+                  
+                </div>
+                <hr class="hr--clear hr--small">
+              {% endif %}
+
+              <div class="row">
+                {% assign grid_item_width = 'wide--one-fifth large--one-quarter medium-down--one-half' %}
+                {%- assign product_width = 335 -%}
+
+                {% for product in collection.products %}
+            {%- include 'bold-product' with product, hide_action: 'skip' -%}
+                  {% assign featured = product %}
+                  <div class="434343 col-sm-6 col-md-4 col-lg-3">
+                    {% include 'product-grid-item' %}
+                  </div>
+                {% else %}
+
+                  {% if shop.products_count == 0 %}
+                    <div class="grid__item">
+                      <div class="helper-section">
+                        <div class="grid-uniform helper-content{% if section.settings.center_grid_link %} text-center{% endif %}">
+                          {% for i in (1..8) %}
+                            <div class="grid__item one-half post-large--one-quarter">
+                              <a href="/admin/products" class="grid-link">
+                                <span class="grid-link__image grid-link__image--product">
+                                  <span class="grid-link__image-centered">
+                                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                                    {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                                  </span>
+                                </span>
+                                <p class="grid-link__title">{{ 'home_page.onboarding.product_title' | t }}</p>
+                                <p class="grid-link__meta">
+                                  <strong>$19.99</strong>
+                                </p>
+                              </a>
+                            </div>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    </div>
+                  {% else %}
+                    <div class="grid__item">
+                      <p><em>{{ 'collections.general.no_matches' | t }}</em></p>
+                    </div>
+                  {% endif %}
+
+                {% endfor %}
+              </div>
+
+              {% if paginate.pages > 1 %}
+                <hr class="hr--clear">
+
+                <div class="text-center">
+                  {% include 'pagination-custom' %}
+                </div>
+              {% endif %}
+            </div>
+            {% endpaginate %}           
+             
+          <div class="txt1">
+            {% if collection.description != blank %}
+                  {{ collection.description }}
+              {% endif %}
+          </div>
+             
+           </div>     
+        </div>      
+    </div>    
+  </div>  
+</div>
+
+{% paginate collection.products by 30 %}
+<style>
+  #collection-template-ancestry-test-kits {
+  display:none;
+  }
+</style>
+<div id="collection-template-ancestry-test-kits">
+  <div class="collection_banner full_width">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="collection_content">
+            {% include 'breadcrumb' %}
+            <h1>{{ collection.title }}</h1>
+            <p>Choose an at-home test kit to find the missing pieces of your identity and explore your African country of origin.</p>
+            <a href="#CollectionSection2"><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_11.png?v=1669968247" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></a>
+          </div>
+        </div>
+        <div class="col-md-6 dekstop">
+          {% include 'breadcrumb' %}
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2822.png?v=1669977319" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="logo_band full_width">
+    <div class="container">
+      <ul>
+        <li><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African_Ancestry_-_Black_Owned_a89ad273-bbed-4207-99a0-4914d975848b.png?v=1669878738" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></li>
+        <li><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African_Ancestry_-_Highly_Accurate_Results_c82a72ba-b102-4e44-9496-221f15082b93.png?v=1669878761" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></li>
+        <li><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_5.png?v=1669878817" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></li>
+        <li><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African_Ancestry_-_Privacy_is_Everything_0cad9b56-b390-4042-bc05-51f016aa3a49.png?v=1669878781" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></li>
+        <li><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African_Ancestry_-_5-star_Reviews_a8c3c344-db98-4452-8670-eaf5e9ac20ad.png?v=1669878801" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}"></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div id="CollectionSection2" data-section-id="{{ section.id }}" data-section-type="collection-template" data-sort-enabled="{{ section.settings.sort_enable }}" data-tags-enabled="{{ section.settings.tags_enable }}">
+    <div class="page_wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3 col-md-3 col-lg-3">
+            <div class="left_block">
+              <h3>Collections</h3>
+              {% include 'category_col'%}
+            </div>
+          </div>
+
+          <div class="col-sm-9 col-md-9 col-lg-9">
+            <div class="right_block">
+              <div class="section-header section-header--large">
+                {% if section.settings.tags_enable or section.settings.sort_enable %}
+                <div class="section-header__link--right">
+                  {% if section.settings.tags_enable %}
+                  {% include 'collection-tags' %}
+                  {% endif %}
+                  {% if section.settings.sort_enable %}
+                  {% include 'collection-sorting' %}
+                  {% endif %}
+                </div>
+                {% endif %}
+              </div>
+              {% if collection.description != blank %}
+              <div class="rte rte--header">
+              </div>
+              <hr class="hr--clear hr--small">
+              {% endif %}
+              <div class="row">
+              <div class="slider_slick_dev">
+                {% assign grid_item_width = 'wide--one-fifth large--one-quarter medium-down--one-half' %}
+                {%- assign product_width = 335 -%}
+                {% for product in collection.products %}
+                  {%- if product.metafields.inventory.ShappifyHidden == 'true' -%}{%- continue -%}{%- endif -%}
+
+                {%- include 'bold-product' with product, hide_action: 'skip' -%}
+                {% assign featured = product %}
+                <div class="434343 col-sm-6 col-md-4 col-lg-3">
+                  {% include 'product-grid-item' %}
+                </div>
+                {% else %}
+                {% if shop.products_count == 0 %}
+                <div class="grid__item">
+                  <div class="helper-section">
+                    <div class="grid-uniform helper-content{% if section.settings.center_grid_link %} text-center{% endif %}">
+                      {% for i in (1..8) %}
+                      <div class="grid__item one-half post-large--one-quarter">
+                        <a href="/admin/products" class="grid-link">
+                          <span class="grid-link__image grid-link__image--product">
+                          <span class="grid-link__image-centered">
+                          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                          </span>
+                          </span>
+                          <p class="grid-link__title">{{ 'home_page.onboarding.product_title' | t }}</p>
+                          <p class="grid-link__meta">
+                            <strong>$19.99</strong>
+                          </p>
+                        </a>
+                      </div>
+                      {% endfor %}
+                    </div>
+                   </div>
+                  </div>
+                </div>
+                {% else %}
+                <div class="grid__item">
+                  <p><em>{{ 'collections.general.no_matches' | t }}</em></p>
+                </div>
+                {% endif %}
+                {% endfor %}
+              </div>
+              {% if paginate.pages > 1 %}
+              <hr class="hr--clear">
+              <div class="text-center">
+                {% include 'pagination-custom' %}
+              </div>
+              {% endif %}
+            </div>
+            {% endpaginate %}           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inprogress_band full_width" id="inprogress_band">
+    <div class="container">
+      <h2>The process</h2>
+      <div class="inprogress_slider owl-carousel">
+        <div class="item">
+          <span class="num">1</span>
+          <div class="video-class-mob">
+            <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_26.png?v=1670224274" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </div>
+          <h3>Buy & Activate Your Test Kit</h3>
+          <p>Choose from our MatriClan, PatriClan or Family Package test kits. Your kit will arrive within 10 business days. Be sure to Activate Your Kit via your private online portal here.</p>
+        </div>
+        <div class="item">
+          <span class="num">2</span>
+          <div class="video-class-mob">
+            <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_27.png?v=1670224274" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </div>
+          <h3>Collect Your DNA Sample</h3>
+          <p>Swab your inner cheek to collect your DNA sample and drop it back in the mail to us using the postage-paid return envelope.</p>
+        </div>
+        <div class="item">
+          <span class="num">3</span>
+          <div class="video-class-mob">
+            <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_28.png?v=1670224274" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </div>
+          <h3>Get Your Results</h3>
+          <p>We’ll extract your DNA and analyze it against the world’s largest database of African DNA to determine your ancestry.</p>
+        </div>
+        <div class="item">
+          <span class="num">4</span>
+          <div class="video-class-mob">
+            <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_29.png?v=1670224274" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+          </div>
+          <h3>Explore Your Ancestry</h3>
+          <p>Now that you know where you’re from, you can study the people and the country, adopt a new name, or incorporate new traditions into your family.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="single_lineage_band full_width">
+    <h2>A Single Lineage Passed Down For <span>2,000</span> Years</h2>
+    <div class="single_lineage_slider">
+      <div class="item">
+        <img src="https://i.shgcdn.com/e821bfb8-0c13-4b03-87a6-1e1d5a341a09/" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+      </div>
+      <div class="item">
+        <img src="https://i.shgcdn.com/453a98bc-e311-46bb-96e5-c2a6413515bf/" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+      </div>
+      <div class="item">
+        <img src="https://i.shgcdn.com/c8122e87-b5fb-4600-9cae-34c137bde88d/" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+      </div>
+      <div class="item">
+        <img src="https://i.shgcdn.com/103de099-6744-4ff4-b2af-922ee213e88d/" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+      </div>
+      <div class="item">
+        <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/science-number-1.svg?v=1670308038" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+      </div>
+    </div>
+  </div>
+  <div class="verified_reviews_band full_width">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>600+ Verified Reviews  <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Vector_becad6d9-4bf1-497a-acbf-3da39208b700.png?v=1668495082" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}" /></h2>
+          <p>Our science team will compare your DNA markers to the largest African reference database in the world in order to find your African origin up to 2000 years ago</p>
+        </div>
+        <div class="col-md-6">
+          <div class="verified_reviews_wrapper">
+            <div class="verified_reviews_slider">
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.24.05_AM.png?v=1658526127" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/273647288_10227470239123527_565948087374490698_n_1.jpg?v=1658526231" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.24.36_AM.png?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.19.21_AM.png?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.20.45_AM.png?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/f4bc3b40-a6d5-488e-a8f4-484be9c0ea18_full_size.jpg?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.24.05_AM.png?v=1658526127" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/273647288_10227470239123527_565948087374490698_n_1.jpg?v=1658526231" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.24.36_AM.png?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.19.21_AM.png?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Screen_Shot_2022-05-03_at_10.20.45_AM.png?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+              <div class="item">
+                <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/f4bc3b40-a6d5-488e-a8f4-484be9c0ea18_full_size.jpg?v=1658526126" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="faqs_band full_width">
+    <div class="container">
+      <h2>FAQs</h2>
+      <h4>Your DNA is completely confidential.</h4>
+      <p>We destroy 100% of your DNA samples. We DO NOT sell or share your genetic information.</p>
+      <div class="accordion-container">
+        <div class="set">
+          <a href="javascript:void(0)">How do the test kits work?</a>
+          <div class="content">
+            <p> 
+              Our tests place your African ancestry in a present-day country and ethnic group or tribe. For other ancestries, we report an mtDNA haplogroup and/or geographic region.
+            <ul>
+              <li>We use the largest number of African DNA samples in the industry to analyze your ancestry.</li>
+              <li>We do not maintain a database of customer information.</li>
+              <li>We do not sell or share customers’ personal or genetic information.</li>
+              <li>We do not provide customer information to law enforcement.</li>
+              <li>We do not biobank your genetic material. All genetic material is destroyed at the lab.</li>
+              <li>We analyze <a href="https://learn.genetics.utah.edu/content/basics/molgen/">mtDNA</a> and <a href="https://learn.genetics.utah.edu/content/basics/molgen/">Y Chromosome</a>. We do not use <a href="https://learn.genetics.utah.edu/content/basics/molgen/">autosomal DNA</a>.</li>
+            </ul>
+            </p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">If I have results from another company's test, can I send them to you for analysis?</a>
+          <div class="content">
+            <p> Yes. If your mitochondrial DNA (mtDNA) sequence or your Y-chromosome markers have African ancestry, we can tell you what present-day country(ies) and ethnic groups in Africa that they share ancestry with. Please <a href="https://cdn.shopify.com/s/files/1/2138/0103/files/data-requirements.pdf?v=1646661494">click here</a> for data requirements. We cannot use data from admixture analyses.</p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">What if I lose my Kit ID#?</a>
+          <div class="content">
+            <p>The Kit ID# is found on the Kit packaging and on the Activation card inside of the kit.</p>
+            <p>The Kit ID# protects your confidentiality. Therefore, you must provide your Kit ID# in order to get any information from us about your kit status.</p>
+            <p>You must activate your Kit. If you send your swabs to us WITHOUT activating your kit AND lose your Kit ID#, we will be unable to locate any information about your sample.</p>
+            <p>No refunds will be provided if you lose your Kit ID#. Your order number and email are not the same as the Kit ID#. They do not provide access to Test Taker information.</p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">How reliable are the African Ancestry tests?</a>
+          <div class="content">
+            <p>For lineage-based tests, reliability depends on several things: the size of the database, the sampling of the lineages and the accuracy of lineage matches.</p>
+            <p>Our database is the most comprehensive resource of African lineages available. We have worked with historians, archeologists, anthropologists and other geneticists to build the largest collection of African lineages in the world.</p>
+            <p>We use a Sequence Similarity Score (SSS) measure to determine matches. The SSS measure is a likelihood estimate based on the frequency of identical and closely related (>99%) haplotypes. It is our degree of confidence in your results. Dr. Kittles explains <a href="https://www.youtube.com/watch?v=hsRQaOs967o&feature=youtu.be">here.</a></p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">How accurate are the African Ancestry tests?</a>
+          <div class="content">
+            <p>Our results are highly accurate. For about 85% of the people we test we find identical matches in our database. For the remaining people, we find closely related lineages with greater than 95% confidence. Our database is the most comprehensive resource of African lineages available.</p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">What can I expect from an African Ancestry Test?</a>
+          <div class="content">
+            <p>Our tests do not provide percentages. We tell you WHERE in Africa one branch of your family tree goes back to, not HOW MUCH African ancestry you have.</p>
+            <p>The <a href="https://shop.africanancestry.com/collections/ancestry-test-kits/products/matriclan-test-kit?variant=4981310849061">MatriClan Test</a> traces the ancestry of ONE branch of your family tree, mother to mother to mother on back, for the past 2,000 years.</p>
+            <p>The <a href="https://shop.africanancestry.com/collections/ancestry-test-kits/products/patriclan-test-kit?variant=4981309997093">PatriClan Test</a> traces the ancestry of ONE branch of your family tree, father to father to father on back, for the past 2,000 years.</p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">How can I determine my paternal ancestry if I am a woman?</a>
+          <div class="content">
+            <p>In order for a woman to determine her paternal ancestry, she must use the Y-chromosome of a male on her father's side—her brother, father, father's brother, grandfather, etc. It cannot be her son.</p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">Is there some way to trace the ancestry of a family member that has died?</a>
+          <div class="content">
+            <p>The easiest way to trace the ancestry of a deceased family member is to identify a living relative with the same lineage. Give us a call to discuss your options.</p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">What are you going to do with my DNA?</a>
+          <div class="content">
+            <p>African Ancestry will analyze your DNA for ancestry. Your DNA will be destroyed once a result is determined. We do not sell or share our customers' personal, genetic or financial information.</p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)"> Will my DNA results be kept confidential?</a>
+          <div class="content">
+            <p>Please click here to review our <a href="https://africanancestry.myshopify.com/policies/terms-of-service/">Terms and Conditions.</a></p>
+          </div>
+        </div>
+        <div class="set">
+          <a href="javascript:void(0)">What are the instructions for taking the test?</a>
+          <div class="content">
+            <p>Please <a href="https://cdn.shopify.com/s/files/1/2138/0103/files/Test_Kit_Instruction_Card.pdf?v=1644377641">click here</a> to review the Test Kit Instructions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end main div -->
+
+{% comment %}
+<div class="home_video">
+  <div class="page_pattern">     
+      <img class="img-responsive" src="https://cdn.shopify.com/s/files/1/2138/0103/files/white-pattern-bg.jpg?v=1588884045">
+  </div>  
+    <div class="home_video_wrapper" style="background-image: url({% if section.settings.image != blank%}{{section.settings.image | img_url}}{% else %}https://cdn.shopify.com/s/files/1/2138/0103/files/footer-evergreen_male_18aa685a-8d4d-4379-bcde-be8a732a22bc.jpg?v=1588884049{% endif %});">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-7 col-md-7 col-lg-7">
+                <div class="home_video_left">
+                  {% if section.settings.heading != blank%}
+                  <h2>{{ section.settings.heading }} </h2>
+                  {% endif %}
+                  {% if section.settings.des != blank%}
+                  <p>{{  section.settings.des }}</p>
+                  {% endif %}
+                  {% if section.settings.subheading != blank%}
+                  <h3>{{  section.settings.subheading }}</h3>
+                  {% endif %}
+                </div>
+              </div>
+              <div class="col-sm-5 col-md-5 col-lg-5">
+                <div class="home_video_right">
+                    <img class="img-responsive" src="https://cdn.shopify.com/s/files/1/2138/0103/files/play.svg?v=1588884024">
+                    <a data-fancybox="gallery" href="{{ section.settings.videourl }}">{{ section.settings.btn }}</a> 
+                </div>
+              </div>          
+          </div>
+      </div>
+    </div>  
+  <div class="page_pattern">     
+      <img class="img-responsive" src="https://cdn.shopify.com/s/files/1/2138/0103/files/white-pattern-bg.jpg?v=1588884045">
+  </div>  
+</div>
+{% endcomment %}
+
+
+{% schema %}
+  {
+    "name": "Collection pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale_circle",
+        "label": "Show product sale circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sold_out_circle",
+        "label": "Show product sold out circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "sort_enable",
+        "label": "Enable collection sorting"
+      },
+      {
+        "type": "checkbox",
+        "id": "tags_enable",
+        "label": "Enable filtering by product tag"
+      },
+      {
+        "type": "checkbox",
+        "id": "center_grid_link",
+        "label": "Center text below product images"
+      },
+      {
+"type":"header",
+"content":"Video Section"
+      },
+{
+"type":"text",
+"id":"heading",
+"label":"Heading",
+"default":"Your Roots. Your Legacy"
+},
+{
+"type":"textarea",
+"id":"des",
+"label":"Extra Info",
+"default":"Every Contract is governed by these Terms and Conditions. No Contract will be subject to any other terms nor will the Company."
+},
+{
+"type":"text",
+"id":"subheading",
+"label":"Subheading",
+"default":"All with a simple cheek swab."
+},
+{
+"type":"text",
+"id":"btn",
+"label":"Video Button",
+"default":"Watch Now"
+},
+{
+"type":"text",
+"id":"videourl",
+"label":"Video Embed Code",
+"default":"https://youtu.be/9xwazD5SyVg"
+},
+{
+"type":"image_picker",
+"id":"image",
+"label":"Background Image"
+}
+    ]
+  }
+{% endschema %}

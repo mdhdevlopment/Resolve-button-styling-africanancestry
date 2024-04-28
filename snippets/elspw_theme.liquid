@@ -1,0 +1,20 @@
+{% unless template contains 'cart' %}
+{% if shop.metafields.elspw['enabled'] == '1' %}
+<script>
+Elspw.onConfigLoaded = function(cfg){
+	cfg.set('checkout','#slidecart-checkout-form [name="checkout"], .cart-checkout [name="checkout"]');
+  	$('body').on('click','#AddToCart,form[action="/cart/add"] .shg-btn, .quantity-selector button, .slidecarthq .remove, .upsells-stacked button', function(){
+    setTimeout(function(){
+      if(typeof Elspw !== 'undefined' && typeof Elspw.app !== 'undefined' && typeof Elspw.app.updateCart === 'function'){
+        $.get('/cart?view=elspw-json',function(c){
+          var cart = JSON.parse(c);
+          cart.line_items = cart.items;
+          Elspw.app.updateCart(cart);
+        });
+      }
+    },500);
+  });
+}
+</script>
+{% endif %}
+{% endunless %}

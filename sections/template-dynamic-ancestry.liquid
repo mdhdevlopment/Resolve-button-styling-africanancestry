@@ -1,0 +1,192 @@
+<div class="page-width">
+  <div class="title-box">
+    {% if page.metafields.custom.dynamic_ancestry_heading %}
+      <h2 class="section-title">{{ page.metafields.custom.dynamic_ancestry_heading }}</h2>
+    {% else %}
+      <h2 class="section-title">Why African ancestry</h2>
+    {% endif %}
+    <p class="subtitle">The pioneer of genetic ancestry tracing for Black people around the world, are the only company that can connect you to the cultural practices, values and beliefs of your ancestors in Africa.</p>
+  </div>
+  <div class="grid">
+
+    {% assign page = page %}
+    {% assign ancestryImages = page.metafields.custom.dynamic_ancestry_images.value %}
+    {% assign imageLimit = 4 %}
+    {% assign displayedImages = 0 %}
+
+    <div class="grid__item left-box">
+
+      {% if  page.metafields.custom.dynamic_ancestry_images != blank %}
+        {% for ancestryImage in ancestryImages %}
+          {% if displayedImages < imageLimit %}
+            <div class="image-box">
+              <img src="{{ ancestryImage.src | img_url: '275x275' }}" 
+                alt="{{ ancestryImage.alt | escape }}" 
+                loading="lazy" height="" width="">
+            </div> 
+            {% assign displayedImages = displayedImages | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+
+      {% else %}
+
+        {% for block in section.blocks limit: section.blocks.size %}
+          {%- if block.settings.image != blank -%}
+            <div class="image-box">
+              <img src="{{ block.settings.image | img_url: '275x275' }}" 
+                alt="{{ block.settings.image.alt | escape }}" 
+                loading="lazy" height="" width="">
+            </div>            
+          {%- endif -%}
+        {% endfor %} 
+        
+      {% endif %}
+
+      <div class="satisfaction-text">
+        {% comment %} <div class="image-box"><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2972.png?v=1681294719" alt="image"></div> {% endcomment %}
+        <h3><span class="yellow-text">1,000,000+ </span><br /> Black people connected to Africa</h3>
+        {% comment %} <div class="image-box"><img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Group_2972.png?v=1681294719" alt="image"></div> {% endcomment %}
+      </div>
+    </div>
+    <div class="grid__item right-box">
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="{{ 'Akan-Map-gif.gif' | asset_url }}" alt="image" loading="lazy" width="100"
+          height="120">
+          
+        </div>
+        <div class="text">
+          <p>Specific African country and tribe results</p>
+        </div>
+        </div>
+      </div>
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group-3.png?v=1681295033" alt="image" loading="lazy" width="120"
+          height="120">
+        </div>
+        <div class="text">
+          <p>Largest database of African genetic sequences</p>
+        </div>
+        </div>
+      </div>
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group-2.png?v=1681295033" alt="image" loading="lazy" width="120"
+          height="120">
+        </div>
+        <div class="text">
+          <p>Black-owned <br>business</p>
+        </div>
+        </div>
+      </div>
+      <div class="icon-with-text">
+        <div class="content">
+        <div class="icon-box">
+          <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/Mask_group-1.png?v=1681295033" alt="image" loading="lazy" width="120"
+          height="120">
+        </div>
+        <div class="text">
+          <p>100% safe <br/> Your DNA is destroyed</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} {% if section.settings.button_text != blank %}
+    <a href="{{ section.settings.button_url }}" class="save-20-per-button">{{ section.settings.button_text }}</a>
+  {% endif %} {% endcomment %}
+
+  {% assign dynamicButtonText = page.metafields.custom.dynamic_button_text %}
+  {% assign dynamicButtonUrl = page.metafields.custom.dynamic_button_url %}
+  {% assign sectionButtonText = section.settings.button_text %}
+  {% assign sectionButtonUrl = section.settings.button_url %}
+
+  {% if dynamicButtonText != blank or sectionButtonText != blank %}
+
+    {% if dynamicButtonText != blank and dynamicButtonUrl != blank %}
+      <a href="{{ dynamicButtonUrl }}" class="save-20-per-button">{{ dynamicButtonText }}</a>
+    {% elsif dynamicButtonText != blank and dynamicButtonUrl == blank %}
+      <a href="{{ sectionButtonUrl }}" class="save-20-per-button">{{ dynamicButtonText }}</a>
+    {% elsif  dynamicButtonText == blank and  dynamicButtonUrl != blank %}
+      <a href="{{ dynamicButtonUrl }}" class="save-20-per-button">{{ sectionButtonText }}</a>
+      {% elsif sectionButtonText != blank and  sectionButtonUrl != blank %}
+        <a href="{{ sectionButtonUrl }}" class="save-20-per-button">{{ sectionButtonText }}</a>
+    {% elsif dynamicButtonText == blank and dynamicButtonUrl == blank %}
+      <a href="#" class="save-20-per-button">{{ sectionButtonText }}</a>
+    {% endif %} 
+
+  {% endif %}
+
+  <div class="button_bottom_text">
+
+          <p class="affirm-as-low-as font-weight-bold" data-page-type="product" data-amount="{{ page.metafields.custom.dynamic_banner_regular_price | times: 100 }}"></p>
+
+
+    
+  </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Matriclan Ancestry",
+  "tag": "section",
+  "class": "matriclan-ancestry",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Save 20% Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "Image",
+      "name": "Images",
+      "settings": [
+        {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Matriclan Ancestry",
+      "blocks": [
+        {
+          "type": "Image"
+        },
+        {
+          "type": "Image"
+        },
+        {
+          "type": "Image"
+        },
+        {
+          "type": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

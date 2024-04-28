@@ -1,0 +1,69 @@
+<div class="product-template-about-your-roots-section">
+  <div class="page-width">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-template-about-your-roots-content__wrapper">
+          <div class="product-template-about-your-roots-head">
+            {% if section.settings.product_template_about_your_roots_head %}
+              <h2 class="product-template-about-your-roots-heading">{{ section.settings.product_template_about_your_roots_head }}</h2>
+            {% endif %}
+            {% if section.settings.product_template_about_your_roots_text %}
+              <div class="product-template-about-your-roots-section-text">
+                <p>{{ section.settings.product_template_about_your_roots_text }}</p>
+              </div>
+            {% endif %}
+          </div>
+          {% if section.settings.video_url %}
+            <div class="product-template-about-your-roots-videos-desktop">
+              <video width="560" height="315" autoplay loop muted playsinline webkit-playsinline>
+                <source src="{{ section.settings.video_url }}" type="video/webm" loading="lazy">
+                <source src="{{ section.settings.video_url }}" type="video/mp4" loading="lazy">
+              </video>
+            </div>
+          {% endif %}
+          {% if section.settings.mobile_video_url %}
+            <div class="product-template-about-your-roots-videos-mobile">
+              <video width="100%" height="850" autoplay loop muted playsinline webkit-playsinline>
+                <source src="{{ section.settings.mobile_video_url }}" type="video/webm" loading="lazy">
+                <source src="{{ section.settings.mobile_video_url }}" type="video/mp4" loading="lazy">
+              </video>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product About Root",
+  "settings": [
+    {
+      "type": "text",
+      "id": "product_template_about_your_roots_head",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "product_template_about_your_roots_text",
+      "label": "Content"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL"
+    },
+    {
+      "type": "text",
+      "id": "mobile_video_url",
+      "label": "Mobile Video URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product About Root"
+    }
+  ]
+}
+{% endschema %}

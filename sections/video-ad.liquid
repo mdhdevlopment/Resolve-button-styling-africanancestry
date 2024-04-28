@@ -1,0 +1,76 @@
+<div class="video-ad" style="text-align: {{ section.settings.justify_adcopy }};";>
+  <img class="bg-image" src="{{ section.settings.background_image | img_url:'1024x768' }}" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}" />
+  <div class="hero-content">
+  <div class="container">
+      <div class="row">
+        <div class="copy-content" style="padding: 0px; float:right; background-color: #000; height: 100%;" >
+          <div class="content-container" >
+<!--             <div class="top-text" >
+              I'm from Chicago and Cameroon
+            </div>
+            <div class="content-text">
+              <span class="">Knowledge <br> Is Power</span>
+            </div>
+            <p class="">Discover the missing part of YOUR story.</p> -->
+            {{section.settings.ad_copy}}
+            <div class="btn-container">
+              <a data-fancybox="gallery" href="{{section.settings.ad_youtube_link}}"  class="btn btn-secondary btn-lg">{{section.settings.ad_btn_text}}</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Video Advertisment",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "ad_copy",
+        "label": "Content",
+        "default": "Add keyword targeted text about your website here"
+      },
+      {
+      "type":      "select",
+      "id":        "justify_adcopy",
+      "label":     "Justify Text",
+      "options": [
+          {"value": "left","label": "Left"},
+          {"value": "center","label": "Center"},
+          {"value": "right","label": "Right"}
+      ],
+      "default":   "left",
+      "info":      "Left"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_image",
+        "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "id": "ad_btn_text",
+        "label": "Button Text",
+        "default":"Button Text"
+	  },
+      {
+        "type": "text",
+        "id": "ad_youtube_link",
+        "label": "YouTube URL"
+	  }
+
+    ],
+    "presets": [
+      {
+        "name": "Video Ad copy",
+        "category": "Text"
+      }
+    ]
+  }
+{% endschema %}

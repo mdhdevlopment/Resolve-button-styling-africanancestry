@@ -1,0 +1,114 @@
+<script class="cartFlagX"></script><!-- header.loquid/mini-cart-drawer Snippet -->
+
+<div class="cart-drop-down dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+  <div id="mini_cart_drawer" class="custm-cart-inner">
+     
+      <div class="cart-inner-content">
+        <div class="cart-content">
+          <ul class="list-unstyled">
+            {% if cart.item_count == 0 %}
+            <li class="item-cart">
+                <div class="product-details row-fluid show-grid">
+                  <p class="product-name mb-0">
+                    <a href="#">
+                      <span class="empty_cart_msg">
+
+                        Your cart is currently empty!
+
+                      </span>
+
+                    </a>
+                  </p>
+                </div>
+              </li>
+            {% endif %}
+            <li class="item-cart ajax_cart_empty_msg" style="display:none">
+                <div class="product-details row-fluid show-grid">
+                  <p class="product-name mb-0">
+                    <a href="#">
+                      <span class="empty_cart_msg">
+
+                        Your cart is currently empty!
+
+                      </span>
+
+                    </a>
+                  </p>
+                </div>
+              </li>
+            <form id="MiniCart" action="/cart" method="post">
+              {% for item in cart.items %}
+              <!-- line_item info here -->
+              <li class="item-cart">
+                <a class="product-image mr-3" href="{{ item.url }}">
+                  <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}" loading="lazy" width="" height="" />
+                </a>
+                <div class="product-details row-fluid show-grid">
+                  <p class="product-name mb-0">
+                    <a href="{{ item.url }}">
+                      <span>
+
+                        {{ item.title }}
+
+                      </span>
+
+                    </a>
+                  </p>
+                  <div class="items">
+                    <span class="price">{{ item.quantity }} × <span class="amount"><span class="money"><span class=tdf-cart-item-p-p>{{ item.price | money }}</span></span></span></span>
+                  </div>
+                  <div class="access">
+                    <a onclick="removeThis({{item.id}});" href="javascript:void(0);" class="btn-remove btn-remove-cart cart__remove"><i class="fa fa-close"></i></a>
+                  </div>
+                </div>
+              </li>
+              {% endfor %}
+              </ul>
+            </div>
+          <div class="cart-checkout">
+            <div class="cart-info">
+              <p class="subtotal font-weight-bold mt-2">
+                <span class="label">Total:</span>
+                <span class="price"><span class="money cart-item__original-price" data-currency-usd="$45.00"><span style="display:none" class="tdf-cart-total-flag"></span>{{ cart.total_price | money }}</span></span>
+              </p>
+            </div>
+            <div class="actions">
+              <a href="/cart" class="btn btn-primary  btn-sm  view-cart bordered uppercase text-white w-100">
+                <span>View cart</span>
+              </a>
+              <input class="btn btn-outline-primary btn-sm bordered uppercase checkout-cart ml-2 w-100" type="submit" name="checkout" value="Checkout" />
+            </div>
+          </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+<!-- Mini Cart remove products using Ajax ::Start -->
+<script>
+  function removeThis(product_id) {
+    var id = product_id; 
+    $.ajax({
+      type: 'POST',
+      url: '/cart/update.js', 
+      data: 'updates['+id+']=0',
+      success: function(responce) {
+        var myObj = JSON.parse(responce);
+        
+        if(myObj.item_count == 0){
+          
+          $('.bag-count').text(myObj.item_count);
+          $( "#mini_cart_drawer" ).load(window.location.href + " #mini_cart_drawer" );
+        }else{
+          
+          $('.bag-count').text(myObj.item_count);
+          $( "#mini_cart_drawer" ).load(window.location.href + " #mini_cart_drawer" );
+          
+        }
+        
+        return false;
+      }
+    });
+  }
+</script>
+<!-- Mini Cart remove products using Ajax ::End -->

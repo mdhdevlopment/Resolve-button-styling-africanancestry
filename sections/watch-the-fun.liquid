@@ -1,0 +1,95 @@
+<section class="section_2">
+   <div class="container">
+      <div class="row">
+         <div class="col-6">
+            <figure class="overlay">
+               <figcaption class="y_bg_color">
+                  <a data-fancybox="gallery" href="{% if section.settings.video != blank %} {{ section.settings.video }} {% else %} # {% endif %}">  
+                  <img src="{% if section.settings.bannerimg != blank %} {{ section.settings.bannerimg | img_url : "original "}}{% else %}https://cdn.shopify.com/s/files/1/2138/0103/files/img1.jpg?v=1616185963 {% endif %}" class="img-fluid" alt="image" loading="lazy" width="{{ image.width }}" height="{{ image.height }}">
+                  </a>
+               </figcaption>
+            </figure>
+         </div>
+         <div class="col-6 py_60">
+            {% if section.settings.title != blank %}
+            <h2 class="big_head">{{ section.settings.title }} </h2>
+            {% endif %}
+            {% if section.settings.title != blank %}
+            <p class="para_text">{{ section.settings.content }}</p>
+            {% endif %}
+         </div>
+      </div>
+   </div>
+</section>
+{% schema %}
+ {
+   "name":"Watch The Fun That Awaits",
+   "settings":[
+      {
+         "type":"text",
+         "id":"title",
+         "label":"Title",
+         "default":"A Great Project For The Whole Family"
+      },
+      {
+         "type":"text",
+         "id":"content",
+         "default":"If you are looking to discover more about yourself and the Black experience, the African Ancestry Identity Box is the perfect introduction or supplement to your ancestry journey. No DNA needed.",
+         "label":"Content"
+      },
+      {
+         "type":"text",
+         "id":"button",
+         "label":"CTA",
+         "default":"Buy Now"
+      },
+      {
+         "type":"url",
+         "id":"buttonurl",
+         "label":"CTA"
+      },
+      {
+      "id": "video",
+      "type": "text",
+      "label": "Youtube URL"
+      }
+   ],
+   "blocks":[
+      {
+         "type":"text",
+         "name":"Features",
+         "settings":[
+            {
+               "type":"text",
+               "id":"selecttitle",
+               "label":" Select Box",
+               "default":"Discover little-known Black History facts"
+            },
+            {
+               "type":"radio",
+               "id":"id",
+               "label":"text",
+               "options":[
+                  {
+                     "value":"one",
+                     "label":"Select Value"
+                  },
+                  {
+                     "value":"two",
+                     "label":"Select Value"
+                  }
+               ],
+               "default":"one",
+               "info":"text"
+            }
+         ]
+      }
+   ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

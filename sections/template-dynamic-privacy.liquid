@@ -1,0 +1,100 @@
+<div class="page-width">
+   <div class="title-box">
+    {% if page.metafields.custom.dynamic_privacy_heading %}
+      <h2 class="section-title">{{ page.metafields.custom.dynamic_privacy_heading }}</h2>
+      {% else %}
+      <h2 class="section-title">privacy is everything</h2>
+    {% endif %}
+    <p class="subtitle">We DO NOT sell or share your genetic information.</p>
+  </div>
+  <div class="grid">
+    <div class="grid__item">
+      <div class="icon">
+        <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/image_57.png?v=1681380537" alt="image" loading="lazy" width="{{ image.width }}"
+        height="{{ image.height }}">
+      </div>
+      <div class="content">
+        <h3 class="title">Your Information Is Confidential</h3>
+        <p class="description">When your DNA sample is submitted to the lab, no personal information is provided. It is only identified by a barcode maintained by African Ancestry.</p>
+      </div>
+    </div>
+    <div class="grid__item">
+      <div class="icon">
+        <img src="https://cdn.shopify.com/s/files/1/2138/0103/files/African_Ancestry_-_Privacy_is_Everything_a76a9d9d-bbfc-4fb3-a68e-032f15357be1.png?v=1681380537" alt="image" loading="lazy" width="{{ image.width }}"
+        height="{{ image.height }}">
+      </div>
+      <div class="content">
+        <h3 class="title">All Genetic Material Is Destroyed</h3>
+        <p class="description">Once your DNA sequence has been analyzed, all genetic material including additional cheek swabs are destroyed at the lab.</p>
+      </div>
+    </div>
+    {% comment %} {% if section.settings.button_text != blank %}
+      <a href="{{ section.settings.button_url }}" class="save-20-per-button">{{ section.settings.button_text }}</a>
+    {% endif %} {% endcomment %}
+
+    {% assign dynamicButtonText = page.metafields.custom.dynamic_button_text %}
+    {% assign dynamicButtonUrl = page.metafields.custom.dynamic_button_url %}
+    {% assign sectionButtonText = section.settings.button_text %}
+    {% assign sectionButtonUrl = section.settings.button_url %}
+  
+    {% if dynamicButtonText != blank or sectionButtonText != blank %}
+  
+      {% if dynamicButtonText != blank and dynamicButtonUrl != blank %}
+        <a href="{{ dynamicButtonUrl }}" class="save-20-per-button">{{ dynamicButtonText }}</a>
+      {% elsif dynamicButtonText != blank and dynamicButtonUrl == blank %}
+        <a href="{{ sectionButtonUrl }}" class="save-20-per-button">{{ dynamicButtonText }}</a>
+      {% elsif  dynamicButtonText == blank and  dynamicButtonUrl != blank %}
+        <a href="{{ dynamicButtonUrl }}" class="save-20-per-button">{{ sectionButtonText }}</a>
+        {% elsif sectionButtonText != blank and  sectionButtonUrl != blank %}
+          <a href="{{ sectionButtonUrl }}" class="save-20-per-button">{{ sectionButtonText }}</a>
+      {% elsif dynamicButtonText == blank and dynamicButtonUrl == blank %}
+        <a href="#" class="save-20-per-button">{{ sectionButtonText }}</a>
+      {% endif %} 
+  
+    {% endif %}
+
+    
+
+  </div>
+
+  <div class="button_bottom_text">
+  
+                      <p class="affirm-as-low-as font-weight-bold" data-page-type="product" data-amount="{{ page.metafields.custom.dynamic_banner_regular_price | times: 100 }}"></p>
+
+ </div>
+  
+</div>
+
+
+{% schema %}
+{
+  "name": "Matriclan Privacy",
+  "tag": "section",
+  "class": "matriclan-privacy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Save 20% Now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Matriclan Privacy"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
